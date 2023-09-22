@@ -18,6 +18,8 @@ public class OpenAIController : MonoBehaviour
     private OpenAIAPI api;
     private List<ChatMessage> messages;
 
+    public Reader readerTSS;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,15 +30,18 @@ public class OpenAIController : MonoBehaviour
 
     private void StartConversation()
     {
-        messages = new List<ChatMessage>()
+        messages = new List<ChatMessage>() //List of messages using OpenAI_API.Chat
         {
             new ChatMessage(ChatMessageRole.System, "You are an AI assistent that reply to me for testing reasons, ask me something about this game I'm building")
         };
 
         inputField.text = "";
-        string startString = "You're testing the OpenAI API in Unity";
+        string startString = "You're testing the OpenAI API in Unity, welcome. How can I help you?";
         textField.text = startString;
         Debug.Log(startString);
+
+        //Read with TTS
+        readerTSS.readTTS(startString);
     }
 
     private async void GetResponse()
@@ -74,7 +79,7 @@ public class OpenAIController : MonoBehaviour
             Model = Model.ChatGPTTurbo,
             Temperature = 0.1,
             MaxTokens = 50,
-            Messages = messages //list of messages (give to chatbot because it doesn't have memory)
+            Messages = messages //list of messages (give all of them to chatbot because it doesn't have memory)
         });
 
         //Get the response message
@@ -88,6 +93,9 @@ public class OpenAIController : MonoBehaviour
 
         //Update the text field with the response
         textField.text = string.Format("You: {0}\n\nAI: {1}", userMessage.Content, responseMessage.Content);
+
+        //Read with TTS
+        readerTSS.readTTS(responseMessage.Content);
 
         //Re-enable the OK button
         okButton.enabled = true;
