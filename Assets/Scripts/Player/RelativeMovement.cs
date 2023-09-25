@@ -56,9 +56,12 @@ public class RelativeMovement : MonoBehaviour
                 Quaternion tmp = target.rotation;
                 target.eulerAngles = new Vector3(0, target.eulerAngles.y, 0);
                 movement = target.TransformDirection(movement);
-                target.rotation = tmp;
-                Quaternion direction = Quaternion.LookRotation(movement);
-                transform.rotation = Quaternion.Lerp(transform.rotation, direction, rotSpeed * Time.deltaTime); //change rotation smoothly
+                if (thirdPersonCamera.Priority == 10)
+                {
+                    target.rotation = tmp;
+                    Quaternion direction = Quaternion.LookRotation(movement);
+                    transform.rotation = Quaternion.Lerp(transform.rotation, direction, rotSpeed * Time.deltaTime); //change rotation smoothly
+                }
             }
 
             bool hitGround = false;
@@ -69,7 +72,7 @@ public class RelativeMovement : MonoBehaviour
                 hitGround = hit.distance <= check;
             }
 
-            // player is hitting the floor
+            //Player is hitting the floor
             if (hitGround)
             {
                 if (Input.GetButtonDown("Jump"))
@@ -109,6 +112,7 @@ public class RelativeMovement : MonoBehaviour
 
             _charController.Move(movement * Time.deltaTime);
 
+            //Switch camera view
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 if(CameraSwitcher.IsActiveCamera(thirdPersonCamera))
