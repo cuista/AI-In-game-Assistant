@@ -22,10 +22,8 @@ public class MouseLook : MonoBehaviour
 
     private float _rotationX = 0;
 
-    /*
     [SerializeField] private GameObject _head;
     private float _headRotationX = 0;
-    */
 
     // Start is called before the first frame update
     void Start()
@@ -42,12 +40,10 @@ public class MouseLook : MonoBehaviour
         {
             transform.Rotate(0, Input.GetAxis("Mouse X") * sensitivityHor, 0);
 
-            /*
             _headRotationX -= Input.GetAxis("Mouse Y") * sensitivityVert;
             _headRotationX = Mathf.Clamp(_headRotationX, minimumVert, maximumVert);
 
             _head.transform.localEulerAngles = new Vector3(_headRotationX, 0, 0);
-            */
         }
         else if (axes == RotationAxes.MouseY)
         {
@@ -73,9 +69,7 @@ public class MouseLook : MonoBehaviour
 
     private void OnDisable()
     {
-        /*
         _head.transform.localEulerAngles = new Vector3(0, 0, 0);
         _headRotationX = 0;
-        */
     }
 }

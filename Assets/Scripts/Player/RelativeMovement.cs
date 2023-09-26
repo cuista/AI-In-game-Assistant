@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class RelativeMovement : MonoBehaviour
 {
-    [SerializeField] private Transform target;
+    [SerializeField] Transform playerCamera;
 
     public float rotSpeed = 15.0f;
 
@@ -22,8 +22,9 @@ public class RelativeMovement : MonoBehaviour
     public const float baseSpeed = 6.0f;
     private ControllerColliderHit _contact; //to be precise on edge of objects
 
-    [SerializeField] CinemachineVirtualCameraBase thirdPersonCamera;
     [SerializeField] CinemachineVirtualCameraBase firstPersonCamera;
+    [SerializeField] CinemachineVirtualCameraBase thirdPersonCamera;
+    [SerializeField] CinemachineVirtualCameraBase isometricCamera;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +37,7 @@ public class RelativeMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            Vector3 movement = Vector3.zero;
+            Vector3 movement = Vector3.zero; // (0,0,0)
             float horInput = Input.GetAxis("Horizontal");
             float vertInput = Input.GetAxis("Vertical");
 
@@ -50,15 +51,15 @@ public class RelativeMovement : MonoBehaviour
                 {
                     _moveSpeed = 6f;
                 }
-                movement.x = horInput * _moveSpeed;
-                movement.z = vertInput * _moveSpeed;
+                movement.x = horInput * _moveSpeed; //(x,0,0)
+                movement.z = vertInput * _moveSpeed; //(x,0,z)
                 movement = Vector3.ClampMagnitude(movement, _moveSpeed); //avoid diagonal speed-up
-                Quaternion tmp = target.rotation;
-                target.eulerAngles = new Vector3(0, target.eulerAngles.y, 0);
-                movement = target.TransformDirection(movement);
-                if (thirdPersonCamera.Priority == 10)
+                Quaternion tmp = playerCamera.rotation;
+                playerCamera.eulerAngles = new Vector3(0, playerCamera.eulerAngles.y, 0);
+                movement = playerCamera.TransformDirection(movement);
+
+                if(thirdPersonCamera.Priority == 10 || isometricCamera.Priority == 10)
                 {
-                    target.rotation = tmp;
                     Quaternion direction = Quaternion.LookRotation(movement);
                     transform.rotation = Quaternion.Lerp(transform.rotation, direction, rotSpeed * Time.deltaTime); //change rotation smoothly
                 }
@@ -113,15 +114,19 @@ public class RelativeMovement : MonoBehaviour
             _charController.Move(movement * Time.deltaTime);
 
             //Switch camera view
-            if (Input.GetKeyDown(KeyCode.Alpha1))
+            if (Input.GetKeyDown(KeyCode.C))
             {
-                if(CameraSwitcher.IsActiveCamera(thirdPersonCamera))
-                {
-                    CameraSwitcher.SwitchCamera(firstPersonCamera);
-                }
-                else if(CameraSwitcher.IsActiveCamera(firstPersonCamera))
+                if(CameraSwitcher.IsActiveCamera(firstPersonCamera))
                 {
                     CameraSwitcher.SwitchCamera(thirdPersonCamera);
+                }
+                else if(CameraSwitcher.IsActiveCamera(thirdPersonCamera))
+                {
+                    CameraSwitcher.SwitchCamera(isometricCamera);
+                }
+                else
+                {  
+                    CameraSwitcher.SwitchCamera(firstPersonCamera);
                 }
             }
     }
@@ -142,14 +147,16 @@ public class RelativeMovement : MonoBehaviour
 
     private void OnEnable()
     {
-        CameraSwitcher.Register(thirdPersonCamera);
         CameraSwitcher.Register(firstPersonCamera);
-        CameraSwitcher.SwitchCamera(firstPersonCamera);
+        CameraSwitcher.Register(thirdPersonCamera);
+        CameraSwitcher.Register(isometricCamera);
+        CameraSwitcher.SwitchCamera(thirdPersonCamera);
     }
 
     private void OnDisable()
     {
+        CameraSwitcher.Unregister(firstPersonCamera);
         CameraSwitcher.Unregister(thirdPersonCamera);
-        CameraSwitcher.Unregister(firstPersonCamera); 
+        CameraSwitcher.Unregister(isometricCamera);
     }
 }
