@@ -37,98 +37,98 @@ public class RelativeMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            Vector3 movement = Vector3.zero; // (0,0,0)
-            float horInput = Input.GetAxis("Horizontal");
-            float vertInput = Input.GetAxis("Vertical");
+        Vector3 movement = Vector3.zero; // (0,0,0)
+        float horInput = Input.GetAxis("Horizontal");
+        float vertInput = Input.GetAxis("Vertical");
 
-            if (horInput != 0 || vertInput != 0)
+        if (horInput != 0 || vertInput != 0)
+        {
+            if (Input.GetKey(KeyCode.LeftShift))
             {
-                if (Input.GetKey(KeyCode.LeftShift))
-                {
-                    _moveSpeed = 9f;
-                }
-                else
-                {
-                    _moveSpeed = 6f;
-                }
-                movement.x = horInput * _moveSpeed; //(x,0,0)
-                movement.z = vertInput * _moveSpeed; //(x,0,z)
-                movement = Vector3.ClampMagnitude(movement, _moveSpeed); //avoid diagonal speed-up
-                Quaternion tmp = playerCamera.rotation;
-                playerCamera.eulerAngles = new Vector3(0, playerCamera.eulerAngles.y, 0);
-                movement = playerCamera.TransformDirection(movement);
-
-                if(thirdPersonCamera.Priority == 10 || isometricCamera.Priority == 10)
-                {
-                    Quaternion direction = Quaternion.LookRotation(movement);
-                    transform.rotation = Quaternion.Lerp(transform.rotation, direction, rotSpeed * Time.deltaTime); //change rotation smoothly
-                }
-            }
-
-            bool hitGround = false;
-            RaycastHit hit;
-            if (_vertSpeed < 0 && Physics.Raycast(transform.position, Vector3.down, out hit))
-            {
-                float check = (_charController.height + _charController.radius) / 1.9f;
-                hitGround = hit.distance <= check;
-            }
-
-            //Player is hitting the floor
-            if (hitGround)
-            {
-                if (Input.GetButtonDown("Jump"))
-                {
-                    _vertSpeed = jumpSpeed;
-                }
-                else
-                {
-                    _vertSpeed = minFall;
-                    _isJumping = false;
-                }
+                _moveSpeed = 9f;
             }
             else
             {
-                _vertSpeed += gravity * 5 * Time.deltaTime;
-                if (_vertSpeed < terminalVelocity)
-                {
-                    _vertSpeed = terminalVelocity;
-                }
-
-                _isJumping = true;
-
-                if (_charController.isGrounded)
-                {
-                    if (Vector3.Dot(movement, _contact.normal) < 0) // Dot if they point same is 1 (same direction) to -1 (opposite)
-                    {
-                        movement = _contact.normal * _moveSpeed;
-                        _isJumping = false;
-                    }
-                    else
-                    {
-                        movement += _contact.normal * _moveSpeed * 10;
-                    }
-                }
+                _moveSpeed = 6f;
             }
-            movement.y = _vertSpeed;
+            movement.x = horInput * _moveSpeed; //(x,0,0)
+            movement.z = vertInput * _moveSpeed; //(x,0,z)
+            movement = Vector3.ClampMagnitude(movement, _moveSpeed); //avoid diagonal speed-up
+            Quaternion tmp = playerCamera.rotation;
+            playerCamera.eulerAngles = new Vector3(0, playerCamera.eulerAngles.y, 0);
+            movement = playerCamera.TransformDirection(movement);
 
-            _charController.Move(movement * Time.deltaTime);
-
-            //Switch camera view
-            if (Input.GetKeyDown(KeyCode.C))
+            if(thirdPersonCamera.Priority == 10 || isometricCamera.Priority == 10)
             {
-                if(CameraSwitcher.IsActiveCamera(firstPersonCamera))
+                Quaternion direction = Quaternion.LookRotation(movement);
+                transform.rotation = Quaternion.Lerp(transform.rotation, direction, rotSpeed * Time.deltaTime); //change rotation smoothly
+            }
+        }
+
+        bool hitGround = false;
+        RaycastHit hit;
+        if (_vertSpeed < 0 && Physics.Raycast(transform.position, Vector3.down, out hit))
+        {
+            float check = (_charController.height + _charController.radius) / 1.9f;
+            hitGround = hit.distance <= check;
+        }
+
+        //Player is hitting the floor
+        if (hitGround)
+        {
+            if (Input.GetButtonDown("Jump"))
+            {
+                _vertSpeed = jumpSpeed;
+            }
+            else
+            {
+                _vertSpeed = minFall;
+                _isJumping = false;
+            }
+        }
+        else
+        {
+            _vertSpeed += gravity * 5 * Time.deltaTime;
+            if (_vertSpeed < terminalVelocity)
+            {
+                _vertSpeed = terminalVelocity;
+            }
+
+            _isJumping = true;
+
+            if (_charController.isGrounded)
+            {
+                if (Vector3.Dot(movement, _contact.normal) < 0) // Dot if they point same is 1 (same direction) to -1 (opposite)
                 {
-                    CameraSwitcher.SwitchCamera(thirdPersonCamera);
-                }
-                else if(CameraSwitcher.IsActiveCamera(thirdPersonCamera))
-                {
-                    CameraSwitcher.SwitchCamera(isometricCamera);
+                    movement = _contact.normal * _moveSpeed;
+                    _isJumping = false;
                 }
                 else
-                {  
-                    CameraSwitcher.SwitchCamera(firstPersonCamera);
+                {
+                    movement += _contact.normal * _moveSpeed * 10;
                 }
             }
+        }
+        movement.y = _vertSpeed;
+
+        _charController.Move(movement * Time.deltaTime);
+
+        //Switch camera view
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if(CameraSwitcher.IsActiveCamera(firstPersonCamera))
+            {
+                CameraSwitcher.SwitchCamera(thirdPersonCamera);
+            }
+            else if(CameraSwitcher.IsActiveCamera(thirdPersonCamera))
+            {
+                CameraSwitcher.SwitchCamera(isometricCamera);
+            }
+            else
+            {  
+                CameraSwitcher.SwitchCamera(firstPersonCamera);
+            }
+        }
     }
     public bool isJumping()
     {
@@ -150,7 +150,7 @@ public class RelativeMovement : MonoBehaviour
         CameraSwitcher.Register(firstPersonCamera);
         CameraSwitcher.Register(thirdPersonCamera);
         CameraSwitcher.Register(isometricCamera);
-        CameraSwitcher.SwitchCamera(thirdPersonCamera);
+        CameraSwitcher.SwitchCamera(isometricCamera);
     }
 
     private void OnDisable()
