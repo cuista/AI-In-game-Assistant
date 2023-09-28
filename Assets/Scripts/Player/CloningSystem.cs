@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection.Emit;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -16,55 +18,103 @@ class PlayerRecord
     }
 }
 
+class ReplayClone
+{
+    public GameObject Clone;
+    public List<PlayerRecord> PlayerRecordings;
+
+    public ReplayClone(GameObject clone, List<PlayerRecord> playerRecordings)
+    {
+        this.Clone = clone;
+        this.PlayerRecordings = playerRecordings;
+    }
+}
+
+// Posso fare che ho tot. cloni e da quanto piazzo lo spawn registrano i movimenti, fino a che non spawno il clone
+// ha più senso fare che con il tasto sinistro metto lo spawn e da quel momento inizia il timer dopo il quale appare il clone
+// con il tasto destro potrei impostare i vari timer, a mano a mano che li sblocco (5sec, 10sec, 15sec, 20sec)
+
 public class CloningSystem : MonoBehaviour
 {
-    [SerializeField] private GameObject _clone;
-    [SerializeField] private GameObject _spawnClone;
-    private Boolean _isRecordingPlayer;
+    [SerializeField] public GameObject clonePrefab;
+    [SerializeField] public GameObject spawnClonePrefab;
 
-    private List<PlayerRecord> playerRecordings;
+    private List<ReplayClone> _replayClones;
+    private GameObject _spawnPoint;
+    private bool _spawnPointTimedOut;
+    private ReplayClone _currentReplayClone;
+    private int _clonesAvailable;
+
     // Start is called before the first frame update
     void Start()
     {
-        _clone.SetActive(false);
-        _spawnClone.SetActive(false);
-        _isRecordingPlayer = false;
-        playerRecordings = new List<PlayerRecord>();
+        _replayClones = new List<ReplayClone>();
+        _spawnPoint = null;
+        _spawnPointTimedOut = false;
+        _currentReplayClone = null;
+        _clonesAvailable = 3;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0) && !_clone.activeInHierarchy)
+        if(_clonesAvailable > 0)
         {
-            //Clone will spawn in this position and start registration
-            playerRecordings.Clear();
-            _isRecordingPlayer = true;
+            if(_spawnPointTimedOut) //SpawnPoint unused for 10 seconds
+            {
+                Destroy(_spawnPoint);
+                _currentReplayClone = null;
+                _spawnPointTimedOut = false;
+            }
 
-            _spawnClone.transform.position = transform.position;
-            _spawnClone.SetActive(true);
+            if (Input.GetMouseButtonUp(0))
+            {
+                if(_spawnPoint != null)
+                {
+                    Destroy(_spawnPoint);
+                    _spawnPointTimedOut = false;
+                }
+                _spawnPoint = Instantiate(spawnClonePrefab) as GameObject;
+                _spawnPoint.transform.position = transform.position;
+                _currentReplayClone = new ReplayClone(null, new List<PlayerRecord>());
+                StartCoroutine(SpawnPointUnused(_spawnPoint));
+            }
+
+            if (Input.GetMouseButtonUp(1) && _spawnPoint != null) //Spawn the clone and starting replaying player movements
+            {
+                Destroy(_spawnPoint);
+                GameObject clone = Instantiate(clonePrefab, _currentReplayClone.PlayerRecordings[0].Position, _currentReplayClone.PlayerRecordings[0].Rotation);
+                _currentReplayClone.Clone=clone;
+                _replayClones.Add(_currentReplayClone);
+
+                _currentReplayClone = null;
+                _clonesAvailable--;
+            }
         }
-        else if (Input.GetMouseButtonDown(1) && !_clone.activeInHierarchy)
-        {
-            //Clone spawn and starting replaying player movements
-            _clone.SetActive(true);
-            _clone.transform.position = playerRecordings[0].Position;
-            _clone.transform.rotation = playerRecordings[0].Rotation;
-            playerRecordings.RemoveAt(0);
 
-            _spawnClone.SetActive(false);
+        if (_currentReplayClone != null) //If there's a clone ready to be placed, that is recording player movements
+        {
+            _currentReplayClone.PlayerRecordings.Add(new PlayerRecord(transform.position, transform.rotation));
         }
 
-        if(_isRecordingPlayer)
+        if (_replayClones.Count>0) //If there's at least a clone in the scene
         {
-            playerRecordings.Add(new PlayerRecord(transform.position, transform.rotation));
+            foreach (var replayClone in _replayClones)
+            {
+                replayClone.PlayerRecordings.Add(new PlayerRecord(transform.position, transform.rotation));
+                replayClone.Clone.transform.SetPositionAndRotation(replayClone.PlayerRecordings[0].Position, replayClone.PlayerRecordings[0].Rotation);
+                replayClone.PlayerRecordings.RemoveAt(0);
+            }
         }
+    }
 
-        if(_clone.activeInHierarchy)
+    private IEnumerator SpawnPointUnused(GameObject spawn)
+    {
+        yield return new WaitForSeconds(10);
+
+        if (spawn != null)
         {
-            _clone.transform.position = playerRecordings[0].Position;
-            _clone.transform.rotation = playerRecordings[0].Rotation;
-            playerRecordings.RemoveAt(0);
+            _spawnPointTimedOut = true;
         }
     }
 }

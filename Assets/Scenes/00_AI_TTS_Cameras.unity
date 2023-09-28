@@ -1733,7 +1733,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.26693362, y: 0.000000020953253, z: -0.0000000058037157, w: 0.96371496}
+  m_LocalRotation: {x: 0.2669336, y: -0.000000009207489, z: 0.0000000025503266, w: 0.96371496}
   m_LocalPosition: {x: -0.2169435, y: 5.9770336, z: -10.738596}
   m_LocalScale: {x: 2, y: 1.9, z: 2}
   m_ConstrainProportionsScale: 0
@@ -2568,6 +2568,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1679cbd36227e7e43bc8afa3c125110c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _healthText: {fileID: 0}
+  _coinsText: {fileID: 0}
 --- !u!143 &1489715672
 CharacterController:
   m_ObjectHideFlags: 0
@@ -3201,7 +3203,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2078676298}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.26693362, y: 0.000000020953253, z: -0.0000000058037157, w: 0.96371496}
+  m_LocalRotation: {x: 0.2669336, y: -0.000000009207489, z: 0.0000000025503266, w: 0.96371496}
   m_LocalPosition: {x: -0.2169435, y: 5.9770336, z: -10.738596}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3410,9 +3412,9 @@ MonoBehaviour:
   m_VerticalDamping: 0.5
   m_ScreenX: 0.5
   m_ScreenY: 0.5
-  m_DeadZoneWidth: 0.2
+  m_DeadZoneWidth: 0.1
   m_DeadZoneHeight: 0.1
-  m_SoftZoneWidth: 0.3
+  m_SoftZoneWidth: 0.2
   m_SoftZoneHeight: 0.3
   m_BiasX: 0
   m_BiasY: 0
