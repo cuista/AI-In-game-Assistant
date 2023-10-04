@@ -30,14 +30,10 @@ class ReplayClone
     }
 }
 
-// Posso fare che ho tot. cloni e da quanto piazzo lo spawn registrano i movimenti, fino a che non spawno il clone
-// ha più senso fare che con il tasto sinistro metto lo spawn e da quel momento inizia il timer dopo il quale appare il clone
-// con il tasto destro potrei impostare i vari timer, a mano a mano che li sblocco (5sec, 10sec, 15sec, 20sec)
-
 public class CloningSystem : MonoBehaviour
 {
-    [SerializeField] public GameObject clonePrefab;
-    [SerializeField] public GameObject spawnClonePrefab;
+    [SerializeField] private GameObject clonePrefab;
+    [SerializeField] private GameObject spawnClonePrefab;
 
     private List<ReplayClone> _replayClones;
     private GameObject _spawnPoint;
@@ -52,7 +48,7 @@ public class CloningSystem : MonoBehaviour
         _spawnPoint = null;
         _spawnPointTimedOut = false;
         _currentReplayClone = null;
-        _clonesAvailable = 3;
+        _clonesAvailable = 3; //Number of max. clones that can be placed
     }
 
     // Update is called once per frame
@@ -108,9 +104,9 @@ public class CloningSystem : MonoBehaviour
         }
     }
 
-    private IEnumerator SpawnPointUnused(GameObject spawn)
+    private IEnumerator SpawnPointUnused(GameObject spawn) //if a spawn point is unused it will be remove after x seconds
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(20);
 
         if (spawn != null)
         {
