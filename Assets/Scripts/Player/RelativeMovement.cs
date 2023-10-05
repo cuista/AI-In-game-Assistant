@@ -37,12 +37,13 @@ public class RelativeMovement : MonoBehaviour
         _vertSpeed = minFall;
         _isJumping = false;
         _charController = GetComponent<CharacterController>();
+        jumpPressed = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        jumpPressed = Input.GetButtonDown("Jump") && (!IsJumping()) ? true : jumpPressed;
+        jumpPressed = Input.GetButtonDown("Jump") && (!IsJumping()) || jumpPressed;
 
         //Switch camera view
         HandleCameraView();
