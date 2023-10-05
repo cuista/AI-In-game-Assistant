@@ -12,15 +12,20 @@ public class RelativeMovement : MonoBehaviour
     private float _moveSpeed = 10.0f;
     private CharacterController _charController;
 
-    public float jumpSpeed = 15.0f;
+    public float walkSpeed = 6f;
+    public float runSpeed = 9f;
+    public float jumpSpeed = 15f;
     public float gravity = -9.8f;
-    public float terminalVelocity = -10.0f;
+    public float terminalVelocity = -15f;
     public float minFall = -1.5f;
     private float _vertSpeed;
     private bool _isJumping;
 
     public const float baseSpeed = 6.0f;
-    private ControllerColliderHit _contact; //to be precise on edge of objects
+    private Vector3 moveDirection = Vector3.zero;
+    private ControllerColliderHit _contact; //To be precise on edge of objects
+
+    private bool jumpPressed;
 
     [SerializeField] CinemachineVirtualCameraBase firstPersonCamera;
     [SerializeField] CinemachineVirtualCameraBase thirdPersonCamera;
@@ -37,34 +42,37 @@ public class RelativeMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 movement = Vector3.zero; // (0,0,0)
+        jumpPressed = Input.GetButtonDown("Jump") && (!IsJumping()) ? true : jumpPressed;
+
+        //Switch camera view
+        HandleCameraView();
+
         float horInput = Input.GetAxis("Horizontal");
         float vertInput = Input.GetAxis("Vertical");
 
-        if (horInput != 0 || vertInput != 0)
+        //Change player speed
+        _moveSpeed = Input.GetButton("Run") ? runSpeed : walkSpeed;
+
+        moveDirection = new Vector3(horInput * _moveSpeed, 0, vertInput * _moveSpeed); //(x,0,z)
+        moveDirection = Vector3.ClampMagnitude(moveDirection, _moveSpeed); //avoid diagonal speed-up
+
+        //Handle rotation
+        if (moveDirection != Vector3.zero)
         {
-            if (Input.GetKey(KeyCode.LeftShift))
-            {
-                _moveSpeed = 9f;
-            }
-            else
-            {
-                _moveSpeed = 6f;
-            }
-            movement.x = horInput * _moveSpeed; //(x,0,0)
-            movement.z = vertInput * _moveSpeed; //(x,0,z)
-            movement = Vector3.ClampMagnitude(movement, _moveSpeed); //avoid diagonal speed-up
             Quaternion tmp = playerCamera.rotation;
             playerCamera.eulerAngles = new Vector3(0, playerCamera.eulerAngles.y, 0);
-            movement = playerCamera.TransformDirection(movement);
+            moveDirection = playerCamera.TransformDirection(moveDirection);
 
-            if(thirdPersonCamera.Priority == 10 || isometricCamera.Priority == 10)
+            if (thirdPersonCamera.Priority == 10 || isometricCamera.Priority == 10)
             {
-                Quaternion direction = Quaternion.LookRotation(movement);
+                Quaternion direction = Quaternion.LookRotation(moveDirection);
                 transform.rotation = Quaternion.Lerp(transform.rotation, direction, rotSpeed * Time.deltaTime); //change rotation smoothly
             }
         }
+    }
 
+    void FixedUpdate()
+    {
         bool hitGround = false;
         RaycastHit hit;
         if (_vertSpeed < 0 && Physics.Raycast(transform.position, Vector3.down, out hit))
@@ -73,12 +81,14 @@ public class RelativeMovement : MonoBehaviour
             hitGround = hit.distance <= check;
         }
 
-        //Player is hitting the floor
+        //If player hit the floor or not, handle vertical speed
         if (hitGround)
         {
-            if (Input.GetButtonDown("Jump"))
+            if (jumpPressed)
             {
+                jumpPressed = false;
                 _vertSpeed = jumpSpeed;
+                _isJumping = true;
             }
             else
             {
@@ -88,49 +98,31 @@ public class RelativeMovement : MonoBehaviour
         }
         else
         {
-            _vertSpeed += gravity * 5 * Time.deltaTime;
+            _vertSpeed += gravity * 5 * Time.fixedDeltaTime;
             if (_vertSpeed < terminalVelocity)
             {
                 _vertSpeed = terminalVelocity;
             }
 
-            _isJumping = true;
-
             if (_charController.isGrounded)
             {
-                if (Vector3.Dot(movement, _contact.normal) < 0) // Dot if they point same is 1 (same direction) to -1 (opposite)
+                if (Vector3.Dot(moveDirection, _contact.normal) < 0) // Dot if they point same is 1 (same direction) to -1 (opposite)
                 {
-                    movement = _contact.normal * _moveSpeed;
+                    moveDirection = _contact.normal * _moveSpeed;
                     _isJumping = false;
                 }
                 else
                 {
-                    movement += _contact.normal * _moveSpeed * 10;
+                    moveDirection += _contact.normal * _moveSpeed * 10;
                 }
             }
         }
-        movement.y = _vertSpeed;
+        moveDirection.y = _vertSpeed;
 
-        _charController.Move(movement * Time.deltaTime);
-
-        //Switch camera view
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            if(CameraSwitcher.IsActiveCamera(firstPersonCamera))
-            {
-                CameraSwitcher.SwitchCamera(thirdPersonCamera);
-            }
-            else if(CameraSwitcher.IsActiveCamera(thirdPersonCamera))
-            {
-                CameraSwitcher.SwitchCamera(isometricCamera);
-            }
-            else
-            {  
-                CameraSwitcher.SwitchCamera(firstPersonCamera);
-            }
-        }
+        _charController.Move(moveDirection * Time.fixedDeltaTime);
     }
-    public bool isJumping()
+
+    public bool IsJumping()
     {
         return _isJumping;
     }
@@ -140,9 +132,35 @@ public class RelativeMovement : MonoBehaviour
         _contact = hit;
     }
 
-    private void OnSpeedChanged(float value)
+    private void HandleCameraView()
     {
-        _moveSpeed = baseSpeed * value;
+        if (Input.GetButtonDown("C"))
+        {
+            if (CameraSwitcher.IsActiveCamera(firstPersonCamera))
+            {
+                CameraSwitcher.SwitchCamera(thirdPersonCamera);
+            }
+            else if (CameraSwitcher.IsActiveCamera(thirdPersonCamera))
+            {
+                CameraSwitcher.SwitchCamera(isometricCamera);
+            }
+            else
+            {
+                CameraSwitcher.SwitchCamera(firstPersonCamera);
+            }
+        }
+        else if (Input.GetButtonDown("1"))
+        {
+            CameraSwitcher.SwitchCamera(firstPersonCamera);
+        }
+        else if (Input.GetButtonDown("2"))
+        {
+            CameraSwitcher.SwitchCamera(thirdPersonCamera);
+        }
+        else if (Input.GetButtonDown("3"))
+        {
+            CameraSwitcher.SwitchCamera(isometricCamera);
+        }
     }
 
     private void OnEnable()

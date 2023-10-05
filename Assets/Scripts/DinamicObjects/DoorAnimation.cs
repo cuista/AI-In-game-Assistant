@@ -12,6 +12,8 @@ public class DoorAnimation : MonoBehaviour
     private bool _open;
     private bool _doorIsMoving;
 
+    [SerializeField] float speed = 3.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -75,7 +77,7 @@ public class DoorAnimation : MonoBehaviour
         {
             if (transform.position != _openPos)
             {
-                transform.position = Vector3.Lerp(transform.position, _openPos, 3f * Time.deltaTime);
+                transform.position = Vector3.Lerp(transform.position, _openPos, speed * Time.deltaTime);
             }
             else
             {
@@ -87,7 +89,7 @@ public class DoorAnimation : MonoBehaviour
         {
             if (transform.position != _closePos)
             {
-                transform.position = Vector3.Lerp(transform.position, _closePos, 3f * Time.deltaTime);
+                transform.position = Vector3.Lerp(transform.position, _closePos, speed * Time.deltaTime);
             }
             else
             {

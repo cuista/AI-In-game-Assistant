@@ -85,6 +85,8 @@ public class CloningSystem : MonoBehaviour
 
                 _currentReplayClone = null;
                 _clonesAvailable--;
+
+                transform.GetComponent<PlayerCharacter>().DisableUICountdown(); //UI temporary
             }
         }
 
@@ -106,6 +108,7 @@ public class CloningSystem : MonoBehaviour
 
     private IEnumerator SpawnPointUnused(GameObject spawn) //if a spawn point is unused it will be remove after x seconds
     {
+        StartCoroutine(transform.GetComponent<PlayerCharacter>().UICountdown(20)); //UI temporary
         yield return new WaitForSeconds(20);
 
         if (spawn != null)
