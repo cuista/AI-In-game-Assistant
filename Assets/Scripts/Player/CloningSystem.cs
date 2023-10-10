@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection.Emit;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -82,13 +83,16 @@ public class CloningSystem : MonoBehaviour
             {
                 Destroy(_spawnPoint);
                 _spawnPointTimedOut = false;
+                transform.GetComponent<PlayerCharacter>().ResetUICountdown(); //UI temporary
+            }
+            else
+            {
+                StartCoroutine(transform.GetComponent<PlayerCharacter>().UICountdown(20)); //UI temporary
             }
             _spawnPoint = Instantiate(spawnClonePrefab) as GameObject;
             _spawnPoint.transform.position = transform.position;
             _currentReplayClone = new ReplayClone(null, new List<PlayerRecord>());
             StartCoroutine(SpawnPointUnused(_spawnPoint));
-
-            transform.GetComponent<PlayerCharacter>().DisableUICountdown(); //UI temporary
 
             fire1Pressed = false;
         }
@@ -116,7 +120,6 @@ public class CloningSystem : MonoBehaviour
             foreach (var replayClone in _replayClones)
             {
                 replayClone.PlayerRecordings.Add(new PlayerRecord(transform.position, transform.rotation));
-                Debug.Log("pos + rot" + replayClone.PlayerRecordings[0].Position + "; " + replayClone.PlayerRecordings[0].Rotation);
                 replayClone.Clone.transform.SetPositionAndRotation(replayClone.PlayerRecordings[0].Position, replayClone.PlayerRecordings[0].Rotation);
                 replayClone.PlayerRecordings.RemoveAt(0);
             }
@@ -126,7 +129,6 @@ public class CloningSystem : MonoBehaviour
 
     private IEnumerator SpawnPointUnused(GameObject spawn) //if a spawn point is unused it will be remove after x seconds
     {
-        StartCoroutine(transform.GetComponent<PlayerCharacter>().UICountdown(20)); //UI temporary
         yield return new WaitForSeconds(20);
 
         if (spawn != null)

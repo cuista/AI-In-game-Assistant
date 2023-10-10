@@ -20,6 +20,7 @@ public class RelativeMovement : MonoBehaviour
     public float minFall = -1.5f;
     private float _vertSpeed;
     private bool _isJumping;
+    private bool _isHittingGround;
 
     public const float baseSpeed = 6.0f;
     private Vector3 moveDirection = Vector3.zero;
@@ -38,6 +39,7 @@ public class RelativeMovement : MonoBehaviour
         _isJumping = false;
         _charController = GetComponent<CharacterController>();
         jumpPressed = false;
+        _isHittingGround = true;
     }
 
     // Update is called once per frame
@@ -74,16 +76,10 @@ public class RelativeMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        bool hitGround = false;
-        RaycastHit hit;
-        if (_vertSpeed < 0 && Physics.Raycast(transform.position, Vector3.down, out hit))
-        {
-            float check = (_charController.height + _charController.radius) / 1.9f;
-            hitGround = hit.distance <= check;
-        }
+        _isHittingGround = IsHittingGround();
 
         //If player hit the floor or not, handle vertical speed
-        if (hitGround)
+        if (_isHittingGround)
         {
             if (jumpPressed)
             {
@@ -126,6 +122,16 @@ public class RelativeMovement : MonoBehaviour
     public bool IsJumping()
     {
         return _isJumping;
+    }
+
+    public bool IsHittingGround()
+    {
+        if (_vertSpeed < 0 && Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit))
+        {
+            float check = (_charController.height + _charController.radius) / 1.9f;
+            return hit.distance <= check;
+        }
+        return false;
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit)

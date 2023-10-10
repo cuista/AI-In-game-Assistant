@@ -10,6 +10,7 @@ public class PlayerCharacter : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _healthText;
     [SerializeField] private TextMeshProUGUI _coinsText;
     [SerializeField] private TextMeshProUGUI _countdownText;
+    private bool _resetCountdown;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,7 @@ public class PlayerCharacter : MonoBehaviour
         health = Managers.Player.health;
         coins = Managers.Inventory.GetItemCount("Coin");
         _countdownText.enabled = false;
+        _resetCountdown = false;
     }
 
     // Update is called once per frame
@@ -41,11 +43,21 @@ public class PlayerCharacter : MonoBehaviour
         _countdownText.enabled = true;
         for (int i = timer; i > 0 && _countdownText.enabled; i--)
         {
+            if(_resetCountdown)
+            {
+                i = timer;
+                _resetCountdown = false;
+            }
             _countdownText.text = i.ToString();
             yield return new WaitForSeconds(1);
         }
         _countdownText.text = "0";
         _countdownText.enabled = false;
+    }
+
+    public void ResetUICountdown()
+    {
+        _resetCountdown = true;
     }
 
     public void DisableUICountdown()
