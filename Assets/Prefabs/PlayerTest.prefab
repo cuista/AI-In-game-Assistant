@@ -130,6 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthText: {fileID: 0}
   _coinsText: {fileID: 0}
+  _countdownText: {fileID: 0}
 --- !u!114 &683005975758321560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +145,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 0}
   rotSpeed: 15
+  walkSpeed: 6
+  runSpeed: 9
   jumpSpeed: 15
   gravity: -9.8
   terminalVelocity: -10
@@ -181,8 +184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a7b5e059eacb244d8d1addb66650788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _clone: {fileID: 0}
-  _spawnClone: {fileID: 0}
+  clonePrefab: {fileID: 0}
+  spawnClonePrefab: {fileID: 0}
 --- !u!1 &1538208927000333989
 GameObject:
   m_ObjectHideFlags: 0
