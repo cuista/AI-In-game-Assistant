@@ -36,6 +36,8 @@ public class CloningSystem : MonoBehaviour
     [SerializeField] private GameObject clonePrefab;
     [SerializeField] private GameObject spawnClonePrefab;
 
+    private RelativeMovement relativeMovement;
+
     private List<ReplayClone> _replayClones;
     private GameObject _spawnPoint;
     private bool _spawnPointTimedOut;
@@ -48,6 +50,8 @@ public class CloningSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        relativeMovement = GetComponent<RelativeMovement>();
+
         _replayClones = new List<ReplayClone>();
         _spawnPoint = null;
         _spawnPointTimedOut = false;
@@ -99,8 +103,9 @@ public class CloningSystem : MonoBehaviour
 
         if (fire2Pressed) //Spawn the clone and starting replaying player movements
         {
+            Vector3 spawnPosition = _spawnPoint.transform.position;
             Destroy(_spawnPoint);
-            GameObject clone = Instantiate(clonePrefab, _currentReplayClone.PlayerRecordings[0].Position, _currentReplayClone.PlayerRecordings[0].Rotation);
+            GameObject clone = Instantiate(clonePrefab, spawnPosition, _currentReplayClone.PlayerRecordings[0].Rotation);
             _currentReplayClone.Clone = clone;
             _replayClones.Add(_currentReplayClone);
 

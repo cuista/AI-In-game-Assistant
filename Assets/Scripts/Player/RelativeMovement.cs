@@ -32,6 +32,8 @@ public class RelativeMovement : MonoBehaviour
     [SerializeField] CinemachineVirtualCameraBase thirdPersonCamera;
     [SerializeField] CinemachineVirtualCameraBase isometricCamera;
 
+    private bool _isFirstPersonView;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,12 +42,13 @@ public class RelativeMovement : MonoBehaviour
         _charController = GetComponent<CharacterController>();
         jumpPressed = false;
         _isHittingGround = true;
+        SwitchCameraView(3);
     }
 
     // Update is called once per frame
     void Update()
     {
-        jumpPressed = Input.GetButtonDown("Jump") && (!IsJumping()) || jumpPressed;
+        jumpPressed = Input.GetButtonDown("Jump") && (!IsJumping) || jumpPressed;
 
         //Switch camera view
         HandleCameraView();
@@ -62,11 +65,10 @@ public class RelativeMovement : MonoBehaviour
         //Handle rotation
         if (moveDirection != Vector3.zero)
         {
-            Quaternion tmp = playerCamera.rotation;
             playerCamera.eulerAngles = new Vector3(0, playerCamera.eulerAngles.y, 0);
             moveDirection = playerCamera.TransformDirection(moveDirection);
 
-            if (thirdPersonCamera.Priority == 10 || isometricCamera.Priority == 10)
+            if (!IsFirstPersonView)
             {
                 Quaternion direction = Quaternion.LookRotation(moveDirection);
                 transform.rotation = Quaternion.Lerp(transform.rotation, direction, rotSpeed * Time.deltaTime); //change rotation smoothly
@@ -119,10 +121,8 @@ public class RelativeMovement : MonoBehaviour
         _charController.Move(moveDirection * Time.fixedDeltaTime);
     }
 
-    public bool IsJumping()
-    {
-        return _isJumping;
-    }
+    public bool IsJumping { get => _isJumping; }
+    public bool IsFirstPersonView { get => _isFirstPersonView; }
 
     public bool IsHittingGround()
     {
@@ -145,28 +145,38 @@ public class RelativeMovement : MonoBehaviour
         {
             if (CameraSwitcher.IsActiveCamera(firstPersonCamera))
             {
-                CameraSwitcher.SwitchCamera(thirdPersonCamera);
+                SwitchCameraView(2);
             }
             else if (CameraSwitcher.IsActiveCamera(thirdPersonCamera))
             {
-                CameraSwitcher.SwitchCamera(isometricCamera);
+                SwitchCameraView(3);
             }
             else
             {
-                CameraSwitcher.SwitchCamera(firstPersonCamera);
+                SwitchCameraView(1);
             }
         }
         else if (Input.GetButtonDown("1"))
         {
-            CameraSwitcher.SwitchCamera(firstPersonCamera);
+            SwitchCameraView(1);
         }
         else if (Input.GetButtonDown("2"))
         {
-            CameraSwitcher.SwitchCamera(thirdPersonCamera);
+            SwitchCameraView(2);
         }
         else if (Input.GetButtonDown("3"))
         {
-            CameraSwitcher.SwitchCamera(isometricCamera);
+            SwitchCameraView(3);
+        }
+    }
+
+    private void SwitchCameraView(int v)
+    {
+        switch (v)
+        {
+            case 1: CameraSwitcher.SwitchCamera(firstPersonCamera); _isFirstPersonView = true; break;
+            case 2: CameraSwitcher.SwitchCamera(thirdPersonCamera); _isFirstPersonView = false; break;
+            case 3: default: CameraSwitcher.SwitchCamera(isometricCamera); _isFirstPersonView = false; break;
         }
     }
 
@@ -175,7 +185,7 @@ public class RelativeMovement : MonoBehaviour
         CameraSwitcher.Register(firstPersonCamera);
         CameraSwitcher.Register(thirdPersonCamera);
         CameraSwitcher.Register(isometricCamera);
-        CameraSwitcher.SwitchCamera(isometricCamera);
+        SwitchCameraView(3);
     }
 
     private void OnDisable()
