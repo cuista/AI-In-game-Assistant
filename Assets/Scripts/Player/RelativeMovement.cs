@@ -7,11 +7,13 @@ public class RelativeMovement : MonoBehaviour
 {
     [SerializeField] Transform playerCamera;
 
-    public float rotSpeed = 15.0f;
-
+    private float _horInput;
+    private float _vertInput;
+    private bool _jumpPressed;
     private float _moveSpeed = 10.0f;
     private CharacterController _charController;
 
+    public float rotSpeed = 15.0f;
     public float walkSpeed = 6f;
     public float runSpeed = 9f;
     public float jumpSpeed = 15f;
@@ -20,13 +22,11 @@ public class RelativeMovement : MonoBehaviour
     public float minFall = -1.5f;
     private float _vertSpeed;
     private bool _isJumping;
-    private bool _isHittingGround;
 
     public const float baseSpeed = 6.0f;
     private Vector3 moveDirection = Vector3.zero;
     private ControllerColliderHit _contact; //To be precise on edge of objects
 
-    private bool jumpPressed;
 
     [SerializeField] CinemachineVirtualCameraBase firstPersonCamera;
     [SerializeField] CinemachineVirtualCameraBase thirdPersonCamera;
@@ -40,26 +40,30 @@ public class RelativeMovement : MonoBehaviour
         _vertSpeed = minFall;
         _isJumping = false;
         _charController = GetComponent<CharacterController>();
-        jumpPressed = false;
-        _isHittingGround = true;
+        _jumpPressed = false;
         SwitchCameraView(3);
     }
 
     // Update is called once per frame
     void Update()
     {
-        jumpPressed = Input.GetButtonDown("Jump") && (!IsJumping) || jumpPressed;
-
         //Switch camera view
         HandleCameraView();
 
-        float horInput = Input.GetAxis("Horizontal");
-        float vertInput = Input.GetAxis("Vertical");
+        //Horizontal and vertical
+        _horInput = Input.GetAxis("Horizontal");
+        _vertInput = Input.GetAxis("Vertical");
+
+        //If jump pressed, it can be set false in fixedUpdate
+        _jumpPressed = Input.GetButtonDown("Jump") && (!IsJumping) || _jumpPressed;
 
         //Change player speed
         _moveSpeed = Input.GetButton("Run") ? runSpeed : walkSpeed;
+    }
 
-        moveDirection = new Vector3(horInput * _moveSpeed, 0, vertInput * _moveSpeed); //(x,0,z)
+    void FixedUpdate()
+    {
+        moveDirection = new Vector3(_horInput * _moveSpeed, 0, _vertInput * _moveSpeed); //(x,0,z)
         moveDirection = Vector3.ClampMagnitude(moveDirection, _moveSpeed); //avoid diagonal speed-up
 
         //Handle rotation
@@ -74,18 +78,13 @@ public class RelativeMovement : MonoBehaviour
                 transform.rotation = Quaternion.Lerp(transform.rotation, direction, rotSpeed * Time.deltaTime); //change rotation smoothly
             }
         }
-    }
-
-    void FixedUpdate()
-    {
-        _isHittingGround = IsHittingGround();
 
         //If player hit the floor or not, handle vertical speed
-        if (_isHittingGround)
+        if (IsHittingGround())
         {
-            if (jumpPressed)
+            if (_jumpPressed)
             {
-                jumpPressed = false;
+                _jumpPressed = false;
                 _vertSpeed = jumpSpeed;
                 _isJumping = true;
             }
