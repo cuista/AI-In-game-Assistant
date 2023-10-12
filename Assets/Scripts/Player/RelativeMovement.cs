@@ -120,6 +120,11 @@ public class RelativeMovement : MonoBehaviour
         _charController.Move(moveDirection * Time.fixedDeltaTime);
     }
 
+    public Transform PlayerCamera { get => playerCamera; }
+    public float HorInput { get => _horInput; }
+    public float VerInput { get => _vertInput; }
+    public float MoveSpeed { get => _moveSpeed; }
+    public bool JumpPressed { get => _jumpPressed; }
     public bool IsJumping { get => _isJumping; }
     public bool IsFirstPersonView { get => _isFirstPersonView; }
 
