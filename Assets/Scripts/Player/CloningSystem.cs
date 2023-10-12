@@ -129,7 +129,7 @@ public class CloningSystem : MonoBehaviour
             List<PlayerRecord> records = _currentPlayerRecording;
             _replayClones.Add(new ReplayClone(clone, records));
 
-            _currentPlayerRecording = null;
+            _currentPlayerRecording = new List<PlayerRecord>();
             _clonesAvailable--;
 
             transform.GetComponent<PlayerCharacter>().DisableUICountdown(); //UI temporary
