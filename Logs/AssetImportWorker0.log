@@ -15,7 +15,7 @@ C:/Users/carlo.cristarella/source/repos/AI-In-game-Assistant
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-64237
+53275
 Successfully changed project path to: C:/Users/carlo.cristarella/source/repos/AI-In-game-Assistant
 C:/Users/carlo.cristarella/source/repos/AI-In-game-Assistant
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,9 +49,9 @@ C:/Users/carlo.cristarella/source/repos/AI-In-game-Assistant
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [53628] Host "[IP] 169.254.133.192 [Port] 0 [Flags] 2 [Guid] 242625129 [EditorId] 242625129 [Version] 1048832 [Id] WindowsEditor(7,DS0QRK3) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [28228] Host "[IP] 172.16.254.212 [Port] 0 [Flags] 2 [Guid] 3334635136 [EditorId] 3334635136 [Version] 1048832 [Id] WindowsEditor(7,DS0QRK3) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [53628] Host "[IP] 169.254.133.192 [Port] 0 [Flags] 2 [Guid] 242625129 [EditorId] 242625129 [Version] 1048832 [Id] WindowsEditor(7,DS0QRK3) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [28228] Host "[IP] 172.16.254.212 [Port] 0 [Flags] 2 [Guid] 3334635136 [EditorId] 3334635136 [Version] 1048832 [Id] WindowsEditor(7,DS0QRK3) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 7 workers.
 Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
@@ -60,7 +60,7 @@ Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/R
 Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
 Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
 Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Refreshing native plugins compatible for Editor in 215.05 ms, found 36 plugins.
+Refreshing native plugins compatible for Editor in 62.23 ms, found 36 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.9f1 (ea401c316338)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/Resources/UnitySubsystems
@@ -76,51 +76,51 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56208
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56144
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
-Registered in 0.018852 seconds.
-- Loaded All Assemblies, in  1.064 seconds
+Registered in 0.017504 seconds.
+- Loaded All Assemblies, in  0.507 seconds
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 559 ms
+Android Extension - Scanning For ADB Devices 270 ms
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.567 seconds
-Domain Reload Profiling: 2537ms
-	BeginReloadAssembly (154ms)
+- Finished resetting the current domain, in  0.736 seconds
+Domain Reload Profiling: 1241ms
+	BeginReloadAssembly (136ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (56ms)
+	RebuildCommonClasses (46ms)
 	RebuildNativeTypeToScriptingClass (19ms)
-	initialDomainReloadingComplete (122ms)
-	LoadAllAssembliesAndSetupDomain (618ms)
-		LoadAssemblies (158ms)
+	initialDomainReloadingComplete (88ms)
+	LoadAllAssembliesAndSetupDomain (216ms)
+		LoadAssemblies (135ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (604ms)
-			TypeCache.Refresh (598ms)
-				TypeCache.ScanAssembly (562ms)
+		AnalyzeDomain (212ms)
+			TypeCache.Refresh (211ms)
+				TypeCache.ScanAssembly (193ms)
 			ScanForSourceGeneratedMonoScriptInfo (1ms)
-			ResolveRequiredComponents (1ms)
-	FinalizeReload (1568ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (736ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1376ms)
+		SetupLoadedEditorAssemblies (651ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (1089ms)
-			SetLoadedEditorAssemblies (21ms)
+			InitializePlatformSupportModulesInManaged (450ms)
+			SetLoadedEditorAssemblies (6ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (4ms)
-			ProcessInitializeOnLoadAttributes (184ms)
-			ProcessInitializeOnLoadMethodAttributes (77ms)
+			BeforeProcessingInitializeOnLoad (3ms)
+			ProcessInitializeOnLoadAttributes (133ms)
+			ProcessInitializeOnLoadMethodAttributes (59ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -128,14 +128,14 @@ Domain Reload Profiling: 2537ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  1.202 seconds
+- Loaded All Assemblies, in  1.002 seconds
 Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
 Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
 Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
 Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
 Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
 Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Refreshing native plugins compatible for Editor in 51.27 ms, found 36 plugins.
+Refreshing native plugins compatible for Editor in 44.69 ms, found 36 plugins.
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
@@ -145,7 +145,7 @@ Package Manager log level set to [2]
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Getting credential for https://api.nuget.org/v3/index.json
-Getting installed packages took 59 ms
+Getting installed packages took 50 ms
 Already imported libs: UnityEngine.UI, UnityEngine, UnityEngine.AIModule, UnityEngine.ARModule, UnityEngine.AccessibilityModule, UnityEngine.AndroidJNIModule, UnityEngine.AnimationModule, UnityEngine.AssetBundleModule, UnityEngine.AudioModule, UnityEngine.ClothModule, UnityEngine.ClusterInputModule, UnityEngine.ClusterRendererModule, UnityEngine.ContentLoadModule, UnityEngine.CoreModule, UnityEngine.CrashReportingModule, UnityEngine.DSPGraphModule, UnityEngine.DirectorModule, UnityEngine.GIModule, UnityEngine.GameCenterModule, UnityEngine.GridModule, UnityEngine.HotReloadModule, UnityEngine.IMGUIModule, UnityEngine.ImageConversionModule, UnityEngine.InputModule, UnityEngine.InputLegacyModule, UnityEngine.JSONSerializeModule, UnityEngine.LocalizationModule, UnityEngine.NVIDIAModule, UnityEngine.ParticleSystemModule, UnityEngine.PerformanceReportingModule, UnityEngine.PhysicsModule, UnityEngine.Physics2DModule, UnityEngine.ProfilerModule, UnityEngine.PropertiesModule, UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule, UnityEngine.ScreenCaptureModule, UnityEngine.SharedInternalsModule, UnityEngine.SpriteMaskModule, UnityEngine.SpriteShapeModule, UnityEngine.StreamingModule, UnityEngine.SubstanceModule, UnityEngine.SubsystemsModule, UnityEngine.TLSModule, UnityEngine.TerrainModule, UnityEngine.TerrainPhysicsModule, UnityEngine.TextCoreFontEngineModule, UnityEngine.TextCoreTextEngineModule, UnityEngine.TextRenderingModule, UnityEngine.TilemapModule, UnityEngine.UIModule, UnityEngine.UIElementsModule, UnityEngine.UmbraModule, UnityEngine.UnityAnalyticsModule, UnityEngine.UnityAnalyticsCommonModule, UnityEngine.UnityConnectModule, UnityEngine.UnityCurlModule, UnityEngine.UnityTestProtocolModule, UnityEngine.UnityWebRequestModule, UnityEngine.UnityWebRequestAssetBundleModule, UnityEngine.UnityWebRequestAudioModule, UnityEngine.UnityWebRequestTextureModule, UnityEngine.UnityWebRequestWWWModule, UnityEngine.VFXModule, UnityEngine.VRModule, UnityEngine.VehiclesModule, UnityEngine.VideoModule, UnityEngine.VirtualTexturingModule, UnityEngine.WindModule, UnityEngine.XRModule, Unity.VisualScripting.Antlr3.Runtime, AndroidJNIWrapper, RSTTS, netstandard, Microsoft.Win32.Primitives, System.AppContext, System.Buffers, System.Collections.Concurrent, System.Collections, System.Collections.NonGeneric, System.Collections.Specialized, System.ComponentModel, System.ComponentModel.EventBasedAsync, System.ComponentModel.Primitives, System.ComponentModel.TypeConverter, System.Console, System.Data.Common, System.Diagnostics.Contracts, System.Diagnostics.Debug, System.Diagnostics.FileVersionInfo, System.Diagnostics.Process, System.Diagnostics.StackTrace, System.Diagnostics.TextWriterTraceListener, System.Diagnostics.Tools, System.Diagnostics.TraceSource, System.Diagnostics.Tracing, System.Drawing.Primitives, System.Dynamic.Runtime, System.Globalization.Calendars, System.Globalization, System.Globalization.Extensions, System.IO.Compression, System.IO.Compression.ZipFile, System.IO, System.IO.FileSystem, System.IO.FileSystem.DriveInfo, System.IO.FileSystem.Primitives, System.IO.FileSystem.Watcher, System.IO.IsolatedStorage, System.IO.MemoryMappedFiles, System.IO.Pipes, System.IO.UnmanagedMemoryStream, System.Linq, System.Linq.Expressions, System.Linq.Parallel, System.Linq.Queryable, System.Memory, System.Net.Http, System.Net.NameResolution, System.Net.NetworkInformation, System.Net.Ping, System.Net.Primitives, System.Net.Requests, System.Net.Security, System.Net.Sockets, System.Net.WebHeaderCollection, System.Net.WebSockets.Client, System.Net.WebSockets, System.Numerics.Vectors, System.ObjectModel, System.Reflection.DispatchProxy, System.Reflection, System.Reflection.Emit, System.Reflection.Emit.ILGeneration, System.Reflection.Emit.Lightweight, System.Reflection.Extensions, System.Reflection.Primitives, System.Resources.Reader, System.Resources.ResourceManager, System.Resources.Writer, System.Runtime.CompilerServices.VisualC, System.Runtime, System.Runtime.Extensions, System.Runtime.Handles, System.Runtime.InteropServices, System.Runtime.InteropServices.RuntimeInformation, System.Runtime.Numerics, System.Runtime.Serialization.Formatters, System.Runtime.Serialization.Json, System.Runtime.Serialization.Primitives, System.Runtime.Serialization.Xml, System.Security.Claims, System.Security.Cryptography.Algorithms, System.Security.Cryptography.Csp, System.Security.Cryptography.Encoding, System.Security.Cryptography.Primitives, System.Security.Cryptography.X509Certificates, System.Security.Principal, System.Security.SecureString, System.Text.Encoding, System.Text.Encoding.Extensions, System.Text.RegularExpressions, System.Threading, System.Threading.Overlapped, System.Threading.Tasks, System.Threading.Tasks.Extensions, System.Threading.Tasks.Parallel, System.Threading.Thread, System.Threading.ThreadPool, System.Threading.Timer, System.ValueTuple, System.Xml.ReaderWriter, System.Xml.XDocument, System.Xml.XmlDocument, System.Xml.XmlSerializer, System.Xml.XPath, System.Xml.XPath.XDocument, System.Runtime.InteropServices.WindowsRuntime, mscorlib, System.ComponentModel.Composition, System.Core, System.Data, System, System.Drawing, System.IO.Compression.FileSystem, System.Net, System.Numerics, System.Runtime.Serialization, System.ServiceModel.Web, System.Transactions, System.Web, System.Windows, System.Xml, System.Xml.Linq, System.Xml.Serialization, Unity.VisualScripting.Core, Unity.Timeline, nunit.framework, Unity.VisualScripting.Flow, Unity.TextMeshPro, Unity.VisualScripting.State, Cinemachine, NETStandard.Library, Microsoft.NETCore.Platforms, Microsoft.CSharp
 Already imported editor only libraries: System.CodeDom
 Is package 'Microsoft.Bcl.AsyncInterfaces' already imported? False
@@ -162,251 +162,56 @@ Is package 'Newtonsoft.Json' already imported? False
 Is package 'OpenAI' already imported? False
 Is package 'System.Runtime.CompilerServices.Unsafe' already imported? False
 No packages need restoring.
-Restoring packages took 449 ms
+Restoring packages took 206 ms
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.623 seconds
-Domain Reload Profiling: 2822ms
-	BeginReloadAssembly (251ms)
+- Finished resetting the current domain, in  1.209 seconds
+Domain Reload Profiling: 2210ms
+	BeginReloadAssembly (199ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (6ms)
+		DisableScriptedObjects (7ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (41ms)
-	RebuildCommonClasses (61ms)
-	RebuildNativeTypeToScriptingClass (31ms)
-	initialDomainReloadingComplete (80ms)
-	LoadAllAssembliesAndSetupDomain (775ms)
-		LoadAssemblies (590ms)
+		CreateAndSetChildDomain (33ms)
+	RebuildCommonClasses (46ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (61ms)
+	LoadAllAssembliesAndSetupDomain (677ms)
+		LoadAssemblies (493ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (336ms)
-			TypeCache.Refresh (303ms)
-				TypeCache.ScanAssembly (266ms)
-			ScanForSourceGeneratedMonoScriptInfo (26ms)
-			ResolveRequiredComponents (6ms)
-	FinalizeReload (1624ms)
+		AnalyzeDomain (295ms)
+			TypeCache.Refresh (260ms)
+				TypeCache.ScanAssembly (233ms)
+			ScanForSourceGeneratedMonoScriptInfo (24ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (1210ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1247ms)
+		SetupLoadedEditorAssemblies (986ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (42ms)
-			SetLoadedEditorAssemblies (4ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (92ms)
-			ProcessInitializeOnLoadAttributes (1070ms)
-			ProcessInitializeOnLoadMethodAttributes (32ms)
-			AfterProcessingInitializeOnLoad (7ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (9ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
-Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Refreshing native plugins compatible for Editor in 49.61 ms, found 36 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3554 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 248 unused Assets / (241.6 KB). Loaded Objects now: 3822.
-Memory consumption went from 136.4 MB to 136.1 MB.
-Total: 5.169000 ms (FindLiveObjects: 0.286800 ms CreateObjectMapping: 0.306000 ms MarkObjects: 4.177200 ms  DeleteObjects: 0.397900 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 106320.317405 seconds.
-  path: Assets/Scripts/DinamicObjects/PlatformMovement.cs
-  artifactKey: Guid(7d196b6427e31114c9e6867653b7e2b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/DinamicObjects/PlatformMovement.cs using Guid(7d196b6427e31114c9e6867653b7e2b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd34a0fc4c70b94bf99272d3d0a24954') in 0.002117 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 0.000024 seconds.
-  path: Assets/Scripts/DinamicObjects/DoorAnimation.cs
-  artifactKey: Guid(d04762307cde98044ada0ae32ffc6bf1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/DinamicObjects/DoorAnimation.cs using Guid(d04762307cde98044ada0ae32ffc6bf1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1964a48de49b26039f2b6546aa49aa7c') in 0.000601 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  1.043 seconds
-Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Refreshing native plugins compatible for Editor in 71.52 ms, found 36 plugins.
-Native extension for UWP target not found
-Native extension for WindowsStandalone target not found
-Native extension for Android target not found
-Native extension for WebGL target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.562 seconds
-Domain Reload Profiling: 2599ms
-	BeginReloadAssembly (329ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (18ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (66ms)
-	RebuildCommonClasses (50ms)
-	RebuildNativeTypeToScriptingClass (30ms)
-	initialDomainReloadingComplete (90ms)
-	LoadAllAssembliesAndSetupDomain (537ms)
-		LoadAssemblies (691ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (31ms)
-			TypeCache.Refresh (17ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (11ms)
-	FinalizeReload (1563ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (687ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (48ms)
-			SetLoadedEditorAssemblies (9ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (104ms)
-			ProcessInitializeOnLoadAttributes (482ms)
-			ProcessInitializeOnLoadMethodAttributes (35ms)
-			AfterProcessingInitializeOnLoad (10ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (10ms)
-Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Refreshing native plugins compatible for Editor in 71.18 ms, found 36 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3530 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 228 unused Assets / (213.7 KB). Loaded Objects now: 3836.
-Memory consumption went from 131.1 MB to 130.9 MB.
-Total: 6.435400 ms (FindLiveObjects: 0.437500 ms CreateObjectMapping: 0.463200 ms MarkObjects: 4.667100 ms  DeleteObjects: 0.864300 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.994 seconds
-Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Refreshing native plugins compatible for Editor in 72.46 ms, found 36 plugins.
-Native extension for UWP target not found
-Native extension for WindowsStandalone target not found
-Native extension for Android target not found
-Native extension for WebGL target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-CreateSerializedAsset is not supported while importing out-of-process
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-ReadSpeaker.TTSEditorUtils:GetSettings ()
-ReadSpeaker.TTSEditorUtils/Startup:.cctor ()
-System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-[C:\build\output\unity\unity\Modules\AssetDatabase\Editor\V2\AssetOperations\CreateAsset.cpp line 58]
-
-UnityEngine.UnityException: Creating asset at path Assets/Plugins/ReadSpeaker/Resources/TTSSettings.asset failed.
-  at (wrapper managed-to-native) UnityEditor.AssetDatabase.CreateAsset(UnityEngine.Object,string)
-  at ReadSpeaker.TTSEditorUtils.GetSettings () [0x00037] in <874180dba1df4fac8d4bcda7a4f41563>:0 
-  at ReadSpeaker.TTSEditorUtils+Startup..cctor () [0x0002a] in <874180dba1df4fac8d4bcda7a4f41563>:0 
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.650 seconds
-Domain Reload Profiling: 2638ms
-	BeginReloadAssembly (259ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (13ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (59ms)
-	RebuildCommonClasses (64ms)
-	RebuildNativeTypeToScriptingClass (27ms)
-	initialDomainReloadingComplete (73ms)
-	LoadAllAssembliesAndSetupDomain (565ms)
-		LoadAssemblies (666ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (32ms)
-			TypeCache.Refresh (18ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (10ms)
-	FinalizeReload (1650ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (723ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (48ms)
+			InitializePlatformSupportModulesInManaged (41ms)
 			SetLoadedEditorAssemblies (5ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (109ms)
-			ProcessInitializeOnLoadAttributes (517ms)
-			ProcessInitializeOnLoadMethodAttributes (34ms)
+			BeforeProcessingInitializeOnLoad (86ms)
+			ProcessInitializeOnLoadAttributes (812ms)
+			ProcessInitializeOnLoadMethodAttributes (32ms)
 			AfterProcessingInitializeOnLoad (9ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (9ms)
+		AwakeInstancesAfterBackupRestoration (11ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
 Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
 Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
 Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
 Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
 Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
 Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Refreshing native plugins compatible for Editor in 69.08 ms, found 36 plugins.
+Refreshing native plugins compatible for Editor in 44.62 ms, found 36 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3532 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 228 unused Assets / (213.8 KB). Loaded Objects now: 3852.
-Memory consumption went from 131.4 MB to 131.2 MB.
-Total: 5.557100 ms (FindLiveObjects: 0.459600 ms CreateObjectMapping: 0.252200 ms MarkObjects: 4.281700 ms  DeleteObjects: 0.561800 ms)
+Unloading 3554 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 248 unused Assets / (241.6 KB). Loaded Objects now: 3822.
+Memory consumption went from 136.1 MB to 135.9 MB.
+Total: 6.191400 ms (FindLiveObjects: 0.370900 ms CreateObjectMapping: 0.298600 ms MarkObjects: 5.063700 ms  DeleteObjects: 0.455100 ms)
 
-Prepare: number of updated asset objects reloaded= 0
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -421,115 +226,24 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  1.023 seconds
-Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Refreshing native plugins compatible for Editor in 68.64 ms, found 36 plugins.
-Native extension for UWP target not found
-Native extension for WindowsStandalone target not found
-Native extension for Android target not found
-Native extension for WebGL target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-CreateSerializedAsset is not supported while importing out-of-process
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-ReadSpeaker.TTSEditorUtils:GetSettings ()
-ReadSpeaker.TTSEditorUtils/Startup:.cctor ()
-System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-[C:\build\output\unity\unity\Modules\AssetDatabase\Editor\V2\AssetOperations\CreateAsset.cpp line 58]
-
-UnityEngine.UnityException: Creating asset at path Assets/Plugins/ReadSpeaker/Resources/TTSSettings.asset failed.
-  at (wrapper managed-to-native) UnityEditor.AssetDatabase.CreateAsset(UnityEngine.Object,string)
-  at ReadSpeaker.TTSEditorUtils.GetSettings () [0x00037] in <874180dba1df4fac8d4bcda7a4f41563>:0 
-  at ReadSpeaker.TTSEditorUtils+Startup..cctor () [0x0002a] in <874180dba1df4fac8d4bcda7a4f41563>:0 
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.598 seconds
-Domain Reload Profiling: 2614ms
-	BeginReloadAssembly (290ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (9ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (50ms)
-	RebuildCommonClasses (121ms)
-	RebuildNativeTypeToScriptingClass (22ms)
-	initialDomainReloadingComplete (71ms)
-	LoadAllAssembliesAndSetupDomain (510ms)
-		LoadAssemblies (670ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (25ms)
-			TypeCache.Refresh (14ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (9ms)
-	FinalizeReload (1599ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (699ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (48ms)
-			SetLoadedEditorAssemblies (9ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (114ms)
-			ProcessInitializeOnLoadAttributes (482ms)
-			ProcessInitializeOnLoadMethodAttributes (35ms)
-			AfterProcessingInitializeOnLoad (10ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (7ms)
-Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Refreshing native plugins compatible for Editor in 63.12 ms, found 36 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3532 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 228 unused Assets / (213.8 KB). Loaded Objects now: 3868.
-Memory consumption went from 131.4 MB to 131.2 MB.
-Total: 6.427300 ms (FindLiveObjects: 0.477300 ms CreateObjectMapping: 0.273800 ms MarkObjects: 5.268300 ms  DeleteObjects: 0.405700 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+Received Import Request.
+  Time since last request: 108688.772406 seconds.
+  path: Assets/Scenes/02_LevelPrototype.unity
+  artifactKey: Guid(a0ff63aa23807ab4eb2b342338449df2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/02_LevelPrototype.unity using Guid(a0ff63aa23807ab4eb2b342338449df2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '431e4b9da97d1da48041695a5fc7b2ad') in 0.002448 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
 ========================================================================
 Received Prepare
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  1.022 seconds
+- Loaded All Assemblies, in  0.912 seconds
 Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
 Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
 Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
 Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
 Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
 Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Refreshing native plugins compatible for Editor in 64.51 ms, found 36 plugins.
+Refreshing native plugins compatible for Editor in 69.83 ms, found 36 plugins.
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
@@ -537,468 +251,53 @@ Native extension for WebGL target not found
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
-CreateSerializedAsset is not supported while importing out-of-process
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-ReadSpeaker.TTSEditorUtils:GetSettings ()
-ReadSpeaker.TTSEditorUtils/Startup:.cctor ()
-System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-[C:\build\output\unity\unity\Modules\AssetDatabase\Editor\V2\AssetOperations\CreateAsset.cpp line 58]
-
-UnityEngine.UnityException: Creating asset at path Assets/Plugins/ReadSpeaker/Resources/TTSSettings.asset failed.
-  at (wrapper managed-to-native) UnityEditor.AssetDatabase.CreateAsset(UnityEngine.Object,string)
-  at ReadSpeaker.TTSEditorUtils.GetSettings () [0x00037] in <874180dba1df4fac8d4bcda7a4f41563>:0 
-  at ReadSpeaker.TTSEditorUtils+Startup..cctor () [0x0002a] in <874180dba1df4fac8d4bcda7a4f41563>:0 
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.581 seconds
-Domain Reload Profiling: 2600ms
-	BeginReloadAssembly (298ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (14ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (65ms)
-	RebuildCommonClasses (89ms)
-	RebuildNativeTypeToScriptingClass (33ms)
-	initialDomainReloadingComplete (76ms)
-	LoadAllAssembliesAndSetupDomain (524ms)
-		LoadAssemblies (663ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (29ms)
-			TypeCache.Refresh (12ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (13ms)
-	FinalizeReload (1582ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (695ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (46ms)
-			SetLoadedEditorAssemblies (7ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (110ms)
-			ProcessInitializeOnLoadAttributes (484ms)
-			ProcessInitializeOnLoadMethodAttributes (36ms)
-			AfterProcessingInitializeOnLoad (12ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (9ms)
-Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Refreshing native plugins compatible for Editor in 63.87 ms, found 36 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3532 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 228 unused Assets / (213.9 KB). Loaded Objects now: 3884.
-Memory consumption went from 131.4 MB to 131.2 MB.
-Total: 5.735600 ms (FindLiveObjects: 0.605900 ms CreateObjectMapping: 0.170700 ms MarkObjects: 4.496200 ms  DeleteObjects: 0.460700 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.958 seconds
-Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Refreshing native plugins compatible for Editor in 70.53 ms, found 36 plugins.
-Native extension for UWP target not found
-Native extension for WindowsStandalone target not found
-Native extension for Android target not found
-Native extension for WebGL target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-CreateSerializedAsset is not supported while importing out-of-process
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-ReadSpeaker.TTSEditorUtils:GetSettings ()
-ReadSpeaker.TTSEditorUtils/Startup:.cctor ()
-System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-[C:\build\output\unity\unity\Modules\AssetDatabase\Editor\V2\AssetOperations\CreateAsset.cpp line 58]
-
-UnityEngine.UnityException: Creating asset at path Assets/Plugins/ReadSpeaker/Resources/TTSSettings.asset failed.
-  at (wrapper managed-to-native) UnityEditor.AssetDatabase.CreateAsset(UnityEngine.Object,string)
-  at ReadSpeaker.TTSEditorUtils.GetSettings () [0x00037] in <874180dba1df4fac8d4bcda7a4f41563>:0 
-  at ReadSpeaker.TTSEditorUtils+Startup..cctor () [0x0002a] in <874180dba1df4fac8d4bcda7a4f41563>:0 
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.628 seconds
-Domain Reload Profiling: 2578ms
-	BeginReloadAssembly (265ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (10ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (68ms)
-	RebuildCommonClasses (77ms)
-	RebuildNativeTypeToScriptingClass (30ms)
-	initialDomainReloadingComplete (83ms)
-	LoadAllAssembliesAndSetupDomain (494ms)
-		LoadAssemblies (590ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (26ms)
-			TypeCache.Refresh (12ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (10ms)
-	FinalizeReload (1629ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (708ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (53ms)
-			SetLoadedEditorAssemblies (8ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (109ms)
-			ProcessInitializeOnLoadAttributes (497ms)
-			ProcessInitializeOnLoadMethodAttributes (30ms)
-			AfterProcessingInitializeOnLoad (10ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (9ms)
-Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Refreshing native plugins compatible for Editor in 61.85 ms, found 36 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3532 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 228 unused Assets / (214.0 KB). Loaded Objects now: 3900.
-Memory consumption went from 131.5 MB to 131.2 MB.
-Total: 5.295800 ms (FindLiveObjects: 0.565000 ms CreateObjectMapping: 0.468200 ms MarkObjects: 3.739500 ms  DeleteObjects: 0.520600 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.932 seconds
-Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Refreshing native plugins compatible for Editor in 46.46 ms, found 36 plugins.
-Native extension for UWP target not found
-Native extension for WindowsStandalone target not found
-Native extension for Android target not found
-Native extension for WebGL target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-CreateSerializedAsset is not supported while importing out-of-process
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-ReadSpeaker.TTSEditorUtils:GetSettings ()
-ReadSpeaker.TTSEditorUtils/Startup:.cctor ()
-System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-[C:\build\output\unity\unity\Modules\AssetDatabase\Editor\V2\AssetOperations\CreateAsset.cpp line 58]
-
-UnityEngine.UnityException: Creating asset at path Assets/Plugins/ReadSpeaker/Resources/TTSSettings.asset failed.
-  at (wrapper managed-to-native) UnityEditor.AssetDatabase.CreateAsset(UnityEngine.Object,string)
-  at ReadSpeaker.TTSEditorUtils.GetSettings () [0x00037] in <874180dba1df4fac8d4bcda7a4f41563>:0 
-  at ReadSpeaker.TTSEditorUtils+Startup..cctor () [0x0002a] in <874180dba1df4fac8d4bcda7a4f41563>:0 
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.475 seconds
-Domain Reload Profiling: 2404ms
-	BeginReloadAssembly (310ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (16ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (67ms)
-	RebuildCommonClasses (49ms)
-	RebuildNativeTypeToScriptingClass (36ms)
-	initialDomainReloadingComplete (47ms)
-	LoadAllAssembliesAndSetupDomain (485ms)
-		LoadAssemblies (611ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (35ms)
-			TypeCache.Refresh (17ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (15ms)
-	FinalizeReload (1475ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (842ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (38ms)
-			SetLoadedEditorAssemblies (13ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (146ms)
-			ProcessInitializeOnLoadAttributes (591ms)
-			ProcessInitializeOnLoadMethodAttributes (34ms)
-			AfterProcessingInitializeOnLoad (20ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (10ms)
-Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Refreshing native plugins compatible for Editor in 53.36 ms, found 36 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3532 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 228 unused Assets / (213.9 KB). Loaded Objects now: 3916.
-Memory consumption went from 131.5 MB to 131.3 MB.
-Total: 4.769700 ms (FindLiveObjects: 0.298900 ms CreateObjectMapping: 0.169400 ms MarkObjects: 4.037600 ms  DeleteObjects: 0.262600 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.940 seconds
-Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Refreshing native plugins compatible for Editor in 69.97 ms, found 36 plugins.
-Native extension for UWP target not found
-Native extension for WindowsStandalone target not found
-Native extension for Android target not found
-Native extension for WebGL target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-CreateSerializedAsset is not supported while importing out-of-process
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-ReadSpeaker.TTSEditorUtils:GetSettings ()
-ReadSpeaker.TTSEditorUtils/Startup:.cctor ()
-System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-[C:\build\output\unity\unity\Modules\AssetDatabase\Editor\V2\AssetOperations\CreateAsset.cpp line 58]
-
-UnityEngine.UnityException: Creating asset at path Assets/Plugins/ReadSpeaker/Resources/TTSSettings.asset failed.
-  at (wrapper managed-to-native) UnityEditor.AssetDatabase.CreateAsset(UnityEngine.Object,string)
-  at ReadSpeaker.TTSEditorUtils.GetSettings () [0x00037] in <874180dba1df4fac8d4bcda7a4f41563>:0 
-  at ReadSpeaker.TTSEditorUtils+Startup..cctor () [0x0002a] in <874180dba1df4fac8d4bcda7a4f41563>:0 
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.716 seconds
-Domain Reload Profiling: 2653ms
-	BeginReloadAssembly (302ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (6ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (72ms)
-	RebuildCommonClasses (50ms)
-	RebuildNativeTypeToScriptingClass (17ms)
-	initialDomainReloadingComplete (83ms)
-	LoadAllAssembliesAndSetupDomain (485ms)
-		LoadAssemblies (626ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (24ms)
-			TypeCache.Refresh (12ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (9ms)
-	FinalizeReload (1717ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (736ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (54ms)
-			SetLoadedEditorAssemblies (10ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (129ms)
-			ProcessInitializeOnLoadAttributes (500ms)
-			ProcessInitializeOnLoadMethodAttributes (31ms)
-			AfterProcessingInitializeOnLoad (12ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (8ms)
-Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Refreshing native plugins compatible for Editor in 74.23 ms, found 36 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3532 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 228 unused Assets / (213.9 KB). Loaded Objects now: 3932.
-Memory consumption went from 131.5 MB to 131.3 MB.
-Total: 6.435000 ms (FindLiveObjects: 0.651500 ms CreateObjectMapping: 0.176000 ms MarkObjects: 5.137300 ms  DeleteObjects: 0.468400 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.887 seconds
-Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Refreshing native plugins compatible for Editor in 53.41 ms, found 36 plugins.
-Native extension for UWP target not found
-Native extension for WindowsStandalone target not found
-Native extension for Android target not found
-Native extension for WebGL target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-CreateSerializedAsset is not supported while importing out-of-process
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-ReadSpeaker.TTSEditorUtils:GetSettings ()
-ReadSpeaker.TTSEditorUtils/Startup:.cctor ()
-System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-[C:\build\output\unity\unity\Modules\AssetDatabase\Editor\V2\AssetOperations\CreateAsset.cpp line 58]
-
-UnityEngine.UnityException: Creating asset at path Assets/Plugins/ReadSpeaker/Resources/TTSSettings.asset failed.
-  at (wrapper managed-to-native) UnityEditor.AssetDatabase.CreateAsset(UnityEngine.Object,string)
-  at ReadSpeaker.TTSEditorUtils.GetSettings () [0x00037] in <874180dba1df4fac8d4bcda7a4f41563>:0 
-  at ReadSpeaker.TTSEditorUtils+Startup..cctor () [0x0002a] in <874180dba1df4fac8d4bcda7a4f41563>:0 
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogError (object)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.473 seconds
-Domain Reload Profiling: 2357ms
-	BeginReloadAssembly (272ms)
+- Finished resetting the current domain, in  1.700 seconds
+Domain Reload Profiling: 2606ms
+	BeginReloadAssembly (274ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (5ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (58ms)
-	RebuildCommonClasses (133ms)
-	RebuildNativeTypeToScriptingClass (21ms)
-	initialDomainReloadingComplete (51ms)
-	LoadAllAssembliesAndSetupDomain (406ms)
-		LoadAssemblies (528ms)
+		CreateAndSetChildDomain (43ms)
+	RebuildCommonClasses (48ms)
+	RebuildNativeTypeToScriptingClass (20ms)
+	initialDomainReloadingComplete (61ms)
+	LoadAllAssembliesAndSetupDomain (502ms)
+		LoadAssemblies (648ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (43ms)
-			TypeCache.Refresh (17ms)
-				TypeCache.ScanAssembly (3ms)
-			ScanForSourceGeneratedMonoScriptInfo (12ms)
-			ResolveRequiredComponents (11ms)
-	FinalizeReload (1474ms)
+		AnalyzeDomain (28ms)
+			TypeCache.Refresh (15ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (1701ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (870ms)
+		SetupLoadedEditorAssemblies (727ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (46ms)
-			SetLoadedEditorAssemblies (7ms)
+			InitializePlatformSupportModulesInManaged (52ms)
+			SetLoadedEditorAssemblies (8ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (179ms)
-			ProcessInitializeOnLoadAttributes (600ms)
-			ProcessInitializeOnLoadMethodAttributes (29ms)
+			BeforeProcessingInitializeOnLoad (103ms)
+			ProcessInitializeOnLoadAttributes (524ms)
+			ProcessInitializeOnLoadMethodAttributes (31ms)
 			AfterProcessingInitializeOnLoad (9ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (8ms)
+		AwakeInstancesAfterBackupRestoration (9ms)
 Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
 Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
 Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
 Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
 Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
 Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Refreshing native plugins compatible for Editor in 38.70 ms, found 36 plugins.
+Refreshing native plugins compatible for Editor in 65.35 ms, found 36 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3532 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 228 unused Assets / (213.8 KB). Loaded Objects now: 3948.
-Memory consumption went from 131.5 MB to 131.3 MB.
-Total: 3.707200 ms (FindLiveObjects: 0.560400 ms CreateObjectMapping: 0.277500 ms MarkObjects: 2.665700 ms  DeleteObjects: 0.198300 ms)
+Unloading 3530 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 228 unused Assets / (213.7 KB). Loaded Objects now: 3836.
+Memory consumption went from 130.9 MB to 130.7 MB.
+Total: 6.121200 ms (FindLiveObjects: 0.445800 ms CreateObjectMapping: 0.275600 ms MarkObjects: 4.946700 ms  DeleteObjects: 0.451000 ms)
 
 Prepare: number of updated asset objects reloaded= 0
 AssetImportParameters requested are different than current active one (requested -> active):
@@ -1017,14 +316,14 @@ AssetImportParameters requested are different than current active one (requested
 ========================================================================
 Received Prepare
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.991 seconds
+- Loaded All Assemblies, in  0.951 seconds
 Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
 Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
 Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
 Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
 Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
 Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Refreshing native plugins compatible for Editor in 74.56 ms, found 36 plugins.
+Refreshing native plugins compatible for Editor in 68.73 ms, found 36 plugins.
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
@@ -1052,36 +351,531 @@ UnityEngine.Debug:LogError (object)
 UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
 
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.615 seconds
-Domain Reload Profiling: 2601ms
-	BeginReloadAssembly (340ms)
+- Finished resetting the current domain, in  1.560 seconds
+Domain Reload Profiling: 2509ms
+	BeginReloadAssembly (332ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (13ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (78ms)
+	RebuildCommonClasses (58ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (61ms)
+	LoadAllAssembliesAndSetupDomain (481ms)
+		LoadAssemblies (638ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (24ms)
+			TypeCache.Refresh (13ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (1561ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (677ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (46ms)
+			SetLoadedEditorAssemblies (9ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (102ms)
+			ProcessInitializeOnLoadAttributes (480ms)
+			ProcessInitializeOnLoadMethodAttributes (31ms)
+			AfterProcessingInitializeOnLoad (10ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (10ms)
+Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Refreshing native plugins compatible for Editor in 62.77 ms, found 36 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3532 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 228 unused Assets / (214.0 KB). Loaded Objects now: 3852.
+Memory consumption went from 131.2 MB to 131.0 MB.
+Total: 6.568500 ms (FindLiveObjects: 0.853800 ms CreateObjectMapping: 0.466300 ms MarkObjects: 4.605500 ms  DeleteObjects: 0.639300 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  1.021 seconds
+Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Refreshing native plugins compatible for Editor in 67.19 ms, found 36 plugins.
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+CreateSerializedAsset is not supported while importing out-of-process
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+ReadSpeaker.TTSEditorUtils:GetSettings ()
+ReadSpeaker.TTSEditorUtils/Startup:.cctor ()
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[C:\build\output\unity\unity\Modules\AssetDatabase\Editor\V2\AssetOperations\CreateAsset.cpp line 58]
+
+UnityEngine.UnityException: Creating asset at path Assets/Plugins/ReadSpeaker/Resources/TTSSettings.asset failed.
+  at (wrapper managed-to-native) UnityEditor.AssetDatabase.CreateAsset(UnityEngine.Object,string)
+  at ReadSpeaker.TTSEditorUtils.GetSettings () [0x00037] in <874180dba1df4fac8d4bcda7a4f41563>:0 
+  at ReadSpeaker.TTSEditorUtils+Startup..cctor () [0x0002a] in <874180dba1df4fac8d4bcda7a4f41563>:0 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.574 seconds
+Domain Reload Profiling: 2588ms
+	BeginReloadAssembly (299ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (9ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (77ms)
+	RebuildCommonClasses (99ms)
+	RebuildNativeTypeToScriptingClass (32ms)
+	initialDomainReloadingComplete (79ms)
+	LoadAllAssembliesAndSetupDomain (504ms)
+		LoadAssemblies (636ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (27ms)
+			TypeCache.Refresh (14ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (1575ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (704ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (48ms)
+			SetLoadedEditorAssemblies (9ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (106ms)
+			ProcessInitializeOnLoadAttributes (496ms)
+			ProcessInitializeOnLoadMethodAttributes (33ms)
+			AfterProcessingInitializeOnLoad (11ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Refreshing native plugins compatible for Editor in 58.92 ms, found 36 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3532 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 228 unused Assets / (214.0 KB). Loaded Objects now: 3868.
+Memory consumption went from 131.2 MB to 131.0 MB.
+Total: 4.556700 ms (FindLiveObjects: 0.602400 ms CreateObjectMapping: 0.168300 ms MarkObjects: 2.980800 ms  DeleteObjects: 0.802000 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.978 seconds
+Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Refreshing native plugins compatible for Editor in 60.82 ms, found 36 plugins.
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+CreateSerializedAsset is not supported while importing out-of-process
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+ReadSpeaker.TTSEditorUtils:GetSettings ()
+ReadSpeaker.TTSEditorUtils/Startup:.cctor ()
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[C:\build\output\unity\unity\Modules\AssetDatabase\Editor\V2\AssetOperations\CreateAsset.cpp line 58]
+
+UnityEngine.UnityException: Creating asset at path Assets/Plugins/ReadSpeaker/Resources/TTSSettings.asset failed.
+  at (wrapper managed-to-native) UnityEditor.AssetDatabase.CreateAsset(UnityEngine.Object,string)
+  at ReadSpeaker.TTSEditorUtils.GetSettings () [0x00037] in <874180dba1df4fac8d4bcda7a4f41563>:0 
+  at ReadSpeaker.TTSEditorUtils+Startup..cctor () [0x0002a] in <874180dba1df4fac8d4bcda7a4f41563>:0 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.559 seconds
+Domain Reload Profiling: 2531ms
+	BeginReloadAssembly (278ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (17ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (64ms)
-	RebuildCommonClasses (62ms)
-	RebuildNativeTypeToScriptingClass (17ms)
-	initialDomainReloadingComplete (60ms)
-	LoadAllAssembliesAndSetupDomain (506ms)
-		LoadAssemblies (670ms)
+		CreateAndSetChildDomain (66ms)
+	RebuildCommonClasses (104ms)
+	RebuildNativeTypeToScriptingClass (33ms)
+	initialDomainReloadingComplete (66ms)
+	LoadAllAssembliesAndSetupDomain (491ms)
+		LoadAssemblies (604ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (27ms)
+		AnalyzeDomain (22ms)
+			TypeCache.Refresh (12ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (8ms)
+	FinalizeReload (1559ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (679ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (47ms)
+			SetLoadedEditorAssemblies (8ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (106ms)
+			ProcessInitializeOnLoadAttributes (479ms)
+			ProcessInitializeOnLoadMethodAttributes (31ms)
+			AfterProcessingInitializeOnLoad (9ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (10ms)
+Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Refreshing native plugins compatible for Editor in 59.97 ms, found 36 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3532 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 228 unused Assets / (213.9 KB). Loaded Objects now: 3884.
+Memory consumption went from 131.2 MB to 131.0 MB.
+Total: 5.715900 ms (FindLiveObjects: 0.365900 ms CreateObjectMapping: 0.155700 ms MarkObjects: 4.534800 ms  DeleteObjects: 0.656500 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.858 seconds
+Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Refreshing native plugins compatible for Editor in 65.26 ms, found 36 plugins.
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+CreateSerializedAsset is not supported while importing out-of-process
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+ReadSpeaker.TTSEditorUtils:GetSettings ()
+ReadSpeaker.TTSEditorUtils/Startup:.cctor ()
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[C:\build\output\unity\unity\Modules\AssetDatabase\Editor\V2\AssetOperations\CreateAsset.cpp line 58]
+
+UnityEngine.UnityException: Creating asset at path Assets/Plugins/ReadSpeaker/Resources/TTSSettings.asset failed.
+  at (wrapper managed-to-native) UnityEditor.AssetDatabase.CreateAsset(UnityEngine.Object,string)
+  at ReadSpeaker.TTSEditorUtils.GetSettings () [0x00037] in <874180dba1df4fac8d4bcda7a4f41563>:0 
+  at ReadSpeaker.TTSEditorUtils+Startup..cctor () [0x0002a] in <874180dba1df4fac8d4bcda7a4f41563>:0 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.646 seconds
+Domain Reload Profiling: 2501ms
+	BeginReloadAssembly (206ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (14ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (43ms)
+	RebuildCommonClasses (53ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (51ms)
+	LoadAllAssembliesAndSetupDomain (528ms)
+		LoadAssemblies (608ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (26ms)
 			TypeCache.Refresh (13ms)
 				TypeCache.ScanAssembly (0ms)
 			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (10ms)
-	FinalizeReload (1616ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (1647ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (716ms)
+		SetupLoadedEditorAssemblies (722ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (53ms)
+			InitializePlatformSupportModulesInManaged (50ms)
+			SetLoadedEditorAssemblies (8ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (105ms)
+			ProcessInitializeOnLoadAttributes (516ms)
+			ProcessInitializeOnLoadMethodAttributes (35ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Refreshing native plugins compatible for Editor in 63.42 ms, found 36 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3532 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 228 unused Assets / (213.9 KB). Loaded Objects now: 3900.
+Memory consumption went from 131.2 MB to 131.0 MB.
+Total: 5.580600 ms (FindLiveObjects: 1.004500 ms CreateObjectMapping: 0.707700 ms MarkObjects: 3.508100 ms  DeleteObjects: 0.358600 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  1.117 seconds
+Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Refreshing native plugins compatible for Editor in 86.52 ms, found 36 plugins.
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+CreateSerializedAsset is not supported while importing out-of-process
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+ReadSpeaker.TTSEditorUtils:GetSettings ()
+ReadSpeaker.TTSEditorUtils/Startup:.cctor ()
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[C:\build\output\unity\unity\Modules\AssetDatabase\Editor\V2\AssetOperations\CreateAsset.cpp line 58]
+
+UnityEngine.UnityException: Creating asset at path Assets/Plugins/ReadSpeaker/Resources/TTSSettings.asset failed.
+  at (wrapper managed-to-native) UnityEditor.AssetDatabase.CreateAsset(UnityEngine.Object,string)
+  at ReadSpeaker.TTSEditorUtils.GetSettings () [0x00037] in <874180dba1df4fac8d4bcda7a4f41563>:0 
+  at ReadSpeaker.TTSEditorUtils+Startup..cctor () [0x0002a] in <874180dba1df4fac8d4bcda7a4f41563>:0 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.552 seconds
+Domain Reload Profiling: 2666ms
+	BeginReloadAssembly (358ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (15ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (75ms)
+	RebuildCommonClasses (61ms)
+	RebuildNativeTypeToScriptingClass (37ms)
+	initialDomainReloadingComplete (66ms)
+	LoadAllAssembliesAndSetupDomain (592ms)
+		LoadAssemblies (757ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (50ms)
+			TypeCache.Refresh (31ms)
+				TypeCache.ScanAssembly (4ms)
+			ScanForSourceGeneratedMonoScriptInfo (12ms)
+			ResolveRequiredComponents (5ms)
+	FinalizeReload (1553ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (826ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (67ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (125ms)
+			ProcessInitializeOnLoadAttributes (592ms)
+			ProcessInitializeOnLoadMethodAttributes (25ms)
+			AfterProcessingInitializeOnLoad (10ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Refreshing native plugins compatible for Editor in 75.41 ms, found 36 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3532 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 228 unused Assets / (213.9 KB). Loaded Objects now: 3916.
+Memory consumption went from 131.3 MB to 131.0 MB.
+Total: 5.926500 ms (FindLiveObjects: 0.804100 ms CreateObjectMapping: 0.665400 ms MarkObjects: 3.821300 ms  DeleteObjects: 0.632400 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.977 seconds
+Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Refreshing native plugins compatible for Editor in 71.07 ms, found 36 plugins.
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+CreateSerializedAsset is not supported while importing out-of-process
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+ReadSpeaker.TTSEditorUtils:GetSettings ()
+ReadSpeaker.TTSEditorUtils/Startup:.cctor ()
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[C:\build\output\unity\unity\Modules\AssetDatabase\Editor\V2\AssetOperations\CreateAsset.cpp line 58]
+
+UnityEngine.UnityException: Creating asset at path Assets/Plugins/ReadSpeaker/Resources/TTSSettings.asset failed.
+  at (wrapper managed-to-native) UnityEditor.AssetDatabase.CreateAsset(UnityEngine.Object,string)
+  at ReadSpeaker.TTSEditorUtils.GetSettings () [0x00037] in <874180dba1df4fac8d4bcda7a4f41563>:0 
+  at ReadSpeaker.TTSEditorUtils+Startup..cctor () [0x0002a] in <874180dba1df4fac8d4bcda7a4f41563>:0 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.711 seconds
+Domain Reload Profiling: 2684ms
+	BeginReloadAssembly (286ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (10ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (76ms)
+	RebuildCommonClasses (58ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (61ms)
+	LoadAllAssembliesAndSetupDomain (550ms)
+		LoadAssemblies (673ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (27ms)
+			TypeCache.Refresh (15ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (1712ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (744ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (51ms)
 			SetLoadedEditorAssemblies (7ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (108ms)
-			ProcessInitializeOnLoadAttributes (504ms)
-			ProcessInitializeOnLoadMethodAttributes (33ms)
+			BeforeProcessingInitializeOnLoad (114ms)
+			ProcessInitializeOnLoadAttributes (525ms)
+			ProcessInitializeOnLoadMethodAttributes (35ms)
 			AfterProcessingInitializeOnLoad (11ms)
 			EditorAssembliesLoaded (1ms)
 		ExecutionOrderSort2 (0ms)
@@ -1092,12 +886,111 @@ Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/R
 Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
 Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
 Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
-Refreshing native plugins compatible for Editor in 67.48 ms, found 36 plugins.
+Refreshing native plugins compatible for Editor in 64.41 ms, found 36 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3532 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 228 unused Assets / (213.9 KB). Loaded Objects now: 3964.
-Memory consumption went from 131.6 MB to 131.3 MB.
-Total: 6.351000 ms (FindLiveObjects: 0.700700 ms CreateObjectMapping: 0.371300 ms MarkObjects: 4.859000 ms  DeleteObjects: 0.417600 ms)
+Unloading 228 unused Assets / (213.9 KB). Loaded Objects now: 3932.
+Memory consumption went from 131.3 MB to 131.1 MB.
+Total: 5.640300 ms (FindLiveObjects: 0.913600 ms CreateObjectMapping: 0.336800 ms MarkObjects: 3.840000 ms  DeleteObjects: 0.547300 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.961 seconds
+Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Refreshing native plugins compatible for Editor in 64.68 ms, found 36 plugins.
+Native extension for UWP target not found
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+CreateSerializedAsset is not supported while importing out-of-process
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+ReadSpeaker.TTSEditorUtils:GetSettings ()
+ReadSpeaker.TTSEditorUtils/Startup:.cctor ()
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[C:\build\output\unity\unity\Modules\AssetDatabase\Editor\V2\AssetOperations\CreateAsset.cpp line 58]
+
+UnityEngine.UnityException: Creating asset at path Assets/Plugins/ReadSpeaker/Resources/TTSSettings.asset failed.
+  at (wrapper managed-to-native) UnityEditor.AssetDatabase.CreateAsset(UnityEngine.Object,string)
+  at ReadSpeaker.TTSEditorUtils.GetSettings () [0x00037] in <874180dba1df4fac8d4bcda7a4f41563>:0 
+  at ReadSpeaker.TTSEditorUtils+Startup..cctor () [0x0002a] in <874180dba1df4fac8d4bcda7a4f41563>:0 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.666 seconds
+Domain Reload Profiling: 2623ms
+	BeginReloadAssembly (280ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (8ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (59ms)
+	RebuildCommonClasses (55ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (61ms)
+	LoadAllAssembliesAndSetupDomain (545ms)
+		LoadAssemblies (678ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (28ms)
+			TypeCache.Refresh (14ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (11ms)
+	FinalizeReload (1667ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (715ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (47ms)
+			SetLoadedEditorAssemblies (8ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (114ms)
+			ProcessInitializeOnLoadAttributes (504ms)
+			ProcessInitializeOnLoadMethodAttributes (30ms)
+			AfterProcessingInitializeOnLoad (10ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (18ms)
+Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x64/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x86/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_eng' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/D16/bin/Windows_x64/vt_eng.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/julie/N16/bin/vt_eng.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Multiple plugins with the same name 'vt_bre' (found at 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/vt_bre.dll' and 'Assets/StreamingAssets/ReadSpeaker/WinLinux/adam/D16/bin/Windows_x86/vt_bre.dll'). That means one or more plugins are set to be compatible with Editor. Only one plugin at the time can be used by Editor.
+Refreshing native plugins compatible for Editor in 61.42 ms, found 36 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3532 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 228 unused Assets / (214.0 KB). Loaded Objects now: 3948.
+Memory consumption went from 131.3 MB to 131.1 MB.
+Total: 6.959500 ms (FindLiveObjects: 0.478800 ms CreateObjectMapping: 0.338200 ms MarkObjects: 5.275600 ms  DeleteObjects: 0.864300 ms)
 
 Prepare: number of updated asset objects reloaded= 0
 AssetImportParameters requested are different than current active one (requested -> active):

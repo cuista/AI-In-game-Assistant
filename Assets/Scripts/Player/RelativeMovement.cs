@@ -99,6 +99,7 @@ public class RelativeMovement : MonoBehaviour
         }
         else
         {
+            _jumpPressed = false;
             _vertSpeed += gravity * 5 * Time.fixedDeltaTime;
             if (_vertSpeed < terminalVelocity)
             {
