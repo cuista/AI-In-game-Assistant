@@ -59,6 +59,8 @@ public class CloningSystem : MonoBehaviour
     private bool fire1Pressed;
     private bool fire2Pressed;
 
+    public float timeAcceleration = 3f;
+
     float horInput;
     float verInput;
     float moveSpeed;
@@ -95,6 +97,16 @@ public class CloningSystem : MonoBehaviour
 
             fire1Pressed = Input.GetButtonUp("Fire1") || fire1Pressed;
             fire2Pressed = (Input.GetButtonUp("Fire2") && _spawnPoint != null) || fire2Pressed;
+        }
+
+        //Time acceleration ability
+        if (Input.GetButtonDown("TimeAcceleration"))
+        {
+            Time.timeScale = timeAcceleration;
+        }
+        if (Input.GetButtonUp("TimeAcceleration"))
+        {
+            Time.timeScale = 1.0f;
         }
 
         //For input recording
