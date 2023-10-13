@@ -17,7 +17,7 @@ public class PlatformMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void FixedUpdate() //Script Execution Order => 300
     {
         float step = speed * Time.fixedDeltaTime;
         transform.position = Vector3.MoveTowards(transform.position, _finalPos, step);
