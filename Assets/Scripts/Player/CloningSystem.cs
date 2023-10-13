@@ -14,18 +14,16 @@ class PlayerRecord
     public readonly bool isFirstPersonView;
     public readonly float horInput, verInput;
     public readonly float moveSpeed;
-    //public readonly jumpInput;
+    public readonly bool jumpPressed;
 
-    public PlayerRecord(Transform playerCamera, bool isFirstPersonView, float horInput, float verInput, float moveSpeed/*, bool jumpInput*/)
+    public PlayerRecord(Transform playerCamera, bool isFirstPersonView, float horInput, float verInput, float moveSpeed, bool jumpPressed)
     {
         this.playerCamera = playerCamera;
         this.isFirstPersonView = isFirstPersonView;
         this.horInput = horInput;
         this.verInput = verInput;
         this.moveSpeed = moveSpeed;
-        /*
-        * this.jumpInput = jumpInput;
-        */
+        this.jumpPressed = jumpPressed;
     }
 }
 
@@ -33,11 +31,15 @@ class ReplayClone
 {
     public GameObject Clone;
     public List<PlayerRecord> PlayerRecordings;
+    public bool isJumping;
+    public float vertSpeed;
 
-    public ReplayClone(GameObject clone, List<PlayerRecord> playerRecordings)
+    public ReplayClone(GameObject clone, List<PlayerRecord> playerRecordings, float vertSpeed)
     {
         this.Clone = clone;
         this.PlayerRecordings = playerRecordings;
+        isJumping = false;
+        this.vertSpeed = vertSpeed;
     }
 }
 
@@ -75,6 +77,8 @@ public class CloningSystem : MonoBehaviour
 
         fire1Pressed = false;
         fire2Pressed = false;
+
+        jumpPressed = false;
     }
 
     // Update is called once per frame
@@ -94,9 +98,9 @@ public class CloningSystem : MonoBehaviour
         }
 
         //For input recording
-        horInput = relativeMovement.HorInput;
-        verInput = relativeMovement.VerInput;
-        moveSpeed = relativeMovement.MoveSpeed;
+        horInput = Input.GetAxis("Horizontal");
+        verInput = Input.GetAxis("Vertical");
+        moveSpeed = Input.GetButton("Run") ? relativeMovement.runSpeed: relativeMovement.walkSpeed;
         jumpPressed = Input.GetButtonDown("Jump") || jumpPressed;
     }
 
@@ -129,7 +133,7 @@ public class CloningSystem : MonoBehaviour
             Destroy(_spawnPoint);
             GameObject clone = Instantiate(clonePrefab, spawn.position, spawn.rotation);
             List<PlayerRecord> records = _currentPlayerRecording;
-            _replayClones.Add(new ReplayClone(clone, records));
+            _replayClones.Add(new ReplayClone(clone, records, relativeMovement.minFall));
 
             _currentPlayerRecording = null;
             _clonesAvailable--;
@@ -139,23 +143,20 @@ public class CloningSystem : MonoBehaviour
             fire2Pressed = false;
         }
 
-        //------------------------------------------------------------------------------------------------------
         Transform playerCamera = relativeMovement.PlayerCamera;
         bool isFirstPersonView = relativeMovement.IsFirstPersonView;
 
         //If there's a clone ready to be placed, a not null clone ready that is recording player movements
-        _currentPlayerRecording?.Add(new PlayerRecord(playerCamera, isFirstPersonView, horInput, verInput, moveSpeed));
-        Debug.Log(_currentPlayerRecording?.Count);
+        _currentPlayerRecording?.Add(new PlayerRecord(playerCamera, isFirstPersonView, horInput, verInput, moveSpeed, jumpPressed));
 
         if (_replayClones.Count > 0) //If there's at least a clone in the scene
         {
             foreach (var replayClone in _replayClones)
             {
                 //ADD player record
-                replayClone.PlayerRecordings.Add(new PlayerRecord(playerCamera, isFirstPersonView, horInput, verInput, moveSpeed));
-                Debug.Log(replayClone.PlayerRecordings.Count);
+                replayClone.PlayerRecordings.Add(new PlayerRecord(playerCamera, isFirstPersonView, horInput, verInput, moveSpeed, jumpPressed));
 
-                //Clone MOVEMENT
+                //Clone HORIZONTAL-MOVEMENT
                 Vector3 moveDirection = new Vector3(replayClone.PlayerRecordings[0].horInput * replayClone.PlayerRecordings[0].moveSpeed, 0, replayClone.PlayerRecordings[0].verInput * replayClone.PlayerRecordings[0].moveSpeed); //(x,0,z)
                 moveDirection = Vector3.ClampMagnitude(moveDirection, replayClone.PlayerRecordings[0].moveSpeed); //avoid diagonal speed-up
 
@@ -173,12 +174,9 @@ public class CloningSystem : MonoBehaviour
                     }
                 }
 
-                /*
-                //If player hit the floor or not, handle vertical speed
-                float vertSpeed = relativeMovement.minFall;
-
+                //Clone VERTICAL-MOVEMENT
                 bool isCloneHittingGround;
-                if (vertSpeed < 0 && Physics.Raycast(replayClone.Clone.transform.position, Vector3.down, out RaycastHit hit))
+                if (replayClone.vertSpeed < 0 && Physics.Raycast(replayClone.Clone.transform.position, Vector3.down, out RaycastHit hit))
                 {
                     float check = (replayClone.Clone.GetComponent<CharacterController>().height + replayClone.Clone.GetComponent<CharacterController>().radius) / 1.9f;
                     isCloneHittingGround = hit.distance <= check;
@@ -187,48 +185,54 @@ public class CloningSystem : MonoBehaviour
                 {
                     isCloneHittingGround = false;
                 }
-                Debug.Log("CLONE TOCCA TERRA?: " + isCloneHittingGround);
-                */
-                /*
+                
                 if (isCloneHittingGround)
                 {
-                    if (jumpPressed)
+                    if (replayClone.PlayerRecordings[0].jumpPressed)
                     {
-                        jumpPressed = false;
-                        vertSpeed = relativeMovement.jumpSpeed;
+                        if (!replayClone.isJumping)
+                        {
+                            replayClone.vertSpeed = relativeMovement.jumpSpeed;
+                            replayClone.isJumping = true;
+                        }
                     }
                     else
                     {
-                        vertSpeed = relativeMovement.minFall;
+                        replayClone.vertSpeed = relativeMovement.minFall;
+                        replayClone.isJumping = false;
                     }
                 }
                 else
                 {
-                    vertSpeed += relativeMovement.gravity * 5 * Time.fixedDeltaTime;
-                    if (vertSpeed < relativeMovement.terminalVelocity)
+                    replayClone.vertSpeed += relativeMovement.gravity * 5 * Time.fixedDeltaTime;
+                    if (replayClone.vertSpeed < relativeMovement.terminalVelocity)
                     {
-                        vertSpeed = relativeMovement.terminalVelocity;
+                        replayClone.vertSpeed = relativeMovement.terminalVelocity;
                     }
 
                     if (replayClone.Clone.GetComponent<CharacterController>().isGrounded)
                     {
                         if (Vector3.Dot(moveDirection, replayClone.Clone.GetComponent<CloneMovement>()._contact.normal) < 0) // Dot if they point same is 1 (same direction) to -1 (opposite)
                         {
-                            moveDirection = replayClone.Clone.GetComponent<CloneMovement>()._contact.normal * moveSpeed;
+                            moveDirection = replayClone.Clone.GetComponent<CloneMovement>()._contact.normal * replayClone.PlayerRecordings[0].moveSpeed;
+                            replayClone.isJumping = false;
                         }
                         else
                         {
-                            moveDirection += replayClone.Clone.GetComponent<CloneMovement>()._contact.normal * moveSpeed * 10;
+                            moveDirection += replayClone.Clone.GetComponent<CloneMovement>()._contact.normal * replayClone.PlayerRecordings[0].moveSpeed * 10;
                         }
                     }
                 }
-                moveDirection.y = vertSpeed;
-                */
+                moveDirection.y = replayClone.vertSpeed;
+                Debug.Log(moveDirection.y);
 
                 replayClone.Clone.GetComponent<CharacterController>().Move(moveDirection * Time.fixedDeltaTime);
 
                 //REMOVE player record
                 replayClone.PlayerRecordings.RemoveAt(0);
+
+                //Reset jump input recording
+                jumpPressed = false;
             }
         }
 

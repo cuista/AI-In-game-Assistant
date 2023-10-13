@@ -55,7 +55,7 @@ public class RelativeMovement : MonoBehaviour
         _vertInput = Input.GetAxis("Vertical");
 
         //If jump pressed, it can be set false in fixedUpdate
-        _jumpPressed = Input.GetButtonDown("Jump") && (!IsJumping) || _jumpPressed;
+        _jumpPressed = Input.GetButtonDown("Jump") || _jumpPressed;
 
         //Change player speed
         _moveSpeed = Input.GetButton("Run") ? runSpeed : walkSpeed;
@@ -85,8 +85,11 @@ public class RelativeMovement : MonoBehaviour
             if (_jumpPressed)
             {
                 _jumpPressed = false;
-                _vertSpeed = jumpSpeed;
-                _isJumping = true;
+                if(!IsJumping)
+                {
+                    _vertSpeed = jumpSpeed;
+                    _isJumping = true;
+                }
             }
             else
             {
