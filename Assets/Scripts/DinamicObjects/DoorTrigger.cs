@@ -30,7 +30,7 @@ public class DoorTrigger : MonoBehaviour
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone"))
         {
             transform.parent.position = buttonPressed;
-            door.GetComponent<DoorAnimation>().Activate();
+            door.SendMessage("Activate");
             numColliders++;
         }
     }
@@ -43,7 +43,7 @@ public class DoorTrigger : MonoBehaviour
             if(numColliders == 0)
             {
                 transform.parent.position = buttonReleased;
-                door.GetComponent<DoorAnimation>().Deactivate();
+                door.SendMessage("Deactivate");
             }
         }
     }

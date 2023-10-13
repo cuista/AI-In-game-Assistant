@@ -21,32 +21,6 @@ public class DoorAnimation : MonoBehaviour
         _openPos = _closePos + dPos;
     }
 
-    public void Operate()
-    {
-        if (!_open)
-        {
-            if (!_doorIsMoving)
-            {
-                _doorIsMoving = true;
-            }
-            else
-            {
-                _open = true;
-            }
-        }
-        else
-        {
-            if (!_doorIsMoving)
-            {
-                _doorIsMoving = true;
-            }
-            else
-            {
-                _open = false;
-            }
-        }
-    }
-
     public void Activate()
     {
         if (!_open)
@@ -71,7 +45,7 @@ public class DoorAnimation : MonoBehaviour
         }
     }
 
-    void doorAnimation()
+    void Operate()
     {
         if (!_open)
         {
@@ -104,7 +78,7 @@ public class DoorAnimation : MonoBehaviour
     {
         if (_doorIsMoving)
         {
-            doorAnimation();
+            Operate();
         }
     }
 }
