@@ -70,7 +70,7 @@ public class CloningSystem : MonoBehaviour
         _replayClones = new List<ReplayClone>();
         _spawnPoint = null;
         _spawnPointTimedOut = false;
-        _currentPlayerRecording = new List<PlayerRecord>();
+        _currentPlayerRecording = null;
         _clonesAvailable = 8; //Number of max. clones that can be placed
 
         fire1Pressed = false;
@@ -85,6 +85,7 @@ public class CloningSystem : MonoBehaviour
             if(_spawnPointTimedOut) //SpawnPoint unused for 10 seconds
             {
                 Destroy(_spawnPoint);
+                _currentPlayerRecording = null;
                 _spawnPointTimedOut = false;
             }
 
@@ -107,11 +108,12 @@ public class CloningSystem : MonoBehaviour
             {
                 Destroy(_spawnPoint);
                 _spawnPointTimedOut = false;
-                _currentPlayerRecording = null;
+                _currentPlayerRecording = new List<PlayerRecord>();
                 transform.GetComponent<PlayerCharacter>().ResetUICountdown(); //UI temporary
             }
             else
             {
+                _currentPlayerRecording = new List<PlayerRecord>();
                 StartCoroutine(transform.GetComponent<PlayerCharacter>().UICountdown(20)); //UI temporary
             }
             _spawnPoint = Instantiate(spawnClonePrefab) as GameObject;
@@ -129,7 +131,7 @@ public class CloningSystem : MonoBehaviour
             List<PlayerRecord> records = _currentPlayerRecording;
             _replayClones.Add(new ReplayClone(clone, records));
 
-            _currentPlayerRecording = new List<PlayerRecord>();
+            _currentPlayerRecording = null;
             _clonesAvailable--;
 
             transform.GetComponent<PlayerCharacter>().DisableUICountdown(); //UI temporary
@@ -143,6 +145,7 @@ public class CloningSystem : MonoBehaviour
 
         //If there's a clone ready to be placed, a not null clone ready that is recording player movements
         _currentPlayerRecording?.Add(new PlayerRecord(playerCamera, isFirstPersonView, horInput, verInput, moveSpeed));
+        Debug.Log(_currentPlayerRecording?.Count);
 
         if (_replayClones.Count > 0) //If there's at least a clone in the scene
         {
@@ -150,6 +153,7 @@ public class CloningSystem : MonoBehaviour
             {
                 //ADD player record
                 replayClone.PlayerRecordings.Add(new PlayerRecord(playerCamera, isFirstPersonView, horInput, verInput, moveSpeed));
+                Debug.Log(replayClone.PlayerRecordings.Count);
 
                 //Clone MOVEMENT
                 Vector3 moveDirection = new Vector3(replayClone.PlayerRecordings[0].horInput * replayClone.PlayerRecordings[0].moveSpeed, 0, replayClone.PlayerRecordings[0].verInput * replayClone.PlayerRecordings[0].moveSpeed); //(x,0,z)
