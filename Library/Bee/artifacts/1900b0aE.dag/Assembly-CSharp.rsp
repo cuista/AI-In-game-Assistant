@@ -118,8 +118,16 @@
 -define:ENABLE_TIMELINE
 -define:ENABLE_LEGACY_INPUT_MANAGER
 -define:TEXTCORE_FONT_ENGINE_1_5_OR_NEWER
+-define:INWORLD_DEBUG
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
+-r:"Assets/Inworld.AI/Plugins/InworldProto.dll"
+-r:"Assets/Inworld.AI/Plugins/System.Runtime.CompilerServices.Unsafe.dll"
+-r:"Assets/Inworld.AI/Plugins/ThirdParty/GRPC/Google.Api.CommonProtos.dll"
+-r:"Assets/Inworld.AI/Plugins/ThirdParty/GRPC/Google.Protobuf.dll"
+-r:"Assets/Inworld.AI/Plugins/ThirdParty/GRPC/Grpc.Core.Api.dll"
+-r:"Assets/Inworld.AI/Plugins/ThirdParty/GRPC/Grpc.Core.dll"
+-r:"Assets/Inworld.AI/Plugins/ThirdParty/NewtonSoftJson/NewtonsoftJson.dll"
 -r:"Assets/Packages/Microsoft.Bcl.AsyncInterfaces.1.1.1/lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll"
 -r:"Assets/Packages/Microsoft.Extensions.Configuration.2.1.0/lib/netstandard2.0/Microsoft.Extensions.Configuration.dll"
 -r:"Assets/Packages/Microsoft.Extensions.Configuration.Abstractions.2.1.0/lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll"
@@ -132,7 +140,6 @@
 -r:"Assets/Packages/Microsoft.Extensions.Primitives.2.1.0/lib/netstandard2.0/Microsoft.Extensions.Primitives.dll"
 -r:"Assets/Packages/Newtonsoft.Json.13.0.3/lib/netstandard2.0/Newtonsoft.Json.dll"
 -r:"Assets/Packages/OpenAI.1.7.2/lib/netstandard2.0/OpenAI_API.dll"
--r:"Assets/Packages/System.Runtime.CompilerServices.Unsafe.4.5.0/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll"
 -r:"Assets/Plugins/ReadSpeaker/bin/Managed/AndroidJNIWrapper.dll"
 -r:"Assets/Plugins/ReadSpeaker/bin/Managed/RSTTS.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
@@ -347,7 +354,11 @@
 -r:"Library/PackageCache/com.unity.visualscripting@1.9.0/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Cinemachine.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/com.unity.cinemachine.editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Dracodec.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/InworldAI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/NuGetForUnity.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Siccity.GLTFUtility.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Siccity.GLTFUtility.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.EditorCoroutines.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Performance.Profile-Analyzer.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.PlasticSCM.Editor.ref.dll"
@@ -376,6 +387,7 @@
 "Assets/Scripts/Camera/CameraSwitcher.cs"
 "Assets/Scripts/Clone/CloneCharacter.cs"
 "Assets/Scripts/Clone/CloneMovement.cs"
+"Assets/Scripts/Controller/OpenAI/InworldAIController.cs"
 "Assets/Scripts/Controller/OpenAI/OpenAIController.cs"
 "Assets/Scripts/Controller/UI/GameEvent.cs"
 "Assets/Scripts/Controller/UI/Messenger.cs"
