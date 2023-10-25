@@ -37,6 +37,9 @@ public class RelativeMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         _vertSpeed = minFall;
         _isJumping = false;
         _charController = GetComponent<CharacterController>();

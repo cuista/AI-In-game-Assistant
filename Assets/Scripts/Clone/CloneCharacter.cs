@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CloneCharacter : MonoBehaviour
+public class CloneCharacter : MonoBehaviour, ICharacter
 {
     private CapsuleCollider _capsuleCollider;
     private bool _isHittingGround;
@@ -35,9 +35,14 @@ public class CloneCharacter : MonoBehaviour
         return _isHittingGround;
     }
 
-    public void Death()
+    public void Hurt(int damage) //FIXME
+    {
+        gameObject.SetActive(false); //Like this the List in CloningSystem works well!
+    }
+
+    public void Death() //FIXME
     {
         //StartCoroutine(Die());
-        Destroy(this);
+        Destroy(gameObject); //If I do like this the List in CloningSystem won't work
     }
 }

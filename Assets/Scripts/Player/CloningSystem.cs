@@ -236,7 +236,6 @@ public class CloningSystem : MonoBehaviour
                     }
                 }
                 moveDirection.y = replayClone.vertSpeed;
-                Debug.Log(moveDirection.y);
 
                 replayClone.Clone.GetComponent<CharacterController>().Move(moveDirection * Time.fixedDeltaTime);
 
