@@ -241,12 +241,10 @@ public class CloningSystem : MonoBehaviour
 
                 //REMOVE player record
                 replayClone.PlayerRecordings.RemoveAt(0);
-
-                //Reset jump input recording
-                jumpPressed = false;
             }
         }
-
+        //Reset jump input recording
+        jumpPressed = false;
     }
 
     private IEnumerator SpawnPointUnused(GameObject spawn) //if a spawn point is unused it will be remove after x seconds
