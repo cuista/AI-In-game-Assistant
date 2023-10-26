@@ -13,6 +13,11 @@ public class Bullet : MonoBehaviour
         
     }
 
+    private void Start()
+    {
+        StartCoroutine(DestroyByInactivity());
+    }
+
     void FixedUpdate()
     {
         if (!GameEvent.isPaused)
@@ -34,7 +39,17 @@ public class Bullet : MonoBehaviour
             {
                 other.GetComponent<ICharacter>().Hurt(damage);
             }
+            if(other.gameObject.CompareTag("Box"))
+            {
+                other.GetComponent<ReactiveBox>().ReactToHits(1);
+            }
             Destroy(this.gameObject);
         }
+    }
+
+    private IEnumerator DestroyByInactivity()
+    {
+        yield return new WaitForSeconds(40);
+        Destroy(this.gameObject);
     }
 }

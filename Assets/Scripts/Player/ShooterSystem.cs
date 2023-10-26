@@ -25,11 +25,16 @@ public class ShooterSystem : MonoBehaviour
     {
         if (!GameEvent.isPaused)
         {
-            if (shootPressed)
+            if (shootPressed && Managers.Inventory.GetItemCount("EnergyRecharge") != 0)
             {
+                Managers.Inventory.ConsumeItem("EnergyRecharge");
                 GameObject bullet = Instantiate(bulletPrefab) as GameObject;
                 bullet.transform.position = (bulletCreationPoint != null) ? bulletCreationPoint.transform.position : transform.TransformPoint(Vector3.forward * 2.5f);
                 bullet.transform.rotation = bulletCreationPoint.transform.rotation;
+                shootPressed = false;
+            }
+            else
+            {
                 shootPressed = false;
             }
         }

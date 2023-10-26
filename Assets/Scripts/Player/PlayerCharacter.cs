@@ -49,8 +49,8 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
 
         if (!GameEvent.isPaused)
         {
-            //restor energy ampule-A
-            if (Managers.Inventory.GetItemCount("Medikit A") != 0)
+            //restore 10% health
+            if (Managers.Inventory.GetItemCount("HealthkitA") != 0)
             {
                 health += healthKitA;
                 healthBar.value += (barValueDamage * healthKitA);
@@ -61,10 +61,10 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
                     healthBar.value = healthBar.maxValue;
                 }
 
-                Managers.Inventory.ConsumeItem("Medikit A");
+                Managers.Inventory.ConsumeItem("HealthkitA");
             }
-            //restor energy ampule-B
-            else if (Managers.Inventory.GetItemCount("Medikit B") != 0)
+            //restore 50% health
+            else if (Managers.Inventory.GetItemCount("HealthkitB") != 0)
             {
                 health += healthKitB;
                 healthBar.value += (barValueDamage * healthKitB);
@@ -75,7 +75,7 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
                     healthBar.value = healthBar.maxValue;
                 }
 
-                Managers.Inventory.ConsumeItem("Medikit B");
+                Managers.Inventory.ConsumeItem("HealthkitB");
             }
 
             if (health <= 0)
