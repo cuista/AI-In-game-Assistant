@@ -58,6 +58,8 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Controller\UI\UIController.cs" />
+    <Compile Include="Assets\Scripts\Controller\UI\SettingPopup\SettingPopup.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyCharacter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
@@ -71,10 +73,12 @@
     <Compile Include="Assets\Scripts\Controller\UI\GameEvent.cs" />
     <Compile Include="Assets\Scripts\GameManager\Items\Spin.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraSwitcher.cs" />
+    <Compile Include="Assets\Scripts\Controller\Scene\SceneControllerPROTO.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
+    <Compile Include="Assets\Scripts\Controller\AI-Integration\InworldAIController.cs" />
     <Compile Include="Assets\Scripts\TextToSpeech\Reader.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
@@ -95,8 +99,8 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
-    <Compile Include="Assets\Scripts\Controller\OpenAI\InworldAIController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
+    <Compile Include="Assets\Scripts\Controller\AI-Integration\OpenAIController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\Scripts\Clone\CloneMovement.cs" />
     <Compile Include="Assets\Scripts\Player\CloningSystem.cs" />
@@ -106,13 +110,11 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
-    <Compile Include="Assets\Scripts\Controller\OpenAI\OpenAIController.cs" />
     <Compile Include="Assets\Scripts\GameManager\Managers\InventoryManager.cs" />
     <Compile Include="Assets\Scripts\Player\ShooterSystem.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\Scripts\GameManager\IGameManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
-    <Compile Include="Assets\Scripts\Controller\UI\Messenger.cs" />
     <Compile Include="Assets\Scripts\Enemies\ReactiveEnemy.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\Clone\CloneCharacter.cs" />
@@ -121,6 +123,7 @@
     <Compile Include="Assets\Scripts\GameManager\Managers.cs" />
     <Compile Include="Assets\Scripts\Player\RelativeMovement.cs" />
     <Compile Include="Assets\Scripts\GameManager\ManagerStatus.cs" />
+    <Compile Include="Assets\Scripts\Messenger.cs" />
     <Compile Include="Assets\Scripts\DinamicObjects\DoorAnimation.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\Scripts\GameManager\Items\CollectibleItem.cs" />
