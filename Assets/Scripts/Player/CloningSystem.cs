@@ -41,16 +41,25 @@ class ReplayClone
         isJumping = false;
         this.vertSpeed = vertSpeed;
     }
+
+    public ReplayClone(GameObject clone, float vertSpeed)
+    {
+        this.Clone = clone;
+        isJumping = false;
+        this.vertSpeed = vertSpeed;
+    }
 }
 
 public class CloningSystem : MonoBehaviour
 {
-    [SerializeField] private GameObject clonePrefab;
+    [SerializeField] private GameObject lateClonePrefab;
+    [SerializeField] private GameObject mirrorClonePrefab;
     [SerializeField] private GameObject spawnClonePrefab;
 
     private RelativeMovement relativeMovement;
 
-    private List<ReplayClone> _replayClones;
+    private List<ReplayClone> _lateClones;
+    private List<ReplayClone> _mirrorClones;
     private GameObject _spawnPoint;
     private bool _spawnPointTimedOut;
     private List<PlayerRecord> _currentPlayerRecording;
@@ -60,17 +69,23 @@ public class CloningSystem : MonoBehaviour
 
     public float timeAcceleration = 3f;
 
+    private bool _isLateCloneMode;
+
     float horInput;
     float verInput;
     float moveSpeed;
     bool jumpPressed;
+    
+    private Transform _playerCamera;
+    private bool _isFirstPersonView;
 
     // Start is called before the first frame update
     void Start()
     {
         relativeMovement = GetComponent<RelativeMovement>();
 
-        _replayClones = new List<ReplayClone>();
+        _lateClones = new List<ReplayClone>();
+        _mirrorClones = new List<ReplayClone>();
         _spawnPoint = null;
         _spawnPointTimedOut = false;
         _currentPlayerRecording = null;
@@ -78,7 +93,11 @@ public class CloningSystem : MonoBehaviour
         fire1Pressed = false;
         fire2Pressed = false;
 
+        _isLateCloneMode = true;
         jumpPressed = false;
+
+        _playerCamera = relativeMovement.PlayerCamera;
+        _isFirstPersonView = relativeMovement.IsFirstPersonView;
     }
 
     // Update is called once per frame
@@ -107,6 +126,13 @@ public class CloningSystem : MonoBehaviour
             Time.timeScale = 1.0f;
         }
 
+        //Switch late and mirror clone
+        if(Input.GetButtonUp("SwitchCloneMode"))
+        {
+            _isLateCloneMode = !_isLateCloneMode;
+            Debug.Log("Switched Clone Mode");
+        }
+
         //For input recording
         horInput = Input.GetAxis("Horizontal");
         verInput = Input.GetAxis("Vertical");
@@ -118,18 +144,17 @@ public class CloningSystem : MonoBehaviour
     {
         if(fire1Pressed) //Place clone spawn point
         {
-            if (_spawnPoint != null)
+            if(_spawnPoint != null)
             {
                 Destroy(_spawnPoint);
                 _spawnPointTimedOut = false;
-                _currentPlayerRecording = new List<PlayerRecord>();
                 transform.GetComponent<PlayerCharacter>().ResetUICountdown(); //UI temporary
             }
             else
             {
-                _currentPlayerRecording = new List<PlayerRecord>();
                 StartCoroutine(transform.GetComponent<PlayerCharacter>().UICountdown(20)); //UI temporary
             }
+            _currentPlayerRecording = new List<PlayerRecord>();
             _spawnPoint = Instantiate(spawnClonePrefab) as GameObject;
             _spawnPoint.transform.SetLocalPositionAndRotation(transform.position, transform.rotation);
             StartCoroutine(SpawnPointUnused(_spawnPoint));
@@ -143,9 +168,17 @@ public class CloningSystem : MonoBehaviour
 
             Transform spawn = _spawnPoint.transform;
             Destroy(_spawnPoint);
-            GameObject clone = Instantiate(clonePrefab, spawn.position, spawn.rotation);
-            List<PlayerRecord> records = _currentPlayerRecording;
-            _replayClones.Add(new ReplayClone(clone, records, relativeMovement.minFall));
+            if (_isLateCloneMode)
+            {
+                GameObject clone = Instantiate(lateClonePrefab, spawn.position, spawn.rotation);
+                List<PlayerRecord> records = _currentPlayerRecording;
+                _lateClones.Add(new ReplayClone(clone, records, relativeMovement.minFall));
+            }
+            else
+            {
+                GameObject clone = Instantiate(mirrorClonePrefab, spawn.position, spawn.rotation);
+                _mirrorClones.Add(new ReplayClone(clone, relativeMovement.minFall));
+            }
             _currentPlayerRecording = null;
 
             transform.GetComponent<PlayerCharacter>().DisableUICountdown(); //UI temporary
@@ -153,94 +186,37 @@ public class CloningSystem : MonoBehaviour
             fire2Pressed = false;
         }
 
-        Transform playerCamera = relativeMovement.PlayerCamera;
-        bool isFirstPersonView = relativeMovement.IsFirstPersonView;
+        //Update camera info from relativeMovement
+        _playerCamera = relativeMovement.PlayerCamera;
+        _isFirstPersonView = relativeMovement.IsFirstPersonView;
 
         //If there's a clone ready to be placed, a not null clone ready that is recording player movements
-        _currentPlayerRecording?.Add(new PlayerRecord(playerCamera, isFirstPersonView, horInput, verInput, moveSpeed, jumpPressed));
+        _currentPlayerRecording?.Add(new PlayerRecord(_playerCamera, _isFirstPersonView, horInput, verInput, moveSpeed, jumpPressed));
 
-        if (_replayClones.Count > 0) //If there's at least a clone in the scene
+        if (_lateClones.Count > 0) //If there's at least a late clone in the scene
         {
-            foreach (var replayClone in _replayClones)
+            foreach (var replayClone in _lateClones)
             {
                 //ADD player record
-                replayClone.PlayerRecordings.Add(new PlayerRecord(playerCamera, isFirstPersonView, horInput, verInput, moveSpeed, jumpPressed));
+                replayClone.PlayerRecordings.Add(new PlayerRecord(_playerCamera, _isFirstPersonView, horInput, verInput, moveSpeed, jumpPressed));
 
-                //Clone HORIZONTAL-MOVEMENT
-                Vector3 moveDirection = new Vector3(replayClone.PlayerRecordings[0].horInput * replayClone.PlayerRecordings[0].moveSpeed, 0, replayClone.PlayerRecordings[0].verInput * replayClone.PlayerRecordings[0].moveSpeed); //(x,0,z)
-                moveDirection = Vector3.ClampMagnitude(moveDirection, replayClone.PlayerRecordings[0].moveSpeed); //avoid diagonal speed-up
-
-                //Handle rotation
-                if (moveDirection != Vector3.zero)
-                {
-                    Transform camera = replayClone.PlayerRecordings[0].playerCamera;
-                    camera.eulerAngles = new Vector3(0, camera.eulerAngles.y, 0);
-                    moveDirection = camera.TransformDirection(moveDirection);
-
-                    if (!replayClone.PlayerRecordings[0].isFirstPersonView)
-                    {
-                        Quaternion direction = Quaternion.LookRotation(moveDirection);
-                        replayClone.Clone.transform.rotation = Quaternion.Lerp(replayClone.Clone.transform.rotation, direction, 15f * Time.deltaTime); //change rotation smoothly
-                    }
-                }
-
-                //Clone VERTICAL-MOVEMENT
-                bool isCloneHittingGround;
-                if (replayClone.vertSpeed < 0 && Physics.Raycast(replayClone.Clone.transform.position, Vector3.down, out RaycastHit hit))
-                {
-                    float check = (replayClone.Clone.GetComponent<CharacterController>().height + replayClone.Clone.GetComponent<CharacterController>().radius) / 1.9f;
-                    isCloneHittingGround = hit.distance <= check;
-                }
-                else
-                {
-                    isCloneHittingGround = false;
-                }
-                
-                if (isCloneHittingGround)
-                {
-                    if (replayClone.PlayerRecordings[0].jumpPressed)
-                    {
-                        if (!replayClone.isJumping)
-                        {
-                            replayClone.vertSpeed = relativeMovement.jumpSpeed;
-                            replayClone.isJumping = true;
-                        }
-                    }
-                    else
-                    {
-                        replayClone.vertSpeed = relativeMovement.minFall;
-                        replayClone.isJumping = false;
-                    }
-                }
-                else
-                {
-                    replayClone.vertSpeed += relativeMovement.gravity * 5 * Time.fixedDeltaTime;
-                    if (replayClone.vertSpeed < relativeMovement.terminalVelocity)
-                    {
-                        replayClone.vertSpeed = relativeMovement.terminalVelocity;
-                    }
-
-                    if (replayClone.Clone.GetComponent<CharacterController>().isGrounded)
-                    {
-                        if (Vector3.Dot(moveDirection, replayClone.Clone.GetComponent<CloneMovement>()._contact.normal) < 0) // Dot if they point same is 1 (same direction) to -1 (opposite)
-                        {
-                            moveDirection = replayClone.Clone.GetComponent<CloneMovement>()._contact.normal * replayClone.PlayerRecordings[0].moveSpeed;
-                            replayClone.isJumping = false;
-                        }
-                        else
-                        {
-                            moveDirection += replayClone.Clone.GetComponent<CloneMovement>()._contact.normal * replayClone.PlayerRecordings[0].moveSpeed * 10;
-                        }
-                    }
-                }
-                moveDirection.y = replayClone.vertSpeed;
-
-                replayClone.Clone.GetComponent<CharacterController>().Move(moveDirection * Time.fixedDeltaTime);
+                //Clone replays recorded player movements
+                CloneMovement(replayClone, true);
 
                 //REMOVE player record
                 replayClone.PlayerRecordings.RemoveAt(0);
             }
         }
+
+        if (_mirrorClones.Count > 0) //If there's at least a mirror clone in the scene
+        {
+            foreach (var replayClone in _mirrorClones)
+            {
+                //Clone replays recorded player movements
+                CloneMovement(replayClone, false);
+            }
+        }
+
         //Reset jump input recording
         jumpPressed = false;
     }
@@ -253,5 +229,86 @@ public class CloningSystem : MonoBehaviour
         {
             _spawnPointTimedOut = true;
         }
+    }
+
+    void CloneMovement(ReplayClone replayClone, bool isRecordingPlayer)
+    {
+        Transform playerCamera = isRecordingPlayer ? replayClone.PlayerRecordings[0].playerCamera : _playerCamera;
+        bool isFirstPersonView = isRecordingPlayer ? replayClone.PlayerRecordings[0].isFirstPersonView : _isFirstPersonView;
+        float hor = isRecordingPlayer ? replayClone.PlayerRecordings[0].horInput : horInput;
+        float ver = isRecordingPlayer ? replayClone.PlayerRecordings[0].verInput : verInput;
+        float horSpeed = isRecordingPlayer ? replayClone.PlayerRecordings[0].moveSpeed : moveSpeed;
+        bool doJump = isRecordingPlayer ? replayClone.PlayerRecordings[0].jumpPressed : jumpPressed;
+
+        //Clone HORIZONTAL-MOVEMENT
+        Vector3 moveDirection = new Vector3(hor * horSpeed, 0, ver * horSpeed); //(x,0,z)
+        moveDirection = Vector3.ClampMagnitude(moveDirection, horSpeed); //avoid diagonal speed-up
+
+        //Handle rotation
+        if (moveDirection != Vector3.zero)
+        {
+            Transform camera = playerCamera;
+            camera.eulerAngles = new Vector3(0, camera.eulerAngles.y, 0);
+            moveDirection = camera.TransformDirection(moveDirection);
+
+            if (!isFirstPersonView)
+            {
+                Quaternion direction = Quaternion.LookRotation(moveDirection);
+                replayClone.Clone.transform.rotation = Quaternion.Lerp(replayClone.Clone.transform.rotation, direction, 15f * Time.deltaTime); //change rotation smoothly
+            }
+        }
+
+        //Clone VERTICAL-MOVEMENT
+        bool isCloneHittingGround;
+        if (replayClone.vertSpeed < 0 && Physics.Raycast(replayClone.Clone.transform.position, Vector3.down, out RaycastHit hit))
+        {
+            float check = (replayClone.Clone.GetComponent<CharacterController>().height + replayClone.Clone.GetComponent<CharacterController>().radius) / 1.9f;
+            isCloneHittingGround = hit.distance <= check;
+        }
+        else
+        {
+            isCloneHittingGround = false;
+        }
+
+        if (isCloneHittingGround)
+        {
+            if (doJump)
+            {
+                if (!replayClone.isJumping)
+                {
+                    replayClone.vertSpeed = relativeMovement.jumpSpeed;
+                    replayClone.isJumping = true;
+                }
+            }
+            else
+            {
+                replayClone.vertSpeed = relativeMovement.minFall;
+                replayClone.isJumping = false;
+            }
+        }
+        else
+        {
+            replayClone.vertSpeed += relativeMovement.gravity * 5 * Time.fixedDeltaTime;
+            if (replayClone.vertSpeed < relativeMovement.terminalVelocity)
+            {
+                replayClone.vertSpeed = relativeMovement.terminalVelocity;
+            }
+
+            if (replayClone.Clone.GetComponent<CharacterController>().isGrounded)
+            {
+                if (Vector3.Dot(moveDirection, replayClone.Clone.GetComponent<CloneMovement>()._contact.normal) < 0) // Dot if they point same is 1 (same direction) to -1 (opposite)
+                {
+                    moveDirection = replayClone.Clone.GetComponent<CloneMovement>()._contact.normal * horSpeed;
+                    replayClone.isJumping = false;
+                }
+                else
+                {
+                    moveDirection += replayClone.Clone.GetComponent<CloneMovement>()._contact.normal * horSpeed * 10;
+                }
+            }
+        }
+        moveDirection.y = replayClone.vertSpeed;
+
+        replayClone.Clone.GetComponent<CharacterController>().Move(moveDirection * Time.fixedDeltaTime);
     }
 }
