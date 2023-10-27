@@ -50,7 +50,7 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
         if (!GameEvent.isPaused)
         {
             //restore 10% health
-            if (Managers.Inventory.GetItemCount("HealthkitA") != 0)
+            if (Managers.Inventory.GetItemCount("HealthkitA") > 0)
             {
                 health += healthKitA;
                 healthBar.value += (barValueDamage * healthKitA);
@@ -64,7 +64,7 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
                 Managers.Inventory.ConsumeItem("HealthkitA");
             }
             //restore 50% health
-            else if (Managers.Inventory.GetItemCount("HealthkitB") != 0)
+            else if (Managers.Inventory.GetItemCount("HealthkitB") > 0)
             {
                 health += healthKitB;
                 healthBar.value += (barValueDamage * healthKitB);

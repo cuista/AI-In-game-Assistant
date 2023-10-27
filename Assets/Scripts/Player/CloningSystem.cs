@@ -54,7 +54,6 @@ public class CloningSystem : MonoBehaviour
     private GameObject _spawnPoint;
     private bool _spawnPointTimedOut;
     private List<PlayerRecord> _currentPlayerRecording;
-    private int _clonesAvailable;
 
     private bool fire1Pressed;
     private bool fire2Pressed;
@@ -75,7 +74,6 @@ public class CloningSystem : MonoBehaviour
         _spawnPoint = null;
         _spawnPointTimedOut = false;
         _currentPlayerRecording = null;
-        _clonesAvailable = 8; //Number of max. clones that can be placed
 
         fire1Pressed = false;
         fire2Pressed = false;
@@ -86,7 +84,7 @@ public class CloningSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(_clonesAvailable > 0)
+        if(Managers.Inventory.GetItemCount("CloneRecharge") > 0)
         {
             if(_spawnPointTimedOut) //SpawnPoint unused for 10 seconds
             {
@@ -118,7 +116,7 @@ public class CloningSystem : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(fire1Pressed)
+        if(fire1Pressed) //Place clone spawn point
         {
             if (_spawnPoint != null)
             {
@@ -141,14 +139,14 @@ public class CloningSystem : MonoBehaviour
 
         if (fire2Pressed) //Spawn the clone and starting replaying player movements
         {
+            Managers.Inventory.ConsumeItem("CloneRecharge");
+
             Transform spawn = _spawnPoint.transform;
             Destroy(_spawnPoint);
             GameObject clone = Instantiate(clonePrefab, spawn.position, spawn.rotation);
             List<PlayerRecord> records = _currentPlayerRecording;
             _replayClones.Add(new ReplayClone(clone, records, relativeMovement.minFall));
-
             _currentPlayerRecording = null;
-            _clonesAvailable--;
 
             transform.GetComponent<PlayerCharacter>().DisableUICountdown(); //UI temporary
 
