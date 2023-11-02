@@ -21,8 +21,21 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
     private bool damaged;
     private int coins;
     [SerializeField] private TextMeshProUGUI _coinsText;
+    [SerializeField] private TextMeshProUGUI _energyRechargesText;
+    [SerializeField] private TextMeshProUGUI _cloneRechargesText;
     [SerializeField] private TextMeshProUGUI _countdownText;
     private bool _resetCountdown;
+    [SerializeField] private Image _switchedCloneMode;
+
+    private void Awake()
+    {
+        Messenger.AddListener(GameEvent.SWITCHED_CLONE_MODE, OnSwitchedCloneMode);
+    }
+
+    private void OnDestroy()
+    {
+        Messenger.RemoveListener(GameEvent.SWITCHED_CLONE_MODE, OnSwitchedCloneMode);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +52,8 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
 
         _countdownText.enabled = false;
         _resetCountdown = false;
+
+        _switchedCloneMode.color = Color.red;
     }
 
     // Update is called once per frame
@@ -46,6 +61,8 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
     {
         coins = Managers.Inventory.GetItemCount("Coin");
         _coinsText.text = coins.ToString();
+        _energyRechargesText.text = Managers.Inventory.GetItemCount("EnergyRecharge").ToString();
+        _cloneRechargesText.text = Managers.Inventory.GetItemCount("CloneRecharge").ToString();
 
         if (!GameEvent.isPaused)
         {
@@ -112,12 +129,18 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
         Messenger.Broadcast(GameEvent.GAMEOVER);
 
         GameEvent.isPaused = true;
-        StartCoroutine(Die());
+        //StartCoroutine(Die());
+
+        /* FIXME MOMENTANEO */
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 0; // stop everything (PAUSE)
+        /* */
     }
 
     private IEnumerator Die()
     {
-        GetComponent<Animator>().SetBool("Dying", true);
+        //GetComponent<Animator>().SetBool("Dying", true);
 
         Image gameOverLogo = gameOver.GetComponentInChildren<Image>();
         Vector3 finalPosition = gameOverLogo.transform.position;
@@ -136,7 +159,7 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
             yield return null;
         }
 
-        gameOver.transform.GetChild(1).gameObject.SetActive(true);
+        //gameOver.transform.GetChild(1).gameObject.SetActive(true);
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
@@ -168,6 +191,11 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
     public void DisableUICountdown()
     {
         _countdownText.enabled = false;
+    }
+
+    private void OnSwitchedCloneMode()
+    {
+        _switchedCloneMode.color = _switchedCloneMode.color == Color.red ? new Color(1.0f, 0.64f, 0.0f) : Color.red;
     }
 
 }

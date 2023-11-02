@@ -6,6 +6,7 @@ public class GameEvent : MonoBehaviour
 {
     public const string ENEMY_KILLED = "ENEMY_KILLED";
     public const string GAMEOVER = "GAMEOVER";
+    public const string SWITCHED_CLONE_MODE = "SWITCHED_CLONE_MODE";
     public const string CUTSCENE_STARTED = "CUTSCENE_STARTED";
     public const string CUTSCENE_ENDED = "CUTSCENE_ENDED";
     public const string CUTSCENE_STOPPED = "CUTSCENE_STOPPED";

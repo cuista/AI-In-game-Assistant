@@ -79,6 +79,8 @@ public class CloningSystem : MonoBehaviour
     private Transform _playerCamera;
     private bool _isFirstPersonView;
 
+    [SerializeField] private VHSPostProcessEffect _glitchEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -98,6 +100,8 @@ public class CloningSystem : MonoBehaviour
 
         _playerCamera = relativeMovement.PlayerCamera;
         _isFirstPersonView = relativeMovement.IsFirstPersonView;
+
+        _glitchEffect.enabled = false;
     }
 
     // Update is called once per frame
@@ -120,17 +124,19 @@ public class CloningSystem : MonoBehaviour
         if (Input.GetButtonDown("TimeAcceleration"))
         {
             Time.timeScale = timeAcceleration;
+            _glitchEffect.enabled = true;
         }
         if (Input.GetButtonUp("TimeAcceleration"))
         {
             Time.timeScale = 1.0f;
+            _glitchEffect.enabled = false;
         }
 
         //Switch late and mirror clone
         if(Input.GetButtonUp("SwitchCloneMode"))
         {
             _isLateCloneMode = !_isLateCloneMode;
-            Debug.Log("Switched Clone Mode");
+            Messenger.Broadcast(GameEvent.SWITCHED_CLONE_MODE);
         }
 
         //For input recording
