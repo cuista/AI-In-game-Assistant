@@ -14,6 +14,8 @@ public class CloneCharacter : MonoBehaviour, ICharacter
 
     private Camera _camera;
 
+    [SerializeField] private GameObject bulletCreationPoint;
+
     private void Awake()
     {
         _capsuleCollider = GetComponent<CapsuleCollider>();
@@ -63,5 +65,10 @@ public class CloneCharacter : MonoBehaviour, ICharacter
         gameObject.SetActive(false); //Like this the List in CloningSystem works well!
         //StartCoroutine(Die());
         //Destroy(gameObject); //If I do like this the List in CloningSystem won't work
+    }
+
+    public GameObject GetBulletCreationPoint()
+    {
+        return bulletCreationPoint;
     }
 }

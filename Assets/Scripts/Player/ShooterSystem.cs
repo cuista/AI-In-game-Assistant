@@ -64,4 +64,9 @@ public class ShooterSystem : MonoBehaviour
             }
         }
     }
+
+    public GameObject GetBulletPrefab()
+    {
+        return bulletPrefab;
+    }
 }

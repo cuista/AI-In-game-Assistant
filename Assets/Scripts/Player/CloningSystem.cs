@@ -15,8 +15,10 @@ class PlayerRecord
     public readonly float horInput, verInput;
     public readonly float moveSpeed;
     public readonly bool jumpPressed;
+    public readonly bool shootPressed;
+    public readonly bool meleePressed;
 
-    public PlayerRecord(Transform playerCamera, bool isFirstPersonView, float horInput, float verInput, float moveSpeed, bool jumpPressed)
+    public PlayerRecord(Transform playerCamera, bool isFirstPersonView, float horInput, float verInput, float moveSpeed, bool jumpPressed, bool shootPressed, bool meleePressed)
     {
         this.playerCamera = playerCamera;
         this.isFirstPersonView = isFirstPersonView;
@@ -24,6 +26,8 @@ class PlayerRecord
         this.verInput = verInput;
         this.moveSpeed = moveSpeed;
         this.jumpPressed = jumpPressed;
+        this.shootPressed = shootPressed;
+        this.meleePressed = meleePressed;
     }
 }
 
@@ -33,6 +37,7 @@ class ReplayClone
     public List<PlayerRecord> PlayerRecordings;
     public bool isJumping;
     public float vertSpeed;
+    public GameObject bulletCreationPoint;
 
     public ReplayClone(GameObject clone, List<PlayerRecord> playerRecordings, float vertSpeed)
     {
@@ -40,6 +45,7 @@ class ReplayClone
         this.PlayerRecordings = playerRecordings;
         isJumping = false;
         this.vertSpeed = vertSpeed;
+        bulletCreationPoint = clone.GetComponent<CloneCharacter>().GetBulletCreationPoint();
     }
 
     public ReplayClone(GameObject clone, float vertSpeed)
@@ -47,6 +53,7 @@ class ReplayClone
         this.Clone = clone;
         isJumping = false;
         this.vertSpeed = vertSpeed;
+        bulletCreationPoint = clone.GetComponent<CloneCharacter>().GetBulletCreationPoint();
     }
 }
 
@@ -57,6 +64,7 @@ public class CloningSystem : MonoBehaviour
     [SerializeField] private GameObject spawnClonePrefab;
 
     private RelativeMovement relativeMovement;
+    private ShooterSystem shooterSystem;
 
     private List<ReplayClone> _lateClones;
     private List<ReplayClone> _mirrorClones;
@@ -75,6 +83,8 @@ public class CloningSystem : MonoBehaviour
     float verInput;
     float moveSpeed;
     bool jumpPressed;
+    bool shootPressed;
+    bool meleePressed;   
     
     private Transform _playerCamera;
     private bool _isFirstPersonView;
@@ -85,6 +95,7 @@ public class CloningSystem : MonoBehaviour
     void Start()
     {
         relativeMovement = GetComponent<RelativeMovement>();
+        shooterSystem = GetComponent<ShooterSystem>();
 
         _lateClones = new List<ReplayClone>();
         _mirrorClones = new List<ReplayClone>();
@@ -97,6 +108,8 @@ public class CloningSystem : MonoBehaviour
 
         _isLateCloneMode = true;
         jumpPressed = false;
+        shootPressed = false;
+        meleePressed = false;
 
         _playerCamera = relativeMovement.PlayerCamera;
         _isFirstPersonView = relativeMovement.IsFirstPersonView;
@@ -144,6 +157,8 @@ public class CloningSystem : MonoBehaviour
         verInput = Input.GetAxis("Vertical");
         moveSpeed = Input.GetButton("Run") ? relativeMovement.runSpeed: relativeMovement.walkSpeed;
         jumpPressed = Input.GetButtonDown("Jump") || jumpPressed;
+        shootPressed = Input.GetButtonDown("Shoot") && Managers.Inventory.GetItemCount("EnergyRecharge") > 0 || shootPressed;
+        meleePressed = Input.GetButtonDown("Melee") || meleePressed;
     }
 
     private void FixedUpdate()
@@ -197,17 +212,20 @@ public class CloningSystem : MonoBehaviour
         _isFirstPersonView = relativeMovement.IsFirstPersonView;
 
         //If there's a clone ready to be placed, a not null clone ready that is recording player movements
-        _currentPlayerRecording?.Add(new PlayerRecord(_playerCamera, _isFirstPersonView, horInput, verInput, moveSpeed, jumpPressed));
+        _currentPlayerRecording?.Add(new PlayerRecord(_playerCamera, _isFirstPersonView, horInput, verInput, moveSpeed, jumpPressed, shootPressed, meleePressed));
 
         if (_lateClones.Count > 0) //If there's at least a late clone in the scene
         {
             foreach (var replayClone in _lateClones)
             {
                 //ADD player record
-                replayClone.PlayerRecordings.Add(new PlayerRecord(_playerCamera, _isFirstPersonView, horInput, verInput, moveSpeed, jumpPressed));
+                replayClone.PlayerRecordings.Add(new PlayerRecord(_playerCamera, _isFirstPersonView, horInput, verInput, moveSpeed, jumpPressed, shootPressed, meleePressed));
 
                 //Clone replays recorded player movements
                 CloneMovement(replayClone, true);
+
+                //Clone replays recorded player attacks
+                CloneAttack(replayClone, true);
 
                 //REMOVE player record
                 replayClone.PlayerRecordings.RemoveAt(0);
@@ -220,11 +238,15 @@ public class CloningSystem : MonoBehaviour
             {
                 //Clone replays recorded player movements
                 CloneMovement(replayClone, false);
+
+                //Clone replays recorded player attacks
+                CloneAttack(replayClone, false);
             }
         }
 
-        //Reset jump input recording
-        jumpPressed = false;
+        jumpPressed = false; //Reset jump input rec
+        shootPressed = false; //Reset shoot input rec
+        meleePressed = false; //Reset melee input rec
     }
 
     private IEnumerator SpawnPointUnused(GameObject spawn) //if a spawn point is unused it will be remove after x seconds
@@ -237,14 +259,14 @@ public class CloningSystem : MonoBehaviour
         }
     }
 
-    void CloneMovement(ReplayClone replayClone, bool isRecordingPlayer)
+    void CloneMovement(ReplayClone replayClone, bool isLateClone)
     {
-        Transform playerCamera = isRecordingPlayer ? replayClone.PlayerRecordings[0].playerCamera : _playerCamera;
-        bool isFirstPersonView = isRecordingPlayer ? replayClone.PlayerRecordings[0].isFirstPersonView : _isFirstPersonView;
-        float hor = isRecordingPlayer ? replayClone.PlayerRecordings[0].horInput : horInput;
-        float ver = isRecordingPlayer ? replayClone.PlayerRecordings[0].verInput : verInput;
-        float horSpeed = isRecordingPlayer ? replayClone.PlayerRecordings[0].moveSpeed : moveSpeed;
-        bool doJump = isRecordingPlayer ? replayClone.PlayerRecordings[0].jumpPressed : jumpPressed;
+        Transform playerCamera = isLateClone ? replayClone.PlayerRecordings[0].playerCamera : _playerCamera;
+        bool isFirstPersonView = isLateClone ? replayClone.PlayerRecordings[0].isFirstPersonView : _isFirstPersonView;
+        float hor = isLateClone ? replayClone.PlayerRecordings[0].horInput : horInput;
+        float ver = isLateClone ? replayClone.PlayerRecordings[0].verInput : verInput;
+        float horSpeed = isLateClone ? replayClone.PlayerRecordings[0].moveSpeed : moveSpeed;
+        bool doJump = isLateClone ? replayClone.PlayerRecordings[0].jumpPressed : jumpPressed;
 
         //Clone HORIZONTAL-MOVEMENT
         Vector3 moveDirection = new Vector3(hor * horSpeed, 0, ver * horSpeed); //(x,0,z)
@@ -316,5 +338,39 @@ public class CloningSystem : MonoBehaviour
         moveDirection.y = replayClone.vertSpeed;
 
         replayClone.Clone.GetComponent<CharacterController>().Move(moveDirection * Time.fixedDeltaTime);
+    }
+
+    void CloneAttack(ReplayClone replayClone, bool isLateClone)
+    {
+        bool doShoot = isLateClone ? replayClone.PlayerRecordings[0].shootPressed : shootPressed;
+        bool doMelee = isLateClone ? replayClone.PlayerRecordings[0].meleePressed : meleePressed;
+        if (!GameEvent.isPaused)
+        {
+            //Shooting attack
+            if (doShoot)
+            {
+                GameObject bullet = Instantiate(shooterSystem.GetBulletPrefab()) as GameObject;
+                bullet.transform.position = (replayClone.bulletCreationPoint != null) ? replayClone.bulletCreationPoint.transform.position : transform.TransformPoint(Vector3.forward * 2.5f);
+                bullet.transform.rotation = replayClone.bulletCreationPoint.transform.rotation;
+            }
+
+            //Melee attack
+            if (doMelee)
+            {
+                Vector3 meleePoint = replayClone.Clone.transform.position + replayClone.Clone.transform.forward * 0.8f;
+                Collider[] hitColliders = Physics.OverlapSphere(meleePoint, shooterSystem.meleeRadius);
+                foreach (var hitCollider in hitColliders)
+                {
+
+                    GameObject hitObject = hitCollider.transform.gameObject;
+                    IReactiveObject target = hitObject.GetComponent<IReactiveObject>();
+                    if (target != null)
+                    {
+                        target.ReactToHits(1);
+                        target.AddHitForce(2, transform.position, shooterSystem.meleeRadius);
+                    }
+                }
+            }
+        }
     }
 }

@@ -39,9 +39,9 @@ public class Bullet : MonoBehaviour
             {
                 other.GetComponent<ICharacter>().Hurt(damage);
             }
-            if(other.gameObject.CompareTag("Box"))
+            if(other.gameObject.CompareTag("ReactiveObject"))
             {
-                other.GetComponent<ReactiveBox>().ReactToHits(1);
+                other.GetComponent<IReactiveObject>().ReactToHits(1);
             }
             Destroy(this.gameObject);
         }
