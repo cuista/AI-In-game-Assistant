@@ -29,7 +29,10 @@ public class LoadingScenesManager : MonoBehaviour
     {
         _loadingSM.loadingInterface.gameObject.SetActive(true);
         foreach (string scene in scenes)
+        {
             scenesToLoad.Add(SceneManager.LoadSceneAsync(scene));
+            Debug.Log(scene);
+        }
         _loadingSM.StartCoroutine(LoadingScreen());
     }
 
