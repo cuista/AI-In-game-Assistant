@@ -8,9 +8,15 @@ public class SettingsPopup : MonoBehaviour
 {
     private bool _isGameOver = false;
 
+    [SerializeField] private AudioClip openPopupSound;
+    [SerializeField] private AudioClip clickSound;
+
+    private AudioManager audioManager;
+
     private void Awake()
     {
         Messenger.AddListener(GameEvent.GAMEOVER, OnGameOver);
+        audioManager = DontDestroyOnLoadManager.GetAudioManager();
     }
 
     private void OnDestroy()
@@ -56,8 +62,8 @@ public class SettingsPopup : MonoBehaviour
     //Back to initial menu
     public void ExitGame()
     {
-        //LoadingScenesManager.LoadingScenes("InitialMenu");
-        //DontDestroyOnLoadManager.DestroyAll();
+        LoadingScenesManager.LoadingScenes("MainMenu");
+        DontDestroyOnLoadManager.DestroyAll();
     }
 
     //Pause game, stop frames with timeScale = 0
@@ -67,6 +73,7 @@ public class SettingsPopup : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         Time.timeScale = 0f;
+        GetComponentInChildren<Button>().Select();
     }
 
     //Resume Game
@@ -78,14 +85,30 @@ public class SettingsPopup : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    public void OnSpeedValue(float speed)
-    {
-        Messenger<float>.Broadcast(GameEvent.SPEED_CHANGED, speed);
-    }
-
     public void OnGameOver()
     {
         _isGameOver = true;
+    }
+    public void OnSoundToggle()
+    {
+        audioManager.soundMute = !audioManager.soundMute;
+        audioManager.PlaySound(clickSound);
+    }
+
+    public void OnSoundValue(float volume)
+    {
+        audioManager.soundVolume = volume;
+    }
+
+    public void OnMusicToggle()
+    {
+        audioManager.musicMute = !audioManager.musicMute;
+        audioManager.PlaySound(clickSound);
+    }
+
+    public void OnMusicValue(float volume)
+    {
+        audioManager.musicVolume = volume;
     }
 
 }

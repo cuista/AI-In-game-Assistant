@@ -5,25 +5,17 @@ using UnityEngine;
 //Only for first person view
 public class FirstPersonLook : MonoBehaviour
 {
-    public enum RotationAxes
-    {
-        MouseXAndY = 0,
-        MouseX = 1,
-        MouseY = 2
-    }
-
-    public RotationAxes axes = RotationAxes.MouseXAndY;
-
     public float sensitivityHor = 9.0f;
     public float sensitivityVert = 9.0f;
 
     public float minimumVert = -45.0f;
     public float maximumVert = 45.0f;
 
-    private float _rotationX = 0;
+    private float _rotX = 0;
+    private float _rotY = 0;
 
     [SerializeField] private GameObject _head;
-    private float _headRotationX = 0;
+    public float headRotationX = 0;
 
     [SerializeField] private GameObject head;
     [SerializeField] private GameObject nose;
@@ -40,35 +32,18 @@ public class FirstPersonLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (axes == RotationAxes.MouseXAndY)
-        {
-            transform.Rotate(0, Input.GetAxis("Mouse X") * sensitivityHor, 0);
+        _rotX = Input.GetAxis("Mouse X");
+        _rotY = Input.GetAxis("Mouse Y");
+    }
 
-            _headRotationX -= Input.GetAxis("Mouse Y") * sensitivityVert;
-            _headRotationX = Mathf.Clamp(_headRotationX, minimumVert, maximumVert);
+    private void FixedUpdate()
+    {
+        transform.Rotate(0, _rotX * sensitivityHor, 0);
 
-            _head.transform.localEulerAngles = new Vector3(_headRotationX, 0, 0);
-        }
-        else if (axes == RotationAxes.MouseY)
-        {
-            _rotationX -= Input.GetAxis("Mouse Y") * sensitivityVert;
-            _rotationX = Mathf.Clamp(_rotationX, minimumVert, maximumVert);
+        headRotationX -= _rotY * sensitivityVert;
+        headRotationX = Mathf.Clamp(headRotationX, minimumVert, maximumVert);
 
-            float rotationY = transform.localEulerAngles.y;
-
-            transform.localEulerAngles = new Vector3(_rotationX, rotationY, 0);
-        }
-        else
-        {
-            _rotationX -= Input.GetAxis("Mouse Y") * sensitivityVert;
-            _rotationX = Mathf.Clamp(_rotationX, minimumVert, maximumVert);
-
-            float delta = Input.GetAxis("Mouse Y") * sensitivityHor;
-            float rotationY = transform.localEulerAngles.y + delta;
-
-            transform.localEulerAngles = new Vector3 (_rotationX, rotationY, 0);
-        }
-
+        _head.transform.localEulerAngles = new Vector3(headRotationX, 0, 0);
     }
 
     private void OnEnable()
@@ -79,7 +54,7 @@ public class FirstPersonLook : MonoBehaviour
     private void OnDisable()
     {
         _head.transform.localEulerAngles = new Vector3(0, 0, 0);
-        _headRotationX = 0;
+        headRotationX = 0;
 
         bulletCreationPoint.transform.SetParent(head.transform);
     }

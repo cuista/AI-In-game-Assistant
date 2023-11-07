@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Reflection.Emit;
+using System.Threading;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -12,16 +13,19 @@ class PlayerRecord
 {
     public readonly Transform playerCamera;
     public readonly bool isFirstPersonView;
-    public readonly float horInput, verInput;
+    public readonly float headRotationX;
+    public readonly float mouseX, horInput, verInput;
     public readonly float moveSpeed;
     public readonly bool jumpPressed;
     public readonly bool shootPressed;
     public readonly bool meleePressed;
 
-    public PlayerRecord(Transform playerCamera, bool isFirstPersonView, float horInput, float verInput, float moveSpeed, bool jumpPressed, bool shootPressed, bool meleePressed)
+    public PlayerRecord(Transform playerCamera, bool isFirstPersonView, float headRotationX, float mouseX, float horInput, float verInput, float moveSpeed, bool jumpPressed, bool shootPressed, bool meleePressed)
     {
         this.playerCamera = playerCamera;
         this.isFirstPersonView = isFirstPersonView;
+        this.headRotationX = headRotationX;
+        this.mouseX = mouseX;
         this.horInput = horInput;
         this.verInput = verInput;
         this.moveSpeed = moveSpeed;
@@ -38,6 +42,7 @@ class ReplayClone
     public bool isJumping;
     public float vertSpeed;
     public GameObject bulletCreationPoint;
+    public GameObject head;
 
     public ReplayClone(GameObject clone, List<PlayerRecord> playerRecordings, float vertSpeed)
     {
@@ -46,6 +51,7 @@ class ReplayClone
         isJumping = false;
         this.vertSpeed = vertSpeed;
         bulletCreationPoint = clone.GetComponent<CloneCharacter>().GetBulletCreationPoint();
+        head = clone.GetComponentInChildren<CloneHead>().gameObject;
     }
 
     public ReplayClone(GameObject clone, float vertSpeed)
@@ -54,6 +60,7 @@ class ReplayClone
         isJumping = false;
         this.vertSpeed = vertSpeed;
         bulletCreationPoint = clone.GetComponent<CloneCharacter>().GetBulletCreationPoint();
+        head = clone.GetComponentInChildren<CloneHead>().gameObject;
     }
 }
 
@@ -64,6 +71,7 @@ public class CloningSystem : MonoBehaviour
     [SerializeField] private GameObject spawnClonePrefab;
 
     private RelativeMovement relativeMovement;
+    private FirstPersonLook firstPersonLook;
     private ShooterSystem shooterSystem;
 
     private List<ReplayClone> _lateClones;
@@ -79,6 +87,7 @@ public class CloningSystem : MonoBehaviour
 
     private bool _isLateCloneMode;
 
+    float mouseX;
     float horInput;
     float verInput;
     float moveSpeed;
@@ -89,12 +98,15 @@ public class CloningSystem : MonoBehaviour
     private Transform _playerCamera;
     private bool _isFirstPersonView;
 
+    private float _headRotationX;
+
     [SerializeField] private VHSPostProcessEffect _glitchEffect;
 
     // Start is called before the first frame update
     void Start()
     {
         relativeMovement = GetComponent<RelativeMovement>();
+        firstPersonLook = GetComponent<FirstPersonLook>();
         shooterSystem = GetComponent<ShooterSystem>();
 
         _lateClones = new List<ReplayClone>();
@@ -113,6 +125,8 @@ public class CloningSystem : MonoBehaviour
 
         _playerCamera = relativeMovement.PlayerCamera;
         _isFirstPersonView = relativeMovement.IsFirstPersonView;
+
+        _headRotationX = firstPersonLook.headRotationX;
 
         _glitchEffect.enabled = false;
     }
@@ -153,12 +167,14 @@ public class CloningSystem : MonoBehaviour
         }
 
         //For input recording
+        mouseX = Input.GetAxis("Mouse X");
         horInput = Input.GetAxis("Horizontal");
         verInput = Input.GetAxis("Vertical");
         moveSpeed = Input.GetButton("Run") ? relativeMovement.runSpeed: relativeMovement.walkSpeed;
         jumpPressed = Input.GetButtonDown("Jump") || jumpPressed;
         shootPressed = Input.GetButtonDown("Shoot") && Managers.Inventory.GetItemCount("EnergyRecharge") > 0 || shootPressed;
         meleePressed = Input.GetButtonDown("Melee") || meleePressed;
+
     }
 
     private void FixedUpdate()
@@ -211,15 +227,18 @@ public class CloningSystem : MonoBehaviour
         _playerCamera = relativeMovement.PlayerCamera;
         _isFirstPersonView = relativeMovement.IsFirstPersonView;
 
+        //Update look rotation info from firstPersonCamera
+        _headRotationX = firstPersonLook.headRotationX;
+
         //If there's a clone ready to be placed, a not null clone ready that is recording player movements
-        _currentPlayerRecording?.Add(new PlayerRecord(_playerCamera, _isFirstPersonView, horInput, verInput, moveSpeed, jumpPressed, shootPressed, meleePressed));
+        _currentPlayerRecording?.Add(new PlayerRecord(_playerCamera, _isFirstPersonView, _headRotationX, mouseX, horInput, verInput, moveSpeed, jumpPressed, shootPressed, meleePressed));
 
         if (_lateClones.Count > 0) //If there's at least a late clone in the scene
         {
             foreach (var replayClone in _lateClones)
             {
                 //ADD player record
-                replayClone.PlayerRecordings.Add(new PlayerRecord(_playerCamera, _isFirstPersonView, horInput, verInput, moveSpeed, jumpPressed, shootPressed, meleePressed));
+                replayClone.PlayerRecordings.Add(new PlayerRecord(_playerCamera, _isFirstPersonView, _headRotationX, mouseX, horInput, verInput, moveSpeed, jumpPressed, shootPressed, meleePressed));
 
                 //Clone replays recorded player movements
                 CloneMovement(replayClone, true);
@@ -263,6 +282,8 @@ public class CloningSystem : MonoBehaviour
     {
         Transform playerCamera = isLateClone ? replayClone.PlayerRecordings[0].playerCamera : _playerCamera;
         bool isFirstPersonView = isLateClone ? replayClone.PlayerRecordings[0].isFirstPersonView : _isFirstPersonView;
+        float headRotX = isLateClone ? replayClone.PlayerRecordings[0].headRotationX : _headRotationX;
+        float rotX = isLateClone ? replayClone.PlayerRecordings[0].mouseX : mouseX;
         float hor = isLateClone ? replayClone.PlayerRecordings[0].horInput : horInput;
         float ver = isLateClone ? replayClone.PlayerRecordings[0].verInput : verInput;
         float horSpeed = isLateClone ? replayClone.PlayerRecordings[0].moveSpeed : moveSpeed;
@@ -284,6 +305,12 @@ public class CloningSystem : MonoBehaviour
                 Quaternion direction = Quaternion.LookRotation(moveDirection);
                 replayClone.Clone.transform.rotation = Quaternion.Lerp(replayClone.Clone.transform.rotation, direction, 15f * Time.deltaTime); //change rotation smoothly
             }
+        }
+        if(isFirstPersonView)
+        {
+            Debug.Log("isFirstPersonView true! rotX*firstPL= " + rotX * firstPersonLook.sensitivityHor + " and headRotX= " + headRotX);
+            replayClone.Clone.transform.Rotate(0, rotX * firstPersonLook.sensitivityHor, 0);
+            replayClone.head.transform.localEulerAngles = new Vector3(headRotX, 0, 0);
         }
 
         //Clone VERTICAL-MOVEMENT
