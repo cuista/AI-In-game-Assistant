@@ -24,11 +24,17 @@ public class InworldAIController : MonoBehaviour
     public float currentTriggerDuration;
     private float currentTriggerTime;
 
+    private bool echoIsMuted;
+    private AudioSource echoAudioSource;
+
     // Start is called before the first frame update
     void Start()
     {
-        player = (player==null)?FindObjectOfType<InworldPlayer2D>():player;
+        player = (player==null) ? FindObjectOfType<InworldPlayer2D>() : player;
         echo = (echo == null) ? FindObjectOfType<InworldCharacter>() : echo;
+        echo.ResetCharacter(); //Reset memeory of previous session
+        echoIsMuted = false;
+        echoAudioSource = echo.GetComponent<AudioSource>();
         LoadLevelTriggers();
         currentTriggerTime = 0;
         currentTriggerDuration = 45f;
@@ -95,5 +101,16 @@ public class InworldAIController : MonoBehaviour
         levelTriggers.RemoveAt(0);
 
         return levelEvent;
+    }
+
+    public void hintTrigger()
+    {
+        currentTriggerTime = currentTriggerDuration;
+    }
+
+    public void mute()
+    {
+        echoIsMuted = !echoIsMuted;
+        echoAudioSource.mute = echoIsMuted;
     }
 }

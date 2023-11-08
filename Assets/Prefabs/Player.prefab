@@ -48,6 +48,8 @@ GameObject:
   - component: {fileID: 6180225382354867594}
   - component: {fileID: 7928602259109367825}
   - component: {fileID: 6244567321913720165}
+  - component: {fileID: 5523091840298261076}
+  - component: {fileID: 1269473473631873580}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -204,12 +206,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a0d5c435742f8d41a72846e2f57b6e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axes: 0
   sensitivityHor: 9
   sensitivityVert: 9
   minimumVert: -45
   maximumVert: 45
   _head: {fileID: 1538208927000333989}
+  headRotationX: 0
   head: {fileID: 0}
   nose: {fileID: 0}
   bulletCreationPoint: {fileID: 0}
@@ -245,6 +247,34 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5142973565552762830, guid: 1c4f5a3227f8b254987ff1fa22182b8d, type: 3}
   bulletCreationPoint: {fileID: 1049999869575138393}
   meleeRadius: 2
+--- !u!114 &5523091840298261076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473766506597880781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 922244959a7622d41b2b56784e27b72c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 5142973565552762830, guid: 1c4f5a3227f8b254987ff1fa22182b8d, type: 3}
+  bulletCreationPoint: {fileID: 1049999869575138393}
+  meleeRadius: 2
+--- !u!114 &1269473473631873580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473766506597880781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67b97272a7e19f44aa80e6fad4a0a075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assistantController: {fileID: 0}
 --- !u!1 &1538208927000333989
 GameObject:
   m_ObjectHideFlags: 0

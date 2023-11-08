@@ -80,8 +80,8 @@ public class CloningSystem : MonoBehaviour
     private bool _spawnPointTimedOut;
     private List<PlayerRecord> _currentPlayerRecording;
 
-    private bool fire1Pressed;
     private bool fire2Pressed;
+    private bool fire1Pressed;
 
     public float timeAcceleration = 3f;
 
@@ -115,8 +115,8 @@ public class CloningSystem : MonoBehaviour
         _spawnPointTimedOut = false;
         _currentPlayerRecording = null;
 
-        fire1Pressed = false;
         fire2Pressed = false;
+        fire1Pressed = false;
 
         _isLateCloneMode = true;
         jumpPressed = false;
@@ -143,8 +143,8 @@ public class CloningSystem : MonoBehaviour
                 _spawnPointTimedOut = false;
             }
 
-            fire1Pressed = Input.GetButtonUp("Fire1") || fire1Pressed;
-            fire2Pressed = (Input.GetButtonUp("Fire2") && _spawnPoint != null) || fire2Pressed;
+            fire1Pressed = (Input.GetButtonUp("Fire1") && _spawnPoint != null) || fire1Pressed;
+            fire2Pressed = Input.GetButtonUp("Fire2") || fire2Pressed;
         }
 
         //Time acceleration ability
@@ -179,7 +179,7 @@ public class CloningSystem : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(fire1Pressed) //Place clone spawn point
+        if(fire2Pressed) //Place clone spawn point
         {
             if(_spawnPoint != null)
             {
@@ -196,10 +196,10 @@ public class CloningSystem : MonoBehaviour
             _spawnPoint.transform.SetLocalPositionAndRotation(transform.position, transform.rotation);
             StartCoroutine(SpawnPointUnused(_spawnPoint));
 
-            fire1Pressed = false;
+            fire2Pressed = false;
         }
 
-        if (fire2Pressed) //Spawn the clone and starting replaying player movements
+        if (fire1Pressed) //Spawn the clone and starting replaying player movements
         {
             Managers.Inventory.ConsumeItem("CloneRecharge");
 
@@ -220,7 +220,7 @@ public class CloningSystem : MonoBehaviour
 
             transform.GetComponent<PlayerCharacter>().DisableUICountdown(); //UI temporary
 
-            fire2Pressed = false;
+            fire1Pressed = false;
         }
 
         //Update camera info from relativeMovement
