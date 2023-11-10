@@ -109,7 +109,7 @@ public class RelativeMovement : MonoBehaviour
                 _vertSpeed = terminalVelocity;
             }
 
-            if (_charController.isGrounded)
+            if (_contact != null && _charController.isGrounded)
             {
                 if (Vector3.Dot(moveDirection, _contact.normal) < 0) // Dot if they point same is 1 (same direction) to -1 (opposite)
                 {

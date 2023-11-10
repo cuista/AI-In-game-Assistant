@@ -36,6 +36,15 @@ public class LoadingScenesManager : MonoBehaviour
         _loadingSM.StartCoroutine(LoadingScreen());
     }
 
+    public static void LoadingScenesAdditive(params string[] scenes)
+    {
+        foreach (string scene in scenes)
+        {
+            scenesToLoad.Add(SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive));
+            Debug.Log(scene);
+        }
+    }
+
     private static IEnumerator LoadingScreen()
     {
         float totalProgress = 0;
