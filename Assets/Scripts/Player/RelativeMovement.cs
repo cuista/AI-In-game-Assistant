@@ -196,7 +196,7 @@ public class RelativeMovement : MonoBehaviour
         CameraSwitcher.Register(firstPersonCamera);
         CameraSwitcher.Register(thirdPersonCamera);
         CameraSwitcher.Register(isometricCamera);
-        SwitchCameraView(3);
+        SwitchCameraView(1);
     }
 
     private void OnDisable()

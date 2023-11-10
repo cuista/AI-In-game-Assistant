@@ -23,8 +23,8 @@ public class SceneController_1 : MonoBehaviour
     {
         //ENEMIES
         _enemies = new List<GameObject>();
-        AddEnemy(turretPrefab, new Vector3(20, 0.54f, 108), Quaternion.Euler(0, 20, 0));
-        AddEnemy(turretPrefab, new Vector3(20, 0.54f, 120), Quaternion.Euler(0, 20, 0));
+        AddEnemy(turretPrefab, new Vector3(20, 1.2f, 113), Quaternion.Euler(0, 180, 0));
+        AddEnemy(turretPrefab, new Vector3(20, 0.54f, 185), Quaternion.Euler(0, 180, 0));
     }
 
     // Update is called once per frame

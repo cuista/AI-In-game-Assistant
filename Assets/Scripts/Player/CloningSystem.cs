@@ -308,7 +308,6 @@ public class CloningSystem : MonoBehaviour
         }
         if(isFirstPersonView)
         {
-            Debug.Log("isFirstPersonView true! rotX*firstPL= " + rotX * firstPersonLook.sensitivityHor + " and headRotX= " + headRotX);
             replayClone.Clone.transform.Rotate(0, rotX * firstPersonLook.sensitivityHor, 0);
             replayClone.head.transform.localEulerAngles = new Vector3(headRotX, 0, 0);
         }
