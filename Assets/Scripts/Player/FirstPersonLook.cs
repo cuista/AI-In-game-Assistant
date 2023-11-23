@@ -14,12 +14,11 @@ public class FirstPersonLook : MonoBehaviour
     private float _rotX = 0;
     private float _rotY = 0;
 
-    [SerializeField] private GameObject _head;
     public float headRotationX = 0;
 
-    [SerializeField] private GameObject head;
-    [SerializeField] private GameObject nose;
-    [SerializeField] private GameObject bulletCreationPoint;
+    [SerializeField] private GameObject _head;
+    [SerializeField] private GameObject _nose;
+    [SerializeField] private GameObject _bulletCreationPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +47,7 @@ public class FirstPersonLook : MonoBehaviour
 
     private void OnEnable()
     {
-        bulletCreationPoint.transform.SetParent(nose.transform);
+        _bulletCreationPoint.transform.SetParent(_nose.transform);
     }
 
     private void OnDisable()
@@ -56,6 +55,6 @@ public class FirstPersonLook : MonoBehaviour
         _head.transform.localEulerAngles = new Vector3(0, 0, 0);
         headRotationX = 0;
 
-        bulletCreationPoint.transform.SetParent(head.transform);
+        _bulletCreationPoint.transform.SetParent(_head.transform);
     }
 }
