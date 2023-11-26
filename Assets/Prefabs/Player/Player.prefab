@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 4504164694877708063}
   - component: {fileID: 145634390041342658}
   - component: {fileID: 7772455297623508714}
+  - component: {fileID: 5804573360278729221}
   - component: {fileID: 2229912338996819147}
   - component: {fileID: 3423261150331800173}
   - component: {fileID: 683005975758321560}
@@ -124,6 +125,102 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!82 &5804573360278729221
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473766506597880781}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!143 &2229912338996819147
 CharacterController:
   m_ObjectHideFlags: 0
@@ -171,6 +268,8 @@ MonoBehaviour:
   _cloneRechargesText: {fileID: 0}
   _countdownText: {fileID: 0}
   _switchedCloneMode: {fileID: 0}
+  hurtSound: {fileID: 8300000, guid: f673f3706a983ee4c9ae66fa53fd7c5f, type: 3}
+  deathSound: {fileID: 8300000, guid: 397974ec9f3b2fd49af5035dbc47d0b2, type: 3}
 --- !u!114 &683005975758321560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,6 +293,8 @@ MonoBehaviour:
   firstPersonCamera: {fileID: 0}
   thirdPersonCamera: {fileID: 0}
   isometricCamera: {fileID: 0}
+  footStepSound: {fileID: 8300000, guid: 825d688f717750646b0a05cb2db4ae16, type: 3}
+  jumpSound: {fileID: 8300000, guid: f5d9388f40edaa74ea528c7f2d8061b1, type: 3}
 --- !u!114 &6180225382354867594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,11 +311,10 @@ MonoBehaviour:
   sensitivityVert: 9
   minimumVert: -45
   maximumVert: 45
-  _head: {fileID: 1538208927000333989}
   headRotationX: 0
-  head: {fileID: 0}
-  nose: {fileID: 0}
-  bulletCreationPoint: {fileID: 0}
+  _head: {fileID: 1538208927000333989}
+  _nose: {fileID: 6031833084658556173}
+  _bulletCreationPoint: {fileID: 1049999869575138393}
 --- !u!114 &7928602259109367825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,6 +332,8 @@ MonoBehaviour:
   spawnClonePrefab: {fileID: 0}
   timeAcceleration: 3
   _glitchEffect: {fileID: 0}
+  plantSpawnSound: {fileID: 8300000, guid: a3134115e9094d1428b77b45459070c2, type: 3}
+  cloneSpawnSound: {fileID: 8300000, guid: 6748c608c610a234ea53dee24c70e927, type: 3}
 --- !u!114 &6244567321913720165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,6 +349,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5142973565552762830, guid: 1c4f5a3227f8b254987ff1fa22182b8d, type: 3}
   bulletCreationPoint: {fileID: 1049999869575138393}
   meleeRadius: 2
+  shootSound: {fileID: 8300000, guid: 5f843118a1534384f865ce4e260f4495, type: 3}
+  meleeSound: {fileID: 8300000, guid: a702173ef51d8d64883734d208a7a4af, type: 3}
 --- !u!114 &5523091840298261076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,6 +366,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5142973565552762830, guid: 1c4f5a3227f8b254987ff1fa22182b8d, type: 3}
   bulletCreationPoint: {fileID: 1049999869575138393}
   meleeRadius: 2
+  shootSound: {fileID: 0}
+  meleeSound: {fileID: 0}
 --- !u!114 &1269473473631873580
 MonoBehaviour:
   m_ObjectHideFlags: 0

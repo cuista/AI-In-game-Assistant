@@ -8,6 +8,14 @@ public class InventoryManager : MonoBehaviour, IGameManager
 
     private Dictionary<string, int> _items;
 
+    private AudioManager audioManager;
+    [SerializeField] private AudioClip itemCollectedSound;
+
+    private void Awake()
+    {
+        audioManager = DontDestroyOnLoadManager.GetAudioManager();
+    }
+
     public void Startup()
     {
         Debug.Log("Inventory manager starting...");
@@ -39,6 +47,7 @@ public class InventoryManager : MonoBehaviour, IGameManager
         {
             _items[name] = 1;
         }
+        audioManager.PlaySound(itemCollectedSound);
 
         DisplayItems();
     }

@@ -102,6 +102,11 @@ public class CloningSystem : MonoBehaviour
 
     [SerializeField] private VHSPostProcessEffect _glitchEffect;
 
+    private AudioSource _audioSource;
+
+    [SerializeField] private AudioClip plantSpawnSound;
+    [SerializeField] private AudioClip cloneSpawnSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -129,6 +134,8 @@ public class CloningSystem : MonoBehaviour
         _headRotationX = firstPersonLook.headRotationX;
 
         _glitchEffect.enabled = false;
+
+        _audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -197,6 +204,7 @@ public class CloningSystem : MonoBehaviour
             StartCoroutine(SpawnPointUnused(_spawnPoint));
 
             fire2Pressed = false;
+            _audioSource.PlayOneShot(plantSpawnSound);
         }
 
         if (fire1Pressed) //Spawn the clone and starting replaying player movements
@@ -221,6 +229,7 @@ public class CloningSystem : MonoBehaviour
             transform.GetComponent<PlayerCharacter>().DisableUICountdown(); //UI temporary
 
             fire1Pressed = false;
+            _audioSource.PlayOneShot(cloneSpawnSound);
         }
 
         //Update camera info from relativeMovement

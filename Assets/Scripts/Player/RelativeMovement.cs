@@ -27,12 +27,17 @@ public class RelativeMovement : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
     private ControllerColliderHit _contact; //To be precise on edge of objects
 
-
     [SerializeField] CinemachineVirtualCameraBase firstPersonCamera;
     [SerializeField] CinemachineVirtualCameraBase thirdPersonCamera;
     [SerializeField] CinemachineVirtualCameraBase isometricCamera;
-
     private bool _isFirstPersonView;
+
+    private AudioSource _audioSource;
+    [SerializeField] private AudioClip footStepSound;
+    [SerializeField] private AudioClip jumpSound;
+    private float _walkStepSoundLength;
+    private float _runStepSoundLength;
+    private bool _step;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +50,11 @@ public class RelativeMovement : MonoBehaviour
         _charController = GetComponent<CharacterController>();
         _jumpPressed = false;
         SwitchCameraView(3);
+
+        _audioSource = GetComponent<AudioSource>();
+        _step = true;
+        _walkStepSoundLength = 0.336f;
+        _runStepSoundLength = 0.261f;
     }
 
     // Update is called once per frame
@@ -82,6 +92,12 @@ public class RelativeMovement : MonoBehaviour
             }
         }
 
+        if (_charController.velocity.magnitude > 1f && _step && !_isJumping)
+        {
+            _audioSource.PlayOneShot(footStepSound);
+            StartCoroutine(WaitForFootSteps(_charController.velocity.magnitude));
+        }
+
         //If player hit the floor or not, handle vertical speed
         if (IsHittingGround())
         {
@@ -92,6 +108,7 @@ public class RelativeMovement : MonoBehaviour
                 {
                     _vertSpeed = jumpSpeed;
                     _isJumping = true;
+                    _audioSource.PlayOneShot(jumpSound);
                 }
             }
             else
@@ -204,5 +221,12 @@ public class RelativeMovement : MonoBehaviour
         CameraSwitcher.Unregister(firstPersonCamera);
         CameraSwitcher.Unregister(thirdPersonCamera);
         CameraSwitcher.Unregister(isometricCamera);
+    }
+
+    private IEnumerator WaitForFootSteps(float movementSpeed)
+    {
+        _step = false;
+        yield return new WaitForSeconds(movementSpeed > 7 ? _runStepSoundLength : _walkStepSoundLength);
+        _step = true;
     }
 }

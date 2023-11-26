@@ -27,6 +27,10 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
     private bool _resetCountdown;
     [SerializeField] private Image _switchedCloneMode;
 
+    private AudioSource _audioSource;
+    [SerializeField] private AudioClip hurtSound;
+    [SerializeField] private AudioClip deathSound;
+
     private void Awake()
     {
         Messenger.AddListener(GameEvent.SWITCHED_CLONE_MODE, OnSwitchedCloneMode);
@@ -54,6 +58,8 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
         _resetCountdown = false;
 
         _switchedCloneMode.color = Color.red;
+
+        _audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -117,6 +123,7 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
         damaged = true;
         health -= damage;
         healthBar.value -= barValueDamage * damage;
+        _audioSource.PlayOneShot(hurtSound);
     }
 
     //Trigger the gameOver
@@ -129,6 +136,7 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
         Messenger.Broadcast(GameEvent.GAMEOVER);
 
         GameEvent.isPaused = true;
+        _audioSource.PlayOneShot(deathSound);
         //StartCoroutine(Die());
 
         /* FIXME MOMENTANEO */

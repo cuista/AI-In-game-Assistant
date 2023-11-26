@@ -13,11 +13,17 @@ public class ShooterSystem : MonoBehaviour
     private bool shootPressed;
     private bool meleePressed;
 
+    private AudioSource _audioSource;
+
+    [SerializeField] private AudioClip shootSound;
+    [SerializeField] private AudioClip meleeSound;
+
     // Start is called before the first frame update
     void Start()
     {
         shootPressed = false;
         meleePressed = false;
+        _audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -40,6 +46,7 @@ public class ShooterSystem : MonoBehaviour
                     GameObject bullet = Instantiate(bulletPrefab) as GameObject;
                     bullet.transform.position = (bulletCreationPoint != null) ? bulletCreationPoint.transform.position : transform.TransformPoint(Vector3.forward * 2.5f);
                     bullet.transform.rotation = bulletCreationPoint.transform.rotation;
+                    _audioSource.PlayOneShot(shootSound);
                 }
                 shootPressed = false; //Reset shoot input
             }
@@ -61,6 +68,7 @@ public class ShooterSystem : MonoBehaviour
                     }
                 }
                 meleePressed = false; //Reset melee input
+                _audioSource.PlayOneShot(meleeSound);
             }
         }
     }
