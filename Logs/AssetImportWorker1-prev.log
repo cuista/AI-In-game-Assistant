@@ -15,7 +15,7 @@ C:/Users/carlo.cristarella/source/repos/AI-In-game-Assistant
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-50696
+55665
 Successfully changed project path to: C:/Users/carlo.cristarella/source/repos/AI-In-game-Assistant
 C:/Users/carlo.cristarella/source/repos/AI-In-game-Assistant
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,12 +49,12 @@ C:/Users/carlo.cristarella/source/repos/AI-In-game-Assistant
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [72628] Host "[IP] 192.168.213.101 [Port] 0 [Flags] 2 [Guid] 2871362018 [EditorId] 2871362018 [Version] 1048832 [Id] WindowsEditor(7,DS0QRK3) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [17892] Host "[IP] 192.168.213.101 [Port] 0 [Flags] 2 [Guid] 3223213061 [EditorId] 3223213061 [Version] 1048832 [Id] WindowsEditor(7,DS0QRK3) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [72628] Host "[IP] 192.168.213.101 [Port] 0 [Flags] 2 [Guid] 2871362018 [EditorId] 2871362018 [Version] 1048832 [Id] WindowsEditor(7,DS0QRK3) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [17892] Host "[IP] 192.168.213.101 [Port] 0 [Flags] 2 [Guid] 3223213061 [EditorId] 3223213061 [Version] 1048832 [Id] WindowsEditor(7,DS0QRK3) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 7 workers.
-Refreshing native plugins compatible for Editor in 88.91 ms, found 16 plugins.
+Refreshing native plugins compatible for Editor in 45.92 ms, found 16 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.9f1 (ea401c316338)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/Resources/UnitySubsystems
@@ -70,51 +70,51 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56416
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56608
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
-Registered in 0.012799 seconds.
-- Loaded All Assemblies, in  0.663 seconds
+Registered in 0.014287 seconds.
+- Loaded All Assemblies, in  0.668 seconds
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 418 ms
+Android Extension - Scanning For ADB Devices 264 ms
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.212 seconds
-Domain Reload Profiling: 1866ms
+- Finished resetting the current domain, in  0.779 seconds
+Domain Reload Profiling: 1445ms
 	BeginReloadAssembly (138ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (44ms)
-	RebuildNativeTypeToScriptingClass (15ms)
-	initialDomainReloadingComplete (194ms)
-	LoadAllAssembliesAndSetupDomain (262ms)
-		LoadAssemblies (137ms)
+	RebuildCommonClasses (53ms)
+	RebuildNativeTypeToScriptingClass (20ms)
+	initialDomainReloadingComplete (97ms)
+	LoadAllAssembliesAndSetupDomain (358ms)
+		LoadAssemblies (136ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (257ms)
-			TypeCache.Refresh (254ms)
-				TypeCache.ScanAssembly (224ms)
+		AnalyzeDomain (354ms)
+			TypeCache.Refresh (352ms)
+				TypeCache.ScanAssembly (324ms)
 			ScanForSourceGeneratedMonoScriptInfo (1ms)
 			ResolveRequiredComponents (1ms)
-	FinalizeReload (1212ms)
+	FinalizeReload (779ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1120ms)
+		SetupLoadedEditorAssemblies (646ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (894ms)
+			InitializePlatformSupportModulesInManaged (447ms)
 			SetLoadedEditorAssemblies (7ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (3ms)
-			ProcessInitializeOnLoadAttributes (142ms)
-			ProcessInitializeOnLoadMethodAttributes (74ms)
+			ProcessInitializeOnLoadAttributes (126ms)
+			ProcessInitializeOnLoadMethodAttributes (62ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -122,8 +122,8 @@ Domain Reload Profiling: 1866ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Assets/Inworld.AI/Plugins/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Assets/Packages/System.Runtime.CompilerServices.Unsafe.4.5.0/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.- Loaded All Assemblies, in  1.888 seconds
-Refreshing native plugins compatible for Editor in 51.27 ms, found 16 plugins.
+Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Assets/Inworld.AI/Plugins/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Assets/Packages/System.Runtime.CompilerServices.Unsafe.4.5.0/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.- Loaded All Assemblies, in  1.077 seconds
+Refreshing native plugins compatible for Editor in 23.14 ms, found 16 plugins.
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
@@ -133,7 +133,7 @@ Package Manager log level set to [2]
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Getting credential for https://api.nuget.org/v3/index.json
-Getting installed packages took 61 ms
+Getting installed packages took 49 ms
 Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Assets/Inworld.AI/Plugins/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Assets/Packages/System.Runtime.CompilerServices.Unsafe.4.5.0/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Assets/Inworld.AI/Plugins/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Assets/Packages/System.Runtime.CompilerServices.Unsafe.4.5.0/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Already imported libs: UnityEngine.UI, UnityEngine, UnityEngine.AIModule, UnityEngine.ARModule, UnityEngine.AccessibilityModule, UnityEngine.AndroidJNIModule, UnityEngine.AnimationModule, UnityEngine.AssetBundleModule, UnityEngine.AudioModule, UnityEngine.ClothModule, UnityEngine.ClusterInputModule, UnityEngine.ClusterRendererModule, UnityEngine.ContentLoadModule, UnityEngine.CoreModule, UnityEngine.CrashReportingModule, UnityEngine.DSPGraphModule, UnityEngine.DirectorModule, UnityEngine.GIModule, UnityEngine.GameCenterModule, UnityEngine.GridModule, UnityEngine.HotReloadModule, UnityEngine.IMGUIModule, UnityEngine.ImageConversionModule, UnityEngine.InputModule, UnityEngine.InputLegacyModule, UnityEngine.JSONSerializeModule, UnityEngine.LocalizationModule, UnityEngine.NVIDIAModule, UnityEngine.ParticleSystemModule, UnityEngine.PerformanceReportingModule, UnityEngine.PhysicsModule, UnityEngine.Physics2DModule, UnityEngine.ProfilerModule, UnityEngine.PropertiesModule, UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule, UnityEngine.ScreenCaptureModule, UnityEngine.SharedInternalsModule, UnityEngine.SpriteMaskModule, UnityEngine.SpriteShapeModule, UnityEngine.StreamingModule, UnityEngine.SubstanceModule, UnityEngine.SubsystemsModule, UnityEngine.TLSModule, UnityEngine.TerrainModule, UnityEngine.TerrainPhysicsModule, UnityEngine.TextCoreFontEngineModule, UnityEngine.TextCoreTextEngineModule, UnityEngine.TextRenderingModule, UnityEngine.TilemapModule, UnityEngine.UIModule, UnityEngine.UIElementsModule, UnityEngine.UmbraModule, UnityEngine.UnityAnalyticsModule, UnityEngine.UnityAnalyticsCommonModule, UnityEngine.UnityConnectModule, UnityEngine.UnityCurlModule, UnityEngine.UnityTestProtocolModule, UnityEngine.UnityWebRequestModule, UnityEngine.UnityWebRequestAssetBundleModule, UnityEngine.UnityWebRequestAudioModule, UnityEngine.UnityWebRequestTextureModule, UnityEngine.UnityWebRequestWWWModule, UnityEngine.VFXModule, UnityEngine.VRModule, UnityEngine.VehiclesModule, UnityEngine.VideoModule, UnityEngine.VirtualTexturingModule, UnityEngine.WindModule, UnityEngine.XRModule, NewtonsoftJson, Google.Api.CommonProtos, InworldProto, Grpc.Core, Google.Protobuf, Grpc.Core.Api, Unity.VisualScripting.Antlr3.Runtime, netstandard, Microsoft.Win32.Primitives, System.AppContext, System.Buffers, System.Collections.Concurrent, System.Collections, System.Collections.NonGeneric, System.Collections.Specialized, System.ComponentModel, System.ComponentModel.EventBasedAsync, System.ComponentModel.Primitives, System.ComponentModel.TypeConverter, System.Console, System.Data.Common, System.Diagnostics.Contracts, System.Diagnostics.Debug, System.Diagnostics.FileVersionInfo, System.Diagnostics.Process, System.Diagnostics.StackTrace, System.Diagnostics.TextWriterTraceListener, System.Diagnostics.Tools, System.Diagnostics.TraceSource, System.Diagnostics.Tracing, System.Drawing.Primitives, System.Dynamic.Runtime, System.Globalization.Calendars, System.Globalization, System.Globalization.Extensions, System.IO.Compression, System.IO.Compression.ZipFile, System.IO, System.IO.FileSystem, System.IO.FileSystem.DriveInfo, System.IO.FileSystem.Primitives, System.IO.FileSystem.Watcher, System.IO.IsolatedStorage, System.IO.MemoryMappedFiles, System.IO.Pipes, System.IO.UnmanagedMemoryStream, System.Linq, System.Linq.Expressions, System.Linq.Parallel, System.Linq.Queryable, System.Memory, System.Net.Http, System.Net.NameResolution, System.Net.NetworkInformation, System.Net.Ping, System.Net.Primitives, System.Net.Requests, System.Net.Security, System.Net.Sockets, System.Net.WebHeaderCollection, System.Net.WebSockets.Client, System.Net.WebSockets, System.Numerics.Vectors, System.ObjectModel, System.Reflection.DispatchProxy, System.Reflection, System.Reflection.Emit, System.Reflection.Emit.ILGeneration, System.Reflection.Emit.Lightweight, System.Reflection.Extensions, System.Reflection.Primitives, System.Resources.Reader, System.Resources.ResourceManager, System.Resources.Writer, System.Runtime.CompilerServices.VisualC, System.Runtime, System.Runtime.Extensions, System.Runtime.Handles, System.Runtime.InteropServices, System.Runtime.InteropServices.RuntimeInformation, System.Runtime.Numerics, System.Runtime.Serialization.Formatters, System.Runtime.Serialization.Json, System.Runtime.Serialization.Primitives, System.Runtime.Serialization.Xml, System.Security.Claims, System.Security.Cryptography.Algorithms, System.Security.Cryptography.Csp, System.Security.Cryptography.Encoding, System.Security.Cryptography.Primitives, System.Security.Cryptography.X509Certificates, System.Security.Principal, System.Security.SecureString, System.Text.Encoding, System.Text.Encoding.Extensions, System.Text.RegularExpressions, System.Threading, System.Threading.Overlapped, System.Threading.Tasks, System.Threading.Tasks.Extensions, System.Threading.Tasks.Parallel, System.Threading.Thread, System.Threading.ThreadPool, System.Threading.Timer, System.ValueTuple, System.Xml.ReaderWriter, System.Xml.XDocument, System.Xml.XmlDocument, System.Xml.XmlSerializer, System.Xml.XPath, System.Xml.XPath.XDocument, System.Runtime.InteropServices.WindowsRuntime, mscorlib, System.ComponentModel.Composition, System.Core, System.Data, System, System.Drawing, System.IO.Compression.FileSystem, System.Net, System.Numerics, System.Runtime.Serialization, System.ServiceModel.Web, System.Transactions, System.Web, System.Windows, System.Xml, System.Xml.Linq, System.Xml.Serialization, Unity.VisualScripting.Core, Unity.ProBuilder.Poly2Tri, Unity.ProBuilder.KdTree, Unity.TextMeshPro, Siccity.GLTFUtility, Unity.Timeline, nunit.framework, InworldAI, Unity.ProBuilder, Dracodec, Unity.TerrainTools, Unity.VisualScripting.Flow, Unity.Polybrush, Unity.VisualScripting.State, Cinemachine, Unity.ProGrids, NETStandard.Library, Microsoft.NETCore.Platforms, Microsoft.CSharp
 Already imported editor only libraries: System.CodeDom
 Is package 'Microsoft.Bcl.AsyncInterfaces' already imported? False
@@ -150,44 +150,44 @@ Is package 'Newtonsoft.Json' already imported? False
 Is package 'OpenAI' already imported? False
 Is package 'System.Runtime.CompilerServices.Unsafe' already imported? False
 No packages need restoring.
-Restoring packages took 269 ms
+Restoring packages took 208 ms
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  2.241 seconds
-Domain Reload Profiling: 4127ms
-	BeginReloadAssembly (220ms)
+- Finished resetting the current domain, in  1.377 seconds
+Domain Reload Profiling: 2451ms
+	BeginReloadAssembly (278ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (8ms)
+		DisableScriptedObjects (7ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (37ms)
-	RebuildCommonClasses (70ms)
-	RebuildNativeTypeToScriptingClass (17ms)
-	initialDomainReloadingComplete (61ms)
-	LoadAllAssembliesAndSetupDomain (1517ms)
-		LoadAssemblies (538ms)
+		CreateAndSetChildDomain (35ms)
+	RebuildCommonClasses (50ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (58ms)
+	LoadAllAssembliesAndSetupDomain (674ms)
+		LoadAssemblies (469ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (1101ms)
-			TypeCache.Refresh (677ms)
-				TypeCache.ScanAssembly (635ms)
-			ScanForSourceGeneratedMonoScriptInfo (59ms)
-			ResolveRequiredComponents (362ms)
-	FinalizeReload (2242ms)
+		AnalyzeDomain (319ms)
+			TypeCache.Refresh (286ms)
+				TypeCache.ScanAssembly (257ms)
+			ScanForSourceGeneratedMonoScriptInfo (23ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (1377ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1520ms)
+		SetupLoadedEditorAssemblies (1134ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (56ms)
-			SetLoadedEditorAssemblies (12ms)
+			InitializePlatformSupportModulesInManaged (31ms)
+			SetLoadedEditorAssemblies (6ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (141ms)
-			ProcessInitializeOnLoadAttributes (1241ms)
-			ProcessInitializeOnLoadMethodAttributes (53ms)
-			AfterProcessingInitializeOnLoad (16ms)
-			EditorAssembliesLoaded (1ms)
+			BeforeProcessingInitializeOnLoad (112ms)
+			ProcessInitializeOnLoadAttributes (942ms)
+			ProcessInitializeOnLoadMethodAttributes (34ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (18ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Refreshing native plugins compatible for Editor in 27.99 ms, found 16 plugins.
+		AwakeInstancesAfterBackupRestoration (7ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 20.71 ms, found 16 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Your Inworld SDK is outdated. Please fetch the newest from Asset Store or https://github.com/inworld-ai/inworld-unity-sdk/releases
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
@@ -203,8 +203,8 @@ UnityEngine.AsyncOperation:InvokeCompletionEvent ()
 
 Unloading 4338 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 167 unused Assets / (1.5 MB). Loaded Objects now: 4879.
-Memory consumption went from 209.6 MB to 208.1 MB.
-Total: 9.693700 ms (FindLiveObjects: 0.380700 ms CreateObjectMapping: 0.291100 ms MarkObjects: 6.146600 ms  DeleteObjects: 2.873400 ms)
+Memory consumption went from 209.6 MB to 208.0 MB.
+Total: 7.388000 ms (FindLiveObjects: 0.444800 ms CreateObjectMapping: 0.458300 ms MarkObjects: 5.705200 ms  DeleteObjects: 0.778000 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -219,3 +219,11 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 561164.588659 seconds.
+  path: Assets/Prefabs/Player
+  artifactKey: Guid(ed72c22748dcc7548870b994c56216f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Player using Guid(ed72c22748dcc7548870b994c56216f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1229b8fc3870cd57394083c89b061c4') in 0.005072 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0

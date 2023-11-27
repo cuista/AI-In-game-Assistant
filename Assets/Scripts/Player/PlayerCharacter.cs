@@ -27,6 +27,8 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
     private bool _resetCountdown;
     [SerializeField] private Image _switchedCloneMode;
 
+    private Animator _animator;
+
     private AudioSource _audioSource;
     [SerializeField] private AudioClip hurtSound;
     [SerializeField] private AudioClip deathSound;
@@ -58,6 +60,8 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
         _resetCountdown = false;
 
         _switchedCloneMode.color = Color.red;
+
+        _animator = GetComponent<Animator>();
 
         _audioSource = GetComponent<AudioSource>();
     }
@@ -131,24 +135,18 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
     {
         fillHealthBar.enabled = false;
         gameOver.SetActive(true);
-        //gameOver.transform.GetChild(1).gameObject.SetActive(false);
+        //gameOver.transform.GetChild(1).gameObject.SetActive(false);  //TODO add gameover buttons
         healthBarBackground.color = Color.red;
         Messenger.Broadcast(GameEvent.GAMEOVER);
 
         GameEvent.isPaused = true;
         _audioSource.PlayOneShot(deathSound);
-        //StartCoroutine(Die());
-
-        /* FIXME MOMENTANEO */
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        Time.timeScale = 0; // stop everything (PAUSE)
-        /* */
+        StartCoroutine(Die());
     }
 
     private IEnumerator Die()
     {
-        //GetComponent<Animator>().SetBool("Dying", true);
+        _animator.SetBool("Dying", true);
 
         Image gameOverLogo = gameOver.GetComponentInChildren<Image>();
         Vector3 finalPosition = gameOverLogo.transform.position;
@@ -167,7 +165,7 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
             yield return null;
         }
 
-        //gameOver.transform.GetChild(1).gameObject.SetActive(true);
+        //gameOver.transform.GetChild(1).gameObject.SetActive(true); //TODO add gameover buttons
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;

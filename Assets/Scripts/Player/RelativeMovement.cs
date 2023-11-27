@@ -32,6 +32,8 @@ public class RelativeMovement : MonoBehaviour
     [SerializeField] CinemachineVirtualCameraBase isometricCamera;
     private bool _isFirstPersonView;
 
+    private Animator _animator;
+
     private AudioSource _audioSource;
     [SerializeField] private AudioClip footStepSound;
     [SerializeField] private AudioClip jumpSound;
@@ -50,6 +52,8 @@ public class RelativeMovement : MonoBehaviour
         _charController = GetComponent<CharacterController>();
         _jumpPressed = false;
         SwitchCameraView(3);
+
+        _animator = GetComponent<Animator>();
 
         _audioSource = GetComponent<AudioSource>();
         _step = true;
@@ -92,6 +96,7 @@ public class RelativeMovement : MonoBehaviour
             }
         }
 
+        _animator.SetFloat("Speed", moveDirection.magnitude);
         if (_charController.velocity.magnitude > 1f && _step && !_isJumping)
         {
             _audioSource.PlayOneShot(footStepSound);
@@ -115,12 +120,14 @@ public class RelativeMovement : MonoBehaviour
             {
                 _vertSpeed = minFall;
                 _isJumping = false;
+                _animator.SetBool("Jumping", false);
             }
         }
         else
         {
             _jumpPressed = false;
             _vertSpeed += gravity * 5 * Time.fixedDeltaTime;
+            _animator.SetBool("Jumping", true);
             if (_vertSpeed < terminalVelocity)
             {
                 _vertSpeed = terminalVelocity;
@@ -132,6 +139,7 @@ public class RelativeMovement : MonoBehaviour
                 {
                     moveDirection = _contact.normal * _moveSpeed;
                     _isJumping = false;
+                    _animator.SetBool("Jumping", false);
                 }
                 else
                 {

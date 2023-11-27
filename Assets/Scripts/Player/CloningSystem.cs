@@ -44,6 +44,8 @@ class ReplayClone
     public GameObject bulletCreationPoint;
     public GameObject head;
 
+    public Animator animator;
+
     public ReplayClone(GameObject clone, List<PlayerRecord> playerRecordings, float vertSpeed)
     {
         this.Clone = clone;
@@ -52,6 +54,8 @@ class ReplayClone
         this.vertSpeed = vertSpeed;
         bulletCreationPoint = clone.GetComponent<CloneCharacter>().GetBulletCreationPoint();
         head = clone.GetComponentInChildren<CloneHead>().gameObject;
+
+        animator = clone.GetComponent<Animator>();
     }
 
     public ReplayClone(GameObject clone, float vertSpeed)
@@ -61,6 +65,8 @@ class ReplayClone
         this.vertSpeed = vertSpeed;
         bulletCreationPoint = clone.GetComponent<CloneCharacter>().GetBulletCreationPoint();
         head = clone.GetComponentInChildren<CloneHead>().gameObject;
+
+        animator = clone.GetComponent<Animator>();
     }
 }
 
@@ -321,6 +327,8 @@ public class CloningSystem : MonoBehaviour
             replayClone.head.transform.localEulerAngles = new Vector3(headRotX, 0, 0);
         }
 
+        replayClone.animator.SetFloat("Speed", moveDirection.magnitude);
+
         //Clone VERTICAL-MOVEMENT
         bool isCloneHittingGround;
         if (replayClone.vertSpeed < 0 && Physics.Raycast(replayClone.Clone.transform.position, Vector3.down, out RaycastHit hit))
@@ -347,11 +355,13 @@ public class CloningSystem : MonoBehaviour
             {
                 replayClone.vertSpeed = relativeMovement.minFall;
                 replayClone.isJumping = false;
+                replayClone.animator.SetBool("Jumping", false);
             }
         }
         else
         {
             replayClone.vertSpeed += relativeMovement.gravity * 5 * Time.fixedDeltaTime;
+            replayClone.animator.SetBool("Jumping", true);
             if (replayClone.vertSpeed < relativeMovement.terminalVelocity)
             {
                 replayClone.vertSpeed = relativeMovement.terminalVelocity;
@@ -363,6 +373,7 @@ public class CloningSystem : MonoBehaviour
                 {
                     moveDirection = replayClone.Clone.GetComponent<CloneMovement>()._contact.normal * horSpeed;
                     replayClone.isJumping = false;
+                    replayClone.animator.SetBool("Jumping", false);
                 }
                 else
                 {
