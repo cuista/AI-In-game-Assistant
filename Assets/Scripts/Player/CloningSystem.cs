@@ -108,6 +108,8 @@ public class CloningSystem : MonoBehaviour
 
     [SerializeField] private VHSPostProcessEffect _glitchEffect;
 
+    private Animator _animator;
+
     private AudioSource _audioSource;
 
     [SerializeField] private AudioClip plantSpawnSound;
@@ -140,6 +142,8 @@ public class CloningSystem : MonoBehaviour
         _headRotationX = firstPersonLook.headRotationX;
 
         _glitchEffect.enabled = false;
+
+        _animator = GetComponent<Animator>();
 
         _audioSource = GetComponent<AudioSource>();
     }
@@ -210,6 +214,8 @@ public class CloningSystem : MonoBehaviour
             StartCoroutine(SpawnPointUnused(_spawnPoint));
 
             fire2Pressed = false;
+
+            _animator.SetTrigger("PlantSpawn");
             _audioSource.PlayOneShot(plantSpawnSound);
         }
 
@@ -235,6 +241,7 @@ public class CloningSystem : MonoBehaviour
             transform.GetComponent<PlayerCharacter>().DisableUICountdown(); //UI temporary
 
             fire1Pressed = false;
+            _animator.SetTrigger("SpawnClone");
             _audioSource.PlayOneShot(cloneSpawnSound);
         }
 
