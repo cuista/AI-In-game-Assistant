@@ -1260,7 +1260,6 @@ GameObject:
   m_Component:
   - component: {fileID: 279072879}
   - component: {fileID: 279072880}
-  - component: {fileID: 279072881}
   m_Layer: 0
   m_Name: Isometric Camera
   m_TagString: Untagged
@@ -1276,14 +1275,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 279072878}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3535534, y: -0.61237246, z: 0.3535534, w: 0.61237246}
-  m_LocalPosition: {x: 7.283058, y: 12.967416, z: -0.73859596}
+  m_LocalRotation: {x: 0.23911765, y: -0.3696438, z: 0.09904577, w: 0.89239913}
+  m_LocalPosition: {x: 23.28306, y: 14.62426, z: 7.2560806}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1181105388}
   m_Father: {fileID: 976589520}
-  m_LocalEulerAnglesHint: {x: 60, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: -45, z: 0}
 --- !u!114 &279072880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1306,11 +1305,11 @@ MonoBehaviour:
   m_Follow: {fileID: 3368125569510616858}
   m_Lens:
     FieldOfView: 60.000004
-    OrthographicSize: 10
-    NearClipPlane: 0.1
+    OrthographicSize: 15
+    NearClipPlane: -14
     FarClipPlane: 5000
     Dutch: 0
-    ModeOverride: 0
+    ModeOverride: 1
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
@@ -1320,51 +1319,9 @@ MonoBehaviour:
     m_InheritPosition: 0
     m_OnCameraLive:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-          m_MethodName: set_enabled
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 1181105388}
---- !u!114 &279072881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 279072878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e501d18bb52cf8c40b1853ca4904654f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_CollideAgainst:
-    serializedVersion: 2
-    m_Bits: 1
-  m_IgnoreTag: Player
-  m_TransparentLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_MinimumDistanceFromTarget: 0.1
-  m_AvoidObstacles: 1
-  m_DistanceLimit: 0
-  m_MinimumOcclusionTime: 0
-  m_CameraRadius: 0.1
-  m_Strategy: 0
-  m_MaximumEffort: 4
-  m_SmoothingTime: 0.1
-  m_Damping: 0.1
-  m_DampingWhenOccluded: 0
-  m_OptimalTargetDistance: 0
 --- !u!1 &301967229
 GameObject:
   m_ObjectHideFlags: 0
@@ -3404,6 +3361,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194232}
   - component: {fileID: 963194231}
   - component: {fileID: 963194230}
   m_Layer: 0
@@ -3480,8 +3438,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.21556917, y: 0.56836385, z: -0.15742767, w: 0.7782731}
-  m_LocalPosition: {x: 6.2574797, y: 7.7338743, z: 4.212499}
+  m_LocalRotation: {x: 0.2155692, y: 0.56836385, z: -0.15742767, w: 0.7782731}
+  m_LocalPosition: {x: 6.2574797, y: 7.633875, z: 4.212499}
   m_LocalScale: {x: 2, y: 1.9, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3571,6 +3529,18 @@ VideoPlayer:
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
+--- !u!114 &963194232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a41ef87150c809a41ad4dc0fcdacc373, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &967049552
 GameObject:
   m_ObjectHideFlags: 0
@@ -6070,7 +6040,7 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
-    ModeOverride: 0
+    ModeOverride: 2
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
@@ -6080,19 +6050,7 @@ MonoBehaviour:
     m_InheritPosition: 0
     m_OnCameraLive:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-          m_MethodName: set_enabled
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 1
-          m_CallState: 2
+        m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 1132803932}
 --- !u!1 &1868245897
@@ -6659,8 +6617,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2078676298}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.21556917, y: 0.56836385, z: -0.15742767, w: 0.7782731}
-  m_LocalPosition: {x: 6.2574797, y: 7.7338743, z: 4.212499}
+  m_LocalRotation: {x: 0.2155692, y: 0.56836385, z: -0.15742767, w: 0.7782731}
+  m_LocalPosition: {x: 6.2574797, y: 7.633875, z: 4.212499}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6693,7 +6651,7 @@ MonoBehaviour:
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
-    ModeOverride: 0
+    ModeOverride: 2
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
@@ -6703,19 +6661,7 @@ MonoBehaviour:
     m_InheritPosition: 0
     m_OnCameraLive:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-          m_MethodName: set_enabled
-          m_Mode: 6
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 2089532200}
 --- !u!114 &2078676301

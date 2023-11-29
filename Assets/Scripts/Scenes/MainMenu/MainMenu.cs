@@ -38,14 +38,14 @@ public class MainMenu : MonoBehaviour
     {
         audioManager.PlaySound(clickSound);
         HideMenu();
-        LoadingScenesManager.LoadingScenesAdditive("Gameplay", "Level_1");
+        LoadingScenesManager.LoadingScenesAdditive("Gameplay", "Level_0");
     }
 
     public void LoadGame()
     {
         audioManager.PlaySound(clickSound);
         HideMenu();
-        LoadingScenesManager.LoadingScenes("Gameplay", "Level_0");
+        LoadingScenesManager.LoadingScenes("Gameplay", "Level_2");
     }
 
     public void QuitGame()

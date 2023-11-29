@@ -23,8 +23,21 @@ public class GateTarget : MonoBehaviour
     {
         _closePosRight = doorRight.transform.position;
         _closePosLeft = doorLeft.transform.position;
-        _openPosRight = new Vector3(_closePosRight.x + gap, _closePosRight.y, _closePosRight.z);
-        _openPosLeft = new Vector3(_closePosLeft.x - gap, _closePosLeft.y, _closePosLeft.z);
+        if (transform.rotation.eulerAngles.y == 0)
+        {
+            _openPosRight = new Vector3(_closePosRight.x + gap, _closePosRight.y, _closePosRight.z);
+            _openPosLeft = new Vector3(_closePosLeft.x - gap, _closePosLeft.y, _closePosLeft.z);
+        }
+        else if (transform.rotation.eulerAngles.y == 90)
+        {
+            _openPosRight = new Vector3(_closePosRight.x, _closePosRight.y, _closePosRight.z - gap);
+            _openPosLeft = new Vector3(_closePosLeft.x, _closePosLeft.y, _closePosLeft.z + gap);
+        }
+        else
+        {
+            _openPosRight = new Vector3(_closePosRight.x, _closePosRight.y, _closePosRight.z + gap);
+            _openPosLeft = new Vector3(_closePosLeft.x, _closePosLeft.y, _closePosLeft.z - gap);
+        }
     }
 
     public void Activate()

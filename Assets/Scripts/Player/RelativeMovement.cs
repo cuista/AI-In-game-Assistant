@@ -14,8 +14,8 @@ public class RelativeMovement : MonoBehaviour
     private CharacterController _charController;
 
     public float rotSpeed = 15.0f;
-    public float walkSpeed = 6f;
-    public float runSpeed = 9f;
+    public float walkSpeed = 9f;
+    public float runSpeed = 15f;
     public float jumpSpeed = 15f;
     public float gravity = -9.8f;
     public float terminalVelocity = -15f;
