@@ -12,7 +12,8 @@ using UnityEngine.UI;
 
 public class InworldAIController : MonoBehaviour
 {
-    public InworldPlayer2D player;
+    public InworldPlayer2D dragPlayerIfNotInGameFlow;
+    private InworldPlayer2D _player;
     public InworldCharacter echo;
     public TMP_InputField message;
     private bool _isFirstSentence = true;
@@ -30,7 +31,7 @@ public class InworldAIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = (player==null) ? FindObjectOfType<InworldPlayer2D>() : player;
+        _player = (dragPlayerIfNotInGameFlow == null) ? DontDestroyOnLoadManager.GetPlayer().GetComponent<InworldPlayer2D>() : dragPlayerIfNotInGameFlow;
         echo = (echo == null) ? FindObjectOfType<InworldCharacter>() : echo;
         echo.ResetCharacter(); //Reset memeory of previous session
         echoIsMuted = false;
@@ -49,7 +50,7 @@ public class InworldAIController : MonoBehaviour
     public void LoadLevelTriggers()
     {
         // Initialize level events triggers
-        levelTriggers.Add("prototype_level_started");
+        levelTriggers.Add("Level_0_started");
         levelTriggers.Add("put_clone_over_button");
         levelTriggers.Add("overcome_first_door");
         levelTriggers.Add("prototype_level_completed");
@@ -57,40 +58,43 @@ public class InworldAIController : MonoBehaviour
 
     private void EchoTriggering()
     {
-        float posZ = player.transform.position.z;
-        if (currentTriggerTime < currentTriggerDuration)
+        if(_player != null)
         {
-            if (_isFirstSentence && posZ < 76f)
+            float posZ = _player.transform.position.z;
+            if (currentTriggerTime < currentTriggerDuration)
             {
-                // Trigger the level event
-                echo.SendTrigger(levelTriggers[0]);
-                Debug.Log("COMPLETED GOAL:" + GetNextPuzzleEvent());
-                _isFirstSentence = false;
+                if (_isFirstSentence && posZ < 76f)
+                {
+                    // Trigger the level event
+                    echo.SendTrigger(levelTriggers[0]);
+                    Debug.Log("COMPLETED GOAL:" + GetNextPuzzleEvent());
+                    _isFirstSentence = false;
+                }
+                else
+                {
+                    if (levelTriggers[0] == "put_clone_over_button" && posZ >= 76f)
+                    {
+                        Debug.Log("COMPLETED GOAL:" + GetNextPuzzleEvent());
+                        echo.SendTrigger(levelTriggers[0]);
+                    }
+                    else if (levelTriggers[0] == "overcome_first_door" && posZ >= 102f)
+                    {
+                        Debug.Log("COMPLETED GOAL:" + GetNextPuzzleEvent());
+                        echo.SendTrigger(levelTriggers[0]);
+                    }
+                    else if (levelTriggers[0] == "prototype_level_completed")
+                    {
+                        _isFirstSentence = true;
+                        LoadLevelTriggers();
+                    }
+                }
             }
-            else
+            else //CurrentTriggerTimer is expired
             {
-                if (levelTriggers[0] == "put_clone_over_button" && posZ >= 76f)
-                {
-                    Debug.Log("COMPLETED GOAL:" + GetNextPuzzleEvent());
-                    echo.SendTrigger(levelTriggers[0]);
-                }
-                else if (levelTriggers[0] == "overcome_first_door" && posZ >= 102f)
-                {
-                    Debug.Log("COMPLETED GOAL:" + GetNextPuzzleEvent());
-                    echo.SendTrigger(levelTriggers[0]);
-                }
-                else if (levelTriggers[0] == "prototype_level_completed")
-                {
-                    _isFirstSentence = true;
-                    LoadLevelTriggers();
-                }
+                Debug.Log("ECHO TRIGGERED TIMER EXPIRED");
+                echo.SendTrigger(levelTriggers[0]); //After duration time echo is triggered again
+                currentTriggerTime = 0;
             }
-        }
-        else //CurrentTriggerTimer is expired
-        {
-            Debug.Log("ECHO TRIGGERED TIMER EXPIRED");
-            echo.SendTrigger(levelTriggers[0]); //After duration time echo is triggered again
-            currentTriggerTime = 0;
         }
     }
 

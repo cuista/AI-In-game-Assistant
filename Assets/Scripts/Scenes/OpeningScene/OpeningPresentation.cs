@@ -9,6 +9,7 @@ public class OpeningPresentation : MonoBehaviour
 
     public Animator crossfade;
     private float _crossfadeTime = 1f;
+    public bool skipPresentation = false;
 
     private void Start()
     {
@@ -20,16 +21,19 @@ public class OpeningPresentation : MonoBehaviour
     //presentation cutscene
     private IEnumerator Presentation()
     {
-        foreach (Image image in openingImages)
+        if (!skipPresentation)
         {
-            image.gameObject.SetActive(true);
-            yield return new WaitForSeconds(3f);
+            foreach (Image image in openingImages)
+            {
+                image.gameObject.SetActive(true);
+                yield return new WaitForSeconds(3f);
 
-            crossfade.SetTrigger("Start");
-            yield return new WaitForSeconds(_crossfadeTime);
+                crossfade.SetTrigger("Start");
+                yield return new WaitForSeconds(_crossfadeTime);
 
-            image.gameObject.SetActive(false);
-            crossfade.SetTrigger("End");
+                image.gameObject.SetActive(false);
+                crossfade.SetTrigger("End");
+            }
         }
 
         LoadingScenesManager.LoadingScenes("MainMenu");
