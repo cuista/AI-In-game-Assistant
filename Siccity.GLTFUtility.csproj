@@ -58,17 +58,27 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Converters\Matrix4x4Converter.cs" />
+    <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Converters\TranslationConverter.cs" />
+    <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Exporter.cs" />
+    <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Settings\ImportSettings.cs" />
+    <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Converters\EnumConverter.cs" />
+    <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Spec\GLTFSkin.cs" />
+    <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Settings\AnimationSettings.cs" />
+    <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\BufferedBinaryReader.cs" />
+    <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Enums.cs" />
+    <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Spec\GLTFAccessor.cs" />
+    <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Spec\GLTFBufferView.cs" />
+    <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Spec\GLTFBuffer.cs" />
+    <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Spec\GLTFMesh.cs" />
+    <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Settings\ShaderSettings.cs" />
     <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Converters\Vector2Converter.cs" />
     <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Spec\GLTFExtras.cs" />
     <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Extensions.cs" />
-    <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Converters\Matrix4x4Converter.cs" />
     <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Spec\GLTFImage.cs" />
     <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Converters\QuaternionConverter.cs" />
-    <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Converters\TranslationConverter.cs" />
     <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Spec\GLTFMaterial.cs" />
     <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Spec\GLTFNode.cs" />
-    <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Exporter.cs" />
-    <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Settings\ImportSettings.cs" />
     <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Spec\GLTFProperty.cs" />
     <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Spec\GLTFPrimitive.cs" />
     <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Spec\GLTFAnimation.cs" />
@@ -78,19 +88,9 @@
     <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Spec\GLTFObject.cs" />
     <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Extensions\KHR_texture_transform.cs" />
     <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Converters\ColorConverter.cs" />
-    <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Converters\EnumConverter.cs" />
-    <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Spec\GLTFSkin.cs" />
-    <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Settings\AnimationSettings.cs" />
     <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Spec\GLTFScene.cs" />
-    <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\BufferedBinaryReader.cs" />
-    <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Enums.cs" />
-    <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Spec\GLTFAccessor.cs" />
-    <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Spec\GLTFBufferView.cs" />
-    <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Spec\GLTFBuffer.cs" />
-    <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Spec\GLTFMesh.cs" />
     <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Spec\GLTFAsset.cs" />
     <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Spec\GLTFTexture.cs" />
-    <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Settings\ShaderSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Materials\Built-in\Standard-Metallic-Blend.shader" />
