@@ -15,16 +15,18 @@ MonoBehaviour:
   fullName: workspaces/echo/scenes/echo_future
   shortName: Echo future
   description: 'The game world is set in an advanced future where humanity was responsible
-    for the creation of a Dyson State-of-the-art Sphere with AI support. The Earth
-    has transformed into a desolate but technologically advanced game environment,
-    which represents a scenario of great importance in the plot. The basic plot involves
-    a tragic event in the distant future: due to a fatal mistake made by humanity
-    in using the Dyson Sphere and its solar power, the human race has become extinct.
-    However, AI later generated the first artificial human life form on Earth. The
-    plot focuses on the tests that this new creature must face, its goal is to fully
-    embody humanity. This suggests that AI is trying to restore humanity in some
-    way, despite humans being long extinct.'
+    for the creation, with the AI support, of a Dyson Sphere for taking energy from
+    the Sun. The Earth has transformed into a desolate but technologically advanced
+    environment, which represents a scenario of great importance in the plot. The
+    basic plot involves a tragic event in the distant future: due to a fatal mistake
+    made by humanity in using the Dyson Sphere and its solar power, the human race
+    has become extinct. However, AI centuries later generated the first artificial
+    human life form on Earth. The plot focuses on the tests that this new creature
+    must face, its goal is to fully embody humanity. This suggests that AI is trying
+    to restore humanity in some way, despite humans being long extinct.'
   characters:
   - workspaces/echo/characters/echo
-  triggers: []
+  triggers:
+  - workspaces/echo/triggers/prototype_level_ended
+  - workspaces/echo/triggers/prototype_level_started
   index: 0

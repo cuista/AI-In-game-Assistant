@@ -72,7 +72,7 @@ public class AudioManager : MonoBehaviour
         _soundtrackSource.ignoreListenerVolume = true;
         _soundtrackSource.ignoreListenerPause = true;
         soundVolume = 1f;
-        musicVolume = 1f;
+        musicVolume = 0.5f;
         _soundtrackSource.PlayOneShot(intro_init);
     }
 

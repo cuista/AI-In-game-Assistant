@@ -8,7 +8,7 @@ public class LevelEnd_2 : MonoBehaviour
     {
         if (other.gameObject.GetComponent<PlayerCharacter>() != null)
         {
-            LoadingScenesManager.LoadingScenes("ReturnToMenuScene");
+            LoadingScenesManager.LoadingScenes("Level_0");
         }
     }
 }

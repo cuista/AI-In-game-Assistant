@@ -58,6 +58,11 @@ public class LoadingScenesManager : MonoBehaviour
             }
         }
         _loadingSM.loadingProgressBar.fillAmount = 1;
+        _loadingSM.loadingInterface.gameObject.SetActive(false); //_loadingSM.Invoke("DeactivateLoadingScreen", 0.5f);
+    }
+
+    private void DeactivateLoadingScreen()
+    {
         _loadingSM.loadingInterface.gameObject.SetActive(false);
     }
 }
