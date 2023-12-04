@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
@@ -16,6 +17,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject audioMenu;
     [SerializeField] private GameObject videoMenu;
     [SerializeField] private GameObject exitMenu;
+    [SerializeField] private GameObject firstSelectedGameObject;
 
     private void Awake()
     {
@@ -27,7 +29,8 @@ public class MainMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         DontDestroyOnLoadManager.GetAudioManager().PlaySoundtrackMenuClip();
-
+        
+        EventSystem.current.SetSelectedGameObject(firstSelectedGameObject);
         initialMenu.SetActive(true);
         settingsMenu.SetActive(false);
         exitMenu.SetActive(false);

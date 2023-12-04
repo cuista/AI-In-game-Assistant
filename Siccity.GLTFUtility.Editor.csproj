@@ -60,8 +60,8 @@
   <ItemGroup>
     <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Editor\GLBImporter.cs" />
     <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Editor\ShaderSettingsDrawer.cs" />
-    <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Editor\GLTFAssetUtility.cs" />
     <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Editor\GLTFImporter.cs" />
+    <Compile Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Editor\GLTFAssetUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Inworld.AI\Plugins\ThirdParty\GLTFUtility\Scripts\Editor\GLTFUtility.Editor.asmdef" />
@@ -805,11 +805,11 @@
     <Reference Include="System.Xml.XPath.XDocument">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>

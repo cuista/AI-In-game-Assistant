@@ -8,6 +8,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering;
 
 class PlayerRecord
 {
@@ -106,7 +107,7 @@ public class CloningSystem : MonoBehaviour
 
     private float _headRotationX;
 
-    [SerializeField] private VHSPostProcessEffect _glitchEffect;
+    [SerializeField] private Volume _VHSEffect;
 
     private Animator _animator;
 
@@ -141,7 +142,7 @@ public class CloningSystem : MonoBehaviour
 
         _headRotationX = firstPersonLook.headRotationX;
 
-        _glitchEffect.enabled = false;
+        _VHSEffect.enabled = false;
 
         _animator = GetComponent<Animator>();
 
@@ -168,12 +169,12 @@ public class CloningSystem : MonoBehaviour
         if (Input.GetButtonDown("TimeAcceleration"))
         {
             Time.timeScale = timeAcceleration;
-            _glitchEffect.enabled = true;
+            _VHSEffect.enabled = true;
         }
         if (Input.GetButtonUp("TimeAcceleration"))
         {
             Time.timeScale = 1.0f;
-            _glitchEffect.enabled = false;
+            _VHSEffect.enabled = false;
         }
 
         //Switch late and mirror clone

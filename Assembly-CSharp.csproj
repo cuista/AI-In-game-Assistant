@@ -62,12 +62,10 @@
     <Compile Include="Assets\Scripts\Controller\UI\SettingPopup\SettingPopup.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyCharacter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
-    <Compile Include="Assets\Scripts\DinamicObjects\GateTarget.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
-    <Compile Include="Assets\Scripts\DinamicObjects\PlatformPathTarget.cs" />
     <Compile Include="Assets\Scripts\Clone\CloneHead.cs" />
+    <Compile Include="Assets\Scripts\DynamicObjects\DoorTrigger.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
-    <Compile Include="Assets\Scripts\DinamicObjects\DoorTarget.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraSwitcher.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Scripts\Clone\DetectionSystem.cs" />
@@ -79,6 +77,7 @@
     <Compile Include="Assets\Scripts\Bullet\Bullet.cs" />
     <Compile Include="Assets\Scripts\Enemies\IEnemy.cs" />
     <Compile Include="Assets\Scripts\Scenes\LoadingSceneManager.cs" />
+    <Compile Include="Assets\Scripts\DynamicObjects\PlatformPathTrigger.cs" />
     <Compile Include="Assets\Scripts\Scenes\MainMenu\CameraMenu.cs" />
     <Compile Include="Assets\Scripts\ICharacter.cs" />
     <Compile Include="Assets\Scripts\Clone\VisualFov.cs" />
@@ -92,8 +91,9 @@
     <Compile Include="Assets\Scripts\Scenes\Level_2\LevelEnd_2.cs" />
     <Compile Include="Assets\Scripts\Scenes\Level_0\LevelTeleport.cs" />
     <Compile Include="Assets\Scripts\Player\CloningSystem.cs" />
-    <Compile Include="Assets\Scripts\DinamicObjects\PlatformPathTrigger.cs" />
+    <Compile Include="Assets\Scripts\DynamicObjects\PlatformMovement.cs" />
     <Compile Include="Assets\Scripts\Scenes\PermanentObject.cs" />
+    <Compile Include="Assets\Scripts\Items&amp;Boxes\ItemTaken.cs" />
     <Compile Include="Assets\Scripts\Player\ShooterSystem.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\Enemies\ReactiveEnemy.cs" />
@@ -101,8 +101,9 @@
     <Compile Include="Assets\Scripts\Clone\CloneCharacter.cs" />
     <Compile Include="Assets\Scripts\Player\RelativeMovement.cs" />
     <Compile Include="Assets\Scripts\GameManager\ManagerStatus.cs" />
-    <Compile Include="Assets\VHS\Scripts\VHSPostProcessEffect.cs" />
     <Compile Include="Assets\Scripts\Scenes\OpeningScene\OpeningPresentation.cs" />
+    <Compile Include="Assets\Scripts\DynamicObjects\ReactiveLever.cs" />
+    <Compile Include="Assets\Scripts\DynamicObjects\GateTarget.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\Scripts\Player\FirstPersonLook.cs" />
@@ -117,18 +118,17 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
     <Compile Include="Assets\Scripts\Scenes\DontDestroyOnLoadManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
-    <Compile Include="Assets\Scripts\DinamicObjects\PlatformMovement.cs" />
     <Compile Include="Assets\Scripts\Scenes\Level_0\LevelEnd_0.cs" />
     <Compile Include="Assets\Scripts\Enemies\TurretAI.cs" />
     <Compile Include="Assets\Scripts\GameManager\Managers\PlayerManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\Scripts\Items&amp;Boxes\Spin.cs" />
+    <Compile Include="Assets\Scripts\DynamicObjects\PlatformPathTarget.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
-    <Compile Include="Assets\Scripts\DinamicObjects\DoorTrigger.cs" />
     <Compile Include="Assets\Scripts\Scenes\Level_1\LevelEnd_1.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
-    <Compile Include="Assets\Scripts\DinamicObjects\ReactiveLever.cs" />
+    <Compile Include="Assets\Scripts\DynamicObjects\DoorTarget.cs" />
     <Compile Include="Assets\Scripts\Items&amp;Boxes\ReactiveBox.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\Scripts\Player\AssistantSystem.cs" />
@@ -188,7 +188,6 @@
     <None Include="Assets\Packages\Microsoft.Extensions.Primitives.2.1.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\Packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\useSharedDesignerContext.txt" />
-    <None Include="Assets\VHS\Shaders\VHSPostProcessEffect.shader" />
     <None Include="Assets\Packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\LICENSE.TXT" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\Packages\System.Runtime.CompilerServices.Unsafe.4.5.0\useSharedDesignerContext.txt" />
@@ -939,11 +938,11 @@
     <Reference Include="Unity.Performance.Profile-Analyzer.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Performance.Profile-Analyzer.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TestTools.CodeCoverage.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
     </Reference>
     <Reference Include="PPv2URPConverters">
       <HintPath>Library\ScriptAssemblies\PPv2URPConverters.dll</HintPath>
@@ -1058,13 +1057,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="InworldAI.csproj">
-      <Project>{24B86DF3-70B0-AD11-7D7F-A11F4B369495}</Project>
-      <Name>InworldAI</Name>
-    </ProjectReference>
     <ProjectReference Include="Siccity.GLTFUtility.csproj">
       <Project>{60676959-52ED-B3A6-B4C4-910F1B13E033}</Project>
       <Name>Siccity.GLTFUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="InworldAI.csproj">
+      <Project>{24B86DF3-70B0-AD11-7D7F-A11F4B369495}</Project>
+      <Name>InworldAI</Name>
     </ProjectReference>
     <ProjectReference Include="Dracodec.csproj">
       <Project>{B1B93165-8FDC-987D-C07F-DE659F968416}</Project>
