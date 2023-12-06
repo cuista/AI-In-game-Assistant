@@ -15,7 +15,6 @@ public class ReactiveLever : MonoBehaviour, IReactiveObject
     {
         joint.transform.rotation = isRightDirection ? Quaternion.Euler(20f, 0f, 0f) : Quaternion.Euler(-20f, 0f, 0f);
         isRightDirection = !isRightDirection;
-        Debug.Log("FATTO" + isRightDirection);
         if (isRightDirection)
         {
             for(int i = 0; i < targets.Length; i++)

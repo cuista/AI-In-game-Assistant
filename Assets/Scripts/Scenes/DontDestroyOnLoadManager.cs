@@ -82,11 +82,11 @@ public static class DontDestroyOnLoadManager
         return null;
     }
 
-    public static GameObject GetController()
+    public static GameObject GetAIController()
     {
         foreach (var go in _ddolObjects)
         {
-            if (go.tag == "Controller")
+            if (go.tag == "AIController")
                 return go;
         }
         return null;

@@ -37,12 +37,12 @@ public class AssistantSystem : MonoBehaviour
         {
             if (hintPressed)
             {
-                assistantController.hintTrigger();
+                assistantController.HintTrigger();
                 hintPressed = false;
             }
             else if (mutePressed)
             {
-                assistantController.mute();
+                assistantController.Mute();
                 mutePressed = false;
             }
         }

@@ -15,7 +15,7 @@ public class PlatformMovement : TargetObject
     void Start()
     {
         _startingPos = transform.position;
-        _finalPos = _finalPos + targetPosition;
+        _finalPos = targetPosition;
     }
 
     // Update is called once per frame

@@ -20,10 +20,15 @@ MonoBehaviour:
   ownerShip: 0
   defaultThumbnail: {fileID: 2800000, guid: c290c60b1169e4e4fbf07213533caf65, type: 3}
   index: 0
-  triggers: []
+  triggers:
+  - story_mode_started
+  - put_clone_over_button
+  - activate_platform_using_lever
+  - level_completed
+  - game_over
   scenes:
   - workspaces/echo/scenes/echo_future
   modelUri: 
   posUri: 
   previewImgUri: 
-  characterID: deae81e2-f54d-4923-854a-5e6409ca65c4
+  characterID: 1d950a92-bcc0-4c3a-aa0b-71331f89194c

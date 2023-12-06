@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorAnimation : MonoBehaviour, ITargetObject
+public class DoorAnimation : TargetObject
 {
     [SerializeField] private Vector3 dPos;
 
@@ -21,7 +21,16 @@ public class DoorAnimation : MonoBehaviour, ITargetObject
         _openPos = _closePos + dPos;
     }
 
-    public void Activate()
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        if (_doorIsMoving)
+        {
+            Operate();
+        }
+    }
+
+    public override void Activate()
     {
         if (!_open)
         {
@@ -33,7 +42,7 @@ public class DoorAnimation : MonoBehaviour, ITargetObject
         }
     }
 
-    public void Deactivate()
+    public override void Deactivate()
     {
         if (_open)
         {
@@ -45,7 +54,7 @@ public class DoorAnimation : MonoBehaviour, ITargetObject
         }
     }
 
-    public void Operate()
+    public override void Operate()
     {
         if (!_open)
         {
@@ -70,15 +79,6 @@ public class DoorAnimation : MonoBehaviour, ITargetObject
                 _doorIsMoving = false;
                 _open = false;
             }
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (_doorIsMoving)
-        {
-            Operate();
         }
     }
 }

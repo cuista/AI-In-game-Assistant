@@ -12,109 +12,83 @@ using UnityEngine.UI;
 
 public class InworldAIController : MonoBehaviour
 {
-    public InworldPlayer2D dragPlayerIfNotInGameFlow;
-    private InworldPlayer2D _player;
     public InworldCharacter echo;
     public TMP_InputField message;
-    private bool _isFirstSentence = true;
 
-    //A dictionary that maps plot events to trigger events
-    private List<string> levelTriggers = new List<string>();
+    //To handle current trigger event
+    private string _currentTrigger;
+    private bool _triggerReceived;
 
     //To handle expired trigger
-    public float currentTriggerDuration;
-    private float currentTriggerTime;
+    public float currentTriggerDuration = 90f;
+    private float _currentTriggerTime;
 
     private bool echoIsMuted;
     private AudioSource echoAudioSource;
 
+    private void Awake()
+    {
+        Messenger.AddListener(GameEvent.GAMEOVER, GameOverTrigger);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        _player = (dragPlayerIfNotInGameFlow == null) ? DontDestroyOnLoadManager.GetPlayer().GetComponent<InworldPlayer2D>() : dragPlayerIfNotInGameFlow;
         echo = (echo == null) ? FindObjectOfType<InworldCharacter>() : echo;
         echo.ResetCharacter(); //Reset memeory of previous session
+        //echo.EndInteraction(); //Disable audio capture
         echoIsMuted = false;
         echoAudioSource = echo.GetComponent<AudioSource>();
-        LoadLevelTriggers();
-        currentTriggerTime = 0;
-        currentTriggerDuration = 45f;
+
+        _triggerReceived = false;
+        _currentTriggerTime = 0;
     }
 
     private void FixedUpdate()
     {
-        currentTriggerTime += Time.fixedDeltaTime;
-        Invoke("EchoTriggering",2f);
-    }
-
-    public void LoadLevelTriggers()
-    {
-        // Initialize level events triggers
-        levelTriggers.Add("Level_0_started");
-        levelTriggers.Add("put_clone_over_button");
-        levelTriggers.Add("overcome_first_door");
-        levelTriggers.Add("prototype_level_completed");
-    }
-
-    private void EchoTriggering()
-    {
-        if(_player != null)
+        //Handle a new trigger received or a timer expired
+        if (_triggerReceived || _currentTriggerTime >= currentTriggerDuration)
         {
-            float posZ = _player.transform.position.z;
-            if (currentTriggerTime < currentTriggerDuration)
+            if (_currentTrigger != null)
             {
-                if (_isFirstSentence && posZ < 76f)
-                {
-                    // Trigger the level event
-                    echo.SendTrigger(levelTriggers[0]);
-                    Debug.Log("COMPLETED GOAL:" + GetNextPuzzleEvent());
-                    _isFirstSentence = false;
-                }
-                else
-                {
-                    if (levelTriggers[0] == "put_clone_over_button" && posZ >= 76f)
-                    {
-                        Debug.Log("COMPLETED GOAL:" + GetNextPuzzleEvent());
-                        echo.SendTrigger(levelTriggers[0]);
-                    }
-                    else if (levelTriggers[0] == "overcome_first_door" && posZ >= 102f)
-                    {
-                        Debug.Log("COMPLETED GOAL:" + GetNextPuzzleEvent());
-                        echo.SendTrigger(levelTriggers[0]);
-                    }
-                    else if (levelTriggers[0] == "prototype_level_completed")
-                    {
-                        _isFirstSentence = true;
-                        LoadLevelTriggers();
-                    }
-                }
+                echo.SendTrigger(_currentTrigger); //After duration time echo is triggered again
+                Debug.Log("Triggered again: " + _currentTrigger + " -> TIMER EXPIRED");
             }
-            else //CurrentTriggerTimer is expired
-            {
-                Debug.Log("ECHO TRIGGERED TIMER EXPIRED");
-                echo.SendTrigger(levelTriggers[0]); //After duration time echo is triggered again
-                currentTriggerTime = 0;
-            }
+            _triggerReceived = false;
+            _currentTriggerTime = 0;
         }
+
+        _currentTriggerTime += Time.fixedDeltaTime; //Update currentTriggerTime
     }
 
-    private string GetNextPuzzleEvent()
+    public void HintTrigger()
     {
-        //Get the first available hint from the puzzle hints dictionary
-        string levelEvent = levelTriggers[0];
-        levelTriggers.RemoveAt(0);
-
-        return levelEvent;
+        _currentTriggerTime = currentTriggerDuration;
     }
 
-    public void hintTrigger()
-    {
-        currentTriggerTime = currentTriggerDuration;
-    }
-
-    public void mute()
+    public void Mute()
     {
         echoIsMuted = !echoIsMuted;
         echoAudioSource.mute = echoIsMuted;
+    }
+
+    public void SetCurrentTrigger(string triggerName)
+    {
+        Debug.Log("Current triggerAI: " + triggerName);
+        _currentTrigger = triggerName;
+    }
+
+    public void OneShotTrigger(string triggerName)
+    {
+        _currentTriggerTime = 0;
+        echo.SendTrigger(triggerName);
+        Debug.Log("One Shot Trigger: " + triggerName);
+    }
+
+    public void GameOverTrigger()
+    {
+        _currentTriggerTime = 0;
+        echo.SendTrigger("game_over");
+        Debug.Log("Game Over Trigger");
     }
 }

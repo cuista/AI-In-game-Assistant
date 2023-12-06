@@ -5,6 +5,7 @@ using UnityEngine;
 public class DoorTrigger : MonoBehaviour
 {
     [SerializeField] private GameObject door;
+    [SerializeField] private bool reverse = false;
 
     private Vector3 buttonPressed;
     private Vector3 buttonReleased;
@@ -30,7 +31,7 @@ public class DoorTrigger : MonoBehaviour
         if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone"))
         {
             transform.parent.position = buttonPressed;
-            door.SendMessage("Activate");
+            door.SendMessage(!reverse?"Activate":"Deactivate");
             numColliders++;
         }
     }
@@ -43,7 +44,7 @@ public class DoorTrigger : MonoBehaviour
             if(numColliders == 0)
             {
                 transform.parent.position = buttonReleased;
-                door.SendMessage("Deactivate");
+                door.SendMessage(!reverse?"Deactivate":"Activate");
             }
         }
     }
