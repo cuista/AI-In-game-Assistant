@@ -464,9 +464,6 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>Assets\Inworld.AI\Plugins\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Extensions.Options">
       <HintPath>Assets\Packages\Microsoft.Extensions.Options.2.1.0\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
     </Reference>
@@ -479,11 +476,8 @@
     <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
       <HintPath>Assets\Packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.1.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="NewtonsoftJson">
-      <HintPath>Assets\Inworld.AI\Plugins\ThirdParty\NewtonSoftJson\NewtonsoftJson.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Api.CommonProtos">
-      <HintPath>Assets\Inworld.AI\Plugins\ThirdParty\GRPC\Google.Api.CommonProtos.dll</HintPath>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>Assets\Packages\System.Runtime.CompilerServices.Unsafe.4.5.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Extensions.Configuration.Abstractions">
       <HintPath>Assets\Packages\Microsoft.Extensions.Configuration.Abstractions.2.1.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
@@ -491,20 +485,8 @@
     <Reference Include="Microsoft.Bcl.AsyncInterfaces">
       <HintPath>Assets\Packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\netstandard2.1\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
-    <Reference Include="InworldProto">
-      <HintPath>Assets\Inworld.AI\Plugins\InworldProto.dll</HintPath>
-    </Reference>
-    <Reference Include="Grpc.Core">
-      <HintPath>Assets\Inworld.AI\Plugins\ThirdParty\GRPC\Grpc.Core.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Extensions.Configuration">
       <HintPath>Assets\Packages\Microsoft.Extensions.Configuration.2.1.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.Protobuf">
-      <HintPath>Assets\Inworld.AI\Plugins\ThirdParty\GRPC\Google.Protobuf.dll</HintPath>
-    </Reference>
-    <Reference Include="Grpc.Core.Api">
-      <HintPath>Assets\Inworld.AI\Plugins\ThirdParty\GRPC\Grpc.Core.Api.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Extensions.Primitives">
       <HintPath>Assets\Packages\Microsoft.Extensions.Primitives.2.1.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
@@ -521,11 +503,11 @@
     <Reference Include="Microsoft.Extensions.Logging.Abstractions">
       <HintPath>Assets\Packages\Microsoft.Extensions.Logging.Abstractions.2.1.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Extensions.Logging">
-      <HintPath>Assets\Packages\Microsoft.Extensions.Logging.2.1.0\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Assets\Packages\Newtonsoft.Json.13.0.3\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging">
+      <HintPath>Assets\Packages\Microsoft.Extensions.Logging.2.1.0\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Android.Types">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
@@ -902,11 +884,17 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
+    <Reference Include="glTFast.dots">
+      <HintPath>Library\ScriptAssemblies\glTFast.dots.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.cinemachine.editor">
       <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
+    <Reference Include="glTFast.Editor">
+      <HintPath>Library\ScriptAssemblies\glTFast.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Burst.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Burst.Editor.dll</HintPath>
@@ -1034,6 +1022,9 @@
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
     </Reference>
+    <Reference Include="glTFast">
+      <HintPath>Library\ScriptAssemblies\glTFast.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
     </Reference>
@@ -1060,21 +1051,37 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Siccity.GLTFUtility.csproj">
-      <Project>{60676959-52ED-B3A6-B4C4-910F1B13E033}</Project>
-      <Name>Siccity.GLTFUtility</Name>
+    <ProjectReference Include="UnityWebSocket.Runtime.csproj">
+      <Project>{9082F5BD-1A89-1A1B-498C-967BBFD13DB8}</Project>
+      <Name>UnityWebSocket.Runtime</Name>
     </ProjectReference>
-    <ProjectReference Include="InworldAI.csproj">
-      <Project>{24B86DF3-70B0-AD11-7D7F-A11F4B369495}</Project>
-      <Name>InworldAI</Name>
+    <ProjectReference Include="Inworld.RPM.csproj">
+      <Project>{1F43D070-1A74-D865-891E-AD9638C5DE5C}</Project>
+      <Name>Inworld.RPM</Name>
     </ProjectReference>
-    <ProjectReference Include="Dracodec.csproj">
-      <Project>{B1B93165-8FDC-987D-C07F-DE659F968416}</Project>
-      <Name>Dracodec</Name>
+    <ProjectReference Include="Inworld.Samples.csproj">
+      <Project>{67FD06C1-325D-D058-75D4-3B81487A4A21}</Project>
+      <Name>Inworld.Samples</Name>
     </ProjectReference>
-    <ProjectReference Include="Siccity.GLTFUtility.Editor.csproj">
-      <Project>{77AAC293-2BBC-A410-7528-D9A24605FBD0}</Project>
-      <Name>Siccity.GLTFUtility.Editor</Name>
+    <ProjectReference Include="UnityWebSocket.Editor.csproj">
+      <Project>{DA0325C0-4838-8FC2-2E33-B4376FC64ABA}</Project>
+      <Name>UnityWebSocket.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="InworldAI.NDK.csproj">
+      <Project>{B4435EA3-1473-CC0E-67A5-FA93BD5CC0BB}</Project>
+      <Name>InworldAI.NDK</Name>
+    </ProjectReference>
+    <ProjectReference Include="Inworld.Assets.csproj">
+      <Project>{40908687-9226-77BE-75D9-FB620FD6E455}</Project>
+      <Name>Inworld.Assets</Name>
+    </ProjectReference>
+    <ProjectReference Include="Inworld.Editor.csproj">
+      <Project>{4992F784-A13E-5199-F3DE-9A7B532E3CD5}</Project>
+      <Name>Inworld.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Inworld.AI.csproj">
+      <Project>{9C9300F7-CA62-6A58-93F5-A9A91EDEF6E0}</Project>
+      <Name>Inworld.AI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

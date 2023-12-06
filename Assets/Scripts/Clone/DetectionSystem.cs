@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Google.Rpc.Context.AttributeContext.Types;
 
 public class DetectionSystem : MonoBehaviour
 {

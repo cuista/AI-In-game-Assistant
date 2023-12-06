@@ -15,7 +15,7 @@ C:/Users/carlo.cristarella/source/repos/AI-In-game-Assistant
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-55759
+62776
 Successfully changed project path to: C:/Users/carlo.cristarella/source/repos/AI-In-game-Assistant
 C:/Users/carlo.cristarella/source/repos/AI-In-game-Assistant
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,12 +49,12 @@ C:/Users/carlo.cristarella/source/repos/AI-In-game-Assistant
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [15232] Host "[IP] 192.168.1.120 [Port] 0 [Flags] 2 [Guid] 2639314590 [EditorId] 2639314590 [Version] 1048832 [Id] WindowsEditor(7,DS0QRK3) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [12616] Host "[IP] 172.16.254.212 [Port] 0 [Flags] 2 [Guid] 1408894716 [EditorId] 1408894716 [Version] 1048832 [Id] WindowsEditor(7,DS0QRK3) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [15232] Host "[IP] 192.168.1.120 [Port] 0 [Flags] 2 [Guid] 2639314590 [EditorId] 2639314590 [Version] 1048832 [Id] WindowsEditor(7,DS0QRK3) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [12616] Host "[IP] 172.16.254.212 [Port] 0 [Flags] 2 [Guid] 1408894716 [EditorId] 1408894716 [Version] 1048832 [Id] WindowsEditor(7,DS0QRK3) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 7 workers.
-Refreshing native plugins compatible for Editor in 46.16 ms, found 16 plugins.
+Refreshing native plugins compatible for Editor in 3244.94 ms, found 16 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.9f1 (ea401c316338)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/Resources/UnitySubsystems
@@ -70,1178 +70,200 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56540
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56228
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
-Registered in 0.013473 seconds.
-- Loaded All Assemblies, in  0.512 seconds
+Registered in 0.025763 seconds.
+- Loaded All Assemblies, in  1.428 seconds
 Native extension for UWP target not found
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 288 ms
+Android Extension - Scanning For ADB Devices 656 ms
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.732 seconds
-Domain Reload Profiling: 1241ms
-	BeginReloadAssembly (148ms)
+- Finished resetting the current domain, in  1.550 seconds
+Domain Reload Profiling: 2975ms
+	BeginReloadAssembly (404ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (45ms)
-	RebuildNativeTypeToScriptingClass (11ms)
-	initialDomainReloadingComplete (88ms)
-	LoadAllAssembliesAndSetupDomain (216ms)
-		LoadAssemblies (146ms)
+		CreateAndSetChildDomain (2ms)
+	RebuildCommonClasses (95ms)
+	RebuildNativeTypeToScriptingClass (25ms)
+	initialDomainReloadingComplete (176ms)
+	LoadAllAssembliesAndSetupDomain (724ms)
+		LoadAssemblies (402ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (213ms)
-			TypeCache.Refresh (210ms)
-				TypeCache.ScanAssembly (188ms)
+		AnalyzeDomain (705ms)
+			TypeCache.Refresh (702ms)
+				TypeCache.ScanAssembly (615ms)
 			ScanForSourceGeneratedMonoScriptInfo (1ms)
 			ResolveRequiredComponents (1ms)
-	FinalizeReload (733ms)
+	FinalizeReload (1551ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (657ms)
+		SetupLoadedEditorAssemblies (1337ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (453ms)
-			SetLoadedEditorAssemblies (5ms)
+			InitializePlatformSupportModulesInManaged (966ms)
+			SetLoadedEditorAssemblies (14ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (3ms)
-			ProcessInitializeOnLoadAttributes (128ms)
-			ProcessInitializeOnLoadMethodAttributes (68ms)
+			BeforeProcessingInitializeOnLoad (5ms)
+			ProcessInitializeOnLoadAttributes (235ms)
+			ProcessInitializeOnLoadMethodAttributes (117ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (0ms)
-========================================================================
-Worker process is ready to serve import requests
-Begin MonoManager ReloadAssembly
-Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Assets/Inworld.AI/Plugins/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Assets/Packages/System.Runtime.CompilerServices.Unsafe.4.5.0/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.- Loaded All Assemblies, in  1.235 seconds
-Refreshing native plugins compatible for Editor in 24.82 ms, found 16 plugins.
-Native extension for UWP target not found
-Native extension for WindowsStandalone target not found
-Native extension for Android target not found
-Native extension for WebGL target not found
-Getting credential for https://api.nuget.org/v3/index.json
-Getting installed packages took 52 ms
-Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Assets/Inworld.AI/Plugins/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Assets/Packages/System.Runtime.CompilerServices.Unsafe.4.5.0/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Assets/Inworld.AI/Plugins/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Assets/Packages/System.Runtime.CompilerServices.Unsafe.4.5.0/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.Already imported libs: UnityEngine.UI, UnityEngine, UnityEngine.AIModule, UnityEngine.ARModule, UnityEngine.AccessibilityModule, UnityEngine.AndroidJNIModule, UnityEngine.AnimationModule, UnityEngine.AssetBundleModule, UnityEngine.AudioModule, UnityEngine.ClothModule, UnityEngine.ClusterInputModule, UnityEngine.ClusterRendererModule, UnityEngine.ContentLoadModule, UnityEngine.CoreModule, UnityEngine.CrashReportingModule, UnityEngine.DSPGraphModule, UnityEngine.DirectorModule, UnityEngine.GIModule, UnityEngine.GameCenterModule, UnityEngine.GridModule, UnityEngine.HotReloadModule, UnityEngine.IMGUIModule, UnityEngine.ImageConversionModule, UnityEngine.InputModule, UnityEngine.InputLegacyModule, UnityEngine.JSONSerializeModule, UnityEngine.LocalizationModule, UnityEngine.NVIDIAModule, UnityEngine.ParticleSystemModule, UnityEngine.PerformanceReportingModule, UnityEngine.PhysicsModule, UnityEngine.Physics2DModule, UnityEngine.ProfilerModule, UnityEngine.PropertiesModule, UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule, UnityEngine.ScreenCaptureModule, UnityEngine.SharedInternalsModule, UnityEngine.SpriteMaskModule, UnityEngine.SpriteShapeModule, UnityEngine.StreamingModule, UnityEngine.SubstanceModule, UnityEngine.SubsystemsModule, UnityEngine.TLSModule, UnityEngine.TerrainModule, UnityEngine.TerrainPhysicsModule, UnityEngine.TextCoreFontEngineModule, UnityEngine.TextCoreTextEngineModule, UnityEngine.TextRenderingModule, UnityEngine.TilemapModule, UnityEngine.UIModule, UnityEngine.UIElementsModule, UnityEngine.UmbraModule, UnityEngine.UnityAnalyticsModule, UnityEngine.UnityAnalyticsCommonModule, UnityEngine.UnityConnectModule, UnityEngine.UnityCurlModule, UnityEngine.UnityTestProtocolModule, UnityEngine.UnityWebRequestModule, UnityEngine.UnityWebRequestAssetBundleModule, UnityEngine.UnityWebRequestAudioModule, UnityEngine.UnityWebRequestTextureModule, UnityEngine.UnityWebRequestWWWModule, UnityEngine.VFXModule, UnityEngine.VRModule, UnityEngine.VehiclesModule, UnityEngine.VideoModule, UnityEngine.VirtualTexturingModule, UnityEngine.WindModule, UnityEngine.XRModule, NewtonsoftJson, Google.Api.CommonProtos, InworldProto, Grpc.Core, Google.Protobuf, Grpc.Core.Api, Unity.VisualScripting.Antlr3.Runtime, netstandard, Microsoft.Win32.Primitives, System.AppContext, System.Buffers, System.Collections.Concurrent, System.Collections, System.Collections.NonGeneric, System.Collections.Specialized, System.ComponentModel, System.ComponentModel.EventBasedAsync, System.ComponentModel.Primitives, System.ComponentModel.TypeConverter, System.Console, System.Data.Common, System.Diagnostics.Contracts, System.Diagnostics.Debug, System.Diagnostics.FileVersionInfo, System.Diagnostics.Process, System.Diagnostics.StackTrace, System.Diagnostics.TextWriterTraceListener, System.Diagnostics.Tools, System.Diagnostics.TraceSource, System.Diagnostics.Tracing, System.Drawing.Primitives, System.Dynamic.Runtime, System.Globalization.Calendars, System.Globalization, System.Globalization.Extensions, System.IO.Compression, System.IO.Compression.ZipFile, System.IO, System.IO.FileSystem, System.IO.FileSystem.DriveInfo, System.IO.FileSystem.Primitives, System.IO.FileSystem.Watcher, System.IO.IsolatedStorage, System.IO.MemoryMappedFiles, System.IO.Pipes, System.IO.UnmanagedMemoryStream, System.Linq, System.Linq.Expressions, System.Linq.Parallel, System.Linq.Queryable, System.Memory, System.Net.Http, System.Net.NameResolution, System.Net.NetworkInformation, System.Net.Ping, System.Net.Primitives, System.Net.Requests, System.Net.Security, System.Net.Sockets, System.Net.WebHeaderCollection, System.Net.WebSockets.Client, System.Net.WebSockets, System.Numerics.Vectors, System.ObjectModel, System.Reflection.DispatchProxy, System.Reflection, System.Reflection.Emit, System.Reflection.Emit.ILGeneration, System.Reflection.Emit.Lightweight, System.Reflection.Extensions, System.Reflection.Primitives, System.Resources.Reader, System.Resources.ResourceManager, System.Resources.Writer, System.Runtime.CompilerServices.VisualC, System.Runtime, System.Runtime.Extensions, System.Runtime.Handles, System.Runtime.InteropServices, System.Runtime.InteropServices.RuntimeInformation, System.Runtime.Numerics, System.Runtime.Serialization.Formatters, System.Runtime.Serialization.Json, System.Runtime.Serialization.Primitives, System.Runtime.Serialization.Xml, System.Security.Claims, System.Security.Cryptography.Algorithms, System.Security.Cryptography.Csp, System.Security.Cryptography.Encoding, System.Security.Cryptography.Primitives, System.Security.Cryptography.X509Certificates, System.Security.Principal, System.Security.SecureString, System.Text.Encoding, System.Text.Encoding.Extensions, System.Text.RegularExpressions, System.Threading, System.Threading.Overlapped, System.Threading.Tasks, System.Threading.Tasks.Extensions, System.Threading.Tasks.Parallel, System.Threading.Thread, System.Threading.ThreadPool, System.Threading.Timer, System.ValueTuple, System.Xml.ReaderWriter, System.Xml.XDocument, System.Xml.XmlDocument, System.Xml.XmlSerializer, System.Xml.XPath, System.Xml.XPath.XDocument, System.Runtime.InteropServices.WindowsRuntime, mscorlib, System.ComponentModel.Composition, System.Core, System.Data, System, System.Drawing, System.IO.Compression.FileSystem, System.Net, System.Numerics, System.Runtime.Serialization, System.ServiceModel.Web, System.Transactions, System.Web, System.Windows, System.Xml, System.Xml.Linq, System.Xml.Serialization, Unity.VisualScripting.Core, Unity.RenderPipelines.Core.Runtime, Unity.RenderPipeline.Universal.ShaderLibrary, Unity.Mathematics, Unity.Burst, Unity.ProBuilder.Poly2Tri, Unity.ProBuilder.KdTree, Unity.TextMeshPro, Siccity.GLTFUtility, nunit.framework, Unity.Burst.Unsafe, Unity.Timeline, Unity.RenderPipelines.Universal.Runtime, Unity.VisualScripting.Flow, Unity.RenderPipelines.Core.ShaderLibrary, Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary, InworldAI, Unity.ProBuilder, Dracodec, Unity.TerrainTools, Unity.Polybrush, Unity.RenderPipelines.Universal.Shaders, Unity.VisualScripting.State, Cinemachine, Unity.ProGrids, NETStandard.Library, Microsoft.NETCore.Platforms, Microsoft.CSharp
-Already imported editor only libraries: System.CodeDom
-Is package 'Microsoft.Bcl.AsyncInterfaces' already imported? False
-Is package 'Microsoft.Extensions.Configuration' already imported? False
-Is package 'Microsoft.Extensions.Configuration.Abstractions' already imported? False
-Is package 'Microsoft.Extensions.Configuration.Binder' already imported? False
-Is package 'Microsoft.Extensions.DependencyInjection.Abstractions' already imported? False
-Is package 'Microsoft.Extensions.Http' already imported? False
-Is package 'Microsoft.Extensions.Logging' already imported? False
-Is package 'Microsoft.Extensions.Logging.Abstractions' already imported? False
-Is package 'Microsoft.Extensions.Options' already imported? False
-Is package 'Microsoft.Extensions.Primitives' already imported? False
-Is package 'Newtonsoft.Json' already imported? False
-Is package 'OpenAI' already imported? False
-Is package 'System.Runtime.CompilerServices.Unsafe' already imported? False
-No packages need restoring.
-Restoring packages took 293 ms
-Package Manager log level set to [2]
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.692 seconds
-Domain Reload Profiling: 2923ms
-	BeginReloadAssembly (193ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (7ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (32ms)
-	RebuildCommonClasses (44ms)
-	RebuildNativeTypeToScriptingClass (19ms)
-	initialDomainReloadingComplete (61ms)
-	LoadAllAssembliesAndSetupDomain (914ms)
-		LoadAssemblies (559ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (457ms)
-			TypeCache.Refresh (398ms)
-				TypeCache.ScanAssembly (360ms)
-			ScanForSourceGeneratedMonoScriptInfo (42ms)
-			ResolveRequiredComponents (14ms)
-	FinalizeReload (1692ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1414ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (31ms)
-			SetLoadedEditorAssemblies (5ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (135ms)
-			ProcessInitializeOnLoadAttributes (1150ms)
-			ProcessInitializeOnLoadMethodAttributes (86ms)
-			AfterProcessingInitializeOnLoad (7ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (9ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 25.52 ms, found 16 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Your Inworld SDK is outdated. Please fetch the newest from Asset Store or https://github.com/inworld-ai/inworld-unity-sdk/releases
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Inworld.Util.InworldLog:LogWarning (string) (at Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldLog.cs:57)
-Inworld.Util.InworldAI:LogWarning (string) (at Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldAI.cs:149)
-Inworld.Editor.InitInworld:OnUpdateRequestComplete (UnityEngine.AsyncOperation) (at Assets/Inworld.AI/Editor/InworldEditorUtil.cs:76)
-UnityEngine.AsyncOperation:InvokeCompletionEvent ()
+Compilation Pipeline: Could not read file Packages/com.unity.mathematics/Tests/Unity.Mathematics.Tests.asmdef
+Fatal Error! Compilation Pipeline: Could not read file Packages/com.unity.mathematics/Tests/Unity.Mathematics.Tests.asmdef
+Crash!!!
+SymInit: Symbol-SearchPath: 'C:/Program Files/Unity/Hub/Editor/2022.3.9f1/Editor/Data/Mono;.;C:\Users\carlo.cristarella\source\repos\AI-In-game-Assistant;C:\Users\carlo.cristarella\source\repos\AI-In-game-Assistant\Library\BurstCache\JIT;C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor;C:\Windows;C:\Windows\system32;', symOptions: 534, UserName: 'carlo.cristarella'
+OS-Version: 10.0.0
+C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\Unity.exe:Unity.exe (00007FF691ED0000), size: 82272256 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 2022.3.9.16412
+C:\Windows\SYSTEM32\ntdll.dll:ntdll.dll (00007FF880090000), size: 2064384 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\KERNEL32.DLL:KERNEL32.DLL (00007FF87F710000), size: 774144 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\KERNELBASE.dll:KERNELBASE.dll (00007FF87D870000), size: 3104768 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\CRYPT32.dll:CRYPT32.dll (00007FF87DCC0000), size: 1429504 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\ucrtbase.dll:ucrtbase.dll (00007FF87D770000), size: 1048576 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\USER32.dll:USER32.dll (00007FF87F570000), size: 1695744 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\win32u.dll:win32u.dll (00007FF87DB70000), size: 139264 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\GDI32.dll:GDI32.dll (00007FF87EE90000), size: 180224 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\libfbxsdk.dll:libfbxsdk.dll (00007FF837A30000), size: 10067968 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 2020.3.3.0
+C:\Windows\System32\gdi32full.dll:gdi32full.dll (00007FF87DE20000), size: 1155072 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\msvcp_win.dll:msvcp_win.dll (00007FF87DBA0000), size: 643072 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\s3tcompress.dll:s3tcompress.dll (00007FF877810000), size: 180224 (result: 0), SymType: '-deferred-', PDB: ''
+C:\Windows\System32\ADVAPI32.dll:ADVAPI32.dll (00007FF87F4C0000), size: 716800 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3693
+C:\Windows\System32\msvcrt.dll:msvcrt.dll (00007FF87EAE0000), size: 647168 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 7.0.19041.3636
+C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\etccompress.dll:etccompress.dll (00007FF836950000), size: 5066752 (result: 0), SymType: '-deferred-', PDB: ''
+C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\compress_bc7e.dll:compress_bc7e.dll (00007FF838F90000), size: 1433600 (result: 0), SymType: '-deferred-', PDB: ''
+C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\FreeImage.dll:FreeImage.dll (0000000180000000), size: 6582272 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 3.18.0.0
+C:\Windows\System32\sechost.dll:sechost.dll (00007FF87ED00000), size: 638976 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\RPCRT4.dll:RPCRT4.dll (00007FF87E650000), size: 1204224 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\WS2_32.dll:WS2_32.dll (00007FF87EC90000), size: 438272 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\SHELL32.dll:SHELL32.dll (00007FF87F830000), size: 7618560 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\WinPixEventRuntime.dll:WinPixEventRuntime.dll (00007FF87AA50000), size: 45056 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 1.0.1812.6001
+C:\Windows\System32\SHLWAPI.dll:SHLWAPI.dll (00007FF87EEC0000), size: 348160 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\ispc_texcomp.dll:ispc_texcomp.dll (00007FF838AC0000), size: 1826816 (result: 0), SymType: '-deferred-', PDB: ''
+C:\Windows\System32\ole32.dll:ole32.dll (00007FF87E150000), size: 1224704 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\umbraoptimizer64.dll:umbraoptimizer64.dll (00007FF84B9B0000), size: 1187840 (result: 0), SymType: '-deferred-', PDB: ''
+C:\Windows\System32\combase.dll:combase.dll (00007FF87E780000), size: 3489792 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\IMM32.dll:IMM32.dll (00007FF87E0F0000), size: 196608 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\SETUPAPI.dll:SETUPAPI.dll (00007FF87F050000), size: 4644864 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\cfgmgr32.dll:cfgmgr32.dll (00007FF87DC70000), size: 319488 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\SYSTEM32\MSVCP140.dll:MSVCP140.dll (00007FF850D80000), size: 581632 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 14.36.32532.0
+C:\Windows\System32\bcrypt.dll:bcrypt.dll (00007FF87DC40000), size: 159744 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\OLEAUT32.dll:OLEAUT32.dll (00007FF87FF80000), size: 839680 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\WINTRUST.dll:WINTRUST.dll (00007FF87E080000), size: 421888 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\SYSTEM32\VCRUNTIME140.dll:VCRUNTIME140.dll (00007FF8736E0000), size: 110592 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 14.36.32532.0
+C:\Windows\SYSTEM32\GLU32.dll:GLU32.dll (00007FF840200000), size: 180224 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\SYSTEM32\OPENGL32.dll:OPENGL32.dll (00007FF840270000), size: 1200128 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\SYSTEM32\IPHLPAPI.DLL:IPHLPAPI.DLL (00007FF87CBB0000), size: 241664 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\SYSTEM32\WINHTTP.dll:WINHTTP.dll (00007FF878530000), size: 1089536 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\SYSTEM32\dwmapi.dll:dwmapi.dll (00007FF87AD90000), size: 192512 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\SYSTEM32\HID.DLL:HID.DLL (00007FF87BCD0000), size: 53248 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\SYSTEM32\WINMM.dll:WINMM.dll (00007FF871B60000), size: 159744 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\SYSTEM32\VCRUNTIME140_1.dll:VCRUNTIME140_1.dll (00007FF87A9C0000), size: 49152 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 14.36.32532.0
+C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\SketchUpAPI.dll:SketchUpAPI.dll (00007FF8360B0000), size: 8990720 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 23.0.0.0
+C:\Windows\SYSTEM32\VERSION.dll:VERSION.dll (00007FF874580000), size: 40960 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\SYSTEM32\WSOCK32.dll:WSOCK32.dll (00007FF87A9D0000), size: 36864 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.1
+C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\SketchUpCommonPreferences.dll:SketchUpCommonPreferences.dll (00007FF8519C0000), size: 499712 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 23.0.0.0
+C:\Windows\SYSTEM32\Secur32.dll:Secur32.dll (00007FF868820000), size: 49152 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\SYSTEM32\SSPICLI.DLL:SSPICLI.DLL (00007FF87D620000), size: 204800 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\OpenRL.dll:OpenRL.dll (000001CC60920000), size: 12779520 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 1.5.0.2907
+C:\Windows\SYSTEM32\MSVCR100.dll:MSVCR100.dll (0000000069850000), size: 856064 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.30319.1
+C:\Windows\SYSTEM32\MSVCP100.dll:MSVCP100.dll (0000000069930000), size: 622592 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.30319.1
+C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\embree.dll:embree.dll (00007FF833B70000), size: 16711680 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 2.14.0.0
+C:\Windows\SYSTEM32\MSWSOCK.DLL:MSWSOCK.DLL (00007FF87CF10000), size: 434176 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\tbb.dll:tbb.dll (00007FF852970000), size: 413696 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 2017.0.2016.1004
+C:\Windows\SYSTEM32\MSVCP120.dll:MSVCP120.dll (00007FF84C350000), size: 679936 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 12.0.21005.1
+C:\Windows\SYSTEM32\MSVCR120.dll:MSVCR120.dll (00007FF84C030000), size: 978944 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 12.0.21005.1
+C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\OpenRL_pthread.dll:OpenRL_pthread.dll (000001CC607E0000), size: 61440 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 2.9.0.0
+C:\Windows\SYSTEM32\MSASN1.dll:MSASN1.dll (00007FF87D340000), size: 73728 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\bcryptprimitives.dll:bcryptprimitives.dll (00007FF87DFF0000), size: 532480 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\SYSTEM32\kernel.appcore.dll:kernel.appcore.dll (00007FF87BDF0000), size: 73728 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\system32\uxtheme.dll:uxtheme.dll (00007FF87AB90000), size: 647168 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\SYSTEM32\windows.storage.dll:windows.storage.dll (00007FF87B530000), size: 7974912 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3693
+C:\Windows\SYSTEM32\Wldp.dll:Wldp.dll (00007FF87D1B0000), size: 184320 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\SHCORE.dll:SHCORE.dll (00007FF87E4C0000), size: 708608 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\SYSTEM32\profapi.dll:profapi.dll (00007FF87D6A0000), size: 151552 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\system32\IconCodecService.dll:IconCodecService.dll (00007FF82D210000), size: 36864 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.1
+C:\Windows\SYSTEM32\WindowsCodecs.dll:WindowsCodecs.dll (00007FF876C50000), size: 1785856 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\clbcatq.dll:clbcatq.dll (00007FF87EB80000), size: 692224 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 2001.12.10941.16384
+C:\Windows\System32\netprofm.dll:netprofm.dll (00007FF879650000), size: 258048 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\npmproxy.dll:npmproxy.dll (00007FF8713B0000), size: 65536 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\NSI.dll:NSI.dll (00007FF87E120000), size: 32768 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\SYSTEM32\dhcpcsvc6.DLL:dhcpcsvc6.DLL (00007FF877750000), size: 94208 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\SYSTEM32\dhcpcsvc.DLL:dhcpcsvc.DLL (00007FF877730000), size: 118784 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\SYSTEM32\DNSAPI.dll:DNSAPI.dll (00007FF87CBF0000), size: 827392 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\system32\napinsp.dll:napinsp.dll (00007FF84A340000), size: 94208 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\system32\pnrpnsp.dll:pnrpnsp.dll (00007FF84A360000), size: 110592 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\system32\wshbth.dll:wshbth.dll (00007FF878770000), size: 86016 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\system32\NLAapi.dll:NLAapi.dll (00007FF87A750000), size: 118784 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\winrnr.dll:winrnr.dll (00007FF84A380000), size: 73728 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\fwpuclnt.dll:fwpuclnt.dll (00007FF877840000), size: 524288 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\rasadhlp.dll:rasadhlp.dll (00007FF875FA0000), size: 40960 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\NVUnityPlugin.DLL:NVUnityPlugin.DLL (00007FF838940000), size: 1519616 (result: 0), SymType: '-deferred-', PDB: ''
+C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\Data\Tools\astcenc-avx2.dll:astcenc-avx2.dll (00007FF850C10000), size: 540672 (result: 0), SymType: '-deferred-', PDB: ''
+C:\Windows\SYSTEM32\d3d11.dll:d3d11.dll (00007FF878DB0000), size: 2502656 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\SYSTEM32\dxgi.dll:dxgi.dll (00007FF87BF40000), size: 995328 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_c72300957b29169c\igd10iumd64.dll:igd10iumd64.dll (00007FF873950000), size: 4587520 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 31.0.101.4575
+C:\Windows\SYSTEM32\apphelp.dll:apphelp.dll (00007FF87A8C0000), size: 589824 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_c72300957b29169c\igd10um64xe.DLL:igd10um64xe.DLL (00007FF871C70000), size: 26066944 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 31.0.101.4575
+C:\Windows\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_c72300957b29169c\IntelControlLib.dll:IntelControlLib.dll (00007FF871640000), size: 573440 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 1.0.152.0
+C:\Windows\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_c72300957b29169c\igdgmm64.dll:igdgmm64.dll (00007FF870EA0000), size: 4435968 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 31.0.101.4575
+C:\Windows\System32\DriverStore\FileRepository\iigd_dch.inf_amd64_c72300957b29169c\igc64.dll:igc64.dll (00007FF86C8A0000), size: 65843200 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 31.0.101.4575
+C:\Windows\SYSTEM32\dxcore.dll:dxcore.dll (00007FF873DD0000), size: 241664 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\system32\wbem\wbemprox.dll:wbemprox.dll (00007FF850B20000), size: 69632 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\SYSTEM32\wbemcomn.dll:wbemcomn.dll (00007FF869750000), size: 589824 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\system32\wbem\wbemsvc.dll:wbemsvc.dll (00007FF850400000), size: 81920 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\system32\wbem\fastprox.dll:fastprox.dll (00007FF8504A0000), size: 1093632 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\SYSTEM32\amsi.dll:amsi.dll (00007FF850180000), size: 126976 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\SYSTEM32\USERENV.dll:USERENV.dll (00007FF87D660000), size: 188416 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.23100.2009-0\MpOav.dll:MpOav.dll (00007FF850100000), size: 507904 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 4.18.23100.2009
+C:\Windows\SYSTEM32\opencl.dll:opencl.dll (00007FF84B5B0000), size: 512000 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 2.2.8.0
+C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\radeonrays.dll:radeonrays.dll (00007FF84B320000), size: 557056 (result: 0), SymType: '-deferred-', PDB: ''
+C:\Program Files\Unity\Hub\Editor\2022.3.9f1\Editor\Data\MonoBleedingEdge\EmbedRuntime\mono-2.0-bdwgc.dll:mono-2.0-bdwgc.dll (00007FF833140000), size: 10682368 (result: 0), SymType: '-deferred-', PDB: ''
+C:\Windows\SYSTEM32\PROPSYS.dll:PROPSYS.dll (00007FF878840000), size: 1007616 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 7.0.19041.3636
+C:\Windows\SYSTEM32\edputil.dll:edputil.dll (00007FF84D750000), size: 147456 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\Windows.StateRepositoryPS.dll:Windows.StateRepositoryPS.dll (00007FF84F2C0000), size: 1335296 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\SYSTEM32\urlmon.dll:urlmon.dll (00007FF86AD90000), size: 2019328 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 11.0.19041.3636
+C:\Windows\SYSTEM32\iertutil.dll:iertutil.dll (00007FF86B4A0000), size: 2867200 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 11.0.19041.3636
+C:\Windows\SYSTEM32\srvcli.dll:srvcli.dll (00007FF87C4C0000), size: 163840 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\SYSTEM32\netutils.dll:netutils.dll (00007FF87CCC0000), size: 49152 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\SYSTEM32\virtdisk.dll:virtdisk.dll (00007FF84E0B0000), size: 77824 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\SYSTEM32\FLTLIB.DLL:FLTLIB.DLL (00007FF84E0A0000), size: 45056 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\wintypes.dll:wintypes.dll (00007FF879690000), size: 1396736 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\appresolver.dll:appresolver.dll (00007FF844380000), size: 589824 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\SLC.dll:SLC.dll (00007FF87C1C0000), size: 167936 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\Bcp47Langs.dll:Bcp47Langs.dll (00007FF871A10000), size: 372736 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\sppc.dll:sppc.dll (00007FF87C190000), size: 151552 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\OneCoreCommonProxyStub.dll:OneCoreCommonProxyStub.dll (00007FF868A00000), size: 520192 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\System32\OneCoreUAPCommonProxyStub.dll:OneCoreUAPCommonProxyStub.dll (00007FF875040000), size: 8192000 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
+C:\Windows\SYSTEM32\dbghelp.dll:dbghelp.dll (00007FF87B340000), size: 1982464 (result: 0), SymType: '-deferred-', PDB: '', fileVersion: 10.0.19041.3636
 
-(Filename: Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldLog.cs Line: 57)
+========== OUTPUTTING STACK TRACE ==================
 
-Unloading 6343 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 203 unused Assets / (1.8 MB). Loaded Objects now: 6890.
-Memory consumption went from 303.2 MB to 301.4 MB.
-Total: 7.718900 ms (FindLiveObjects: 0.748600 ms CreateObjectMapping: 0.337100 ms MarkObjects: 5.563500 ms  DeleteObjects: 1.068600 ms)
+0x00007FF87D89CF19 (KERNELBASE) RaiseException
+0x00007FF693A82203 (Unity) EditorMonoConsole::LogToConsoleImplementation
+0x00007FF693A82C43 (Unity) EditorMonoConsole::LogToConsoleImplementation
+0x00007FF694736C5F (Unity) DebugStringToFilePostprocessedStacktrace
+0x00007FF6947363BD (Unity) DebugStringToFile
+0x00007FF693F22EDA (Unity) RegisterAssemblyDefinition
+0x00007FF694371605 (Unity) ProcessAssemblyAssets
+0x00007FF6943724AF (Unity) UpdateScriptCompilationPipelineCaches
+0x00007FF694372974 (Unity) WorkerInitializeAndProcessScriptChanges
+0x00007FF693BFB30B (Unity) Application::InitializeProject
+0x00007FF6940839E5 (Unity) WinMain
+0x00007FF695467FEE (Unity) __scrt_common_main_seh
+0x00007FF87F727344 (KERNEL32) BaseThreadInitThunk
+0x00007FF8800E26B1 (ntdll) RtlUserThreadStart
 
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 139695.471443 seconds.
-  path: Assets/Scenes/Levels/Level_2.unity
-  artifactKey: Guid(f7ef95ff25738ba429e4d8b59f8e8710) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Levels/Level_2.unity using Guid(f7ef95ff25738ba429e4d8b59f8e8710) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c276eb79f7669466324f203f978f202a') in 0.003243 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Assets/Inworld.AI/Plugins/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Assets/Packages/System.Runtime.CompilerServices.Unsafe.4.5.0/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.- Loaded All Assemblies, in  1.370 seconds
-Refreshing native plugins compatible for Editor in 54.49 ms, found 16 plugins.
-Native extension for UWP target not found
-Native extension for WindowsStandalone target not found
-Native extension for Android target not found
-Native extension for WebGL target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  3.727 seconds
-Domain Reload Profiling: 5091ms
-	BeginReloadAssembly (404ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (16ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (112ms)
-	RebuildCommonClasses (88ms)
-	RebuildNativeTypeToScriptingClass (77ms)
-	initialDomainReloadingComplete (74ms)
-	LoadAllAssembliesAndSetupDomain (719ms)
-		LoadAssemblies (869ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (64ms)
-			TypeCache.Refresh (25ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (35ms)
-	FinalizeReload (3729ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1360ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (75ms)
-			SetLoadedEditorAssemblies (8ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (182ms)
-			ProcessInitializeOnLoadAttributes (944ms)
-			ProcessInitializeOnLoadMethodAttributes (141ms)
-			AfterProcessingInitializeOnLoad (9ms)
-			EditorAssembliesLoaded (1ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (21ms)
-Refreshing native plugins compatible for Editor in 46.18 ms, found 16 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Your Inworld SDK is outdated. Please fetch the newest from Asset Store or https://github.com/inworld-ai/inworld-unity-sdk/releases
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Inworld.Util.InworldLog:LogWarning (string) (at Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldLog.cs:57)
-Inworld.Util.InworldAI:LogWarning (string) (at Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldAI.cs:149)
-Inworld.Editor.InitInworld:OnUpdateRequestComplete (UnityEngine.AsyncOperation) (at Assets/Inworld.AI/Editor/InworldEditorUtil.cs:76)
-UnityEngine.AsyncOperation:InvokeCompletionEvent ()
+========== END OF STACKTRACE ===========
 
-(Filename: Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldLog.cs Line: 57)
-
-Unloading 6101 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 154 unused Assets / (1.8 MB). Loaded Objects now: 7741.
-Memory consumption went from 283.8 MB to 282.0 MB.
-Total: 16.683700 ms (FindLiveObjects: 1.627300 ms CreateObjectMapping: 1.120600 ms MarkObjects: 12.357600 ms  DeleteObjects: 1.573800 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 769.027306 seconds.
-  path: Assets/Prefabs/Enemies/2_Turret.prefab
-  artifactKey: Guid(3324cea33c136da4b98b0b03966e43b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Enemies/2_Turret.prefab using Guid(3324cea33c136da4b98b0b03966e43b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b9cf121d0d1ff02fc5e242f0f090346') in 0.342943 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 53
-========================================================================
-Received Import Request.
-  Time since last request: 8.226152 seconds.
-  path: Assets/Scenes/Levels/Level_2.unity
-  artifactKey: Guid(f7ef95ff25738ba429e4d8b59f8e8710) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Levels/Level_2.unity using Guid(f7ef95ff25738ba429e4d8b59f8e8710) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33d60a1a6daeafaf94ce0ae7308d9573') in 0.000979 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 75.930193 seconds.
-  path: Assets/Prefabs/Enemies/2_Turret.prefab
-  artifactKey: Guid(3324cea33c136da4b98b0b03966e43b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Enemies/2_Turret.prefab using Guid(3324cea33c136da4b98b0b03966e43b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'edde43a1b69cbfa26853f20f7c4e4be4') in 0.029720 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 36
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Assets/Inworld.AI/Plugins/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Assets/Packages/System.Runtime.CompilerServices.Unsafe.4.5.0/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.- Loaded All Assemblies, in  1.611 seconds
-Refreshing native plugins compatible for Editor in 60.73 ms, found 16 plugins.
-Native extension for UWP target not found
-Native extension for WindowsStandalone target not found
-Native extension for Android target not found
-Native extension for WebGL target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  8.459 seconds
-Domain Reload Profiling: 10068ms
-	BeginReloadAssembly (441ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (27ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (124ms)
-	RebuildCommonClasses (94ms)
-	RebuildNativeTypeToScriptingClass (21ms)
-	initialDomainReloadingComplete (54ms)
-	LoadAllAssembliesAndSetupDomain (997ms)
-		LoadAssemblies (1109ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (60ms)
-			TypeCache.Refresh (24ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (32ms)
-	FinalizeReload (8461ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1606ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (70ms)
-			SetLoadedEditorAssemblies (7ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (196ms)
-			ProcessInitializeOnLoadAttributes (1141ms)
-			ProcessInitializeOnLoadMethodAttributes (173ms)
-			AfterProcessingInitializeOnLoad (18ms)
-			EditorAssembliesLoaded (1ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (42ms)
-Refreshing native plugins compatible for Editor in 61.88 ms, found 16 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Your Inworld SDK is outdated. Please fetch the newest from Asset Store or https://github.com/inworld-ai/inworld-unity-sdk/releases
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Inworld.Util.InworldLog:LogWarning (string) (at Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldLog.cs:57)
-Inworld.Util.InworldAI:LogWarning (string) (at Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldAI.cs:149)
-Inworld.Editor.InitInworld:OnUpdateRequestComplete (UnityEngine.AsyncOperation) (at Assets/Inworld.AI/Editor/InworldEditorUtil.cs:76)
-UnityEngine.AsyncOperation:InvokeCompletionEvent ()
-
-(Filename: Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldLog.cs Line: 57)
-
-Unloading 6216 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 154 unused Assets / (1.8 MB). Loaded Objects now: 8190.
-Memory consumption went from 341.0 MB to 339.2 MB.
-Total: 19.335500 ms (FindLiveObjects: 1.607500 ms CreateObjectMapping: 1.142300 ms MarkObjects: 14.639400 ms  DeleteObjects: 1.944200 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 142.322377 seconds.
-  path: Assets/Prefabs/Enemies/Turret.prefab
-  artifactKey: Guid(3324cea33c136da4b98b0b03966e43b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Enemies/Turret.prefab using Guid(3324cea33c136da4b98b0b03966e43b6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6547e9dc964a6a51f1c6c0c40a3dfbb9') in 0.384399 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 53
-========================================================================
-Received Import Request.
-  Time since last request: 24.671592 seconds.
-  path: Assets/Prefabs/Enemies/TurretDebug.prefab
-  artifactKey: Guid(570626ab2f5f4d04585c7270acc0ed01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Enemies/TurretDebug.prefab using Guid(570626ab2f5f4d04585c7270acc0ed01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1754631381973d9697fcba48ed2cb1c') in 0.020919 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 35
-========================================================================
-Received Import Request.
-  Time since last request: 11.665696 seconds.
-  path: Assets/Prefabs/Enemies/Prototypes
-  artifactKey: Guid(4553636d872fa9341bd935158b3aaea3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Enemies/Prototypes using Guid(4553636d872fa9341bd935158b3aaea3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cd4534922e5629aad97337add522f7af') in 0.000571 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 9.138935 seconds.
-  path: Assets/Prefabs/Enemies/Prototypes/TurretPrototype.prefab
-  artifactKey: Guid(570626ab2f5f4d04585c7270acc0ed01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Enemies/Prototypes/TurretPrototype.prefab using Guid(570626ab2f5f4d04585c7270acc0ed01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9e234544dbc0a6433510292eaec83dfc') in 0.010986 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 35
-========================================================================
-Received Import Request.
-  Time since last request: 24.507037 seconds.
-  path: Assets/Scenes/Levels/Level_2.unity
-  artifactKey: Guid(f7ef95ff25738ba429e4d8b59f8e8710) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Levels/Level_2.unity using Guid(f7ef95ff25738ba429e4d8b59f8e8710) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '64ab582f1634fcd05f3196cc5b67cfe1') in 0.000875 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 167.993661 seconds.
-  path: Assets/Prefabs/Box.prefab
-  artifactKey: Guid(e740a402ebe81514a908b1e2935aa576) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Box.prefab using Guid(e740a402ebe81514a908b1e2935aa576) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cfb54255814bfca3a1e0f038f005d2f8') in 0.023185 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 15
-========================================================================
-Received Import Request.
-  Time since last request: 6.229576 seconds.
-  path: Assets/Prefabs/CloneRecharge.prefab
-  artifactKey: Guid(c60c6c47e28c7144996553d65827afc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/CloneRecharge.prefab using Guid(c60c6c47e28c7144996553d65827afc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7d8c666c3b155d8fe7207f3c2a86ec6') in 0.033022 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 28
-========================================================================
-Received Import Request.
-  Time since last request: 2.522841 seconds.
-  path: Assets/Prefabs/Echo.prefab
-  artifactKey: Guid(70b8773c048d71b4e99928aa3e9a4dc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Echo.prefab using Guid(70b8773c048d71b4e99928aa3e9a4dc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4629980311d123d84bd09e62460385de') in 0.733119 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 287
-========================================================================
-Received Import Request.
-  Time since last request: 72.625839 seconds.
-  path: Assets/Packs/Low Poly Ultimate Pack/M/- Prefabs_M/Food_M/pizza-cheese-slice.prefab
-  artifactKey: Guid(da3e1ddc94dfc431b8d3039c6c1db3f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Low Poly Ultimate Pack/M/- Prefabs_M/Food_M/pizza-cheese-slice.prefab using Guid(da3e1ddc94dfc431b8d3039c6c1db3f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '635484deef73bc3cc8347b93e33a14d5') in 0.020322 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 13
-========================================================================
-Received Import Request.
-  Time since last request: 2.584802 seconds.
-  path: Assets/Packs/Low Poly Ultimate Pack/M/- Meshes_M/Food_M/pizza-cheese-slice.fbx
-  artifactKey: Guid(f149c623277834963a3678c5eb06e0ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Low Poly Ultimate Pack/M/- Meshes_M/Food_M/pizza-cheese-slice.fbx using Guid(f149c623277834963a3678c5eb06e0ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '574e477527bd626f99be20a2344caac6') in 0.045782 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
-========================================================================
-Received Import Request.
-  Time since last request: 6.947790 seconds.
-  path: Assets/Packs/Low Poly Ultimate Pack/M/- Prefabs_M/Food_M/pizza-frozen.prefab
-  artifactKey: Guid(dc35b891544ef404097d196762cfb9aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Low Poly Ultimate Pack/M/- Prefabs_M/Food_M/pizza-frozen.prefab using Guid(dc35b891544ef404097d196762cfb9aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1cbcab078de829b099838725a2420d2') in 0.017953 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 12
-========================================================================
-Received Import Request.
-  Time since last request: 0.630540 seconds.
-  path: Assets/Packs/Low Poly Ultimate Pack/T/- Meshes_T/Food_T/pizza-frozen.fbx
-  artifactKey: Guid(fdbc3d42d976843fc97f09de04d12437) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Low Poly Ultimate Pack/T/- Meshes_T/Food_T/pizza-frozen.fbx using Guid(fdbc3d42d976843fc97f09de04d12437) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'afe0100d9457faa58d80c7d7c52fc514') in 0.021593 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
-========================================================================
-Received Import Request.
-  Time since last request: 2.106311 seconds.
-  path: Assets/Packs/Low Poly Ultimate Pack/M/- Prefabs_M/Food_M/pizza-mozzarella.prefab
-  artifactKey: Guid(7dbdd11837d8b494e8ef6ae74e7a62dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Low Poly Ultimate Pack/M/- Prefabs_M/Food_M/pizza-mozzarella.prefab using Guid(7dbdd11837d8b494e8ef6ae74e7a62dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd1150ddf262cdb685946ab4aca0db9a8') in 0.021272 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 13
-========================================================================
-Received Import Request.
-  Time since last request: 97.457829 seconds.
-  path: Assets/Packs/Low Poly Ultimate Pack/T/- Meshes_T/Food_T/pizza-mozzarella.fbx
-  artifactKey: Guid(daa5fe8579a2a4b04991928fe5e39fbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Low Poly Ultimate Pack/T/- Meshes_T/Food_T/pizza-mozzarella.fbx using Guid(daa5fe8579a2a4b04991928fe5e39fbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d21822fef48c34d733e20f58eb70a4b') in 0.022349 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
-========================================================================
-Received Import Request.
-  Time since last request: 42.592395 seconds.
-  path: Assets/Packs/Low Poly Ultimate Pack/M/- Meshes_M/Food_M/pizza-mozzarella.fbx
-  artifactKey: Guid(47d6905c3fe1a4eeb99178a27f854e0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Low Poly Ultimate Pack/M/- Meshes_M/Food_M/pizza-mozzarella.fbx using Guid(47d6905c3fe1a4eeb99178a27f854e0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '977467e22c5f3d84e4a4b3ba8a17b6b1') in 0.018565 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
-========================================================================
-Received Import Request.
-  Time since last request: 2.758516 seconds.
-  path: Assets/Packs/Low Poly Ultimate Pack/M/- Meshes_M/Food_M/pizza-frozen.fbx
-  artifactKey: Guid(532077009bf4a4fa8b6dcda8a77766b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Low Poly Ultimate Pack/M/- Meshes_M/Food_M/pizza-frozen.fbx using Guid(532077009bf4a4fa8b6dcda8a77766b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c20acc58f47ecd387998220af6da50b1') in 0.015177 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
-========================================================================
-Received Import Request.
-  Time since last request: 51.662296 seconds.
-  path: Assets/Prefabs/HealthkitA.prefab
-  artifactKey: Guid(ed4d9d6fe61dbc042b7cfe7eecd21cdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/HealthkitA.prefab using Guid(ed4d9d6fe61dbc042b7cfe7eecd21cdb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b05717b10d186d48dac11d64b6900bc7') in 0.019934 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 14
-========================================================================
-Received Import Request.
-  Time since last request: 17.765044 seconds.
-  path: Assets/Packs/Low Poly Ultimate Pack/M/- Meshes_M/Food_M/pizza-cheese.fbx
-  artifactKey: Guid(21ee3b062e3604b2fb6c1139d70083ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Low Poly Ultimate Pack/M/- Meshes_M/Food_M/pizza-cheese.fbx using Guid(21ee3b062e3604b2fb6c1139d70083ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '16c692c5cee1a6b8dff930714d67a8f1') in 0.025588 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
-========================================================================
-Received Import Request.
-  Time since last request: 0.937735 seconds.
-  path: Assets/Packs/Low Poly Ultimate Pack/T/- Meshes_T/Food_T/pizza-cheese-slice.fbx
-  artifactKey: Guid(c2292ac4c87a14c69b1f170dd118c925) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Low Poly Ultimate Pack/T/- Meshes_T/Food_T/pizza-cheese-slice.fbx using Guid(c2292ac4c87a14c69b1f170dd118c925) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b8e9bfa47975ba84321111c081f59fc2') in 0.020796 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
-========================================================================
-Received Import Request.
-  Time since last request: 0.379199 seconds.
-  path: Assets/Packs/Low Poly Ultimate Pack/T/- Prefabs_T/Food_T/pizza-cheese-slice.prefab
-  artifactKey: Guid(a4035beb20cf34d968adb926371400b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Low Poly Ultimate Pack/T/- Prefabs_T/Food_T/pizza-cheese-slice.prefab using Guid(a4035beb20cf34d968adb926371400b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ac01d5f0780e14a578bf27f438c44b7') in 0.026323 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 13
-========================================================================
-Received Import Request.
-  Time since last request: 386.117263 seconds.
-  path: Assets/Prefabs/HealthkitLarge.prefab
-  artifactKey: Guid(ea720fec4d1e5b640abd25170e5507bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/HealthkitLarge.prefab using Guid(ea720fec4d1e5b640abd25170e5507bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f91262838c94ec149eccba8ee1587ed') in 0.025953 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 26
-========================================================================
-Received Import Request.
-  Time since last request: 123.551996 seconds.
-  path: Assets/Prefabs/HealthkitSmall.prefab
-  artifactKey: Guid(ba8fc7cd7c137e941a964c32bb3f9642) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/HealthkitSmall.prefab using Guid(ba8fc7cd7c137e941a964c32bb3f9642) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7cd664847389502a23cf6e36b6395b5d') in 0.023917 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 16
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Assets/Inworld.AI/Plugins/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Assets/Packages/System.Runtime.CompilerServices.Unsafe.4.5.0/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.- Loaded All Assemblies, in  1.642 seconds
-Refreshing native plugins compatible for Editor in 48.03 ms, found 16 plugins.
-Native extension for UWP target not found
-Native extension for WindowsStandalone target not found
-Native extension for Android target not found
-Native extension for WebGL target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  5.649 seconds
-Domain Reload Profiling: 7289ms
-	BeginReloadAssembly (447ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (21ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (139ms)
-	RebuildCommonClasses (99ms)
-	RebuildNativeTypeToScriptingClass (31ms)
-	initialDomainReloadingComplete (87ms)
-	LoadAllAssembliesAndSetupDomain (975ms)
-		LoadAssemblies (1080ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (57ms)
-			TypeCache.Refresh (26ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (29ms)
-	FinalizeReload (5650ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1174ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (79ms)
-			SetLoadedEditorAssemblies (12ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (189ms)
-			ProcessInitializeOnLoadAttributes (738ms)
-			ProcessInitializeOnLoadMethodAttributes (142ms)
-			AfterProcessingInitializeOnLoad (14ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (49ms)
-Refreshing native plugins compatible for Editor in 54.96 ms, found 16 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Your Inworld SDK is outdated. Please fetch the newest from Asset Store or https://github.com/inworld-ai/inworld-unity-sdk/releases
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Inworld.Util.InworldLog:LogWarning (string) (at Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldLog.cs:57)
-Inworld.Util.InworldAI:LogWarning (string) (at Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldAI.cs:149)
-Inworld.Editor.InitInworld:OnUpdateRequestComplete (UnityEngine.AsyncOperation) (at Assets/Inworld.AI/Editor/InworldEditorUtil.cs:76)
-UnityEngine.AsyncOperation:InvokeCompletionEvent ()
-
-(Filename: Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldLog.cs Line: 57)
-
-Unloading 6218 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 154 unused Assets / (1.8 MB). Loaded Objects now: 8395.
-Memory consumption went from 0.90 GB to 0.89 GB.
-Total: 19.692400 ms (FindLiveObjects: 1.692400 ms CreateObjectMapping: 1.774400 ms MarkObjects: 14.032600 ms  DeleteObjects: 2.187600 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 206.681218 seconds.
-  path: Assets/Scenes/Levels/Level_2.unity
-  artifactKey: Guid(f7ef95ff25738ba429e4d8b59f8e8710) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Levels/Level_2.unity using Guid(f7ef95ff25738ba429e4d8b59f8e8710) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd66d0202f097d7ced7991ebd94d55d4') in 0.002388 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Assets/Inworld.AI/Plugins/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Assets/Packages/System.Runtime.CompilerServices.Unsafe.4.5.0/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.- Loaded All Assemblies, in  5.376 seconds
-Refreshing native plugins compatible for Editor in 46.81 ms, found 16 plugins.
-Native extension for UWP target not found
-Native extension for WindowsStandalone target not found
-Native extension for Android target not found
-Native extension for WebGL target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  6.462 seconds
-Domain Reload Profiling: 11822ms
-	BeginReloadAssembly (406ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (12ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (1ms)
-		CreateAndSetChildDomain (124ms)
-	RebuildCommonClasses (700ms)
-	RebuildNativeTypeToScriptingClass (32ms)
-	initialDomainReloadingComplete (102ms)
-	LoadAllAssembliesAndSetupDomain (4118ms)
-		LoadAssemblies (4158ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (119ms)
-			TypeCache.Refresh (45ms)
-				TypeCache.ScanAssembly (4ms)
-			ScanForSourceGeneratedMonoScriptInfo (48ms)
-			ResolveRequiredComponents (24ms)
-	FinalizeReload (6464ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1035ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (48ms)
-			SetLoadedEditorAssemblies (8ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (192ms)
-			ProcessInitializeOnLoadAttributes (701ms)
-			ProcessInitializeOnLoadMethodAttributes (73ms)
-			AfterProcessingInitializeOnLoad (12ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (56ms)
-Refreshing native plugins compatible for Editor in 69.01 ms, found 16 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Your Inworld SDK is outdated. Please fetch the newest from Asset Store or https://github.com/inworld-ai/inworld-unity-sdk/releases
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Inworld.Util.InworldLog:LogWarning (string) (at Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldLog.cs:57)
-Inworld.Util.InworldAI:LogWarning (string) (at Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldAI.cs:149)
-Inworld.Editor.InitInworld:OnUpdateRequestComplete (UnityEngine.AsyncOperation) (at Assets/Inworld.AI/Editor/InworldEditorUtil.cs:76)
-UnityEngine.AsyncOperation:InvokeCompletionEvent ()
-
-(Filename: Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldLog.cs Line: 57)
-
-Unloading 6073 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 154 unused Assets / (1.8 MB). Loaded Objects now: 8411.
-Memory consumption went from 0.87 GB to 0.87 GB.
-Total: 18.909600 ms (FindLiveObjects: 1.061500 ms CreateObjectMapping: 0.913200 ms MarkObjects: 15.578400 ms  DeleteObjects: 1.355100 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Assets/Inworld.AI/Plugins/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Assets/Packages/System.Runtime.CompilerServices.Unsafe.4.5.0/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.- Loaded All Assemblies, in  1.624 seconds
-Refreshing native plugins compatible for Editor in 23.02 ms, found 16 plugins.
-Native extension for UWP target not found
-Native extension for WindowsStandalone target not found
-Native extension for Android target not found
-Native extension for WebGL target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  2.841 seconds
-Domain Reload Profiling: 4460ms
-	BeginReloadAssembly (763ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (5ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (74ms)
-	RebuildCommonClasses (59ms)
-	RebuildNativeTypeToScriptingClass (22ms)
-	initialDomainReloadingComplete (50ms)
-	LoadAllAssembliesAndSetupDomain (724ms)
-		LoadAssemblies (1242ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (78ms)
-			TypeCache.Refresh (21ms)
-				TypeCache.ScanAssembly (2ms)
-			ScanForSourceGeneratedMonoScriptInfo (36ms)
-			ResolveRequiredComponents (20ms)
-	FinalizeReload (2842ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1564ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (40ms)
-			SetLoadedEditorAssemblies (5ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (178ms)
-			ProcessInitializeOnLoadAttributes (1241ms)
-			ProcessInitializeOnLoadMethodAttributes (88ms)
-			AfterProcessingInitializeOnLoad (11ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (33ms)
-Script is not up to date after domain reload: guid(5558f8908fab8c146a9d24410df41863) path("Assets/Scripts/DynamicObjects/DoorTrigger.cs") state(2)
-Refreshing native plugins compatible for Editor in 27.76 ms, found 16 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Your Inworld SDK is outdated. Please fetch the newest from Asset Store or https://github.com/inworld-ai/inworld-unity-sdk/releases
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Inworld.Util.InworldLog:LogWarning (string) (at Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldLog.cs:57)
-Inworld.Util.InworldAI:LogWarning (string) (at Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldAI.cs:149)
-Inworld.Editor.InitInworld:OnUpdateRequestComplete (UnityEngine.AsyncOperation) (at Assets/Inworld.AI/Editor/InworldEditorUtil.cs:76)
-UnityEngine.AsyncOperation:InvokeCompletionEvent ()
-
-(Filename: Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldLog.cs Line: 57)
-
-Unloading 6072 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 154 unused Assets / (1.8 MB). Loaded Objects now: 8426.
-Memory consumption went from 0.87 GB to 0.87 GB.
-Total: 9.953100 ms (FindLiveObjects: 0.843600 ms CreateObjectMapping: 0.731100 ms MarkObjects: 7.727500 ms  DeleteObjects: 0.649400 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Assets/Inworld.AI/Plugins/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Assets/Packages/System.Runtime.CompilerServices.Unsafe.4.5.0/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.- Loaded All Assemblies, in  0.979 seconds
-Refreshing native plugins compatible for Editor in 42.68 ms, found 16 plugins.
-Native extension for UWP target not found
-Native extension for WindowsStandalone target not found
-Native extension for Android target not found
-Native extension for WebGL target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  3.664 seconds
-Domain Reload Profiling: 4638ms
-	BeginReloadAssembly (253ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (5ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (75ms)
-	RebuildCommonClasses (56ms)
-	RebuildNativeTypeToScriptingClass (14ms)
-	initialDomainReloadingComplete (39ms)
-	LoadAllAssembliesAndSetupDomain (610ms)
-		LoadAssemblies (634ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (89ms)
-			TypeCache.Refresh (21ms)
-				TypeCache.ScanAssembly (3ms)
-			ScanForSourceGeneratedMonoScriptInfo (38ms)
-			ResolveRequiredComponents (28ms)
-	FinalizeReload (3665ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (2241ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (633ms)
-			SetLoadedEditorAssemblies (18ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (238ms)
-			ProcessInitializeOnLoadAttributes (1211ms)
-			ProcessInitializeOnLoadMethodAttributes (118ms)
-			AfterProcessingInitializeOnLoad (21ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (38ms)
-Script is not up to date after domain reload: guid(5558f8908fab8c146a9d24410df41863) path("Assets/Scripts/DynamicObjects/DoorTrigger.cs") state(2)
-Refreshing native plugins compatible for Editor in 50.24 ms, found 16 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 6072 Unused Serialized files (Serialized files now loaded: 0)
-Your Inworld SDK is outdated. Please fetch the newest from Asset Store or https://github.com/inworld-ai/inworld-unity-sdk/releases
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Inworld.Util.InworldLog:LogWarning (string) (at Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldLog.cs:57)
-Inworld.Util.InworldAI:LogWarning (string) (at Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldAI.cs:149)
-Inworld.Editor.InitInworld:OnUpdateRequestComplete (UnityEngine.AsyncOperation) (at Assets/Inworld.AI/Editor/InworldEditorUtil.cs:76)
-UnityEngine.AsyncOperation:InvokeCompletionEvent ()
-
-(Filename: Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldLog.cs Line: 57)
-
-Unloading 154 unused Assets / (1.8 MB). Loaded Objects now: 8442.
-Memory consumption went from 0.87 GB to 0.87 GB.
-Total: 14.860300 ms (FindLiveObjects: 1.305200 ms CreateObjectMapping: 0.809700 ms MarkObjects: 11.591900 ms  DeleteObjects: 1.151500 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Assets/Inworld.AI/Plugins/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Assets/Packages/System.Runtime.CompilerServices.Unsafe.4.5.0/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.- Loaded All Assemblies, in  2.103 seconds
-Refreshing native plugins compatible for Editor in 41.92 ms, found 16 plugins.
-Native extension for UWP target not found
-Native extension for WindowsStandalone target not found
-Native extension for Android target not found
-Native extension for WebGL target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  3.557 seconds
-Domain Reload Profiling: 5651ms
-	BeginReloadAssembly (337ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (6ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (88ms)
-	RebuildCommonClasses (78ms)
-	RebuildNativeTypeToScriptingClass (700ms)
-	initialDomainReloadingComplete (119ms)
-	LoadAllAssembliesAndSetupDomain (859ms)
-		LoadAssemblies (894ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (125ms)
-			TypeCache.Refresh (35ms)
-				TypeCache.ScanAssembly (5ms)
-			ScanForSourceGeneratedMonoScriptInfo (58ms)
-			ResolveRequiredComponents (28ms)
-	FinalizeReload (3558ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1341ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (68ms)
-			SetLoadedEditorAssemblies (7ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (237ms)
-			ProcessInitializeOnLoadAttributes (928ms)
-			ProcessInitializeOnLoadMethodAttributes (91ms)
-			AfterProcessingInitializeOnLoad (9ms)
-			EditorAssembliesLoaded (1ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (35ms)
-Refreshing native plugins compatible for Editor in 29.27 ms, found 16 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Your Inworld SDK is outdated. Please fetch the newest from Asset Store or https://github.com/inworld-ai/inworld-unity-sdk/releases
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Inworld.Util.InworldLog:LogWarning (string) (at Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldLog.cs:57)
-Inworld.Util.InworldAI:LogWarning (string) (at Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldAI.cs:149)
-Inworld.Editor.InitInworld:OnUpdateRequestComplete (UnityEngine.AsyncOperation) (at Assets/Inworld.AI/Editor/InworldEditorUtil.cs:76)
-UnityEngine.AsyncOperation:InvokeCompletionEvent ()
-
-(Filename: Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldLog.cs Line: 57)
-
-Unloading 6073 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 154 unused Assets / (1.8 MB). Loaded Objects now: 8459.
-Memory consumption went from 0.87 GB to 0.87 GB.
-Total: 7.124000 ms (FindLiveObjects: 0.646400 ms CreateObjectMapping: 0.500700 ms MarkObjects: 5.230900 ms  DeleteObjects: 0.744800 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Assets/Inworld.AI/Plugins/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Assets/Packages/System.Runtime.CompilerServices.Unsafe.4.5.0/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.- Loaded All Assemblies, in  1.293 seconds
-Refreshing native plugins compatible for Editor in 52.86 ms, found 16 plugins.
-Native extension for UWP target not found
-Native extension for WindowsStandalone target not found
-Native extension for Android target not found
-Native extension for WebGL target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  3.006 seconds
-Domain Reload Profiling: 4295ms
-	BeginReloadAssembly (391ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (12ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (85ms)
-	RebuildCommonClasses (45ms)
-	RebuildNativeTypeToScriptingClass (14ms)
-	initialDomainReloadingComplete (66ms)
-	LoadAllAssembliesAndSetupDomain (772ms)
-		LoadAssemblies (922ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (61ms)
-			TypeCache.Refresh (28ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (1ms)
-			ResolveRequiredComponents (27ms)
-	FinalizeReload (3007ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (946ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (35ms)
-			SetLoadedEditorAssemblies (6ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (133ms)
-			ProcessInitializeOnLoadAttributes (689ms)
-			ProcessInitializeOnLoadMethodAttributes (76ms)
-			AfterProcessingInitializeOnLoad (6ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (25ms)
-Refreshing native plugins compatible for Editor in 30.27 ms, found 16 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Your Inworld SDK is outdated. Please fetch the newest from Asset Store or https://github.com/inworld-ai/inworld-unity-sdk/releases
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Inworld.Util.InworldLog:LogWarning (string) (at Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldLog.cs:57)
-Inworld.Util.InworldAI:LogWarning (string) (at Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldAI.cs:149)
-Inworld.Editor.InitInworld:OnUpdateRequestComplete (UnityEngine.AsyncOperation) (at Assets/Inworld.AI/Editor/InworldEditorUtil.cs:76)
-UnityEngine.AsyncOperation:InvokeCompletionEvent ()
-
-(Filename: Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldLog.cs Line: 57)
-
-Unloading 6073 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 154 unused Assets / (1.8 MB). Loaded Objects now: 8475.
-Memory consumption went from 0.87 GB to 0.87 GB.
-Total: 12.048000 ms (FindLiveObjects: 0.928400 ms CreateObjectMapping: 0.802900 ms MarkObjects: 9.501200 ms  DeleteObjects: 0.814000 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  Time since last request: 1052.227715 seconds.
-  path: Assets/Scenes/Levels/Level_2.unity
-  artifactKey: Guid(f7ef95ff25738ba429e4d8b59f8e8710) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Levels/Level_2.unity using Guid(f7ef95ff25738ba429e4d8b59f8e8710) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd92b4bdb566304391f39ee6daea895cf') in 0.005117 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Assets/Inworld.AI/Plugins/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Assets/Packages/System.Runtime.CompilerServices.Unsafe.4.5.0/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.- Loaded All Assemblies, in  0.966 seconds
-Refreshing native plugins compatible for Editor in 28.49 ms, found 16 plugins.
-Native extension for UWP target not found
-Native extension for WindowsStandalone target not found
-Native extension for Android target not found
-Native extension for WebGL target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  2.617 seconds
-Domain Reload Profiling: 3578ms
-	BeginReloadAssembly (216ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (5ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (60ms)
-	RebuildCommonClasses (51ms)
-	RebuildNativeTypeToScriptingClass (13ms)
-	initialDomainReloadingComplete (44ms)
-	LoadAllAssembliesAndSetupDomain (635ms)
-		LoadAssemblies (666ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (69ms)
-			TypeCache.Refresh (20ms)
-				TypeCache.ScanAssembly (2ms)
-			ScanForSourceGeneratedMonoScriptInfo (30ms)
-			ResolveRequiredComponents (17ms)
-	FinalizeReload (2619ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1466ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (55ms)
-			SetLoadedEditorAssemblies (6ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (584ms)
-			ProcessInitializeOnLoadAttributes (700ms)
-			ProcessInitializeOnLoadMethodAttributes (106ms)
-			AfterProcessingInitializeOnLoad (14ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (46ms)
-Refreshing native plugins compatible for Editor in 470.16 ms, found 16 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Your Inworld SDK is outdated. Please fetch the newest from Asset Store or https://github.com/inworld-ai/inworld-unity-sdk/releases
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Inworld.Util.InworldLog:LogWarning (string) (at Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldLog.cs:57)
-Inworld.Util.InworldAI:LogWarning (string) (at Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldAI.cs:149)
-Inworld.Editor.InitInworld:OnUpdateRequestComplete (UnityEngine.AsyncOperation) (at Assets/Inworld.AI/Editor/InworldEditorUtil.cs:76)
-UnityEngine.AsyncOperation:InvokeCompletionEvent ()
-
-(Filename: Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldLog.cs Line: 57)
-
-Unloading 6073 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 154 unused Assets / (1.8 MB). Loaded Objects now: 8491.
-Memory consumption went from 0.87 GB to 0.87 GB.
-Total: 7.022300 ms (FindLiveObjects: 0.636600 ms CreateObjectMapping: 0.377100 ms MarkObjects: 5.434600 ms  DeleteObjects: 0.572700 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Prepare
-Begin MonoManager ReloadAssembly
-Duplicate assembly 'System.Runtime.CompilerServices.Unsafe.dll' with different versions detected, using 'Assets/Inworld.AI/Plugins/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a' and ignoring 'Assets/Packages/System.Runtime.CompilerServices.Unsafe.4.5.0/lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll, AssemblyName=System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'.- Loaded All Assemblies, in  1.441 seconds
-Refreshing native plugins compatible for Editor in 61.55 ms, found 16 plugins.
-Native extension for UWP target not found
-Native extension for WindowsStandalone target not found
-Native extension for Android target not found
-Native extension for WebGL target not found
-[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
-[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
-[Package Manager] Cannot connect to Unity Package Manager local server
-Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  3.572 seconds
-Domain Reload Profiling: 5003ms
-	BeginReloadAssembly (380ms)
-		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (7ms)
-		BackupInstance (0ms)
-		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (83ms)
-	RebuildCommonClasses (61ms)
-	RebuildNativeTypeToScriptingClass (22ms)
-	initialDomainReloadingComplete (71ms)
-	LoadAllAssembliesAndSetupDomain (897ms)
-		LoadAssemblies (1024ms)
-		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (69ms)
-			TypeCache.Refresh (28ms)
-				TypeCache.ScanAssembly (0ms)
-			ScanForSourceGeneratedMonoScriptInfo (1ms)
-			ResolveRequiredComponents (36ms)
-	FinalizeReload (3573ms)
-		ReleaseScriptCaches (0ms)
-		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1146ms)
-			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (63ms)
-			SetLoadedEditorAssemblies (10ms)
-			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (204ms)
-			ProcessInitializeOnLoadAttributes (763ms)
-			ProcessInitializeOnLoadMethodAttributes (98ms)
-			AfterProcessingInitializeOnLoad (8ms)
-			EditorAssembliesLoaded (0ms)
-		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (39ms)
-Refreshing native plugins compatible for Editor in 31.85 ms, found 16 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Your Inworld SDK is outdated. Please fetch the newest from Asset Store or https://github.com/inworld-ai/inworld-unity-sdk/releases
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:LogWarning (object)
-Inworld.Util.InworldLog:LogWarning (string) (at Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldLog.cs:57)
-Inworld.Util.InworldAI:LogWarning (string) (at Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldAI.cs:149)
-Inworld.Editor.InitInworld:OnUpdateRequestComplete (UnityEngine.AsyncOperation) (at Assets/Inworld.AI/Editor/InworldEditorUtil.cs:76)
-UnityEngine.AsyncOperation:InvokeCompletionEvent ()
-
-(Filename: Assets/Inworld.AI/Scripts/Runtime/Data/Settings/InworldLog.cs Line: 57)
-
-Unloading 6073 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 154 unused Assets / (1.8 MB). Loaded Objects now: 8507.
-Memory consumption went from 0.87 GB to 0.87 GB.
-Total: 10.522700 ms (FindLiveObjects: 0.617400 ms CreateObjectMapping: 0.405600 ms MarkObjects: 8.499100 ms  DeleteObjects: 0.999700 ms)
-
-Prepare: number of updated asset objects reloaded= 0
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:CustomObjectIndexerAttribute: a3ef5dd2817f97addfee359851a9dba5 -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
-  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+A crash has been intercepted by the crash handler. For call stack and other details, see the latest crash report generated in:
+ * C:/Users/CARLO~1.CRI/AppData/Local/Temp/Unity/Editor/Crashes

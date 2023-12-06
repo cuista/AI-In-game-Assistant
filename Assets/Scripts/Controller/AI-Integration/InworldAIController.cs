@@ -1,8 +1,3 @@
-using Ai.Inworld.Studio.V1Alpha;
-using Google.Protobuf.WellKnownTypes;
-using Inworld;
-using Inworld.Sample;
-using Inworld.Util;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +7,7 @@ using UnityEngine.UI;
 
 public class InworldAIController : MonoBehaviour
 {
-    public InworldCharacter echo;
+    public Inworld.InworldCharacter echo;
     public TMP_InputField message;
 
     //To handle current trigger event
@@ -34,9 +29,7 @@ public class InworldAIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        echo = (echo == null) ? FindObjectOfType<InworldCharacter>() : echo;
-        echo.ResetCharacter(); //Reset memeory of previous session
-        //echo.EndInteraction(); //Disable audio capture
+        echo = (echo == null) ? FindObjectOfType<Inworld.InworldCharacter>() : echo;
         echoIsMuted = false;
         echoAudioSource = echo.GetComponent<AudioSource>();
 
@@ -51,8 +44,12 @@ public class InworldAIController : MonoBehaviour
         {
             if (_currentTrigger != null)
             {
+                try
+                {
+                    echo.CancelResponse(); //Interrupt if Echo is speaking
+                } catch (System.Exception) { }
                 echo.SendTrigger(_currentTrigger); //After duration time echo is triggered again
-                Debug.Log("Triggered again: " + _currentTrigger + " -> TIMER EXPIRED");
+                Debug.Log("AI Triggered: " + _currentTrigger);
             }
             _triggerReceived = false;
             _currentTriggerTime = 0;
@@ -76,19 +73,23 @@ public class InworldAIController : MonoBehaviour
     {
         Debug.Log("Current triggerAI: " + triggerName);
         _currentTrigger = triggerName;
+        _triggerReceived = true;
     }
 
     public void OneShotTrigger(string triggerName)
     {
         _currentTriggerTime = 0;
+        try
+        {
+            echo.CancelResponse(); //Interrupt if Echo is speaking
+        }
+        catch (System.Exception) { }
         echo.SendTrigger(triggerName);
-        Debug.Log("One Shot Trigger: " + triggerName);
+        Debug.Log("One Shot TriggerAI: " + triggerName);
     }
 
     public void GameOverTrigger()
     {
-        _currentTriggerTime = 0;
-        echo.SendTrigger("game_over");
-        Debug.Log("Game Over Trigger");
+        OneShotTrigger("game_over");
     }
 }
