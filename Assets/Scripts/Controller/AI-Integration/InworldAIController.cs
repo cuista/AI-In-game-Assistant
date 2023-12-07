@@ -1,3 +1,4 @@
+using Inworld;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,7 @@ using UnityEngine.UI;
 
 public class InworldAIController : MonoBehaviour
 {
-    public Inworld.InworldCharacter echo;
-    public TMP_InputField message;
+    public InworldCharacter echo;
 
     //To handle current trigger event
     private string _currentTrigger;
@@ -29,7 +29,7 @@ public class InworldAIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        echo = (echo == null) ? FindObjectOfType<Inworld.InworldCharacter>() : echo;
+        echo = (echo == null) ? FindObjectOfType<InworldCharacter>() : echo;
         echoIsMuted = false;
         echoAudioSource = echo.GetComponent<AudioSource>();
 

@@ -211,7 +211,7 @@ public class CloningSystem : MonoBehaviour
             }
             _currentPlayerRecording = new List<PlayerRecord>();
             _spawnPoint = Instantiate(spawnClonePrefab) as GameObject;
-            _spawnPoint.transform.SetLocalPositionAndRotation(transform.position, transform.rotation);
+            _spawnPoint.transform.position = new Vector3(transform.position.x, transform.position.y - 0.8f, transform.position.z);
             StartCoroutine(SpawnPointUnused(_spawnPoint));
 
             fire2Pressed = false;

@@ -57,8 +57,8 @@ public class RelativeMovement : MonoBehaviour
 
         _audioSource = GetComponent<AudioSource>();
         _step = true;
-        _walkStepSoundLength = 0.336f;
-        _runStepSoundLength = 0.261f;
+        _walkStepSoundLength = 0.316f;
+        _runStepSoundLength = 0.361f;
     }
 
     // Update is called once per frame
