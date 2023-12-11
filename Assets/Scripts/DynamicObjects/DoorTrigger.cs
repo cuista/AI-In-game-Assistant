@@ -6,6 +6,7 @@ public class DoorTrigger : MonoBehaviour
 {
     [SerializeField] private GameObject door;
     [SerializeField] private bool reverse = false;
+    [SerializeField] private bool onlyActivation = false;
 
     private Vector3 buttonPressed;
     private Vector3 buttonReleased;
@@ -38,7 +39,7 @@ public class DoorTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone"))
+        if (!onlyActivation && other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Clone"))
         {
             numColliders--;
             if(numColliders == 0)

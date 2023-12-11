@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorAnimation : TargetObject
+public class DoorTarget : TargetObject
 {
     [SerializeField] private Vector3 dPos;
 

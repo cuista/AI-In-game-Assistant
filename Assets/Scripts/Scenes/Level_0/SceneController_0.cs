@@ -27,11 +27,7 @@ public class SceneController_0 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        DontDestroyOnLoadManager.GetAudioManager().PlaySoundtrackLevel_0();
     }
 
     public void PlaySoundtrack()
