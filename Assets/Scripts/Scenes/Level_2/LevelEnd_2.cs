@@ -9,6 +9,7 @@ public class LevelEnd_2 : MonoBehaviour
         if (other.gameObject.GetComponent<PlayerCharacter>() != null)
         {
             DontDestroyOnLoadManager.RestorePlayerDDOLScene(); // Player in DDOL scene, Platform parenting could move Player to other scene
+            DontDestroyOnLoadManager.GetPlayer().GetComponent<CloningSystem>().ClearClones();
             LoadingScenesManager.LoadingScenes("Level_0");
         }
     }

@@ -8,8 +8,8 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 public class PlayerCharacter : MonoBehaviour, ICharacter
 {
     private int health;
-    private int healthKitA;
-    private int healthKitB;
+    private int PotionBig;
+    private int PotionSmall;
     [SerializeField] private Slider healthBar;
     [SerializeField] private Image fillHealthBar;
     [SerializeField] private GameObject gameOver;
@@ -49,8 +49,8 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
     {
         health = Managers.Player.health;
         healthBar.maxValue = Managers.Player.maxHealth;
-        healthKitA = Managers.Player.healthkitA;
-        healthKitB = Managers.Player.healthkitB;
+        PotionBig = Managers.Player.PotionBig;
+        PotionSmall = Managers.Player.PotionSmall;
         barValueDamage = Managers.Player.barValueDamage;
         healthBarBackground = healthBar.GetComponentInChildren<Image>();
         gems = Managers.Inventory.GetItemCount("Gems");
@@ -78,10 +78,10 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
         if (!GameEvent.isPaused)
         {
             //restore 10% health
-            if (Managers.Inventory.GetItemCount("HealthkitA") > 0)
+            if (Managers.Inventory.GetItemCount("PotionBig") > 0)
             {
-                health += healthKitA;
-                healthBar.value += (barValueDamage * healthKitA);
+                health += PotionBig;
+                healthBar.value += (barValueDamage * PotionBig);
 
                 if (health > Managers.Player.health)
                 {
@@ -89,13 +89,13 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
                     healthBar.value = healthBar.maxValue;
                 }
 
-                Managers.Inventory.ConsumeItem("HealthkitA");
+                Managers.Inventory.ConsumeItem("PotionBig");
             }
             //restore 50% health
-            else if (Managers.Inventory.GetItemCount("HealthkitB") > 0)
+            else if (Managers.Inventory.GetItemCount("PotionSmall") > 0)
             {
-                health += healthKitB;
-                healthBar.value += (barValueDamage * healthKitB);
+                health += PotionSmall;
+                healthBar.value += (barValueDamage * PotionSmall);
 
                 if (health > Managers.Player.health)
                 {
@@ -103,7 +103,7 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
                     healthBar.value = healthBar.maxValue;
                 }
 
-                Managers.Inventory.ConsumeItem("HealthkitB");
+                Managers.Inventory.ConsumeItem("PotionSmall");
             }
 
             if (health <= 0)
@@ -136,7 +136,7 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
     {
         fillHealthBar.enabled = false;
         gameOver.SetActive(true);
-        //gameOver.transform.GetChild(1).gameObject.SetActive(false);  //TODO add gameover buttons
+        gameOver.transform.GetChild(1).gameObject.SetActive(false);
         healthBarBackground.color = Color.red;
         Messenger.Broadcast(GameEvent.GAMEOVER);
 
@@ -164,20 +164,15 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
             color.a = totalTime / duration;
             gameOverLogo.transform.position = new Vector3(finalPosition.x, finalPosition.y - (1 - (totalTime / duration)) * 500, finalPosition.z);
             gameOverLogo.color = color;
-            totalTime += Time.deltaTime;
+            totalTime += Time.fixedDeltaTime;
             yield return null;
         }
 
-        //gameOver.transform.GetChild(1).gameObject.SetActive(true); //TODO add gameover buttons
+        gameOver.transform.GetChild(1).gameObject.SetActive(true);
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0; // stop everything (PAUSE)
-    }
-
-    public bool IsGameOver()
-    {
-        return gameOver.activeSelf;
     }
 
     public IEnumerator UICountdown(int timer)

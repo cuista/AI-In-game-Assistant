@@ -459,4 +459,33 @@ public class CloningSystem : MonoBehaviour
             }
         }
     }
+
+    public void RemoveAndDestroyClone(GameObject clone)
+    {
+        for (int i = 0; i < _lateClones.Count; i++)
+        {
+            if (_lateClones[i].Clone == clone)
+            {
+                _lateClones.RemoveAt(i);
+                break;
+            }
+        }
+
+        for (int i = 0; i < _mirrorClones.Count; i++)
+        {
+            if (_mirrorClones[i].Clone == clone)
+            {
+                _mirrorClones.RemoveAt(i);
+                break;
+            }
+        }
+
+        Destroy(clone);
+    }
+
+    public void ClearClones()
+    {
+        _lateClones.Clear();
+        _mirrorClones.Clear();
+    }
 }

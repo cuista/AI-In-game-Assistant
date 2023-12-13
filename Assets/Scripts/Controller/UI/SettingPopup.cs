@@ -65,8 +65,8 @@ public class SettingsPopup : MonoBehaviour
     //Back to initial menu
     public void ExitGame()
     {
-        LoadingScenesManager.LoadingScenes("MainMenu");
         DontDestroyOnLoadManager.DestroyAll();
+        LoadingScenesManager.LoadingScenes("MainMenu");
         Time.timeScale = 1f;
     }
 

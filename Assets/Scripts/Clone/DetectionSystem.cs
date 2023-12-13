@@ -36,10 +36,7 @@ public class DetectionSystem : MonoBehaviour
                     // Do Linecast and check if hit the player
                     if (Mathf.Abs(fovAngle) <= detectionAngle / 2 && hitLinecast.transform.gameObject.CompareTag("Player"))
                     {
-                        if(hitOverlapSphere.GetComponent<PlayerCharacter>().IsGameOver() == false) // Check if is not already gameOver
-                        {
-                            hitOverlapSphere.GetComponent<PlayerCharacter>().Death();
-                        }
+                        hitOverlapSphere.GetComponent<PlayerCharacter>().Death();
                         linecastColor = Color.green; // Change Linecast color to green
                     }
                     else

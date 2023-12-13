@@ -60,11 +60,12 @@ public class CloneCharacter : MonoBehaviour, ICharacter
         healthBar.value -= barValueDamage * damage;
     }
 
-    public void Death() //FIXME
+    public void Death()
     {
-        gameObject.SetActive(false); //Like this the List in CloningSystem works well!
+        gameObject.SetActive(false);
+
         //StartCoroutine(Die());
-        //Destroy(gameObject); //If I do like this the List in CloningSystem won't work
+        DontDestroyOnLoadManager.GetPlayer().GetComponent<CloningSystem>().RemoveAndDestroyClone(this.gameObject);
     }
 
     public GameObject GetBulletCreationPoint()

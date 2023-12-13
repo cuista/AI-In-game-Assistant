@@ -103,6 +103,7 @@ public class InworldAIController : MonoBehaviour
 
     public void GameOverTrigger()
     {
+        CancelResponse();
         OneShotTrigger("game_over");
     }
 }

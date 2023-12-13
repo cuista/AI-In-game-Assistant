@@ -8,8 +8,8 @@ public class PlayerManager : MonoBehaviour, IGameManager
 
     public int health { get; private set; }
     public int maxHealth { get; private set; }
-    public int healthkitA { get; private set; }
-    public int healthkitB { get; private set; }
+    public int PotionBig { get; private set; }
+    public int PotionSmall { get; private set; }
     public int barValueDamage { get; private set; }
 
     public void Startup()
@@ -17,8 +17,8 @@ public class PlayerManager : MonoBehaviour, IGameManager
         Debug.Log("Player manager starting...");
         health = 10;
         maxHealth = 100;
-        healthkitA = 1;
-        healthkitB = 5;
+        PotionBig = 1;
+        PotionSmall = 5;
         barValueDamage = maxHealth / health;
         status = ManagerStatus.Started;
     }
