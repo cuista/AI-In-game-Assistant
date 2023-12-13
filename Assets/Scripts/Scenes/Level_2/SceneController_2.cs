@@ -9,6 +9,11 @@ public class SceneController_2 : MonoBehaviour
 
     [SerializeField] private GameObject levelStartPoint;
     [SerializeField] private GameObject levelEndPoint;
+    [SerializeField] private GameObject gemsContainer;
+    [SerializeField] private GameObject triggerAILevelCompleted;
+
+    private bool _allGemsTaken = false;
+    private GameObject _levelEnd_Rays;
 
     private void Awake()
     {
@@ -24,11 +29,26 @@ public class SceneController_2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlaySoundtrack();
+
+        _levelEnd_Rays = levelEndPoint.transform.GetChild(0).GetComponentInChildren<Animator>().gameObject;
+
+        Managers.Inventory.ConsumeAll("Gems");
+        levelEndPoint.GetComponent<BoxCollider>().enabled = false;
+        _levelEnd_Rays.SetActive(false);
+        triggerAILevelCompleted.SetActive(false);
+        _player.GetComponent<PlayerCharacter>().SetGemsTotal(gemsContainer.transform.childCount);
     }
 
-    // Update is called once per frame
-    void LateUpdate()
+    private void FixedUpdate()
     {
+        if(!_allGemsTaken && Managers.Inventory.GetItemCount("Gems") == gemsContainer.transform.childCount)
+        {
+            levelEndPoint.GetComponent<BoxCollider>().enabled = true;
+            _levelEnd_Rays.SetActive(true);
+            triggerAILevelCompleted.SetActive(true);
+            _allGemsTaken = true;
+        }
     }
 
     public void PlaySoundtrack()

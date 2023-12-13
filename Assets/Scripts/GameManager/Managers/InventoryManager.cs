@@ -83,4 +83,18 @@ public class InventoryManager : MonoBehaviour, IGameManager
         }
         DisplayItems();
     }
+
+    public void ConsumeAll(string name)
+    {
+        while (_items.ContainsKey(name))
+        {
+            _items[name]--;
+            if (_items[name] == 0)
+            {
+                _items.Remove(name);
+            }
+        }
+        Debug.Log("all items consumed for " + name);
+        DisplayItems();
+    }
 }

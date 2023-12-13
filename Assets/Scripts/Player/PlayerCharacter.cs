@@ -18,8 +18,9 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
     private float barValueDamage;
     private Image healthBarBackground;
     private bool damaged;
-    private int coins;
-    [SerializeField] private TextMeshProUGUI _coinsText;
+    private int gems;
+    [SerializeField] private TextMeshProUGUI _gemsText;
+    [SerializeField] private TextMeshProUGUI _gemsTotalText;
     [SerializeField] private TextMeshProUGUI _energyRechargesText;
     [SerializeField] private TextMeshProUGUI _cloneRechargesText;
     [SerializeField] private TextMeshProUGUI _countdownText;
@@ -51,7 +52,7 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
         healthKitB = Managers.Player.healthkitB;
         barValueDamage = Managers.Player.barValueDamage;
         healthBarBackground = healthBar.GetComponentInChildren<Image>();
-        coins = Managers.Inventory.GetItemCount("Coin");
+        gems = Managers.Inventory.GetItemCount("Gems");
 
         gameOver.SetActive(false);
 
@@ -68,8 +69,8 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
     // Update is called once per frame
     void Update()
     {
-        coins = Managers.Inventory.GetItemCount("Coin");
-        _coinsText.text = coins.ToString();
+        gems = Managers.Inventory.GetItemCount("Gems");
+        _gemsText.text = gems.ToString();
         _energyRechargesText.text = Managers.Inventory.GetItemCount("EnergyRecharge").ToString();
         _cloneRechargesText.text = Managers.Inventory.GetItemCount("CloneRecharge").ToString();
 
@@ -202,5 +203,7 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
     {
         _switchedCloneMode.color = _switchedCloneMode.color == Color.red ? new Color(1.0f, 0.64f, 0.0f) : Color.red;
     }
+
+    public void SetGemsTotal(int total) => _gemsTotalText.text = total.ToString();
 
 }

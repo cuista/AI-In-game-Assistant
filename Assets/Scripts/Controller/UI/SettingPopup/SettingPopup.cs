@@ -64,6 +64,7 @@ public class SettingsPopup : MonoBehaviour
     {
         LoadingScenesManager.LoadingScenes("MainMenu");
         DontDestroyOnLoadManager.DestroyAll();
+        Time.timeScale = 1f;
     }
 
     //Pause game, stop frames with timeScale = 0
