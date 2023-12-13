@@ -5,7 +5,7 @@ using UnityEngine;
 public class ReactiveEnemy : MonoBehaviour, IReactiveObject
 {
 
-    //[SerializeField] public GameObject explosionEffect; //TODO for visual explosions when hitted
+    [SerializeField] public GameObject explosionEffect;
 
     public void ReactToHits(int numHits)
     {
@@ -13,7 +13,7 @@ public class ReactiveEnemy : MonoBehaviour, IReactiveObject
         if (enemy != null)
         {
             enemy.RemoveLives(numHits);
-            //ExplosionController.MakeItBoom(explosionEffect, transform);
+            ExplosionController.MakeItBoom(explosionEffect, transform);
             if (enemy.GetLives() < 1)
             {
                 enemy.SetMoving(false);
@@ -25,7 +25,7 @@ public class ReactiveEnemy : MonoBehaviour, IReactiveObject
     private IEnumerator Die()
     {
         this.transform.Rotate(-75, 0, 0);
-        //ExplosionController.MakeItBoom(explosionEffect, transform);
+        ExplosionController.MakeItBoom(explosionEffect, transform);
 
         Rigidbody rigidbody = GetComponent<Rigidbody>();
         if (rigidbody.isKinematic)
@@ -44,7 +44,7 @@ public class ReactiveEnemy : MonoBehaviour, IReactiveObject
 
     private void OnDestroy()
     {
-        //ExplosionController.MakeItBoom(explosionEffect, transform);
+        ExplosionController.MakeItBoom(explosionEffect, transform);
         Destroy(this.gameObject);
     }
 

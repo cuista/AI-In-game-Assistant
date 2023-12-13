@@ -16,6 +16,8 @@ public class CloneCharacter : MonoBehaviour, ICharacter
 
     [SerializeField] private GameObject bulletCreationPoint;
 
+    [SerializeField] public GameObject explosionEffect;
+
     private void Awake()
     {
         _capsuleCollider = GetComponent<CapsuleCollider>();
@@ -64,7 +66,7 @@ public class CloneCharacter : MonoBehaviour, ICharacter
     {
         gameObject.SetActive(false);
 
-        //StartCoroutine(Die());
+        ExplosionController.MakeItBoom(explosionEffect, transform);
         DontDestroyOnLoadManager.GetPlayer().GetComponent<CloningSystem>().RemoveAndDestroyClone(this.gameObject);
     }
 

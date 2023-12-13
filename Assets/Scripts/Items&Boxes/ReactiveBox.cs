@@ -6,7 +6,7 @@ using UnityEngine;
 public class ReactiveBox : MonoBehaviour, IReactiveObject
 {
     [SerializeField] public GameObject item;
-    //[SerializeField] public GameObject explosionEffect;
+    [SerializeField] public GameObject explosionEffect;
 
     private bool _isOpen;
     public int _strenght = 3;
@@ -62,7 +62,7 @@ public class ReactiveBox : MonoBehaviour, IReactiveObject
     //Open the box with explosion effect
     private IEnumerator RemoveWithExplosion()
     {
-        //ExplosionController.MakeItBoom(explosionEffect, transform);
+        ExplosionController.MakeItBoom(explosionEffect, transform);
         yield return new WaitForSeconds(0.5f);
 
         Destroy(this.gameObject);
