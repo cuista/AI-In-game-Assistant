@@ -15,13 +15,18 @@ public class EnemyCharacter : MonoBehaviour, IEnemy, ICharacter
     {
         if(GetLives() <= 0)
         {
-            Destroy(gameObject);
+            Death();
         }
     }
 
     public void Hurt(int damage)
     {
         RemoveLives(damage);
+    }
+
+    public void Death()
+    {
+        Destroy(this.gameObject);
     }
 
     public void RemoveLives(int livesToRemove)

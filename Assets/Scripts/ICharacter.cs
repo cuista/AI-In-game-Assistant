@@ -5,4 +5,6 @@ using UnityEngine;
 public interface ICharacter
 {
     public void Hurt(int damage);
+
+    public void Death();
 }

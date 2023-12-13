@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class SettingsPopup : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class SettingsPopup : MonoBehaviour
 
     [SerializeField] private AudioClip openPopupSound;
     [SerializeField] private AudioClip clickSound;
+    [SerializeField] private GameObject firstSelectedGameObject;
 
     private AudioManager audioManager;
 
@@ -40,6 +42,7 @@ public class SettingsPopup : MonoBehaviour
     public void Open()
     {
         gameObject.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(firstSelectedGameObject);
         if (!_isGameOver)
         {
             PauseGame();

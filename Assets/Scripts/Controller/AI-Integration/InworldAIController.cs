@@ -44,10 +44,7 @@ public class InworldAIController : MonoBehaviour
         {
             if (_currentTrigger != null)
             {
-                try
-                {
-                    echo.CancelResponse(); //Interrupt if Echo is speaking
-                } catch (System.Exception) { }
+                CancelResponse();
                 echo.SendTrigger(_currentTrigger); //After duration time echo is triggered again
                 Debug.Log("AI Triggered: " + _currentTrigger);
             }
@@ -63,11 +60,31 @@ public class InworldAIController : MonoBehaviour
         _currentTriggerTime = currentTriggerDuration;
     }
 
+    public void CancelResponse()
+    {
+        try
+        {
+            echo.CancelResponse(); //Interrupt if Echo is speaking
+        }
+        catch (System.Exception) { }
+    }
+
     public void Mute()
     {
         echoIsMuted = !echoIsMuted;
         echoAudioSource.mute = echoIsMuted;
+
+        if(echoIsMuted)
+        {
+            CancelResponse();
+        }
+        else
+        {
+            HintTrigger();
+        }
     }
+
+    public bool IsMuted() => echoIsMuted;
 
     public void SetCurrentTrigger(string triggerName)
     {
@@ -79,11 +96,7 @@ public class InworldAIController : MonoBehaviour
     public void OneShotTrigger(string triggerName)
     {
         _currentTriggerTime = 0;
-        try
-        {
-            echo.CancelResponse(); //Interrupt if Echo is speaking
-        }
-        catch (System.Exception) { }
+        CancelResponse();
         echo.SendTrigger(triggerName);
         Debug.Log("One Shot TriggerAI: " + triggerName);
     }
