@@ -35,25 +35,54 @@ public class TurretAI : MonoBehaviour, IEnemy
 
     void FixedUpdate()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, range);
-        _canShoot = false;
-        bool playerHitted = false;
-        GameObject closestCloneHitted = null;
-        float closestCloneDistance = range;
-        foreach (var hitCollider in hitColliders)
+        if (!GameEvent.isPaused)
         {
-            GameObject hitOverlapSphere = hitCollider.transform.gameObject;
-            // check if player is within range
-            if (hitOverlapSphere.CompareTag("Player"))
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, range);
+            _canShoot = false;
+            bool playerHitted = false;
+            GameObject closestCloneHitted = null;
+            float closestCloneDistance = range;
+            foreach (var hitCollider in hitColliders)
             {
-                playerHitted = true;
+                GameObject hitOverlapSphere = hitCollider.transform.gameObject;
+                // check if player is within range
+                if (hitOverlapSphere.CompareTag("Player"))
+                {
+                    playerHitted = true;
+                    RaycastHit hitLinecast;
+                    // if there are NO obstacles between turret and player
+                    if (Physics.Linecast(transform.position, hitOverlapSphere.transform.position, out hitLinecast) && hitLinecast.transform.gameObject.CompareTag("Player"))
+                    {
+                        if (IsMoving())
+                        {
+                            Vector3 direction = (hitOverlapSphere.transform.position - transform.position).normalized;
+                            Quaternion toRotation = Quaternion.LookRotation(direction);
+                            transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, rotationSpeed * Time.fixedDeltaTime);
+                            transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, 0); // only y rotation
+                        }
+                        _canShoot = true;
+                    }
+                }
+                else if (hitOverlapSphere.CompareTag("Clone")) //Update the closest clone
+                {
+                    float currentDistance = Vector3.Distance(hitOverlapSphere.transform.position, transform.position);
+                    if (closestCloneHitted == null || currentDistance < closestCloneDistance)
+                    {
+                        closestCloneHitted = hitOverlapSphere;
+                        closestCloneDistance = currentDistance;
+                    }
+                }
+            }
+
+            if(!playerHitted && closestCloneHitted != null) //If there's no player in the range, turret shots the closest clone!
+            {
                 RaycastHit hitLinecast;
                 // if there are NO obstacles between turret and player
-                if (Physics.Linecast(transform.position, hitOverlapSphere.transform.position, out hitLinecast) && hitLinecast.transform.gameObject.CompareTag("Player"))
+                if (Physics.Linecast(transform.position, closestCloneHitted.transform.position, out hitLinecast) && hitLinecast.transform.gameObject.CompareTag("Clone"))
                 {
                     if (IsMoving())
                     {
-                        Vector3 direction = (hitOverlapSphere.transform.position - transform.position).normalized;
+                        Vector3 direction = (closestCloneHitted.transform.position - transform.position).normalized;
                         Quaternion toRotation = Quaternion.LookRotation(direction);
                         transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, rotationSpeed * Time.fixedDeltaTime);
                         transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, 0); // only y rotation
@@ -61,53 +90,27 @@ public class TurretAI : MonoBehaviour, IEnemy
                     _canShoot = true;
                 }
             }
-            else if (hitOverlapSphere.CompareTag("Clone")) //Update the closest clone
-            {
-                float currentDistance = Vector3.Distance(hitOverlapSphere.transform.position, transform.position);
-                if (closestCloneHitted == null || currentDistance < closestCloneDistance)
-                {
-                    closestCloneHitted = hitOverlapSphere;
-                    closestCloneDistance = currentDistance;
-                }
-            }
-        }
 
-        if(!playerHitted && closestCloneHitted != null) //If there's no player in the range, turret shots the closest clone!
-        {
-            RaycastHit hitLinecast;
-            // if there are NO obstacles between turret and player
-            if (Physics.Linecast(transform.position, closestCloneHitted.transform.position, out hitLinecast) && hitLinecast.transform.gameObject.CompareTag("Clone"))
+            //start shoot the player
+            if (_canShoot)
             {
-                if (IsMoving())
+                _shootTimer += Time.fixedDeltaTime;
+                if (_shootTimer > fireDelay)
                 {
-                    Vector3 direction = (closestCloneHitted.transform.position - transform.position).normalized;
-                    Quaternion toRotation = Quaternion.LookRotation(direction);
-                    transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, rotationSpeed * Time.fixedDeltaTime);
-                    transform.localEulerAngles = new Vector3(0, transform.localEulerAngles.y, 0); // only y rotation
-                }
-                _canShoot = true;
-            }
-        }
-
-        //start shoot the player
-        if (_canShoot)
-        {
-            _shootTimer += Time.fixedDeltaTime;
-            if (_shootTimer > fireDelay)
-            {
-                if (!GameEvent.isPaused)
-                {
-                    GameObject bullet = Instantiate(bulletPrefab) as GameObject;
-                    bullet.transform.position = (bulletCreationPoint != null) ? bulletCreationPoint.transform.position : transform.TransformPoint(Vector3.forward * 2.5f);
-                    bullet.transform.rotation = transform.rotation;
-                    _shootTimer = 0;
+                    if (!GameEvent.isPaused)
+                    {
+                        GameObject bullet = Instantiate(bulletPrefab) as GameObject;
+                        bullet.transform.position = (bulletCreationPoint != null) ? bulletCreationPoint.transform.position : transform.TransformPoint(Vector3.forward * 2.5f);
+                        bullet.transform.rotation = transform.rotation;
+                        _shootTimer = 0;
+                    }
                 }
             }
-        }
-        else
-        {
-            transform.rotation = Quaternion.Lerp(transform.rotation, _defaultRotation, rotationSpeed * Time.fixedDeltaTime);
-            _shootTimer = 0;
+            else
+            {
+                transform.rotation = Quaternion.Lerp(transform.rotation, _defaultRotation, rotationSpeed * Time.fixedDeltaTime);
+                _shootTimer = 0;
+            }
         }
     }
 

@@ -10,9 +10,6 @@ public class SceneController_0 : MonoBehaviour
     [SerializeField] public GameObject levelStartPoint;
     [SerializeField] public GameObject levelEndPoint;
 
-    [SerializeField] private GameObject turretPrefab;
-    private List<GameObject> _enemies;
-
     private void Awake()
     {
         _player = DontDestroyOnLoadManager.GetPlayer();
@@ -27,7 +24,10 @@ public class SceneController_0 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoadManager.GetAudioManager().PlaySoundtrackLevel_0();
+        PlaySoundtrack();
+
+        Managers.Inventory.ConsumeAll("Gems");
+        _player.GetComponent<PlayerCharacter>().SetGemsTotal(-1);
     }
 
     public void PlaySoundtrack()

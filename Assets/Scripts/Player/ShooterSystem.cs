@@ -34,8 +34,11 @@ public class ShooterSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        shootPressed = Input.GetButtonDown("Shoot") || shootPressed;
-        meleePressed = Input.GetButtonDown("Melee") || meleePressed;      
+        if (!GameEvent.isPaused)
+        {
+            shootPressed = Input.GetButtonDown("Shoot") || shootPressed;
+            meleePressed = Input.GetButtonDown("Melee") || meleePressed;      
+        }
     }
 
     private void FixedUpdate()

@@ -64,92 +64,98 @@ public class RelativeMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Switch camera view
-        HandleCameraView();
+        if (!GameEvent.isPaused)
+        {
+            //Switch camera view
+            HandleCameraView();
 
-        //Horizontal and vertical
-        _horInput = Input.GetAxis("Horizontal");
-        _vertInput = Input.GetAxis("Vertical");
+            //Horizontal and vertical
+            _horInput = Input.GetAxis("Horizontal");
+            _vertInput = Input.GetAxis("Vertical");
 
-        //If jump pressed, it can be set false in fixedUpdate
-        _jumpPressed = Input.GetButtonDown("Jump") || _jumpPressed;
+            //If jump pressed, it can be set false in fixedUpdate
+            _jumpPressed = Input.GetButtonDown("Jump") || _jumpPressed;
 
-        //Change player speed
-        _moveSpeed = Input.GetButton("Run") ? runSpeed : walkSpeed;
+            //Change player speed
+            _moveSpeed = Input.GetButton("Run") ? runSpeed : walkSpeed;
+        }
     }
 
     void FixedUpdate()
     {
-        moveDirection = new Vector3(_horInput * _moveSpeed, 0, _vertInput * _moveSpeed); //(x,0,z)
-        moveDirection = Vector3.ClampMagnitude(moveDirection, _moveSpeed); //avoid diagonal speed-up
-
-        //Handle rotation
-        if (moveDirection != Vector3.zero)
+        if (!GameEvent.isPaused)
         {
-            playerCamera.eulerAngles = new Vector3(0, playerCamera.eulerAngles.y, 0);
-            moveDirection = playerCamera.TransformDirection(moveDirection);
+            moveDirection = new Vector3(_horInput * _moveSpeed, 0, _vertInput * _moveSpeed); //(x,0,z)
+            moveDirection = Vector3.ClampMagnitude(moveDirection, _moveSpeed); //avoid diagonal speed-up
 
-            if (!IsFirstPersonView)
+            //Handle rotation
+            if (moveDirection != Vector3.zero)
             {
-                Quaternion direction = Quaternion.LookRotation(moveDirection);
-                transform.rotation = Quaternion.Lerp(transform.rotation, direction, rotSpeed * Time.deltaTime); //change rotation smoothly
-            }
-        }
+                playerCamera.eulerAngles = new Vector3(0, playerCamera.eulerAngles.y, 0);
+                moveDirection = playerCamera.TransformDirection(moveDirection);
 
-        _animator.SetFloat("Speed", moveDirection.magnitude);
-        if (_charController.velocity.magnitude > 1f && _step && !_isJumping)
-        {
-            _audioSource.PlayOneShot(footStepSound);
-            StartCoroutine(WaitForFootSteps(_charController.velocity.magnitude));
-        }
-
-        //If player hit the floor or not, handle vertical speed
-        if (IsHittingGround())
-        {
-            if (_jumpPressed)
-            {
-                _jumpPressed = false;
-                if(!IsJumping)
+                if (!IsFirstPersonView)
                 {
-                    _vertSpeed = jumpSpeed;
-                    _isJumping = true;
-                    _audioSource.PlayOneShot(jumpSound);
+                    Quaternion direction = Quaternion.LookRotation(moveDirection);
+                    transform.rotation = Quaternion.Lerp(transform.rotation, direction, rotSpeed * Time.deltaTime); //change rotation smoothly
+                }
+            }
+
+            _animator.SetFloat("Speed", moveDirection.magnitude);
+            if (_charController.velocity.magnitude > 1f && _step && !_isJumping)
+            {
+                _audioSource.PlayOneShot(footStepSound);
+                StartCoroutine(WaitForFootSteps(_charController.velocity.magnitude));
+            }
+
+            //If player hit the floor or not, handle vertical speed
+            if (IsHittingGround())
+            {
+                if (_jumpPressed)
+                {
+                    _jumpPressed = false;
+                    if(!IsJumping)
+                    {
+                        _vertSpeed = jumpSpeed;
+                        _isJumping = true;
+                        _audioSource.PlayOneShot(jumpSound);
+                    }
+                }
+                else
+                {
+                    _vertSpeed = minFall;
+                    _isJumping = false;
+                    _animator.SetBool("Jumping", false);
                 }
             }
             else
             {
-                _vertSpeed = minFall;
-                _isJumping = false;
-                _animator.SetBool("Jumping", false);
-            }
-        }
-        else
-        {
-            _jumpPressed = false;
-            _vertSpeed += gravity * 5 * Time.fixedDeltaTime;
-            _animator.SetBool("Jumping", true);
-            if (_vertSpeed < terminalVelocity)
-            {
-                _vertSpeed = terminalVelocity;
-            }
-
-            if (_contact != null && _charController.isGrounded)
-            {
-                if (Vector3.Dot(moveDirection, _contact.normal) < 0) // Dot if they point same is 1 (same direction) to -1 (opposite)
+                _jumpPressed = false;
+                _vertSpeed += gravity * 5 * Time.fixedDeltaTime;
+                _animator.SetBool("Jumping", true);
+                if (_vertSpeed < terminalVelocity)
                 {
-                    moveDirection = _contact.normal * _moveSpeed;
-                    _isJumping = false;
-                    _animator.SetBool("Jumping", false);
+                    _vertSpeed = terminalVelocity;
                 }
-                else
+
+                if (_contact != null && _charController.isGrounded)
                 {
-                    moveDirection += _contact.normal * _moveSpeed * 10;
+                    if (Vector3.Dot(moveDirection, _contact.normal) < 0) // Dot if they point same is 1 (same direction) to -1 (opposite)
+                    {
+                        moveDirection = _contact.normal * _moveSpeed;
+                        _isJumping = false;
+                        _animator.SetBool("Jumping", false);
+                    }
+                    else
+                    {
+                        moveDirection += _contact.normal * _moveSpeed * 10;
+                    }
                 }
             }
-        }
-        moveDirection.y = _vertSpeed;
+            moveDirection.y = _vertSpeed;
 
-        _charController.Move(moveDirection * Time.fixedDeltaTime);
+            _charController.Move(moveDirection * Time.fixedDeltaTime);
+        }
     }
 
     public Transform PlayerCamera { get => playerCamera; }

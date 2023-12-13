@@ -101,4 +101,21 @@ public static class DontDestroyOnLoadManager
         }
         return null;
     }
+
+    public static GameObject GetRestorePlayerDDOL()
+    {
+        foreach (var go in _permanentObjects)
+        {
+            if (go.tag == "RestorePlayerDDOL")
+                return go;
+        }
+        return null;
+    }
+
+    public static void RestorePlayerDDOLScene()
+    {
+        Transform playerTransform = GetPlayer().transform;
+        playerTransform.SetParent(GetRestorePlayerDDOL().transform);
+        playerTransform.transform.parent = null;
+    }
 }

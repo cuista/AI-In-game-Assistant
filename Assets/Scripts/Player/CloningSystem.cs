@@ -152,143 +152,175 @@ public class CloningSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Managers.Inventory.GetItemCount("CloneRecharge") > 0)
+        if (!GameEvent.isPaused)
         {
-            if(_spawnPointTimedOut) //SpawnPoint unused for 10 seconds
+            if (Managers.Inventory.GetItemCount("CloneRecharge") > 0)
             {
-                Destroy(_spawnPoint);
-                _currentPlayerRecording = null;
-                _spawnPointTimedOut = false;
+                if(_spawnPointTimedOut) //SpawnPoint unused for 10 seconds
+                {
+                    Destroy(_spawnPoint);
+                    _currentPlayerRecording = null;
+                    _spawnPointTimedOut = false;
+                }
+
+                fire1Pressed = (Input.GetButtonUp("Fire1") && _spawnPoint != null) || fire1Pressed;
+                fire2Pressed = Input.GetButtonUp("Fire2") || fire2Pressed;
             }
 
-            fire1Pressed = (Input.GetButtonUp("Fire1") && _spawnPoint != null) || fire1Pressed;
-            fire2Pressed = Input.GetButtonUp("Fire2") || fire2Pressed;
-        }
+            //Time acceleration ability
+            if (Input.GetButtonDown("TimeAcceleration"))
+            {
+                Time.timeScale = timeAcceleration;
+                _VHSEffect.enabled = true;
+            }
+            if (Input.GetButtonUp("TimeAcceleration"))
+            {
+                Time.timeScale = 1.0f;
+                _VHSEffect.enabled = false;
+            }
 
-        //Time acceleration ability
-        if (Input.GetButtonDown("TimeAcceleration"))
-        {
-            Time.timeScale = timeAcceleration;
-            _VHSEffect.enabled = true;
-        }
-        if (Input.GetButtonUp("TimeAcceleration"))
-        {
-            Time.timeScale = 1.0f;
-            _VHSEffect.enabled = false;
-        }
+            //Switch late and mirror clone
+            if(Input.GetButtonUp("SwitchCloneMode"))
+            {
+                _isLateCloneMode = !_isLateCloneMode;
+                Messenger.Broadcast(GameEvent.SWITCHED_CLONE_MODE);
+            }
 
-        //Switch late and mirror clone
-        if(Input.GetButtonUp("SwitchCloneMode"))
-        {
-            _isLateCloneMode = !_isLateCloneMode;
-            Messenger.Broadcast(GameEvent.SWITCHED_CLONE_MODE);
+            //For input recording
+            mouseX = Input.GetAxis("Mouse X");
+            horInput = Input.GetAxis("Horizontal");
+            verInput = Input.GetAxis("Vertical");
+            moveSpeed = Input.GetButton("Run") ? relativeMovement.runSpeed: relativeMovement.walkSpeed;
+            jumpPressed = Input.GetButtonDown("Jump") || jumpPressed;
+            shootPressed = Input.GetButtonDown("Shoot") && Managers.Inventory.GetItemCount("EnergyRecharge") > 0 || shootPressed;
+            meleePressed = Input.GetButtonDown("Melee") || meleePressed;
         }
-
-        //For input recording
-        mouseX = Input.GetAxis("Mouse X");
-        horInput = Input.GetAxis("Horizontal");
-        verInput = Input.GetAxis("Vertical");
-        moveSpeed = Input.GetButton("Run") ? relativeMovement.runSpeed: relativeMovement.walkSpeed;
-        jumpPressed = Input.GetButtonDown("Jump") || jumpPressed;
-        shootPressed = Input.GetButtonDown("Shoot") && Managers.Inventory.GetItemCount("EnergyRecharge") > 0 || shootPressed;
-        meleePressed = Input.GetButtonDown("Melee") || meleePressed;
-
     }
 
     private void FixedUpdate()
     {
-        if(fire2Pressed) //Place clone spawn point
+        if (!GameEvent.isPaused)
         {
-            if(_spawnPoint != null)
+            if (fire2Pressed) //Place clone spawn point
             {
+                if(_spawnPoint != null)
+                {
+                    Destroy(_spawnPoint);
+                    _spawnPointTimedOut = false;
+                    transform.GetComponent<PlayerCharacter>().ResetUICountdown(); //UI temporary
+                }
+                else
+                {
+                    StartCoroutine(transform.GetComponent<PlayerCharacter>().UICountdown(20)); //UI temporary
+                }
+                _currentPlayerRecording = new List<PlayerRecord>();
+                _spawnPoint = Instantiate(spawnClonePrefab) as GameObject;
+                _spawnPoint.transform.position = new Vector3(transform.position.x, transform.position.y - 0.8f, transform.position.z);
+                StartCoroutine(SpawnPointUnused(_spawnPoint));
+
+                fire2Pressed = false;
+
+                _animator.SetTrigger("PlantSpawn");
+                _audioSource.PlayOneShot(plantSpawnSound);
+            }
+
+            if (fire1Pressed) //Spawn the clone and starting replaying player movements
+            {
+                Managers.Inventory.ConsumeItem("CloneRecharge");
+
+                Transform spawn = _spawnPoint.transform;
                 Destroy(_spawnPoint);
-                _spawnPointTimedOut = false;
-                transform.GetComponent<PlayerCharacter>().ResetUICountdown(); //UI temporary
+                if (_isLateCloneMode)
+                {
+                    GameObject clone = Instantiate(lateClonePrefab, spawn.position, spawn.rotation);
+                    List<PlayerRecord> records = _currentPlayerRecording;
+                    _lateClones.Add(new ReplayClone(clone, records, relativeMovement.minFall));
+                }
+                else
+                {
+                    GameObject clone = Instantiate(mirrorClonePrefab, spawn.position, spawn.rotation);
+                    _mirrorClones.Add(new ReplayClone(clone, relativeMovement.minFall));
+                }
+                _currentPlayerRecording = null;
+
+                transform.GetComponent<PlayerCharacter>().DisableUICountdown(); //UI temporary
+
+                fire1Pressed = false;
+                _animator.SetTrigger("SpawnClone");
+                _audioSource.PlayOneShot(cloneSpawnSound);
             }
-            else
+
+            //Update camera info from relativeMovement
+            _playerCamera = relativeMovement.PlayerCamera;
+            _isFirstPersonView = relativeMovement.IsFirstPersonView;
+
+            //Update look rotation info from firstPersonCamera
+            _headRotationX = firstPersonLook.headRotationX;
+
+            //If there's a clone ready to be placed, a not null clone ready that is recording player movements
+            _currentPlayerRecording?.Add(new PlayerRecord(_playerCamera, _isFirstPersonView, _headRotationX, mouseX, horInput, verInput, moveSpeed, jumpPressed, shootPressed, meleePressed));
+
+            if (_lateClones.Count > 0) //If there's at least a late clone in the scene
             {
-                StartCoroutine(transform.GetComponent<PlayerCharacter>().UICountdown(20)); //UI temporary
+                bool containsDestroyedClones = false;
+                foreach (var replayClone in _lateClones)
+                {
+                    if(replayClone != null)
+                    {
+                        //ADD player record
+                        replayClone.PlayerRecordings.Add(new PlayerRecord(_playerCamera, _isFirstPersonView, _headRotationX, mouseX, horInput, verInput, moveSpeed, jumpPressed, shootPressed, meleePressed));
+
+                        //Clone replays recorded player movements
+                        CloneMovement(replayClone, true);
+
+                        //Clone replays recorded player attacks
+                        CloneAttack(replayClone, true);
+
+                        //REMOVE player record
+                        replayClone.PlayerRecordings.RemoveAt(0);
+                    }
+                    else
+                    {
+                        containsDestroyedClones = true;
+                    }
+                }
+
+                if (containsDestroyedClones)
+                {
+                    _mirrorClones.RemoveAll(x => x == null);
+                }
             }
-            _currentPlayerRecording = new List<PlayerRecord>();
-            _spawnPoint = Instantiate(spawnClonePrefab) as GameObject;
-            _spawnPoint.transform.position = new Vector3(transform.position.x, transform.position.y - 0.8f, transform.position.z);
-            StartCoroutine(SpawnPointUnused(_spawnPoint));
 
-            fire2Pressed = false;
+            if (_mirrorClones.Count > 0) //If there's at least a mirror clone in the scene
+            {
+                bool containsDestroyedClones = false;
+                foreach (var replayClone in _mirrorClones)
+                {
+                    if(replayClone != null)
+                    {
+                        //Clone replays recorded player movements
+                        CloneMovement(replayClone, false);
 
-            _animator.SetTrigger("PlantSpawn");
-            _audioSource.PlayOneShot(plantSpawnSound);
+                        //Clone replays recorded player attacks
+                        CloneAttack(replayClone, false);
+                    }
+                    else
+                    {
+                        containsDestroyedClones = true;
+                    }
+                }
+
+                if(containsDestroyedClones)
+                {
+                    _mirrorClones.RemoveAll(x => x == null);
+                }
+            }
+
+            jumpPressed = false; //Reset jump input rec
+            shootPressed = false; //Reset shoot input rec
+            meleePressed = false; //Reset melee input rec
+
         }
-
-        if (fire1Pressed) //Spawn the clone and starting replaying player movements
-        {
-            Managers.Inventory.ConsumeItem("CloneRecharge");
-
-            Transform spawn = _spawnPoint.transform;
-            Destroy(_spawnPoint);
-            if (_isLateCloneMode)
-            {
-                GameObject clone = Instantiate(lateClonePrefab, spawn.position, spawn.rotation);
-                List<PlayerRecord> records = _currentPlayerRecording;
-                _lateClones.Add(new ReplayClone(clone, records, relativeMovement.minFall));
-            }
-            else
-            {
-                GameObject clone = Instantiate(mirrorClonePrefab, spawn.position, spawn.rotation);
-                _mirrorClones.Add(new ReplayClone(clone, relativeMovement.minFall));
-            }
-            _currentPlayerRecording = null;
-
-            transform.GetComponent<PlayerCharacter>().DisableUICountdown(); //UI temporary
-
-            fire1Pressed = false;
-            _animator.SetTrigger("SpawnClone");
-            _audioSource.PlayOneShot(cloneSpawnSound);
-        }
-
-        //Update camera info from relativeMovement
-        _playerCamera = relativeMovement.PlayerCamera;
-        _isFirstPersonView = relativeMovement.IsFirstPersonView;
-
-        //Update look rotation info from firstPersonCamera
-        _headRotationX = firstPersonLook.headRotationX;
-
-        //If there's a clone ready to be placed, a not null clone ready that is recording player movements
-        _currentPlayerRecording?.Add(new PlayerRecord(_playerCamera, _isFirstPersonView, _headRotationX, mouseX, horInput, verInput, moveSpeed, jumpPressed, shootPressed, meleePressed));
-
-        if (_lateClones.Count > 0) //If there's at least a late clone in the scene
-        {
-            foreach (var replayClone in _lateClones)
-            {
-                //ADD player record
-                replayClone.PlayerRecordings.Add(new PlayerRecord(_playerCamera, _isFirstPersonView, _headRotationX, mouseX, horInput, verInput, moveSpeed, jumpPressed, shootPressed, meleePressed));
-
-                //Clone replays recorded player movements
-                CloneMovement(replayClone, true);
-
-                //Clone replays recorded player attacks
-                CloneAttack(replayClone, true);
-
-                //REMOVE player record
-                replayClone.PlayerRecordings.RemoveAt(0);
-            }
-        }
-
-        if (_mirrorClones.Count > 0) //If there's at least a mirror clone in the scene
-        {
-            foreach (var replayClone in _mirrorClones)
-            {
-                //Clone replays recorded player movements
-                CloneMovement(replayClone, false);
-
-                //Clone replays recorded player attacks
-                CloneAttack(replayClone, false);
-            }
-        }
-
-        jumpPressed = false; //Reset jump input rec
-        shootPressed = false; //Reset shoot input rec
-        meleePressed = false; //Reset melee input rec
     }
 
     private IEnumerator SpawnPointUnused(GameObject spawn) //if a spawn point is unused it will be remove after x seconds

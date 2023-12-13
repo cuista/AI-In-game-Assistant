@@ -13,37 +13,43 @@ public class DetectionSystem : MonoBehaviour
     {
         Gizmos.color = sphereColor;
 
-        // Disegna l'OverlapSphere con il raggio specificato
+        // Draw the OverlapSphere with detectionRadius
         Gizmos.DrawWireSphere(transform.position, detectionRadius);
     }
 
     void FixedUpdate()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionRadius);
-        foreach (var hitCollider in hitColliders)
+        if (!GameEvent.isPaused)
         {
-            GameObject hitOverlapSphere = hitCollider.transform.gameObject;
-            // Verifica se il giocatore è nel raggio
-            if (hitOverlapSphere.CompareTag("Player"))
+            Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionRadius);
+            foreach (var hitCollider in hitColliders)
             {
-                float fovAngle = Vector3.Angle(transform.forward, hitOverlapSphere.transform.position - transform.position);
+                GameObject hitOverlapSphere = hitCollider.transform.gameObject;
+                // Check if player is within the radius
+                if (hitOverlapSphere.CompareTag("Player"))
+                {
+                    float fovAngle = Vector3.Angle(transform.forward, hitOverlapSphere.transform.position - transform.position);
                 
-                RaycastHit hitLinecast;
-                Physics.Linecast(transform.position, hitOverlapSphere.transform.position, out hitLinecast);
+                    RaycastHit hitLinecast;
+                    Physics.Linecast(transform.position, hitOverlapSphere.transform.position, out hitLinecast);
 
-                // Esegui il Linecast e verifica se colpisce il giocatore
-                if (Mathf.Abs(fovAngle) <= detectionAngle / 2 && hitLinecast.transform.gameObject.CompareTag("Player"))
-                {
-                    hitOverlapSphere.GetComponent<PlayerCharacter>().Death();
-                    linecastColor = Color.green; // Cambia il colore del Linecast a verde
-                }
-                else
-                {
-                    linecastColor = Color.red; // Mantieni il colore del Linecast a rosso
-                }
+                    // Do Linecast and check if hit the player
+                    if (Mathf.Abs(fovAngle) <= detectionAngle / 2 && hitLinecast.transform.gameObject.CompareTag("Player"))
+                    {
+                        if(hitOverlapSphere.GetComponent<PlayerCharacter>().IsGameOver() == false) // Check if is not already gameOver
+                        {
+                            hitOverlapSphere.GetComponent<PlayerCharacter>().Death();
+                        }
+                        linecastColor = Color.green; // Change Linecast color to green
+                    }
+                    else
+                    {
+                        linecastColor = Color.red; // Keep Linecast color to red
+                    }
 
-                //DEBUG Draw Linecast
-                Debug.DrawRay(transform.position, (hitOverlapSphere.transform.position - transform.position).normalized * detectionRadius, linecastColor);
+                    //DEBUG Draw Linecast
+                    Debug.DrawRay(transform.position, (hitOverlapSphere.transform.position - transform.position).normalized * detectionRadius, linecastColor);
+                }
             }
         }
     }

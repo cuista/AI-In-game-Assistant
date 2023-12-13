@@ -31,18 +31,24 @@ public class FirstPersonLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _rotX = Input.GetAxis("Mouse X");
-        _rotY = Input.GetAxis("Mouse Y");
+        if (!GameEvent.isPaused)
+        {
+            _rotX = Input.GetAxis("Mouse X");
+            _rotY = Input.GetAxis("Mouse Y");
+        }
     }
 
     private void FixedUpdate()
     {
-        transform.Rotate(0, _rotX * sensitivityHor, 0);
+        if (!GameEvent.isPaused)
+        {
+            transform.Rotate(0, _rotX * sensitivityHor, 0);
 
-        headRotationX -= _rotY * sensitivityVert;
-        headRotationX = Mathf.Clamp(headRotationX, minimumVert, maximumVert);
+            headRotationX -= _rotY * sensitivityVert;
+            headRotationX = Mathf.Clamp(headRotationX, minimumVert, maximumVert);
 
-        _head.transform.localEulerAngles = new Vector3(headRotationX, 0, 0);
+            _head.transform.localEulerAngles = new Vector3(headRotationX, 0, 0);
+        }
     }
 
     private void OnEnable()

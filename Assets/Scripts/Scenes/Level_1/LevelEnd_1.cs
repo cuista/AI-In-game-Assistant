@@ -8,7 +8,8 @@ public class LevelEnd_1 : MonoBehaviour
     {
         if (other.gameObject.GetComponent<PlayerCharacter>() != null)
         {
-            LoadingScenesManager.LoadingScenes("Level_0");
+            DontDestroyOnLoadManager.RestorePlayerDDOLScene(); // Player in DDOL scene, Platform parenting could move Player to other scene
+            LoadingScenesManager.LoadingScenes("Level_2");
         }
     }
 }

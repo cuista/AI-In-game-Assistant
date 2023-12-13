@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerCharacter : MonoBehaviour, ICharacter
 {
@@ -148,6 +149,8 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
     {
         _animator.SetBool("Dying", true);
 
+        DontDestroyOnLoadManager.GetAudioManager().PlaySoundtrackGameOver();
+
         Image gameOverLogo = gameOver.GetComponentInChildren<Image>();
         Vector3 finalPosition = gameOverLogo.transform.position;
         Color color = gameOverLogo.color;
@@ -170,6 +173,11 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0; // stop everything (PAUSE)
+    }
+
+    public bool IsGameOver()
+    {
+        return gameOver.activeSelf;
     }
 
     public IEnumerator UICountdown(int timer)
@@ -204,6 +212,15 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
         _switchedCloneMode.color = _switchedCloneMode.color == Color.red ? new Color(1.0f, 0.64f, 0.0f) : Color.red;
     }
 
-    public void SetGemsTotal(int total) => _gemsTotalText.text = total.ToString();
-
+    public void SetGemsTotal(int total)
+    {
+        if(total >= 0)
+        {
+            _gemsTotalText.text = total.ToString();
+        }
+        else
+        {
+            _gemsTotalText.text = "\u221E";
+        }
+    }    
 }

@@ -18,7 +18,7 @@ public class AssistantSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(assistantController != null)
+        if(!GameEvent.isPaused && assistantController != null)
         {
             if(Input.GetButtonDown("HintAssistant"))
             {
@@ -33,7 +33,7 @@ public class AssistantSystem : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (assistantController != null)
+        if (!GameEvent.isPaused && assistantController != null)
         {
             if (hintPressed)
             {
