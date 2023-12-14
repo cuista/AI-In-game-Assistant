@@ -39,13 +39,12 @@ public class InworldAIController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Handle a new trigger received or a timer expired
+        //Handle a new trigger received or a timer expired (after duration time echo is triggered again)
         if (_triggerReceived || _currentTriggerTime >= currentTriggerDuration)
         {
             if (_currentTrigger != null)
             {
-                CancelResponse();
-                echo.SendTrigger(_currentTrigger); //After duration time echo is triggered again
+                echo.SendTrigger(_currentTrigger); // SendTrigger by default interrupt if Echo is speaking
                 Debug.Log("AI Triggered: " + _currentTrigger);
             }
             _triggerReceived = false;
@@ -74,7 +73,7 @@ public class InworldAIController : MonoBehaviour
         echoIsMuted = !echoIsMuted;
         echoAudioSource.mute = echoIsMuted;
 
-        if(echoIsMuted)
+        if (echoIsMuted)
         {
             CancelResponse();
         }
@@ -96,14 +95,12 @@ public class InworldAIController : MonoBehaviour
     public void OneShotTrigger(string triggerName)
     {
         _currentTriggerTime = 0;
-        CancelResponse();
         echo.SendTrigger(triggerName);
         Debug.Log("One Shot TriggerAI: " + triggerName);
     }
 
     public void GameOverTrigger()
     {
-        CancelResponse();
         OneShotTrigger("game_over");
     }
 }

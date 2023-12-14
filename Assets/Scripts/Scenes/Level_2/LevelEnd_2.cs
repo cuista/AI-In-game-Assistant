@@ -10,7 +10,7 @@ public class LevelEnd_2 : MonoBehaviour
         {
             DontDestroyOnLoadManager.RestorePlayerDDOLScene(); // Player in DDOL scene, Platform parenting could move Player to other scene
             DontDestroyOnLoadManager.GetPlayer().GetComponent<CloningSystem>().ClearClones();
-            LoadingScenesManager.LoadingScenes("Level_0");
+            LoadingScenesManager.LoadingScenes("Level_3");
         }
     }
 }

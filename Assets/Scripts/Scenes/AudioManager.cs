@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip level0_soundtrack;
     public AudioClip level1_soundtrack;
     public AudioClip level2_soundtrack;
+    public AudioClip level3_soundtrack;
     public AudioClip bossFight_soundtrack;
     public AudioClip credits_soundtrack;
     public AudioClip VR_Mode_soundtrack;
@@ -109,6 +110,12 @@ public class AudioManager : MonoBehaviour
     public void PlaySoundtrackLevel_2()
     {
         _soundtrackSource.clip = level2_soundtrack;
+        _soundtrackSource.Play();
+    }
+
+    public void PlaySoundtrackLevel_3()
+    {
+        _soundtrackSource.clip = level3_soundtrack;
         _soundtrackSource.Play();
     }
 
