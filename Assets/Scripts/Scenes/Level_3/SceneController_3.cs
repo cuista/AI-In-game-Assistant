@@ -54,7 +54,6 @@ public class SceneController_3 : MonoBehaviour
     public void PlaySoundtrack()
     {
         AudioManager audioManager = DontDestroyOnLoadManager.GetAudioManager();
-        if (!audioManager.isPlayingClip(audioManager.level3_soundtrack))
-            audioManager.PlaySoundtrackLevel_3();
+        audioManager.PlaySoundtrackLevel_3();
     }
 }

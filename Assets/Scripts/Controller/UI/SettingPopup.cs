@@ -62,7 +62,7 @@ public class SettingsPopup : MonoBehaviour
             UnPauseGame();
     }
 
-    //Back to initial menu
+    //Back to main menu
     public void ExitGame()
     {
         DontDestroyOnLoadManager.GetPlayer().GetComponent<CloningSystem>().ClearClones();
@@ -70,6 +70,15 @@ public class SettingsPopup : MonoBehaviour
         DontDestroyOnLoadManager.DestroyAll();
         LoadingScenesManager.LoadingScenes("MainMenu");
         Time.timeScale = 1f;
+    }
+
+    //Restart current level
+    public void Retry()
+    {
+        DontDestroyOnLoadManager.GetPlayer().GetComponent<CloningSystem>().ClearClones();
+        ExplosionController.ClearExplosions();
+        DontDestroyOnLoadManager.DestroyAll();
+        LoadingScenesManager.LoadingScenes("Gameplay", SceneManager.GetActiveScene().name);
     }
 
     //Pause game, stop frames with timeScale = 0

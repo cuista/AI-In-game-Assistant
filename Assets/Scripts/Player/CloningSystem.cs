@@ -207,15 +207,16 @@ public class CloningSystem : MonoBehaviour
                 {
                     Destroy(_spawnPoint);
                     _spawnPointTimedOut = false;
-                    transform.GetComponent<PlayerCharacter>().ResetUICountdown(); //UI temporary
+                    transform.GetComponent<PlayerCharacter>().ResetUICountdown(); //UI countdown reset
                 }
                 else
                 {
-                    StartCoroutine(transform.GetComponent<PlayerCharacter>().UICountdown(20)); //UI temporary
+                    StartCoroutine(transform.GetComponent<PlayerCharacter>().UICountdown(20)); //UI countdown of 20sec
                 }
                 _currentPlayerRecording = new List<PlayerRecord>();
                 _spawnPoint = Instantiate(spawnClonePrefab) as GameObject;
                 _spawnPoint.transform.position = new Vector3(transform.position.x, transform.position.y - 0.8f, transform.position.z);
+                transform.GetComponent<PlayerCharacter>().SetSpawnCloneAnimator(_spawnPoint.GetComponent<Animator>()); //Flash spawnClone Animation
                 StartCoroutine(SpawnPointUnused(_spawnPoint));
 
                 fire2Pressed = false;
@@ -243,7 +244,7 @@ public class CloningSystem : MonoBehaviour
                 }
                 _currentPlayerRecording = null;
 
-                transform.GetComponent<PlayerCharacter>().DisableUICountdown(); //UI temporary
+                transform.GetComponent<PlayerCharacter>().DisableUICountdown();
 
                 fire1Pressed = false;
                 _animator.SetTrigger("SpawnClone");

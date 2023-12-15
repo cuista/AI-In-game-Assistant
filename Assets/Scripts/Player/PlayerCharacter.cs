@@ -26,6 +26,7 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
     [SerializeField] private TextMeshProUGUI _cloneRechargesText;
     [SerializeField] private TextMeshProUGUI _countdownText;
     private bool _resetCountdown;
+    private Animator _spawnCloneAnimator;
     [SerializeField] private Image _switchedCloneMode;
 
     private Animator _animator;
@@ -185,6 +186,10 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
                 i = timer;
                 _resetCountdown = false;
             }
+            if(i == 5 && _spawnCloneAnimator != null)
+            {
+                _spawnCloneAnimator.SetTrigger("Flash");
+            }
             _countdownText.text = i.ToString();
             yield return new WaitForSeconds(1);
         }
@@ -195,6 +200,11 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
     public void ResetUICountdown()
     {
         _resetCountdown = true;
+    }
+
+    public void SetSpawnCloneAnimator(Animator spawnCloneAnimator)
+    {
+        _spawnCloneAnimator = spawnCloneAnimator;
     }
 
     public void DisableUICountdown()
