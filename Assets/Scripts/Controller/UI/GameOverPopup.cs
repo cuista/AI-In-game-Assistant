@@ -16,6 +16,8 @@ public class GameOverPopup : MonoBehaviour
     //Restart level
     public void Retry()
     {
+        DontDestroyOnLoadManager.GetPlayer().GetComponent<CloningSystem>().ClearClones();
+        ExplosionController.ClearExplosions();
         DontDestroyOnLoadManager.DestroyAll();
         LoadingScenesManager.LoadingScenes("Gameplay", SceneManager.GetActiveScene().name);
     }
@@ -23,6 +25,8 @@ public class GameOverPopup : MonoBehaviour
     //Back to MainMenu
     public void Exit()
     {
+        DontDestroyOnLoadManager.GetPlayer().GetComponent<CloningSystem>().ClearClones();
+        ExplosionController.ClearExplosions();
         DontDestroyOnLoadManager.DestroyAll();
         LoadingScenesManager.LoadingScenes("MainMenu");
         Time.timeScale = 1f;

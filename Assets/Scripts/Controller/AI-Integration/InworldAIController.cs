@@ -8,7 +8,8 @@ using UnityEngine.UI;
 
 public class InworldAIController : MonoBehaviour
 {
-    public InworldCharacter echo;
+    public InworldCharacter echoCharacter;
+    public AudioCapture echoAudio;
 
     //To handle current trigger event
     private string _currentTrigger;
@@ -26,13 +27,20 @@ public class InworldAIController : MonoBehaviour
         Messenger.AddListener(GameEvent.GAMEOVER, GameOverTrigger);
     }
 
+    private void OnDestroy()
+    {
+        Messenger.RemoveListener(GameEvent.GAMEOVER, GameOverTrigger);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        echo = (echo == null) ? FindObjectOfType<InworldCharacter>() : echo;
+        echoCharacter = (echoCharacter == null) ? FindObjectOfType<InworldCharacter>() : echoCharacter;
         echoIsMuted = false;
-        echoAudioSource = echo.GetComponent<AudioSource>();
+        echoAudioSource = echoCharacter.GetComponent<AudioSource>();
 
+        echoAudio.StopRecording(); //Not recording with mic
+        
         _triggerReceived = false;
         _currentTriggerTime = 0;
     }
@@ -44,7 +52,7 @@ public class InworldAIController : MonoBehaviour
         {
             if (_currentTrigger != null)
             {
-                echo.SendTrigger(_currentTrigger); // SendTrigger by default interrupt if Echo is speaking
+                echoCharacter.SendTrigger(_currentTrigger); // SendTrigger by default interrupt if Echo is speaking
                 Debug.Log("AI Triggered: " + _currentTrigger);
             }
             _triggerReceived = false;
@@ -63,7 +71,7 @@ public class InworldAIController : MonoBehaviour
     {
         try
         {
-            echo.CancelResponse(); //Interrupt if Echo is speaking
+            echoCharacter.CancelResponse(); //Interrupt if Echo is speaking
         }
         catch (System.Exception) { }
     }
@@ -95,7 +103,7 @@ public class InworldAIController : MonoBehaviour
     public void OneShotTrigger(string triggerName)
     {
         _currentTriggerTime = 0;
-        echo.SendTrigger(triggerName);
+        echoCharacter.SendTrigger(triggerName);
         Debug.Log("One Shot TriggerAI: " + triggerName);
     }
 

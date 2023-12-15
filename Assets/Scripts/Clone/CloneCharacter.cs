@@ -37,7 +37,10 @@ public class CloneCharacter : MonoBehaviour, ICharacter
     // Update is called once per frame
     void Update()
     {
-        healthBar.transform.rotation = Quaternion.LookRotation(healthBar.transform.position - _camera.transform.position);
+        if(_camera != null)
+        {
+            healthBar.transform.rotation = Quaternion.LookRotation(healthBar.transform.position - _camera.transform.position);
+        }
 
         if (health <= 0)
         {

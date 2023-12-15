@@ -65,6 +65,8 @@ public class SettingsPopup : MonoBehaviour
     //Back to initial menu
     public void ExitGame()
     {
+        DontDestroyOnLoadManager.GetPlayer().GetComponent<CloningSystem>().ClearClones();
+        ExplosionController.ClearExplosions();
         DontDestroyOnLoadManager.DestroyAll();
         LoadingScenesManager.LoadingScenes("MainMenu");
         Time.timeScale = 1f;
