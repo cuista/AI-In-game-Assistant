@@ -42,7 +42,7 @@ public class MainMenu : MonoBehaviour
     {
         audioManager.PlaySound(clickSound);
         HideMenu();
-        LoadingScenesManager.LoadingScenes("Gameplay", "Level_1");
+        LoadingScenesManager.LoadingScenes("Gameplay", "Level_0");
     }
 
     public void LoadGame()
