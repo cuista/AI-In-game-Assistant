@@ -12,6 +12,9 @@ public class LoadingScenesManager : MonoBehaviour
     public GameObject loadingInterface;
     public Image loadingProgressBar;
 
+    [SerializeField] private GameObject[] backgroundImages;
+    private int indexBackgroundImage;
+
     private static List<AsyncOperation> scenesToLoad = new List<AsyncOperation>();
 
     void Awake()
@@ -23,11 +26,20 @@ public class LoadingScenesManager : MonoBehaviour
     void Start()
     {
         this.gameObject.SetActive(false);
+        for (int i = 0; i < backgroundImages.Length; i++)
+        {
+            backgroundImages[i].SetActive(false);
+        }
     }
 
     public static void LoadingScenes(params string[] scenes)
     {
-        _loadingSM.loadingInterface.gameObject.SetActive(true);
+        _loadingSM.loadingInterface.SetActive(true);
+        for (int i = 0; i < _loadingSM.backgroundImages.Length; i++)
+        {
+            _loadingSM.backgroundImages[i].SetActive(i == _loadingSM.indexBackgroundImage);
+        }
+        _loadingSM.indexBackgroundImage = (_loadingSM.indexBackgroundImage + 1) % _loadingSM.backgroundImages.Length;
         foreach (string scene in scenes)
         {
             scenesToLoad.Add(SceneManager.LoadSceneAsync(scene));
@@ -58,11 +70,11 @@ public class LoadingScenesManager : MonoBehaviour
             }
         }
         _loadingSM.loadingProgressBar.fillAmount = 1;
-        _loadingSM.loadingInterface.gameObject.SetActive(false); //_loadingSM.Invoke("DeactivateLoadingScreen", 0.5f);
+        _loadingSM.loadingInterface.SetActive(false); //_loadingSM.Invoke("DeactivateLoadingScreen", 0.5f);
     }
 
     private void DeactivateLoadingScreen()
     {
-        _loadingSM.loadingInterface.gameObject.SetActive(false);
+        _loadingSM.loadingInterface.SetActive(false);
     }
 }

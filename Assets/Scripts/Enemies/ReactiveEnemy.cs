@@ -5,6 +5,7 @@ using UnityEngine;
 public class ReactiveEnemy : MonoBehaviour, IReactiveObject
 {
 
+    [SerializeField] public GameObject hitEffect;
     [SerializeField] public GameObject explosionEffect;
 
     public void ReactToHits(int numHits)
@@ -13,7 +14,7 @@ public class ReactiveEnemy : MonoBehaviour, IReactiveObject
         if (enemy != null)
         {
             enemy.RemoveLives(numHits);
-            ExplosionController.MakeItBoom(explosionEffect, transform);
+            ExplosionController.MakeItBoom(hitEffect, transform);
             if (enemy.GetLives() < 1)
             {
                 enemy.SetMoving(false);

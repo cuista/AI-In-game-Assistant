@@ -16,6 +16,7 @@ public class CloneCharacter : MonoBehaviour, ICharacter
 
     [SerializeField] private GameObject bulletCreationPoint;
 
+    [SerializeField] public GameObject hitEffect;
     [SerializeField] public GameObject explosionEffect;
 
     private void Awake()
@@ -63,6 +64,7 @@ public class CloneCharacter : MonoBehaviour, ICharacter
     {
         health -= damage;
         healthBar.value -= barValueDamage * damage;
+        ExplosionController.MakeItBoom(hitEffect, transform);
     }
 
     public void Death()

@@ -7,6 +7,7 @@ public class ReactiveBox : MonoBehaviour, IReactiveObject
 {
     [SerializeField] public GameObject item;
     [SerializeField] public GameObject explosionEffect;
+    [SerializeField] public GameObject hitEffect;
 
     private bool _isOpen;
     public int _strenght = 3;
@@ -31,6 +32,7 @@ public class ReactiveBox : MonoBehaviour, IReactiveObject
         {
             _strenght = _strenght>0 ? _strenght - 1 : RemoveBox();
         }
+        ExplosionController.MakeItBoom(hitEffect, transform);
     }
 
     public void DropItem()

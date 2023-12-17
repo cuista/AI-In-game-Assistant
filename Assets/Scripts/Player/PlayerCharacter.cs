@@ -1,9 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerCharacter : MonoBehaviour, ICharacter
 {
@@ -28,6 +26,8 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
     private bool _resetCountdown;
     private Animator _spawnCloneAnimator;
     [SerializeField] private Image _switchedCloneMode;
+
+    [SerializeField] public GameObject hitEffect;
 
     private Animator _animator;
 
@@ -62,6 +62,8 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
         _resetCountdown = false;
 
         _switchedCloneMode.color = Color.red;
+
+        hitEffect.transform.localScale.Set(2f, 2f, 2f);
 
         _animator = GetComponent<Animator>();
 
@@ -130,6 +132,7 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
         health -= damage;
         healthBar.value -= barValueDamage * damage;
         _audioSource.PlayOneShot(hurtSound);
+        ExplosionController.MakeItBoom(hitEffect, transform);
     }
 
     //Trigger the gameOver
