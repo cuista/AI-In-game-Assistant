@@ -92,6 +92,16 @@ public static class DontDestroyOnLoadManager
         return null;
     }
 
+    public static GameObject GetEchoAI()
+    {
+        foreach (var go in _ddolObjects)
+        {
+            if (go.tag == "EchoAI")
+                return go;
+        }
+        return null;
+    }
+
     public static AudioManager GetAudioManager()
     {
         foreach (var go in _permanentObjects)

@@ -9,29 +9,19 @@ public class UIController : MonoBehaviour
 
     private bool isPlayingCutscene = false;
 
-    //[SerializeField] private GameObject target;
-
-    //[SerializeField] private Text targetCount;
-
-    //[SerializeField] private Text targetTotal;
-
 
     void Awake()
     {
-        Messenger.AddListener(GameEvent.ENEMY_KILLED, OnEnemyHit);
+        Messenger.AddListener(GameEvent.ENEMY_KILLED, OnEnemyKilled);
         Messenger.AddListener(GameEvent.CUTSCENE_STARTED, OnCutsceneStarted);
         Messenger.AddListener(GameEvent.CUTSCENE_ENDED, OnCutsceneEnded);
-        /*Messenger<int>.AddListener(GameEvent.TARGET_TOTAL, OnTargetTotal);
-        Messenger.AddListener(GameEvent.TARGET_ELIMINATED, OnTargetEliminated);*/
     }
 
     void OnDestroy()
     {
-        Messenger.RemoveListener(GameEvent.ENEMY_KILLED, OnEnemyHit);
+        Messenger.RemoveListener(GameEvent.ENEMY_KILLED, OnEnemyKilled);
         Messenger.RemoveListener(GameEvent.CUTSCENE_STARTED, OnCutsceneStarted);
         Messenger.RemoveListener(GameEvent.CUTSCENE_ENDED, OnCutsceneEnded);
-        /*Messenger<int>.RemoveListener(GameEvent.TARGET_TOTAL, OnTargetTotal);
-        Messenger.RemoveListener(GameEvent.TARGET_ELIMINATED, OnTargetEliminated);*/
     }
 
     // Start is called before the first frame update
@@ -55,9 +45,9 @@ public class UIController : MonoBehaviour
         }
     }
 
-    private void OnEnemyHit()
+    private void OnEnemyKilled()
     {
-        Debug.Log("Enemy hit");
+        Debug.Log("Enemy killed");
     }
 
     public void OnOpenSettings()
@@ -74,18 +64,4 @@ public class UIController : MonoBehaviour
     {
         isPlayingCutscene = false;
     }
-
-    /*
-    public void OnTargetTotal(int total)
-    {
-        target.SetActive(true);
-        targetCount.text = "0";
-        targetTotal.text = total.ToString();
-    }
-
-    public void OnTargetEliminated()
-    {
-        targetCount.text = (int.Parse(targetCount.text) + 1).ToString();
-    }
-    */
 }
