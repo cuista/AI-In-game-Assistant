@@ -15,7 +15,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip level1_soundtrack;
     public AudioClip level2_soundtrack;
     public AudioClip level3_soundtrack;
-    public AudioClip bossFight_soundtrack;
+    public AudioClip cutscene_soundtrack;
     public AudioClip credits_soundtrack;
     public AudioClip VR_Mode_soundtrack;
 
@@ -119,9 +119,9 @@ public class AudioManager : MonoBehaviour
         _soundtrackSource.Play();
     }
 
-    public void PlaySoundtrackBossFight()
+    public void PlaySoundtrackCutscene()
     {
-        _soundtrackSource.clip = bossFight_soundtrack;
+        _soundtrackSource.clip = cutscene_soundtrack;
         _soundtrackSource.Play();
     }
 

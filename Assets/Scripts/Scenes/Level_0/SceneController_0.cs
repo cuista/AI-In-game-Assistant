@@ -51,6 +51,12 @@ public class SceneController_0 : MonoBehaviour
         audioManager.PlaySoundtrackLevel_0();
     }
 
+    public void PlayCutscenetrack()
+    {
+        AudioManager audioManager = DontDestroyOnLoadManager.GetAudioManager();
+        audioManager.PlaySoundtrackCutscene();
+    }
+
     public void BeforeCutscene()
     {
         GameEvent.isPaused = true;
@@ -59,6 +65,8 @@ public class SceneController_0 : MonoBehaviour
         DontDestroyOnLoadManager.GetMainCamera().SetActive(false);
         DontDestroyOnLoadManager.GetHUD().SetActive(false);
         DontDestroyOnLoadManager.GetSkipMessage().SetActive(true);
+
+        DontDestroyOnLoadManager.GetPlayer().GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
 
         Messenger.Broadcast(GameEvent.CUTSCENE_STARTED);
 
@@ -73,6 +81,8 @@ public class SceneController_0 : MonoBehaviour
         DontDestroyOnLoadManager.GetMainCamera().SetActive(true);
         DontDestroyOnLoadManager.GetHUD().SetActive(true);
         DontDestroyOnLoadManager.GetSkipMessage().SetActive(false);
+
+        DontDestroyOnLoadManager.GetPlayer().GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
 
         Messenger.Broadcast(GameEvent.CUTSCENE_ENDED);
         _player.GetComponent<PlayerControllerRPM>().enabled = true;

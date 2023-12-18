@@ -184,14 +184,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 486391304}
   _soundtrackSource: {fileID: 1718072603}
-  intro_init: {fileID: 8300000, guid: f02a1cd328bc4a241b1570601c1ec3f0, type: 3}
+  intro_init: {fileID: 8300000, guid: a74489085e647d34ea5f08183b8ff21b, type: 3}
   menu_soundtrack: {fileID: 8300000, guid: 0931bb4e8779c154b86b6cf0623c844e, type: 3}
   gameOver_soundtrack: {fileID: 8300000, guid: 6b754491774bf9c43be8e76fe553ac38, type: 3}
   level0_soundtrack: {fileID: 8300000, guid: 701f4c9c9dbb6e44ab5c6c5b495c0640, type: 3}
   level1_soundtrack: {fileID: 8300000, guid: 701f4c9c9dbb6e44ab5c6c5b495c0640, type: 3}
   level2_soundtrack: {fileID: 8300000, guid: 701f4c9c9dbb6e44ab5c6c5b495c0640, type: 3}
   level3_soundtrack: {fileID: 8300000, guid: 701f4c9c9dbb6e44ab5c6c5b495c0640, type: 3}
-  bossFight_soundtrack: {fileID: 8300000, guid: 701f4c9c9dbb6e44ab5c6c5b495c0640, type: 3}
+  cutscene_soundtrack: {fileID: 8300000, guid: 3e58cc236b0bcfe489b8e649b4799215, type: 3}
   credits_soundtrack: {fileID: 8300000, guid: 0931bb4e8779c154b86b6cf0623c844e, type: 3}
   VR_Mode_soundtrack: {fileID: 8300000, guid: 701f4c9c9dbb6e44ab5c6c5b495c0640, type: 3}
 --- !u!1 &81782073
@@ -826,7 +826,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1587,7 +1587,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
