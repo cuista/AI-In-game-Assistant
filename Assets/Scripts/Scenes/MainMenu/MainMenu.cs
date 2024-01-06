@@ -49,7 +49,7 @@ public class MainMenu : MonoBehaviour
     {
         audioManager.PlaySound(clickSound);
         HideMenu();
-        LoadingScenesManager.LoadingScenes("Gameplay", "Level_3");
+        LoadingScenesManager.LoadingScenes("Gameplay", "Level_4");
     }
 
     public void QuitGame()

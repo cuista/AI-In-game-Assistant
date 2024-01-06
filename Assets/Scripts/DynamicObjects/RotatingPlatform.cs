@@ -9,7 +9,7 @@ public class RotatingPlatform : TargetObject
     [SerializeField] float speed = 20f;
 
     // Update is called once per frame
-    void FixedUpdate() //Script Execution Order => 300
+    void FixedUpdate() //Script Execution Order => >300
     {
         if (isOperating)
         {
