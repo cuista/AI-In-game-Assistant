@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField] private GameObject initialMenu;
     [SerializeField] private GameObject gameModeMenu;
+    [SerializeField] private GameObject levelSelectionMenu;
     [SerializeField] private GameObject settingsMenu;
     [SerializeField] private GameObject audioMenu;
     [SerializeField] private GameObject videoMenu;
@@ -50,6 +51,13 @@ public class MainMenu : MonoBehaviour
         audioManager.PlaySound(clickSound);
         HideMenu();
         LoadingScenesManager.LoadingScenes("Gameplay", "Level_5");
+    }
+
+    public void LoadLevel(string level)
+    {
+        audioManager.PlaySound(clickSound);
+        HideMenu();
+        LoadingScenesManager.LoadingScenes("Gameplay", level);
     }
 
     public void QuitGame()
@@ -94,6 +102,7 @@ public class MainMenu : MonoBehaviour
         initialMenu.SetActive(!active);
         gameModeMenu.SetActive(active);
         SetButtonSelected(active, gameModeMenu, initialMenu);
+        levelSelectionMenu.SetActive(false);
     }
 
     public void SetActiveSettingsMenu(bool active)
@@ -112,6 +121,20 @@ public class MainMenu : MonoBehaviour
         initialMenu.SetActive(!active);
         exitMenu.SetActive(active);
         SetButtonSelected(active, exitMenu, initialMenu);
+    }
+
+    public void ToggleLevelSelectionMenu()
+    {
+        audioManager.PlaySound(clickSound);
+        if (!levelSelectionMenu.activeInHierarchy)
+        {
+            SetButtonSelected(true, levelSelectionMenu, gameModeMenu);
+        }
+        else
+        {
+            gameModeMenu.GetComponentsInChildren<Button>()[1].Select();
+        }
+        levelSelectionMenu.SetActive(!levelSelectionMenu.activeInHierarchy);
     }
 
     public void ToggleAudioMenu()
