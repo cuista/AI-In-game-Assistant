@@ -15,6 +15,9 @@ public class AudioManager : MonoBehaviour
     public AudioClip level1_soundtrack;
     public AudioClip level2_soundtrack;
     public AudioClip level3_soundtrack;
+    public AudioClip level4_soundtrack;
+    public AudioClip level5_soundtrack;
+    public AudioClip level6_soundtrack;
     public AudioClip cutscene_soundtrack;
     public AudioClip credits_soundtrack;
     public AudioClip VR_Mode_soundtrack;
@@ -72,8 +75,8 @@ public class AudioManager : MonoBehaviour
     {
         _soundtrackSource.ignoreListenerVolume = true;
         _soundtrackSource.ignoreListenerPause = true;
-        soundVolume = 1f;
-        musicVolume = 0.5f;
+        soundVolume = 0.5f;
+        musicVolume = 0.2f;
         _soundtrackSource.PlayOneShot(intro_init);
     }
 
@@ -114,6 +117,24 @@ public class AudioManager : MonoBehaviour
     }
 
     public void PlaySoundtrackLevel_3()
+    {
+        _soundtrackSource.clip = level3_soundtrack;
+        _soundtrackSource.Play();
+    }
+
+    public void PlaySoundtrackLevel_4()
+    {
+        _soundtrackSource.clip = level3_soundtrack;
+        _soundtrackSource.Play();
+    }
+
+    public void PlaySoundtrackLevel_5()
+    {
+        _soundtrackSource.clip = level3_soundtrack;
+        _soundtrackSource.Play();
+    }
+
+    public void PlaySoundtrackLevel_6()
     {
         _soundtrackSource.clip = level3_soundtrack;
         _soundtrackSource.Play();

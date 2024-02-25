@@ -18,7 +18,10 @@ public class ShooterSystem : MonoBehaviour
     private AudioSource _audioSource;
 
     [SerializeField] private AudioClip shootSound;
-    [SerializeField] private AudioClip meleeSound;
+    [SerializeField] private AudioClip melee1Sound;
+    [SerializeField] private AudioClip melee2Sound;
+    [SerializeField] private AudioClip melee3Sound;
+    private AudioClip meleeSound;
 
     // Start is called before the first frame update
     void Start()
@@ -81,9 +84,9 @@ public class ShooterSystem : MonoBehaviour
 
                 switch ((int) Random.Range(0, 3))
                 {
-                    case 0:_animator.SetTrigger("Melee1");break;
-                    case 1: _animator.SetTrigger("Melee2"); break;
-                    case 2: default: _animator.SetTrigger("Melee3"); break;
+                    case 0:_animator.SetTrigger("Melee1"); meleeSound = melee1Sound; break;
+                    case 1: _animator.SetTrigger("Melee2"); meleeSound = melee2Sound; break;
+                    case 2: default: _animator.SetTrigger("Melee3"); meleeSound = melee3Sound; break;
                 }
                 _audioSource.PlayOneShot(meleeSound);
             }
