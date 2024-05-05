@@ -20,7 +20,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip level6_soundtrack;
     public AudioClip cutscene_soundtrack;
     public AudioClip credits_soundtrack;
-    public AudioClip VR_Mode_soundtrack;
+    public AudioClip tutorial_soundtrack;
 
     public float soundVolume
     {
@@ -152,9 +152,9 @@ public class AudioManager : MonoBehaviour
         _soundtrackSource.Play();
     }
 
-    public void PlaySoundtrackVRMode()
+    public void PlaySoundtrackTutorial()
     {
-        _soundtrackSource.clip = VR_Mode_soundtrack;
+        _soundtrackSource.clip = tutorial_soundtrack;
         _soundtrackSource.Play();
     }
 

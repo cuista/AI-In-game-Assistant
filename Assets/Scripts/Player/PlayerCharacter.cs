@@ -20,8 +20,8 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
     private int gems;
     [SerializeField] private TextMeshProUGUI _gemsText;
     [SerializeField] private TextMeshProUGUI _gemsTotalText;
-    [SerializeField] private TextMeshProUGUI _energyRechargesText;
-    [SerializeField] private TextMeshProUGUI _cloneRechargesText;
+    [SerializeField] private GameObject _cloneRechargesIcons;
+    private bool _spawnPointPlaced = false;
     [SerializeField] private TextMeshProUGUI _countdownText;
     private bool _resetCountdown;
     private Animator _spawnCloneAnimator;
@@ -38,11 +38,15 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
     private void Awake()
     {
         Messenger.AddListener(GameEvent.SWITCHED_CLONE_MODE, OnSwitchedCloneMode);
+        Messenger.AddListener(GameEvent.SPAWN_POINT_PLACED, OnSpawnPointPlaced);
+        Messenger.AddListener(GameEvent.SPAWN_POINT_EXPIRED, OnSpawnPointExpired);
     }
 
     private void OnDestroy()
     {
         Messenger.RemoveListener(GameEvent.SWITCHED_CLONE_MODE, OnSwitchedCloneMode);
+        Messenger.RemoveListener(GameEvent.SPAWN_POINT_PLACED, OnSpawnPointPlaced);
+        Messenger.RemoveListener(GameEvent.SPAWN_POINT_EXPIRED, OnSpawnPointExpired);
     }
 
     // Start is called before the first frame update
@@ -55,6 +59,13 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
         barValueDamage = Managers.Player.barValueDamage;
         healthBarBackground = healthBar.GetComponentInChildren<Image>();
         gems = Managers.Inventory.GetItemCount("Gems");
+
+        for (int i = 0; i < _cloneRechargesIcons.transform.childCount; i++)
+        {
+            Transform iconTransform = _cloneRechargesIcons.transform.GetChild(i);
+            iconTransform.gameObject.SetActive(false);
+            iconTransform.GetChild(0).gameObject.SetActive(false);
+        }
 
         gameOver.SetActive(false);
 
@@ -75,8 +86,29 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
     {
         gems = Managers.Inventory.GetItemCount("Gems");
         _gemsText.text = gems.ToString();
-        _energyRechargesText.text = Managers.Inventory.GetItemCount("EnergyRecharge").ToString();
-        _cloneRechargesText.text = Managers.Inventory.GetItemCount("CloneRecharge").ToString();
+
+        for (int i = 0; i <_cloneRechargesIcons.transform.childCount; i++)
+        {
+            Transform iconTransform = _cloneRechargesIcons.transform.GetChild(i);
+
+            if(i < Managers.Inventory.GetItemCount("CloneRecharge"))
+            {
+                iconTransform.gameObject.SetActive(true);
+                if(_spawnPointPlaced && i == Managers.Inventory.GetItemCount("CloneRecharge") - 1)
+                {
+                    iconTransform.GetChild(0).gameObject.SetActive(true);
+                }
+                else
+                {
+                    iconTransform.GetChild(0).gameObject.SetActive(false);
+                }
+            }
+            else
+            {
+                iconTransform.gameObject.SetActive(false);
+                iconTransform.GetChild(0).gameObject.SetActive(false);
+            }
+        }
 
         if (!GameEvent.isPaused)
         {
@@ -218,6 +250,16 @@ public class PlayerCharacter : MonoBehaviour, ICharacter
     private void OnSwitchedCloneMode()
     {
         _switchedCloneMode.color = _switchedCloneMode.color == Color.red ? new Color(1.0f, 0.64f, 0.0f) : Color.red;
+    }
+
+    private void OnSpawnPointPlaced()
+    {
+        _spawnPointPlaced = true;
+    }
+
+    private void OnSpawnPointExpired()
+    {
+        _spawnPointPlaced = false;
     }
 
     public void SetGemsTotal(int total)

@@ -37,7 +37,7 @@ public class ReactiveBox : MonoBehaviour, IReactiveObject
 
     public void DropItem()
     {
-        Debug.Log(transform.rotation.y);
+        //Debug.Log(transform.rotation.y);
         switch(transform.rotation.y)
         {
             case 1f:

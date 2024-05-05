@@ -1,14 +1,6 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
-using System.Reflection.Emit;
-using System.Threading;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.Rendering;
 
 class PlayerRecord
 {
@@ -79,7 +71,7 @@ public class CloningSystem : MonoBehaviour
 
     private RelativeMovement relativeMovement;
     private FirstPersonLook firstPersonLook;
-    private ShooterSystem shooterSystem;
+    private CombatSystem shooterSystem;
 
     private List<ReplayClone> _lateClones;
     private List<ReplayClone> _mirrorClones;
@@ -89,8 +81,6 @@ public class CloningSystem : MonoBehaviour
 
     private bool fire2Pressed;
     private bool fire1Pressed;
-
-    public float timeAcceleration = 3f;
 
     private bool _isLateCloneMode;
 
@@ -107,8 +97,6 @@ public class CloningSystem : MonoBehaviour
 
     private float _headRotationX;
 
-    [SerializeField] private Volume _VHSEffect;
-
     private Animator _animator;
 
     private AudioSource _audioSource;
@@ -121,7 +109,7 @@ public class CloningSystem : MonoBehaviour
     {
         relativeMovement = GetComponent<RelativeMovement>();
         firstPersonLook = GetComponent<FirstPersonLook>();
-        shooterSystem = GetComponent<ShooterSystem>();
+        shooterSystem = GetComponent<CombatSystem>();
 
         _lateClones = new List<ReplayClone>();
         _mirrorClones = new List<ReplayClone>();
@@ -142,8 +130,6 @@ public class CloningSystem : MonoBehaviour
 
         _headRotationX = firstPersonLook.headRotationX;
 
-        _VHSEffect.enabled = false;
-
         _animator = GetComponent<Animator>();
 
         _audioSource = GetComponent<AudioSource>();
@@ -156,8 +142,10 @@ public class CloningSystem : MonoBehaviour
         {
             if (Managers.Inventory.GetItemCount("CloneRecharge") > 0)
             {
-                if(_spawnPointTimedOut) //SpawnPoint unused for 10 seconds
+                if(_spawnPointTimedOut) //SpawnPoint unused after the timelimit seconds
                 {
+                    Messenger.Broadcast(GameEvent.SPAWN_POINT_EXPIRED);
+
                     Destroy(_spawnPoint);
                     _currentPlayerRecording = null;
                     _spawnPointTimedOut = false;
@@ -167,20 +155,8 @@ public class CloningSystem : MonoBehaviour
                 fire2Pressed = Input.GetButtonUp("Fire2") || fire2Pressed;
             }
 
-            //Time acceleration ability
-            if (Input.GetButtonDown("TimeAcceleration"))
-            {
-                Time.timeScale = timeAcceleration;
-                _VHSEffect.enabled = true;
-            }
-            if (Input.GetButtonUp("TimeAcceleration"))
-            {
-                Time.timeScale = 1.0f;
-                _VHSEffect.enabled = false;
-            }
-
             //Switch late and mirror clone
-            if(Input.GetButtonUp("SwitchCloneMode"))
+            if (Input.GetButtonUp("SwitchCloneMode"))
             {
                 _isLateCloneMode = !_isLateCloneMode;
                 Messenger.Broadcast(GameEvent.SWITCHED_CLONE_MODE);
@@ -192,7 +168,6 @@ public class CloningSystem : MonoBehaviour
             verInput = Input.GetAxis("Vertical");
             moveSpeed = Input.GetButton("Run") ? relativeMovement.runSpeed: relativeMovement.walkSpeed;
             jumpPressed = Input.GetButtonDown("Jump") || jumpPressed;
-            shootPressed = Input.GetButtonDown("Shoot") && Managers.Inventory.GetItemCount("EnergyRecharge") > 0 || shootPressed;
             meleePressed = Input.GetButtonDown("Melee") || meleePressed;
         }
     }
@@ -221,6 +196,8 @@ public class CloningSystem : MonoBehaviour
 
                 fire2Pressed = false;
 
+                Messenger.Broadcast(GameEvent.SPAWN_POINT_PLACED);
+
                 _animator.SetTrigger("PlantSpawn");
                 _audioSource.PlayOneShot(plantSpawnSound);
             }
@@ -228,6 +205,8 @@ public class CloningSystem : MonoBehaviour
             if (fire1Pressed) //Spawn the clone and starting replaying player movements
             {
                 Managers.Inventory.ConsumeItem("CloneRecharge");
+
+                Messenger.Broadcast(GameEvent.SPAWN_POINT_EXPIRED);
 
                 Transform spawn = _spawnPoint.transform;
                 Destroy(_spawnPoint);
@@ -433,14 +412,6 @@ public class CloningSystem : MonoBehaviour
         bool doMelee = isLateClone ? replayClone.PlayerRecordings[0].meleePressed : meleePressed;
         if (!GameEvent.isPaused)
         {
-            //Shooting attack
-            if (doShoot)
-            {
-                GameObject bullet = Instantiate(shooterSystem.GetBulletPrefab()) as GameObject;
-                bullet.transform.position = (replayClone.bulletCreationPoint != null) ? replayClone.bulletCreationPoint.transform.position : transform.TransformPoint(Vector3.forward * 2.5f);
-                bullet.transform.rotation = replayClone.bulletCreationPoint.transform.rotation;
-            }
-
             //Melee attack
             if (doMelee)
             {
