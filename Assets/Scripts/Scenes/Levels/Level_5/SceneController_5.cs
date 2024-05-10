@@ -34,6 +34,7 @@ public class SceneController_5 : MonoBehaviour
         _levelEnd_Rays = levelEndPoint.transform.GetChild(0).GetComponentInChildren<Animator>().gameObject;
 
         Managers.Inventory.ConsumeAll("Gems");
+        Managers.Inventory.ConsumeAll("CloneRecharge");
         levelEndPoint.GetComponent<BoxCollider>().enabled = false;
         _levelEnd_Rays.SetActive(false);
         triggerAILevelCompleted.SetActive(false);

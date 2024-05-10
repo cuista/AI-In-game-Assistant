@@ -12,6 +12,8 @@ public class SceneController_0 : MonoBehaviour
     [SerializeField] public GameObject levelEndPoint;
 
     public GameObject cutscene;
+    [SerializeField] public GameObject tutorialText;
+    [SerializeField] public GameObject levelsText;
 
     [SerializeField] private GameObject moveTutorial;
     [SerializeField] private GameObject sprintTutorial;
@@ -66,6 +68,9 @@ public class SceneController_0 : MonoBehaviour
         DontDestroyOnLoadManager.GetHUD().SetActive(false);
         DontDestroyOnLoadManager.GetSkipMessage().SetActive(true);
 
+        tutorialText.SetActive(false);
+        levelsText.SetActive(false);
+
         DontDestroyOnLoadManager.GetPlayer().GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
 
         Messenger.Broadcast(GameEvent.CUTSCENE_STARTED);
@@ -81,6 +86,9 @@ public class SceneController_0 : MonoBehaviour
         DontDestroyOnLoadManager.GetMainCamera().SetActive(true);
         DontDestroyOnLoadManager.GetHUD().SetActive(true);
         DontDestroyOnLoadManager.GetSkipMessage().SetActive(false);
+
+        tutorialText.SetActive(true);
+        levelsText.SetActive(true);
 
         DontDestroyOnLoadManager.GetPlayer().GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
 
