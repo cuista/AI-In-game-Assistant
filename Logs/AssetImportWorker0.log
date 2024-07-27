@@ -15,7 +15,7 @@ D:/VirtualReality Workspace Unity3D/AI-In-game-Assistant
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-50080
+57289
 Successfully changed project path to: D:/VirtualReality Workspace Unity3D/AI-In-game-Assistant
 D:/VirtualReality Workspace Unity3D/AI-In-game-Assistant
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,12 +49,12 @@ D:/VirtualReality Workspace Unity3D/AI-In-game-Assistant
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [13920] Host "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 3479017574 [EditorId] 3479017574 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-CNTC02H) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [12952] Host "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 295452070 [EditorId] 295452070 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-CNTC02H) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [13920] Host "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 3479017574 [EditorId] 3479017574 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-CNTC02H) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [12952] Host "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 295452070 [EditorId] 295452070 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-CNTC02H) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 7 workers.
-Refreshing native plugins compatible for Editor in 36.09 ms, found 16 plugins.
+Refreshing native plugins compatible for Editor in 1356.80 ms, found 16 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.9f1 (ea401c316338)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity 2022.3.9f1/Editor/Data/Resources/UnitySubsystems
@@ -70,44 +70,44 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity 2022.3.9f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity 2022.3.9f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity 2022.3.9f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56668
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56268
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity 2022.3.9f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.009266 seconds.
-- Loaded All Assemblies, in  0.572 seconds
+Registered in 0.015796 seconds.
+- Loaded All Assemblies, in  0.512 seconds
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.431 seconds
-Domain Reload Profiling: 1000ms
-	BeginReloadAssembly (170ms)
+- Finished resetting the current domain, in  0.377 seconds
+Domain Reload Profiling: 887ms
+	BeginReloadAssembly (222ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (62ms)
-	RebuildNativeTypeToScriptingClass (17ms)
-	initialDomainReloadingComplete (88ms)
-	LoadAllAssembliesAndSetupDomain (231ms)
-		LoadAssemblies (167ms)
+	RebuildCommonClasses (39ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (77ms)
+	LoadAllAssembliesAndSetupDomain (158ms)
+		LoadAssemblies (219ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (228ms)
-			TypeCache.Refresh (226ms)
-				TypeCache.ScanAssembly (203ms)
+		AnalyzeDomain (156ms)
+			TypeCache.Refresh (154ms)
+				TypeCache.ScanAssembly (139ms)
 			ScanForSourceGeneratedMonoScriptInfo (0ms)
 			ResolveRequiredComponents (1ms)
-	FinalizeReload (431ms)
+	FinalizeReload (377ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (335ms)
+		SetupLoadedEditorAssemblies (311ms)
 			LogAssemblyErrors (0ms)
 			InitializePlatformSupportModulesInManaged (15ms)
-			SetLoadedEditorAssemblies (12ms)
+			SetLoadedEditorAssemblies (9ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (3ms)
-			ProcessInitializeOnLoadAttributes (213ms)
-			ProcessInitializeOnLoadMethodAttributes (93ms)
+			ProcessInitializeOnLoadAttributes (155ms)
+			ProcessInitializeOnLoadMethodAttributes (129ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -115,11 +115,11 @@ Domain Reload Profiling: 1000ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  1.388 seconds
-Refreshing native plugins compatible for Editor in 15.78 ms, found 16 plugins.
+- Loaded All Assemblies, in  3.502 seconds
+Refreshing native plugins compatible for Editor in 11.77 ms, found 16 plugins.
 Native extension for WindowsStandalone target not found
 Getting credential for https://api.nuget.org/v3/index.json
-Getting installed packages took 98 ms
+Getting installed packages took 164 ms
 Already imported libs: UnityEngine.UI, UnityEngine, UnityEngine.AIModule, UnityEngine.ARModule, UnityEngine.AccessibilityModule, UnityEngine.AndroidJNIModule, UnityEngine.AnimationModule, UnityEngine.AssetBundleModule, UnityEngine.AudioModule, UnityEngine.ClothModule, UnityEngine.ClusterInputModule, UnityEngine.ClusterRendererModule, UnityEngine.ContentLoadModule, UnityEngine.CoreModule, UnityEngine.CrashReportingModule, UnityEngine.DSPGraphModule, UnityEngine.DirectorModule, UnityEngine.GIModule, UnityEngine.GameCenterModule, UnityEngine.GridModule, UnityEngine.HotReloadModule, UnityEngine.IMGUIModule, UnityEngine.ImageConversionModule, UnityEngine.InputModule, UnityEngine.InputLegacyModule, UnityEngine.JSONSerializeModule, UnityEngine.LocalizationModule, UnityEngine.NVIDIAModule, UnityEngine.ParticleSystemModule, UnityEngine.PerformanceReportingModule, UnityEngine.PhysicsModule, UnityEngine.Physics2DModule, UnityEngine.ProfilerModule, UnityEngine.PropertiesModule, UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule, UnityEngine.ScreenCaptureModule, UnityEngine.SharedInternalsModule, UnityEngine.SpriteMaskModule, UnityEngine.SpriteShapeModule, UnityEngine.StreamingModule, UnityEngine.SubstanceModule, UnityEngine.SubsystemsModule, UnityEngine.TLSModule, UnityEngine.TerrainModule, UnityEngine.TerrainPhysicsModule, UnityEngine.TextCoreFontEngineModule, UnityEngine.TextCoreTextEngineModule, UnityEngine.TextRenderingModule, UnityEngine.TilemapModule, UnityEngine.UIModule, UnityEngine.UIElementsModule, UnityEngine.UmbraModule, UnityEngine.UnityAnalyticsModule, UnityEngine.UnityAnalyticsCommonModule, UnityEngine.UnityConnectModule, UnityEngine.UnityCurlModule, UnityEngine.UnityTestProtocolModule, UnityEngine.UnityWebRequestModule, UnityEngine.UnityWebRequestAssetBundleModule, UnityEngine.UnityWebRequestAudioModule, UnityEngine.UnityWebRequestTextureModule, UnityEngine.UnityWebRequestWWWModule, UnityEngine.VFXModule, UnityEngine.VRModule, UnityEngine.VehiclesModule, UnityEngine.VideoModule, UnityEngine.VirtualTexturingModule, UnityEngine.WindModule, UnityEngine.XRModule, Unity.VisualScripting.Antlr3.Runtime, netstandard, Microsoft.Win32.Primitives, System.AppContext, System.Buffers, System.Collections.Concurrent, System.Collections, System.Collections.NonGeneric, System.Collections.Specialized, System.ComponentModel, System.ComponentModel.EventBasedAsync, System.ComponentModel.Primitives, System.ComponentModel.TypeConverter, System.Console, System.Data.Common, System.Diagnostics.Contracts, System.Diagnostics.Debug, System.Diagnostics.FileVersionInfo, System.Diagnostics.Process, System.Diagnostics.StackTrace, System.Diagnostics.TextWriterTraceListener, System.Diagnostics.Tools, System.Diagnostics.TraceSource, System.Diagnostics.Tracing, System.Drawing.Primitives, System.Dynamic.Runtime, System.Globalization.Calendars, System.Globalization, System.Globalization.Extensions, System.IO.Compression, System.IO.Compression.ZipFile, System.IO, System.IO.FileSystem, System.IO.FileSystem.DriveInfo, System.IO.FileSystem.Primitives, System.IO.FileSystem.Watcher, System.IO.IsolatedStorage, System.IO.MemoryMappedFiles, System.IO.Pipes, System.IO.UnmanagedMemoryStream, System.Linq, System.Linq.Expressions, System.Linq.Parallel, System.Linq.Queryable, System.Memory, System.Net.Http, System.Net.NameResolution, System.Net.NetworkInformation, System.Net.Ping, System.Net.Primitives, System.Net.Requests, System.Net.Security, System.Net.Sockets, System.Net.WebHeaderCollection, System.Net.WebSockets.Client, System.Net.WebSockets, System.Numerics.Vectors, System.ObjectModel, System.Reflection.DispatchProxy, System.Reflection, System.Reflection.Emit, System.Reflection.Emit.ILGeneration, System.Reflection.Emit.Lightweight, System.Reflection.Extensions, System.Reflection.Primitives, System.Resources.Reader, System.Resources.ResourceManager, System.Resources.Writer, System.Runtime.CompilerServices.VisualC, System.Runtime, System.Runtime.Extensions, System.Runtime.Handles, System.Runtime.InteropServices, System.Runtime.InteropServices.RuntimeInformation, System.Runtime.Numerics, System.Runtime.Serialization.Formatters, System.Runtime.Serialization.Json, System.Runtime.Serialization.Primitives, System.Runtime.Serialization.Xml, System.Security.Claims, System.Security.Cryptography.Algorithms, System.Security.Cryptography.Csp, System.Security.Cryptography.Encoding, System.Security.Cryptography.Primitives, System.Security.Cryptography.X509Certificates, System.Security.Principal, System.Security.SecureString, System.Text.Encoding, System.Text.Encoding.Extensions, System.Text.RegularExpressions, System.Threading, System.Threading.Overlapped, System.Threading.Tasks, System.Threading.Tasks.Extensions, System.Threading.Tasks.Parallel, System.Threading.Thread, System.Threading.ThreadPool, System.Threading.Timer, System.ValueTuple, System.Xml.ReaderWriter, System.Xml.XDocument, System.Xml.XmlDocument, System.Xml.XmlSerializer, System.Xml.XPath, System.Xml.XPath.XDocument, System.Runtime.InteropServices.WindowsRuntime, mscorlib, System.ComponentModel.Composition, System.Core, System.Data, System, System.Drawing, System.IO.Compression.FileSystem, System.Net, System.Numerics, System.Runtime.Serialization, System.ServiceModel.Web, System.Transactions, System.Web, System.Windows, System.Xml, System.Xml.Linq, System.Xml.Serialization, Unity.VisualScripting.Core, Unity.InputSystem, Unity.RenderPipelines.Core.Runtime, Unity.RenderPipeline.Universal.ShaderLibrary, Unity.Mathematics, Unity.Burst, Unity.ProBuilder.Poly2Tri, Unity.ProBuilder.KdTree, Unity.RenderPipelines.Universal.Runtime, nunit.framework, Unity.Burst.Unsafe, Inworld.AI, Unity.TextMeshPro, Unity.Timeline, glTFast.dots, Unity.VisualScripting.Flow, UnityWebSocket.Runtime, Inworld.RPM, Unity.RenderPipelines.Core.ShaderLibrary, Inworld.Samples, Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary, InworldAI.NDK, Unity.ProBuilder, Unity.TerrainTools, Inworld.Assets, Unity.Polybrush, Unity.InputSystem.ForUI, Inworld.Editor, glTFast, Unity.RenderPipelines.Universal.Shaders, Unity.VisualScripting.State, Cinemachine, Unity.ProGrids, NETStandard.Library, Microsoft.NETCore.Platforms, Microsoft.CSharp
 Already imported editor only libraries: System.CodeDom
 Is package 'Microsoft.Bcl.AsyncInterfaces' already imported? False
@@ -136,53 +136,53 @@ Is package 'Newtonsoft.Json' already imported? False
 Is package 'OpenAI' already imported? False
 Is package 'System.Runtime.CompilerServices.Unsafe' already imported? False
 No packages need restoring.
-Restoring packages took 395 ms
+Restoring packages took 343 ms
 Package Manager log level set to [2]
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  2.077 seconds
-Domain Reload Profiling: 3462ms
-	BeginReloadAssembly (238ms)
+- Finished resetting the current domain, in  4.587 seconds
+Domain Reload Profiling: 8085ms
+	BeginReloadAssembly (203ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (7ms)
+		DisableScriptedObjects (6ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (33ms)
-	RebuildCommonClasses (49ms)
-	RebuildNativeTypeToScriptingClass (20ms)
-	initialDomainReloadingComplete (62ms)
-	LoadAllAssembliesAndSetupDomain (1015ms)
-		LoadAssemblies (675ms)
+		CreateAndSetChildDomain (30ms)
+	RebuildCommonClasses (47ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (68ms)
+	LoadAllAssembliesAndSetupDomain (3166ms)
+		LoadAssemblies (2801ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (488ms)
-			TypeCache.Refresh (409ms)
-				TypeCache.ScanAssembly (376ms)
-			ScanForSourceGeneratedMonoScriptInfo (55ms)
+		AnalyzeDomain (481ms)
+			TypeCache.Refresh (403ms)
+				TypeCache.ScanAssembly (368ms)
+			ScanForSourceGeneratedMonoScriptInfo (52ms)
 			ResolveRequiredComponents (22ms)
-	FinalizeReload (2077ms)
+	FinalizeReload (4588ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (1747ms)
+		SetupLoadedEditorAssemblies (4330ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (10ms)
+			InitializePlatformSupportModulesInManaged (8ms)
 			SetLoadedEditorAssemblies (8ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (211ms)
-			ProcessInitializeOnLoadAttributes (1402ms)
-			ProcessInitializeOnLoadMethodAttributes (105ms)
-			AfterProcessingInitializeOnLoad (11ms)
+			BeforeProcessingInitializeOnLoad (131ms)
+			ProcessInitializeOnLoadAttributes (4089ms)
+			ProcessInitializeOnLoadMethodAttributes (83ms)
+			AfterProcessingInitializeOnLoad (10ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (16ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
-Refreshing native plugins compatible for Editor in 14.19 ms, found 16 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
+Refreshing native plugins compatible for Editor in 13.41 ms, found 16 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 6905 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 188 unused Assets / (1.8 MB). Loaded Objects now: 7333.
-Memory consumption went from 298.3 MB to 296.5 MB.
-Total: 9.518500 ms (FindLiveObjects: 0.693000 ms CreateObjectMapping: 0.922200 ms MarkObjects: 6.735600 ms  DeleteObjects: 1.166200 ms)
+Memory consumption went from 298.2 MB to 296.4 MB.
+Total: 11.440400 ms (FindLiveObjects: 0.805800 ms CreateObjectMapping: 1.126200 ms MarkObjects: 8.330500 ms  DeleteObjects: 1.176600 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -200,225 +200,73 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 1995.721922 seconds.
-  path: Assets/Packs/MyBlenderPack/Models/gate-scifi.fbx
-  artifactKey: Guid(4b85cbcc34f8bcd4890c189de955f952) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/MyBlenderPack/Models/gate-scifi.fbx using Guid(4b85cbcc34f8bcd4890c189de955f952) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e851d2bbad4193663b5bc059a35fc27a') in 0.462308 seconds
+  Time since last request: 11718.115122 seconds.
+  path: Assets/Animations/Spaceship/scifi-spaceship-cruiser.controller
+  artifactKey: Guid(077e475e196386b41acd77e78fe4f67e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Spaceship/scifi-spaceship-cruiser.controller using Guid(077e475e196386b41acd77e78fe4f67e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26d99747e36b4bae2040f6999e4eb7de') in 0.060859 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 9
+Number of asset objects unloaded after import = 4
 ========================================================================
 Received Import Request.
-  Time since last request: 94.698755 seconds.
-  path: Assets/Prefabs/DynamicObjects/TreeWind/TreeWind CrownMedium.prefab
-  artifactKey: Guid(d6d8ed1055cd85148be4a3e5ec50e779) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/DynamicObjects/TreeWind/TreeWind CrownMedium.prefab using Guid(d6d8ed1055cd85148be4a3e5ec50e779) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea42a536ec021f30215c3a3040a89c70') in 0.097815 seconds
+  Time since last request: 5.759552 seconds.
+  path: Assets/Animations/Spaceship/Flying.anim
+  artifactKey: Guid(42c7b94a248941c459cdb2fc5a414bed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animations/Spaceship/Flying.anim using Guid(42c7b94a248941c459cdb2fc5a414bed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd01a8defb87855e7a56ccdcdcdf6d5c7') in 0.001410 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 32
+Number of asset objects unloaded after import = 1
 ========================================================================
 Received Import Request.
-  Time since last request: 0.578130 seconds.
-  path: Assets/Prefabs/DynamicObjects/TreeWind/TreeWind CrownBig.prefab
-  artifactKey: Guid(86134fd276b15f54791302a286d49798) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/DynamicObjects/TreeWind/TreeWind CrownBig.prefab using Guid(86134fd276b15f54791302a286d49798) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78b4cd14d65eb75dae01b1db039d82ca') in 0.022638 seconds
+  Time since last request: 68.547882 seconds.
+  path: Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/decoration-spaceship.prefab
+  artifactKey: Guid(e6b727535673e5c42af1fe26fcd7556d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/decoration-spaceship.prefab using Guid(e6b727535673e5c42af1fe26fcd7556d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c78d2d145cf0946726256c8a5c321915') in 0.480562 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 32
+Number of asset objects unloaded after import = 20
 ========================================================================
 Received Import Request.
-  Time since last request: 0.813496 seconds.
-  path: Assets/Prefabs/DynamicObjects/TreeWind/TreeWind Crown.prefab
-  artifactKey: Guid(b1a97f8d8b0f4d742bc21367e8a86d8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/DynamicObjects/TreeWind/TreeWind Crown.prefab using Guid(b1a97f8d8b0f4d742bc21367e8a86d8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '247ee33b5494f586e436ee7889fc6a26') in 0.080383 seconds
+  Time since last request: 86.557759 seconds.
+  path: Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Models/decoration-helipad.fbx
+  artifactKey: Guid(a390d73afa85b324cb593d316fa0215a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Models/decoration-helipad.fbx using Guid(a390d73afa85b324cb593d316fa0215a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '232ea0b7e01d1ccf38816ada2905d251') in 0.187200 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 32
+Number of asset objects unloaded after import = 14
 ========================================================================
 Received Import Request.
-  Time since last request: 9.988746 seconds.
-  path: Assets/Prefabs/DynamicObjects/TreeWind/TreeWind Tall.prefab
-  artifactKey: Guid(f8c79f16a661c724bbfd75c828266ed5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/DynamicObjects/TreeWind/TreeWind Tall.prefab using Guid(f8c79f16a661c724bbfd75c828266ed5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '63d13d51907a5de09721d1cf319fbeca') in 0.068860 seconds
+  Time since last request: 138.431709 seconds.
+  path: Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/decoration-helipad.prefab
+  artifactKey: Guid(3136b6abadc476944b711b4b606e5fb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/decoration-helipad.prefab using Guid(3136b6abadc476944b711b4b606e5fb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f3862e5a62991c05284304b0064b1e91') in 0.084912 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 36
+Number of asset objects unloaded after import = 15
 ========================================================================
 Received Import Request.
-  Time since last request: 0.788675 seconds.
-  path: Assets/Prefabs/DynamicObjects/TreeWind/TreeWind Birch.prefab
-  artifactKey: Guid(a3c63a9d75c2a3440802ccdac1ba421a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/DynamicObjects/TreeWind/TreeWind Birch.prefab using Guid(a3c63a9d75c2a3440802ccdac1ba421a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca29ac882e2de5fd11ba77f94c001e8a') in 0.043466 seconds
+  Time since last request: 167.280147 seconds.
+  path: Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Models/ground-tutorial.fbx
+  artifactKey: Guid(7acfc494fdb49944082df7f51f34edda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Models/ground-tutorial.fbx using Guid(7acfc494fdb49944082df7f51f34edda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd31665802c42b0c4ac58714bfe74df95') in 0.057777 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 38
+Number of asset objects unloaded after import = 10
 ========================================================================
 Received Import Request.
-  Time since last request: 34.362229 seconds.
-  path: Assets/Packs/MyBlenderPack/Prefabs/treeWind-Crown.prefab
-  artifactKey: Guid(b1a97f8d8b0f4d742bc21367e8a86d8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/MyBlenderPack/Prefabs/treeWind-Crown.prefab using Guid(b1a97f8d8b0f4d742bc21367e8a86d8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '653bee107e4459ceda4df8a8be4221b4') in 0.016181 seconds
+  Time since last request: 45.072477 seconds.
+  path: Assets/Prefabs/StaticObjects/base-tutorial.prefab
+  artifactKey: Guid(5024a5ad3f479be4b9e37c71dbcf8024) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/StaticObjects/base-tutorial.prefab using Guid(5024a5ad3f479be4b9e37c71dbcf8024) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db118627a37c47729f72644f8336abbf') in 0.030481 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 32
+Number of asset objects unloaded after import = 11
 ========================================================================
 Received Import Request.
-  Time since last request: 14.847768 seconds.
-  path: Assets/Packs/MyBlenderPack/Prefabs/treeWind-CrownBig.prefab
-  artifactKey: Guid(86134fd276b15f54791302a286d49798) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/MyBlenderPack/Prefabs/treeWind-CrownBig.prefab using Guid(86134fd276b15f54791302a286d49798) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa32574b0640a965e83c7db6417543be') in 0.015446 seconds
+  Time since last request: 11.497940 seconds.
+  path: Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/decoration-house-small-egypt.prefab
+  artifactKey: Guid(5c75f1f1cd09dda498805dc7cc24475c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/decoration-house-small-egypt.prefab using Guid(5c75f1f1cd09dda498805dc7cc24475c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29ec7db34b5a8a834b1aae84dc8149ce') in 0.060098 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 32
+Number of asset objects unloaded after import = 14
 ========================================================================
 Received Import Request.
-  Time since last request: 7.223313 seconds.
-  path: Assets/Packs/MyBlenderPack/Prefabs/treeWind-CrownMedium.prefab
-  artifactKey: Guid(d6d8ed1055cd85148be4a3e5ec50e779) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/MyBlenderPack/Prefabs/treeWind-CrownMedium.prefab using Guid(d6d8ed1055cd85148be4a3e5ec50e779) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03d8b49274ded58b596bfed5a696f229') in 0.021322 seconds
+  Time since last request: 39.602406 seconds.
+  path: Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/ground-tutorial.prefab
+  artifactKey: Guid(fa26b69516f36d944bf165b94a745cc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/ground-tutorial.prefab using Guid(fa26b69516f36d944bf165b94a745cc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8bb16f8d28a4e95ca3d369497f48b5b') in 0.018698 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 32
-========================================================================
-Received Import Request.
-  Time since last request: 13.974365 seconds.
-  path: Assets/Packs/MyBlenderPack/Prefabs/treeWind-Palm.prefab
-  artifactKey: Guid(1c14ad1a6fa3fdf4391aadf0805f87e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/MyBlenderPack/Prefabs/treeWind-Palm.prefab using Guid(1c14ad1a6fa3fdf4391aadf0805f87e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cefc8b3643300ce3ebe347fc2b550a5d') in 0.050633 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 30
-========================================================================
-Received Import Request.
-  Time since last request: 105.357181 seconds.
-  path: Assets/Packs/MyBlenderPack/Prefabs/treeWind-Crown.prefab
-  artifactKey: Guid(b1a97f8d8b0f4d742bc21367e8a86d8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/MyBlenderPack/Prefabs/treeWind-Crown.prefab using Guid(b1a97f8d8b0f4d742bc21367e8a86d8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c297ebde30d458c864af88050ccdad8') in 0.016543 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 25
-========================================================================
-Received Import Request.
-  Time since last request: 1802.165182 seconds.
-  path: Assets/Packs/MyBlenderPack/Prefabs/treeWind-CrownBig.prefab
-  artifactKey: Guid(86134fd276b15f54791302a286d49798) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/MyBlenderPack/Prefabs/treeWind-CrownBig.prefab using Guid(86134fd276b15f54791302a286d49798) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1dc6fc1340380d148bad729698c8153') in 0.032307 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 25
-========================================================================
-Received Import Request.
-  Time since last request: 20.302734 seconds.
-  path: Assets/Packs/MyBlenderPack/Prefabs/treeWind-CrownMedium.prefab
-  artifactKey: Guid(d6d8ed1055cd85148be4a3e5ec50e779) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/MyBlenderPack/Prefabs/treeWind-CrownMedium.prefab using Guid(d6d8ed1055cd85148be4a3e5ec50e779) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01f5f2e84217d3da007a76f9c71d0e73') in 0.014594 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 25
-========================================================================
-Received Import Request.
-  Time since last request: 137.045739 seconds.
-  path: Assets/Packs/MyBlenderPack/Prefabs/treeWind-CrownBig.prefab
-  artifactKey: Guid(86134fd276b15f54791302a286d49798) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/MyBlenderPack/Prefabs/treeWind-CrownBig.prefab using Guid(86134fd276b15f54791302a286d49798) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b654cc161466b0ec1a3e1a807474d842') in 0.019319 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 26
-========================================================================
-Received Import Request.
-  Time since last request: 2.825319 seconds.
-  path: Assets/Packs/MyBlenderPack/Prefabs/treeWind-Crown-Big.prefab
-  artifactKey: Guid(86134fd276b15f54791302a286d49798) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/MyBlenderPack/Prefabs/treeWind-Crown-Big.prefab using Guid(86134fd276b15f54791302a286d49798) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c159a30466a2ce79d45338076a79ea81') in 0.014743 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 26
-========================================================================
-Received Import Request.
-  Time since last request: 0.723314 seconds.
-  path: Assets/Packs/MyBlenderPack/Prefabs/treeWind-CrownMedium.prefab
-  artifactKey: Guid(d6d8ed1055cd85148be4a3e5ec50e779) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/MyBlenderPack/Prefabs/treeWind-CrownMedium.prefab using Guid(d6d8ed1055cd85148be4a3e5ec50e779) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5fb47a053222d600b9ff91809ed70883') in 0.020517 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 26
-========================================================================
-Received Import Request.
-  Time since last request: 2.525873 seconds.
-  path: Assets/Packs/MyBlenderPack/Prefabs/treeWind-Crown-Medium.prefab
-  artifactKey: Guid(d6d8ed1055cd85148be4a3e5ec50e779) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/MyBlenderPack/Prefabs/treeWind-Crown-Medium.prefab using Guid(d6d8ed1055cd85148be4a3e5ec50e779) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ff63f0eb1236b1bb3582a5d199de487') in 0.020254 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 26
-========================================================================
-Received Import Request.
-  Time since last request: 1.180398 seconds.
-  path: Assets/Packs/MyBlenderPack/Prefabs/treeWind-Palm-High.prefab
-  artifactKey: Guid(888fbb61cc5ab5a41b2ac95447ac5f25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/MyBlenderPack/Prefabs/treeWind-Palm-High.prefab using Guid(888fbb61cc5ab5a41b2ac95447ac5f25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4ae6006d1cbe30563f9505172f98960') in 0.055220 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 28
-========================================================================
-Received Import Request.
-  Time since last request: 1071.303482 seconds.
-  path: Assets/Scenes/Levels/Level_4.unity
-  artifactKey: Guid(a6a1c7e875b9e0b4eaa2db049bab458c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Levels/Level_4.unity using Guid(a6a1c7e875b9e0b4eaa2db049bab458c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc3d34c40462a8a23d3a3e322ce9b7c3') in 0.001185 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 27.367948 seconds.
-  path: Assets/Packs/Low Poly Ultimate Pack/M/- Meshes_M/India_M/temple-gopuram.fbx
-  artifactKey: Guid(7b1d7998432c6f94bb53ed4d299b25be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Low Poly Ultimate Pack/M/- Meshes_M/India_M/temple-gopuram.fbx using Guid(7b1d7998432c6f94bb53ed4d299b25be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6b979e89ec6a493a3baabd1fb7d4dfb') in 0.036023 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 8
-========================================================================
-Received Import Request.
-  Time since last request: 58.999650 seconds.
-  path: Assets/Scenes/Levels/Level_6.unity
-  artifactKey: Guid(1393f75ac5728b840af3c27fc5159c85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Levels/Level_6.unity using Guid(1393f75ac5728b840af3c27fc5159c85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8862f3bf232dfcf37b7751045f36b18e') in 0.000875 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 18351.617466 seconds.
-  path: Assets/Prefabs/StaticObjects/tower-egypt.prefab
-  artifactKey: Guid(3fcca7e0abede724d931122086d94ba3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/StaticObjects/tower-egypt.prefab using Guid(3fcca7e0abede724d931122086d94ba3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96a10a4b178753be776d494cb9b917c6') in 0.214019 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 22
-========================================================================
-Received Import Request.
-  Time since last request: 21.391213 seconds.
-  path: Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/box-chest-red.prefab
-  artifactKey: Guid(b9a45f4129825b1458338fc19e80bb25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/box-chest-red.prefab using Guid(b9a45f4129825b1458338fc19e80bb25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '809586c447866fe79e4203132ce99385') in 0.230034 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 46
-========================================================================
-Received Import Request.
-  Time since last request: 15.745787 seconds.
-  path: Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/decoration-tower-egypt.prefab
-  artifactKey: Guid(3fcca7e0abede724d931122086d94ba3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/decoration-tower-egypt.prefab using Guid(3fcca7e0abede724d931122086d94ba3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4920d4f70f8ed5c68863e3f2b238b30') in 0.030110 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 22
-========================================================================
-Received Import Request.
-  Time since last request: 4787.314569 seconds.
-  path: Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/decoration-tower-scifi.prefab
-  artifactKey: Guid(a3b541350c3889d45bfc17b0c2f8653d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/decoration-tower-scifi.prefab using Guid(a3b541350c3889d45bfc17b0c2f8653d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ca394c57b55cea34700f8911d9d0978e') in 0.120812 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 25
-========================================================================
-Received Import Request.
-  Time since last request: 48.709209 seconds.
-  path: Assets/Scenes/Levels/Level_6.unity
-  artifactKey: Guid(1393f75ac5728b840af3c27fc5159c85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Levels/Level_6.unity using Guid(1393f75ac5728b840af3c27fc5159c85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'acd8c980cc335534132060e618ca7b13') in 0.001404 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 1.410558 seconds.
-  path: Assets/Scenes/Levels/Level_5.unity
-  artifactKey: Guid(54bfd7d30235af44b937483e61b96a8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Levels/Level_5.unity using Guid(54bfd7d30235af44b937483e61b96a8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ebef7c36f24ad79465f06bfa833cfb2e') in 0.000678 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 104.983455 seconds.
-  path: Assets/Scenes/Levels/Level_4.unity
-  artifactKey: Guid(a6a1c7e875b9e0b4eaa2db049bab458c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Levels/Level_4.unity using Guid(a6a1c7e875b9e0b4eaa2db049bab458c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5f6d64e8d7b2b642e7b4d218afe7a36') in 0.001147 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
+Number of asset objects unloaded after import = 11
