@@ -15,7 +15,7 @@ D:/VirtualReality Workspace Unity3D/AI-In-game-Assistant
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-57289
+53706
 Successfully changed project path to: D:/VirtualReality Workspace Unity3D/AI-In-game-Assistant
 D:/VirtualReality Workspace Unity3D/AI-In-game-Assistant
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,12 +49,12 @@ D:/VirtualReality Workspace Unity3D/AI-In-game-Assistant
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [12952] Host "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 295452070 [EditorId] 295452070 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-CNTC02H) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [12276] Host "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 4068001411 [EditorId] 4068001411 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-CNTC02H) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [12952] Host "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 295452070 [EditorId] 295452070 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-CNTC02H) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [12276] Host "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 4068001411 [EditorId] 4068001411 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-CNTC02H) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 7 workers.
-Refreshing native plugins compatible for Editor in 1356.80 ms, found 16 plugins.
+Refreshing native plugins compatible for Editor in 40.01 ms, found 16 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.9f1 (ea401c316338)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity 2022.3.9f1/Editor/Data/Resources/UnitySubsystems
@@ -70,44 +70,44 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity 2022.3.9f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity 2022.3.9f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity 2022.3.9f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56268
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56460
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity 2022.3.9f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.015796 seconds.
-- Loaded All Assemblies, in  0.512 seconds
+Registered in 0.010155 seconds.
+- Loaded All Assemblies, in  0.603 seconds
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.377 seconds
-Domain Reload Profiling: 887ms
-	BeginReloadAssembly (222ms)
+- Finished resetting the current domain, in  0.476 seconds
+Domain Reload Profiling: 1076ms
+	BeginReloadAssembly (195ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (39ms)
-	RebuildNativeTypeToScriptingClass (12ms)
-	initialDomainReloadingComplete (77ms)
-	LoadAllAssembliesAndSetupDomain (158ms)
-		LoadAssemblies (219ms)
+		CreateAndSetChildDomain (2ms)
+	RebuildCommonClasses (58ms)
+	RebuildNativeTypeToScriptingClass (19ms)
+	initialDomainReloadingComplete (93ms)
+	LoadAllAssembliesAndSetupDomain (235ms)
+		LoadAssemblies (191ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (156ms)
-			TypeCache.Refresh (154ms)
-				TypeCache.ScanAssembly (139ms)
+		AnalyzeDomain (231ms)
+			TypeCache.Refresh (229ms)
+				TypeCache.ScanAssembly (207ms)
 			ScanForSourceGeneratedMonoScriptInfo (0ms)
 			ResolveRequiredComponents (1ms)
-	FinalizeReload (377ms)
+	FinalizeReload (476ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (311ms)
+		SetupLoadedEditorAssemblies (377ms)
 			LogAssemblyErrors (0ms)
 			InitializePlatformSupportModulesInManaged (15ms)
-			SetLoadedEditorAssemblies (9ms)
+			SetLoadedEditorAssemblies (14ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (3ms)
-			ProcessInitializeOnLoadAttributes (155ms)
-			ProcessInitializeOnLoadMethodAttributes (129ms)
+			ProcessInitializeOnLoadAttributes (258ms)
+			ProcessInitializeOnLoadMethodAttributes (87ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -115,11 +115,11 @@ Domain Reload Profiling: 887ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  3.502 seconds
-Refreshing native plugins compatible for Editor in 11.77 ms, found 16 plugins.
+- Loaded All Assemblies, in  1.489 seconds
+Refreshing native plugins compatible for Editor in 16.89 ms, found 16 plugins.
 Native extension for WindowsStandalone target not found
 Getting credential for https://api.nuget.org/v3/index.json
-Getting installed packages took 164 ms
+Getting installed packages took 109 ms
 Already imported libs: UnityEngine.UI, UnityEngine, UnityEngine.AIModule, UnityEngine.ARModule, UnityEngine.AccessibilityModule, UnityEngine.AndroidJNIModule, UnityEngine.AnimationModule, UnityEngine.AssetBundleModule, UnityEngine.AudioModule, UnityEngine.ClothModule, UnityEngine.ClusterInputModule, UnityEngine.ClusterRendererModule, UnityEngine.ContentLoadModule, UnityEngine.CoreModule, UnityEngine.CrashReportingModule, UnityEngine.DSPGraphModule, UnityEngine.DirectorModule, UnityEngine.GIModule, UnityEngine.GameCenterModule, UnityEngine.GridModule, UnityEngine.HotReloadModule, UnityEngine.IMGUIModule, UnityEngine.ImageConversionModule, UnityEngine.InputModule, UnityEngine.InputLegacyModule, UnityEngine.JSONSerializeModule, UnityEngine.LocalizationModule, UnityEngine.NVIDIAModule, UnityEngine.ParticleSystemModule, UnityEngine.PerformanceReportingModule, UnityEngine.PhysicsModule, UnityEngine.Physics2DModule, UnityEngine.ProfilerModule, UnityEngine.PropertiesModule, UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule, UnityEngine.ScreenCaptureModule, UnityEngine.SharedInternalsModule, UnityEngine.SpriteMaskModule, UnityEngine.SpriteShapeModule, UnityEngine.StreamingModule, UnityEngine.SubstanceModule, UnityEngine.SubsystemsModule, UnityEngine.TLSModule, UnityEngine.TerrainModule, UnityEngine.TerrainPhysicsModule, UnityEngine.TextCoreFontEngineModule, UnityEngine.TextCoreTextEngineModule, UnityEngine.TextRenderingModule, UnityEngine.TilemapModule, UnityEngine.UIModule, UnityEngine.UIElementsModule, UnityEngine.UmbraModule, UnityEngine.UnityAnalyticsModule, UnityEngine.UnityAnalyticsCommonModule, UnityEngine.UnityConnectModule, UnityEngine.UnityCurlModule, UnityEngine.UnityTestProtocolModule, UnityEngine.UnityWebRequestModule, UnityEngine.UnityWebRequestAssetBundleModule, UnityEngine.UnityWebRequestAudioModule, UnityEngine.UnityWebRequestTextureModule, UnityEngine.UnityWebRequestWWWModule, UnityEngine.VFXModule, UnityEngine.VRModule, UnityEngine.VehiclesModule, UnityEngine.VideoModule, UnityEngine.VirtualTexturingModule, UnityEngine.WindModule, UnityEngine.XRModule, Unity.VisualScripting.Antlr3.Runtime, netstandard, Microsoft.Win32.Primitives, System.AppContext, System.Buffers, System.Collections.Concurrent, System.Collections, System.Collections.NonGeneric, System.Collections.Specialized, System.ComponentModel, System.ComponentModel.EventBasedAsync, System.ComponentModel.Primitives, System.ComponentModel.TypeConverter, System.Console, System.Data.Common, System.Diagnostics.Contracts, System.Diagnostics.Debug, System.Diagnostics.FileVersionInfo, System.Diagnostics.Process, System.Diagnostics.StackTrace, System.Diagnostics.TextWriterTraceListener, System.Diagnostics.Tools, System.Diagnostics.TraceSource, System.Diagnostics.Tracing, System.Drawing.Primitives, System.Dynamic.Runtime, System.Globalization.Calendars, System.Globalization, System.Globalization.Extensions, System.IO.Compression, System.IO.Compression.ZipFile, System.IO, System.IO.FileSystem, System.IO.FileSystem.DriveInfo, System.IO.FileSystem.Primitives, System.IO.FileSystem.Watcher, System.IO.IsolatedStorage, System.IO.MemoryMappedFiles, System.IO.Pipes, System.IO.UnmanagedMemoryStream, System.Linq, System.Linq.Expressions, System.Linq.Parallel, System.Linq.Queryable, System.Memory, System.Net.Http, System.Net.NameResolution, System.Net.NetworkInformation, System.Net.Ping, System.Net.Primitives, System.Net.Requests, System.Net.Security, System.Net.Sockets, System.Net.WebHeaderCollection, System.Net.WebSockets.Client, System.Net.WebSockets, System.Numerics.Vectors, System.ObjectModel, System.Reflection.DispatchProxy, System.Reflection, System.Reflection.Emit, System.Reflection.Emit.ILGeneration, System.Reflection.Emit.Lightweight, System.Reflection.Extensions, System.Reflection.Primitives, System.Resources.Reader, System.Resources.ResourceManager, System.Resources.Writer, System.Runtime.CompilerServices.VisualC, System.Runtime, System.Runtime.Extensions, System.Runtime.Handles, System.Runtime.InteropServices, System.Runtime.InteropServices.RuntimeInformation, System.Runtime.Numerics, System.Runtime.Serialization.Formatters, System.Runtime.Serialization.Json, System.Runtime.Serialization.Primitives, System.Runtime.Serialization.Xml, System.Security.Claims, System.Security.Cryptography.Algorithms, System.Security.Cryptography.Csp, System.Security.Cryptography.Encoding, System.Security.Cryptography.Primitives, System.Security.Cryptography.X509Certificates, System.Security.Principal, System.Security.SecureString, System.Text.Encoding, System.Text.Encoding.Extensions, System.Text.RegularExpressions, System.Threading, System.Threading.Overlapped, System.Threading.Tasks, System.Threading.Tasks.Extensions, System.Threading.Tasks.Parallel, System.Threading.Thread, System.Threading.ThreadPool, System.Threading.Timer, System.ValueTuple, System.Xml.ReaderWriter, System.Xml.XDocument, System.Xml.XmlDocument, System.Xml.XmlSerializer, System.Xml.XPath, System.Xml.XPath.XDocument, System.Runtime.InteropServices.WindowsRuntime, mscorlib, System.ComponentModel.Composition, System.Core, System.Data, System, System.Drawing, System.IO.Compression.FileSystem, System.Net, System.Numerics, System.Runtime.Serialization, System.ServiceModel.Web, System.Transactions, System.Web, System.Windows, System.Xml, System.Xml.Linq, System.Xml.Serialization, Unity.VisualScripting.Core, Unity.InputSystem, Unity.RenderPipelines.Core.Runtime, Unity.RenderPipeline.Universal.ShaderLibrary, Unity.Mathematics, Unity.Burst, Unity.ProBuilder.Poly2Tri, Unity.ProBuilder.KdTree, Unity.RenderPipelines.Universal.Runtime, nunit.framework, Unity.Burst.Unsafe, Inworld.AI, Unity.TextMeshPro, Unity.Timeline, glTFast.dots, Unity.VisualScripting.Flow, UnityWebSocket.Runtime, Inworld.RPM, Unity.RenderPipelines.Core.ShaderLibrary, Inworld.Samples, Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary, InworldAI.NDK, Unity.ProBuilder, Unity.TerrainTools, Inworld.Assets, Unity.Polybrush, Unity.InputSystem.ForUI, Inworld.Editor, glTFast, Unity.RenderPipelines.Universal.Shaders, Unity.VisualScripting.State, Cinemachine, Unity.ProGrids, NETStandard.Library, Microsoft.NETCore.Platforms, Microsoft.CSharp
 Already imported editor only libraries: System.CodeDom
 Is package 'Microsoft.Bcl.AsyncInterfaces' already imported? False
@@ -136,53 +136,53 @@ Is package 'Newtonsoft.Json' already imported? False
 Is package 'OpenAI' already imported? False
 Is package 'System.Runtime.CompilerServices.Unsafe' already imported? False
 No packages need restoring.
-Restoring packages took 343 ms
+Restoring packages took 478 ms
 Package Manager log level set to [2]
 [Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  4.587 seconds
-Domain Reload Profiling: 8085ms
-	BeginReloadAssembly (203ms)
+- Finished resetting the current domain, in  2.331 seconds
+Domain Reload Profiling: 3817ms
+	BeginReloadAssembly (262ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (6ms)
+		DisableScriptedObjects (9ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (30ms)
-	RebuildCommonClasses (47ms)
-	RebuildNativeTypeToScriptingClass (14ms)
-	initialDomainReloadingComplete (68ms)
-	LoadAllAssembliesAndSetupDomain (3166ms)
-		LoadAssemblies (2801ms)
+		CreateAndSetChildDomain (39ms)
+	RebuildCommonClasses (59ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (69ms)
+	LoadAllAssembliesAndSetupDomain (1079ms)
+		LoadAssemblies (708ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (481ms)
-			TypeCache.Refresh (403ms)
-				TypeCache.ScanAssembly (368ms)
-			ScanForSourceGeneratedMonoScriptInfo (52ms)
-			ResolveRequiredComponents (22ms)
-	FinalizeReload (4588ms)
+		AnalyzeDomain (525ms)
+			TypeCache.Refresh (438ms)
+				TypeCache.ScanAssembly (403ms)
+			ScanForSourceGeneratedMonoScriptInfo (56ms)
+			ResolveRequiredComponents (28ms)
+	FinalizeReload (2332ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (4330ms)
+		SetupLoadedEditorAssemblies (1987ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (8ms)
-			SetLoadedEditorAssemblies (8ms)
+			InitializePlatformSupportModulesInManaged (10ms)
+			SetLoadedEditorAssemblies (10ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (131ms)
-			ProcessInitializeOnLoadAttributes (4089ms)
-			ProcessInitializeOnLoadMethodAttributes (83ms)
-			AfterProcessingInitializeOnLoad (10ms)
+			BeforeProcessingInitializeOnLoad (183ms)
+			ProcessInitializeOnLoadAttributes (1652ms)
+			ProcessInitializeOnLoadMethodAttributes (115ms)
+			AfterProcessingInitializeOnLoad (15ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (16ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
-Refreshing native plugins compatible for Editor in 13.41 ms, found 16 plugins.
+		AwakeInstancesAfterBackupRestoration (19ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.11 seconds
+Refreshing native plugins compatible for Editor in 17.96 ms, found 16 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 6905 Unused Serialized files (Serialized files now loaded: 0)
 Unloading 188 unused Assets / (1.8 MB). Loaded Objects now: 7333.
 Memory consumption went from 298.2 MB to 296.4 MB.
-Total: 11.440400 ms (FindLiveObjects: 0.805800 ms CreateObjectMapping: 1.126200 ms MarkObjects: 8.330500 ms  DeleteObjects: 1.176600 ms)
+Total: 9.910100 ms (FindLiveObjects: 0.813800 ms CreateObjectMapping: 1.006800 ms MarkObjects: 7.195200 ms  DeleteObjects: 0.893100 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -200,73 +200,161 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 11718.115122 seconds.
-  path: Assets/Animations/Spaceship/scifi-spaceship-cruiser.controller
-  artifactKey: Guid(077e475e196386b41acd77e78fe4f67e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animations/Spaceship/scifi-spaceship-cruiser.controller using Guid(077e475e196386b41acd77e78fe4f67e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26d99747e36b4bae2040f6999e4eb7de') in 0.060859 seconds
+  Time since last request: 210635.036533 seconds.
+  path: Assets/Scenes/Levels/Level_0.unity
+  artifactKey: Guid(0bf58a0896010be46a6f18e312e5b343) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Levels/Level_0.unity using Guid(0bf58a0896010be46a6f18e312e5b343) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '843d059485e8f1e880c8ac079d4758bb') in 0.022781 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 4
+Number of asset objects unloaded after import = 0
 ========================================================================
 Received Import Request.
-  Time since last request: 5.759552 seconds.
-  path: Assets/Animations/Spaceship/Flying.anim
-  artifactKey: Guid(42c7b94a248941c459cdb2fc5a414bed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Animations/Spaceship/Flying.anim using Guid(42c7b94a248941c459cdb2fc5a414bed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd01a8defb87855e7a56ccdcdcdf6d5c7') in 0.001410 seconds
+  Time since last request: 98.130474 seconds.
+  path: Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/decoration-pillar-stripe.prefab
+  artifactKey: Guid(a4102ed27ccf5e64f8dcef00cd23d7aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/decoration-pillar-stripe.prefab using Guid(a4102ed27ccf5e64f8dcef00cd23d7aa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '497092910a0845394f67c8eaf367a558') in 0.418828 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
+Number of asset objects unloaded after import = 11
 ========================================================================
 Received Import Request.
-  Time since last request: 68.547882 seconds.
-  path: Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/decoration-spaceship.prefab
-  artifactKey: Guid(e6b727535673e5c42af1fe26fcd7556d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/decoration-spaceship.prefab using Guid(e6b727535673e5c42af1fe26fcd7556d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c78d2d145cf0946726256c8a5c321915') in 0.480562 seconds
+  Time since last request: 132.181185 seconds.
+  path: Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/decoration-corridor-stripe.prefab
+  artifactKey: Guid(528899baf23f1ea4f969f4fc7e30c835) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/decoration-corridor-stripe.prefab using Guid(528899baf23f1ea4f969f4fc7e30c835) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3dc779abf960f1aeb331c2b0f1b760c2') in 0.037773 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 20
+Number of asset objects unloaded after import = 11
 ========================================================================
 Received Import Request.
-  Time since last request: 86.557759 seconds.
-  path: Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Models/decoration-helipad.fbx
-  artifactKey: Guid(a390d73afa85b324cb593d316fa0215a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Models/decoration-helipad.fbx using Guid(a390d73afa85b324cb593d316fa0215a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '232ea0b7e01d1ccf38816ada2905d251') in 0.187200 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 14
-========================================================================
-Received Import Request.
-  Time since last request: 138.431709 seconds.
-  path: Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/decoration-helipad.prefab
-  artifactKey: Guid(3136b6abadc476944b711b4b606e5fb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/decoration-helipad.prefab using Guid(3136b6abadc476944b711b4b606e5fb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f3862e5a62991c05284304b0064b1e91') in 0.084912 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 15
-========================================================================
-Received Import Request.
-  Time since last request: 167.280147 seconds.
-  path: Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Models/ground-tutorial.fbx
-  artifactKey: Guid(7acfc494fdb49944082df7f51f34edda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Models/ground-tutorial.fbx using Guid(7acfc494fdb49944082df7f51f34edda) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd31665802c42b0c4ac58714bfe74df95') in 0.057777 seconds
+  Time since last request: 106.139523 seconds.
+  path: Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/decoration-pillar.prefab
+  artifactKey: Guid(2b8d3da447130e04cbdc4aa1f0be9212) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/decoration-pillar.prefab using Guid(2b8d3da447130e04cbdc4aa1f0be9212) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a5098c387cafe806bdfc387038bb9c5') in 0.014872 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 10
 ========================================================================
 Received Import Request.
-  Time since last request: 45.072477 seconds.
-  path: Assets/Prefabs/StaticObjects/base-tutorial.prefab
-  artifactKey: Guid(5024a5ad3f479be4b9e37c71dbcf8024) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/StaticObjects/base-tutorial.prefab using Guid(5024a5ad3f479be4b9e37c71dbcf8024) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db118627a37c47729f72644f8336abbf') in 0.030481 seconds
+  Time since last request: 336.580972 seconds.
+  path: Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/door-building.prefab
+  artifactKey: Guid(6364ceb847405b74ca7b4ae477e06ec7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/door-building.prefab using Guid(6364ceb847405b74ca7b4ae477e06ec7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '962d8c49e7261aa5a2777ac13ca7cc23') in 0.112503 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 11
+Number of asset objects unloaded after import = 27
 ========================================================================
 Received Import Request.
-  Time since last request: 11.497940 seconds.
-  path: Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/decoration-house-small-egypt.prefab
-  artifactKey: Guid(5c75f1f1cd09dda498805dc7cc24475c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/decoration-house-small-egypt.prefab using Guid(5c75f1f1cd09dda498805dc7cc24475c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29ec7db34b5a8a834b1aae84dc8149ce') in 0.060098 seconds
+  Time since last request: 160.732008 seconds.
+  path: Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/decoration-window-big.prefab
+  artifactKey: Guid(f0b8d84d338e9b947bdae43d409653d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/decoration-window-big.prefab using Guid(f0b8d84d338e9b947bdae43d409653d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4700b5485fe92b9f3db379ffb2d3718') in 0.106947 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 13
+========================================================================
+Received Import Request.
+  Time since last request: 155.721646 seconds.
+  path: Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/decoration-corridor-window.prefab
+  artifactKey: Guid(94b9b9307cc26224abbaef05cec0e516) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/decoration-corridor-window.prefab using Guid(94b9b9307cc26224abbaef05cec0e516) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '120dc0d0a16ee959f616501637632a9f') in 0.033163 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 14
 ========================================================================
 Received Import Request.
-  Time since last request: 39.602406 seconds.
-  path: Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/ground-tutorial.prefab
-  artifactKey: Guid(fa26b69516f36d944bf165b94a745cc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/ground-tutorial.prefab using Guid(fa26b69516f36d944bf165b94a745cc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8bb16f8d28a4e95ca3d369497f48b5b') in 0.018698 seconds
+  Time since last request: 71.695138 seconds.
+  path: Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/decoration-stairs.prefab
+  artifactKey: Guid(57c803081034a074596b1793d3a32e0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/decoration-stairs.prefab using Guid(57c803081034a074596b1793d3a32e0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '98533dbe32cae2115684c06d096d6f15') in 0.014131 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 116.320560 seconds.
+  path: Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/ground-building.prefab
+  artifactKey: Guid(6f9c5b0f484f6ea41be9fbf14a7f7600) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/ground-building.prefab using Guid(6f9c5b0f484f6ea41be9fbf14a7f7600) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '10dd44835b48911a2bda602bf413b861') in 0.014460 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 104.386277 seconds.
+  path: Assets/Scenes/Levels/Level_0.unity
+  artifactKey: Guid(0bf58a0896010be46a6f18e312e5b343) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Levels/Level_0.unity using Guid(0bf58a0896010be46a6f18e312e5b343) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c057de041e6e0aff8a0fdf468812bcde') in 0.000873 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 90.385030 seconds.
+  path: Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/gate-scifi.prefab
+  artifactKey: Guid(34b12d0995bf8484aa643f7380b7b2d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/gate-scifi.prefab using Guid(34b12d0995bf8484aa643f7380b7b2d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '16f2b4705f76ebf2434568d2acb3fc22') in 0.012555 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 123.306088 seconds.
+  path: Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/wall-scifi-1side.prefab
+  artifactKey: Guid(205209aa55d3c52469c0f75fa58838bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/wall-scifi-1side.prefab using Guid(205209aa55d3c52469c0f75fa58838bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a2e05909d519f98af3bf2bdedb6d37e') in 0.014991 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 66.648616 seconds.
+  path: Assets/Packs/Low Poly Ultimate Pack/M/- Meshes_M/Scifi_M/scifi-wall-stripe.fbx
+  artifactKey: Guid(4ca2164c708e8db4c953c34957edc816) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packs/Low Poly Ultimate Pack/M/- Meshes_M/Scifi_M/scifi-wall-stripe.fbx using Guid(4ca2164c708e8db4c953c34957edc816) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fcc7fa33480fd70f0a4473b4f6f406b8') in 0.047598 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 450.517495 seconds.
+  path: Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Models/tree-palm-big.fbx
+  artifactKey: Guid(67cf0299fae3a854c8f7960fa0e826ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Models/tree-palm-big.fbx using Guid(67cf0299fae3a854c8f7960fa0e826ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '56fbd1505a32e19b0912f1d527b681c7') in 0.119819 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 10
+========================================================================
+Received Import Request.
+  Time since last request: 38.946297 seconds.
+  path: Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/wall-scifi-stripe.prefab
+  artifactKey: Guid(963c47f93e6d3f747aa2f6838406b53c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/wall-scifi-stripe.prefab using Guid(963c47f93e6d3f747aa2f6838406b53c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af30fc1e56067e7bf52492c6b4d46878') in 0.014540 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 99.719265 seconds.
+  path: Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/wall-scifi-stripe.prefab
+  artifactKey: Guid(963c47f93e6d3f747aa2f6838406b53c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packs/Blender-Assets-AI-Ingame-Assistant Pack/Prefabs/wall-scifi-stripe.prefab using Guid(963c47f93e6d3f747aa2f6838406b53c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6905e66bf67179e0dbfef713dbdc2215') in 0.015241 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 105.193129 seconds.
+  path: Assets/Scenes/Levels/MainMenu.unity
+  artifactKey: Guid(a4db60543b5ecea43b61e472fec06f9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Levels/MainMenu.unity using Guid(a4db60543b5ecea43b61e472fec06f9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92b40245369c0f3521c4cb8ea51cf760') in 0.017987 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 12.706482 seconds.
+  path: Assets/Scenes/Levels/Level_0.unity
+  artifactKey: Guid(0bf58a0896010be46a6f18e312e5b343) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Levels/Level_0.unity using Guid(0bf58a0896010be46a6f18e312e5b343) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6fbb0744f20912e038e1be0bcbc15c4') in 0.000697 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 16.883823 seconds.
+  path: Assets/Scenes/Levels/MainMenu.unity
+  artifactKey: Guid(a4db60543b5ecea43b61e472fec06f9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Levels/MainMenu.unity using Guid(a4db60543b5ecea43b61e472fec06f9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '605064b60a38d37c8275ae480efea44d') in 0.000701 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 219.213879 seconds.
+  path: Assets/Scenes/Levels/MainMenu.unity
+  artifactKey: Guid(a4db60543b5ecea43b61e472fec06f9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Levels/MainMenu.unity using Guid(a4db60543b5ecea43b61e472fec06f9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '898c7265d3d6f8748492746415da2b32') in 0.001084 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
