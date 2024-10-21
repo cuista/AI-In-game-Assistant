@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class CloneCharacter : MonoBehaviour, ICharacter
 {
     private int health;
+    public float timeBetweenDamage = 2f;  // Amount of time for the clone automatic damage
+    private float damageTimer = 0f;
+
     [SerializeField] private Slider healthBar;
     private float barValueDamage;
 
@@ -41,6 +44,19 @@ public class CloneCharacter : MonoBehaviour, ICharacter
         if(_camera != null)
         {
             healthBar.transform.rotation = Quaternion.LookRotation(healthBar.transform.position - _camera.transform.position);
+        }
+
+        // Timer of clone automatic damage
+        damageTimer += Time.deltaTime;
+
+        // Clone automatic damage triggered
+        if (damageTimer >= timeBetweenDamage)
+        {
+            // Not used Hurt method to avoid adding explotion effect for automatic damage
+            health--;
+            healthBar.value -= barValueDamage * 1;
+
+            damageTimer = 0f;  // Reset timer
         }
 
         if (health <= 0)

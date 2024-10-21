@@ -114,6 +114,376 @@
             The Openai-Version used to generate this response, as reported in the response headers.  This may be useful for troubleshooting or when contacting OpenAI support in reference to a specific request.
             </summary>
         </member>
+        <member name="T:OpenAI_API.Audio.AudioRequest">
+            <summary>
+            Parameters for requests made by the <see cref="T:OpenAI_API.Audio.TranscriptionEndpoint"/>.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Audio.AudioRequest.Model">
+            <summary>
+            The model to use for this request.  Currently only <see cref="P:OpenAI_API.Models.Model.Whisper1"/> is supported.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Audio.AudioRequest.Prompt">
+            <summary>
+            An optional text to guide the model's style or continue a previous audio segment. The prompt should match the audio language for transcriptions, or English for translations.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Audio.AudioRequest.Language">
+            <summary>
+            The language of the input audio. Supplying the input language in ISO-639-1 format will improve accuracy and latency.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Audio.AudioRequest.ResponseFormat">
+            <summary>
+            The format of the transcript output, should be one of the options in <see cref="T:OpenAI_API.Audio.AudioRequest.ResponseFormats"/>.  See <seealso href="https://platform.openai.com/docs/api-reference/audio/createTranscription#audio-createtranscription-response_format"/>
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Audio.AudioRequest.Temperature">
+            <summary>
+            The sampling temperature, between 0 and 1. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. If set to 0, the model will use log probability to automatically increase the temperature until certain thresholds are hit.
+            </summary>
+        </member>
+        <member name="T:OpenAI_API.Audio.AudioRequest.ResponseFormats">
+            <summary>
+            The format of the transcript output.  See <seealso href="https://platform.openai.com/docs/api-reference/audio/createTranscription#audio-createtranscription-response_format"/>
+            </summary>
+        </member>
+        <member name="T:OpenAI_API.Audio.AudioResultVerbose">
+            <summary>
+            Represents a verbose_json output from the OpenAI Transcribe or Translate endpoints.
+            </summary>
+        </member>
+        <member name="T:OpenAI_API.Audio.ITextToSpeechEndpoint">
+            <summary>
+            The Endpoint for the Text to Speech API.  This allows you to generate audio from text.  See <seealso href="https://platform.openai.com/docs/guides/text-to-speech"/>
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Audio.ITextToSpeechEndpoint.DefaultTTSRequestArgs">
+            <summary>
+            This allows you to set default parameters for every request, for example to set a default voice or model.  For every request, if you do not have a parameter set on the request but do have it set here as a default, the request will automatically pick up the default value.
+            </summary>
+        </member>
+        <member name="M:OpenAI_API.Audio.ITextToSpeechEndpoint.GetSpeechAsStreamAsync(OpenAI_API.Audio.TextToSpeechRequest)">
+            <summary>
+            Calls the API to create speech from text, and returns the raw stream of the audio file.
+            </summary>
+            <param name="request">The text to speech request to submit to the API</param>
+            <returns>A stream of the audio file in the requested format.</returns>
+        </member>
+        <member name="M:OpenAI_API.Audio.ITextToSpeechEndpoint.GetSpeechAsStreamAsync(System.String,System.String,System.Nullable{System.Double},System.String,OpenAI_API.Models.Model)">
+            <summary>
+            Calls the API to create speech from text, and returns the raw stream of the audio file.
+            </summary>
+            <param name="input">The text to generate audio for. The maximum length is 4096 characters.</param>
+            <param name="voice">The voice to use when generating the audio. Supported voices can be found in <see cref="T:OpenAI_API.Audio.TextToSpeechRequest.Voices"/>.</param>
+            <param name="speed">The speed of the generated audio. Select a value from 0.25 to 4.0. 1.0 is the default.</param>
+            <param name="responseFormat">The default response format is "mp3", but other formats are available in <see cref="T:OpenAI_API.Audio.TextToSpeechRequest.ResponseFormats"/>.  See <seealso href="https://platform.openai.com/docs/guides/text-to-speech/supported-output-formats"/></param>
+            <param name="model">TTS is an AI model that converts text to natural sounding spoken text. OpenAI offers two different model variates, <see cref="P:OpenAI_API.Models.Model.TTS_Speed"/> is optimized for real time text to speech use cases and <see cref="P:OpenAI_API.Models.Model.TTS_HD"/> is optimized for quality.</param>
+            <returns>A stream of the audio file in the requested format.</returns>
+        </member>
+        <member name="M:OpenAI_API.Audio.ITextToSpeechEndpoint.SaveSpeechToFileAsync(OpenAI_API.Audio.TextToSpeechRequest,System.String)">
+            <summary>
+            Calls the API to create speech from text, and saves the audio file to disk.
+            </summary>
+            <param name="request">The text to speech request to submit to the API</param>
+            <param name="localPath">The local path to save the audio file to.</param>
+            <returns>A <see cref="T:System.IO.FileInfo"/> representing the saved speech file.</returns>
+        </member>
+        <member name="M:OpenAI_API.Audio.ITextToSpeechEndpoint.SaveSpeechToFileAsync(System.String,System.String,System.String,System.Nullable{System.Double},System.String,OpenAI_API.Models.Model)">
+            <summary>
+            Calls the API to create speech from text, and saves the audio file to disk.
+            </summary>
+            <param name="input">The text to generate audio for. The maximum length is 4096 characters.</param>
+            <param name="localPath">The local path to save the audio file to.</param>
+            <param name="voice">The voice to use when generating the audio. Supported voices can be found in <see cref="T:OpenAI_API.Audio.TextToSpeechRequest.Voices"/>.</param>
+            <param name="speed">The speed of the generated audio. Select a value from 0.25 to 4.0. 1.0 is the default.</param>
+            <param name="responseFormat">The default response format is "mp3", but other formats are available in <see cref="T:OpenAI_API.Audio.TextToSpeechRequest.ResponseFormats"/>.  See <seealso href="https://platform.openai.com/docs/guides/text-to-speech/supported-output-formats"/></param>
+            <param name="model">TTS is an AI model that converts text to natural sounding spoken text. OpenAI offers two different model variates, <see cref="P:OpenAI_API.Models.Model.TTS_Speed"/> is optimized for real time text to speech use cases and <see cref="P:OpenAI_API.Models.Model.TTS_HD"/> is optimized for quality.</param>
+            <returns>A stream of the audio file in the requested format.</returns>
+        </member>
+        <member name="T:OpenAI_API.Audio.ITranscriptionEndpoint">
+            <summary>
+            Transcribe audio into text, with optional translation into English.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Audio.ITranscriptionEndpoint.DefaultRequestArgs">
+            <summary>
+            This allows you to set default parameters for every request, for example to set a default language.  For every request, if you do not have a parameter set on the request but do have it set here as a default, the request will automatically pick up the default value.
+            </summary>
+        </member>
+        <member name="M:OpenAI_API.Audio.ITranscriptionEndpoint.GetAsFormatAsync(System.IO.Stream,System.String,System.String,System.String,System.String,System.Nullable{System.Double})">
+            <summary>
+            Gets the transcription of the audio stream, in the specified format
+            </summary>
+            <param name="audioStream">The stream containing audio data, in one of these formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm.</param>
+            <param name="filename">The name of the audio file in the stream.  This does not have to be real, but it must contain the correct file extension.  For example, "file.mp3" if you are supplying an mp3 audio stream.</param>
+            <param name="responseFormat">The format of the response.  Suggested value are <see cref="F:OpenAI_API.Audio.AudioRequest.ResponseFormats.SRT"/> or <see cref="F:OpenAI_API.Audio.AudioRequest.ResponseFormats.VTT"/>.  For text and Json formats, try <see cref="M:OpenAI_API.Audio.ITranscriptionEndpoint.GetTextAsync(System.IO.Stream,System.String,System.String,System.String,System.Nullable{System.Double})"/> or <see cref="M:OpenAI_API.Audio.ITranscriptionEndpoint.GetWithDetailsAsync(System.IO.Stream,System.String,System.String,System.String,System.Nullable{System.Double})"/> instead.</param>
+            <param name="language">The language of the input audio. Supplying the input language in ISO-639-1 format will improve accuracy and latency.</param>
+            <param name="prompt">An optional text to guide the model's style or continue a previous audio segment. The prompt should match the audio language.</param>
+            <param name="temperature">The sampling temperature, between 0 and 1. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. If set to 0, the model will use log probability to automatically increase the temperature until certain thresholds are hit.</param>
+            <returns>A string of the transcribed text</returns>
+        </member>
+        <member name="M:OpenAI_API.Audio.ITranscriptionEndpoint.GetAsFormatAsync(System.String,System.String,System.String,System.String,System.Nullable{System.Double})">
+            <summary>
+            Gets the transcription of the audio file, in the specified format
+            </summary>
+            <param name="audioFilePath">The local path to the audio file, in one of these formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm.</param>
+            <param name="responseFormat">The format of the response.  Suggested value are <see cref="F:OpenAI_API.Audio.AudioRequest.ResponseFormats.SRT"/> or <see cref="F:OpenAI_API.Audio.AudioRequest.ResponseFormats.VTT"/>.  For text and Json formats, try <see cref="M:OpenAI_API.Audio.ITranscriptionEndpoint.GetTextAsync(System.String,System.String,System.String,System.Nullable{System.Double})"/> or <see cref="M:OpenAI_API.Audio.ITranscriptionEndpoint.GetWithDetailsAsync(System.String,System.String,System.String,System.Nullable{System.Double})"/> instead.</param>
+            <param name="language">The language of the input audio. Supplying the input language in ISO-639-1 format will improve accuracy and latency.</param>
+            <param name="prompt">An optional text to guide the model's style or continue a previous audio segment. The prompt should match the audio language.</param>
+            <param name="temperature">The sampling temperature, between 0 and 1. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. If set to 0, the model will use log probability to automatically increase the temperature until certain thresholds are hit.</param>
+            <returns>A string of the transcribed text</returns>
+        </member>
+        <member name="M:OpenAI_API.Audio.ITranscriptionEndpoint.GetWithDetailsAsync(System.IO.Stream,System.String,System.String,System.String,System.Nullable{System.Double})">
+            <summary>
+            Gets the transcription of the audio stream, with full metadata
+            </summary>
+            <param name="audioStream">The stream containing audio data, in one of these formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm.</param>
+            <param name="filename">The name of the audio file in the stream.  This does not have to be real, but it must contain the correct file extension.  For example, "file.mp3" if you are supplying an mp3 audio stream.</param>
+            <param name="language">The language of the input audio. Supplying the input language in ISO-639-1 format will improve accuracy and latency.</param>
+            <param name="prompt">An optional text to guide the model's style or continue a previous audio segment. The prompt should match the audio language.</param>
+            <param name="temperature">The sampling temperature, between 0 and 1. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. If set to 0, the model will use log probability to automatically increase the temperature until certain thresholds are hit.</param>
+            <returns>A string of the transcribed text</returns>
+        </member>
+        <member name="M:OpenAI_API.Audio.ITranscriptionEndpoint.GetWithDetailsAsync(System.String,System.String,System.String,System.Nullable{System.Double})">
+            <summary>
+            Gets the transcription of the audio file, with full metadata
+            </summary>
+            <param name="audioFilePath">The local path to the audio file, in one of these formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm.</param>
+            <param name="language">The language of the input audio. Supplying the input language in ISO-639-1 format will improve accuracy and latency.</param>
+            <param name="prompt">An optional text to guide the model's style or continue a previous audio segment. The prompt should match the audio language.</param>
+            <param name="temperature">The sampling temperature, between 0 and 1. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. If set to 0, the model will use log probability to automatically increase the temperature until certain thresholds are hit.</param>
+            <returns>A string of the transcribed text</returns>
+        </member>
+        <member name="M:OpenAI_API.Audio.ITranscriptionEndpoint.GetTextAsync(System.IO.Stream,System.String,System.String,System.String,System.Nullable{System.Double})">
+            <summary>
+            Gets the transcription of the audio stream as a text string
+            </summary>
+            <param name="audioStream">The stream containing audio data, in one of these formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm.</param>
+            <param name="filename">The name of the audio file in the stream.  This does not have to be real, but it must contain the correct file extension.  For example, "file.mp3" if you are supplying an mp3 audio stream.</param>
+            <param name="language">The language of the input audio. Supplying the input language in ISO-639-1 format will improve accuracy and latency.</param>
+            <param name="prompt">An optional text to guide the model's style or continue a previous audio segment. The prompt should match the audio language.</param>
+            <param name="temperature">The sampling temperature, between 0 and 1. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. If set to 0, the model will use log probability to automatically increase the temperature until certain thresholds are hit.</param>
+            <returns>A string of the transcribed text</returns>
+        </member>
+        <member name="M:OpenAI_API.Audio.ITranscriptionEndpoint.GetTextAsync(System.String,System.String,System.String,System.Nullable{System.Double})">
+            <summary>
+            Gets the transcription of the audio file as a text string
+            </summary>
+            <param name="audioFilePath">The local path to the audio file, in one of these formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm.</param>
+            <param name="language">The language of the input audio. Supplying the input language in ISO-639-1 format will improve accuracy and latency.</param>
+            <param name="prompt">An optional text to guide the model's style or continue a previous audio segment. The prompt should match the audio language.</param>
+            <param name="temperature">The sampling temperature, between 0 and 1. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. If set to 0, the model will use log probability to automatically increase the temperature until certain thresholds are hit.</param>
+            <returns>A string of the transcribed text</returns>
+        </member>
+        <member name="T:OpenAI_API.Audio.TextToSpeechEndpoint">
+            <summary>
+            The Endpoint for the Text to Speech API.  This allows you to generate audio from text.  See <seealso href="https://platform.openai.com/docs/guides/text-to-speech"/>
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Audio.TextToSpeechEndpoint.Endpoint">
+            <inheritdoc/>
+        </member>
+        <member name="P:OpenAI_API.Audio.TextToSpeechEndpoint.DefaultTTSRequestArgs">
+            <summary>
+            This allows you to set default parameters for every request, for example to set a default voice or model.  For every request, if you do not have a parameter set on the request but do have it set here as a default, the request will automatically pick up the default value.
+            </summary>
+        </member>
+        <member name="M:OpenAI_API.Audio.TextToSpeechEndpoint.#ctor(OpenAI_API.OpenAIAPI)">
+            <summary>
+            Constructor of the api endpoint.  Rather than instantiating this yourself, access it through an instance of <see cref="T:OpenAI_API.OpenAIAPI"/> as <see cref="P:OpenAI_API.OpenAIAPI.TextToSpeech"/>.
+            </summary>
+            <param name="api">Pass in the instance of the api</param>
+        </member>
+        <member name="M:OpenAI_API.Audio.TextToSpeechEndpoint.GetSpeechAsStreamAsync(OpenAI_API.Audio.TextToSpeechRequest)">
+            <summary>
+            Calls the API to create speech from text, and returns the raw stream of the audio file.
+            </summary>
+            <param name="request">The text to speech request to submit to the API</param>
+            <returns>A stream of the audio file in the requested format.</returns>
+        </member>
+        <member name="M:OpenAI_API.Audio.TextToSpeechEndpoint.GetSpeechAsStreamAsync(System.String,System.String,System.Nullable{System.Double},System.String,OpenAI_API.Models.Model)">
+            <summary>
+            Calls the API to create speech from text, and returns the raw stream of the audio file.
+            </summary>
+            <param name="input">The text to generate audio for. The maximum length is 4096 characters.</param>
+            <param name="voice">The voice to use when generating the audio. Supported voices can be found in <see cref="T:OpenAI_API.Audio.TextToSpeechRequest.Voices"/>.</param>
+            <param name="speed">The speed of the generated audio. Select a value from 0.25 to 4.0. 1.0 is the default.</param>
+            <param name="responseFormat">The default response format is "mp3", but other formats are available in <see cref="T:OpenAI_API.Audio.TextToSpeechRequest.ResponseFormats"/>.  See <seealso href="https://platform.openai.com/docs/guides/text-to-speech/supported-output-formats"/></param>
+            <param name="model">TTS is an AI model that converts text to natural sounding spoken text. OpenAI offers two different model variates, <see cref="P:OpenAI_API.Models.Model.TTS_Speed"/> is optimized for real time text to speech use cases and <see cref="P:OpenAI_API.Models.Model.TTS_HD"/> is optimized for quality.</param>
+            <returns>A stream of the audio file in the requested format.</returns>
+        </member>
+        <member name="M:OpenAI_API.Audio.TextToSpeechEndpoint.SaveSpeechToFileAsync(OpenAI_API.Audio.TextToSpeechRequest,System.String)">
+            <summary>
+            Calls the API to create speech from text, and saves the audio file to disk.
+            </summary>
+            <param name="request">The text to speech request to submit to the API</param>
+            <param name="localPath">The local path to save the audio file to.</param>
+            <returns>A <see cref="T:System.IO.FileInfo"/> representing the saved speech file.</returns>
+        </member>
+        <member name="M:OpenAI_API.Audio.TextToSpeechEndpoint.SaveSpeechToFileAsync(System.String,System.String,System.String,System.Nullable{System.Double},System.String,OpenAI_API.Models.Model)">
+            <summary>
+            Calls the API to create speech from text, and saves the audio file to disk.
+            </summary>
+            <param name="input">The text to generate audio for. The maximum length is 4096 characters.</param>
+            <param name="localPath">The local path to save the audio file to.</param>
+            <param name="voice">The voice to use when generating the audio. Supported voices can be found in <see cref="T:OpenAI_API.Audio.TextToSpeechRequest.Voices"/>.</param>
+            <param name="speed">The speed of the generated audio. Select a value from 0.25 to 4.0. 1.0 is the default.</param>
+            <param name="responseFormat">The default response format is "mp3", but other formats are available in <see cref="T:OpenAI_API.Audio.TextToSpeechRequest.ResponseFormats"/>.  See <seealso href="https://platform.openai.com/docs/guides/text-to-speech/supported-output-formats"/></param>
+            <param name="model">TTS is an AI model that converts text to natural sounding spoken text. OpenAI offers two different model variates, <see cref="P:OpenAI_API.Models.Model.TTS_Speed"/> is optimized for real time text to speech use cases and <see cref="P:OpenAI_API.Models.Model.TTS_HD"/> is optimized for quality.</param>
+            <returns>A stream of the audio file in the requested format.</returns>
+        </member>
+        <member name="T:OpenAI_API.Audio.TextToSpeechRequest">
+            <summary>
+            A request to the <see cref="T:OpenAI_API.Audio.TextToSpeechEndpoint"/>.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Audio.TextToSpeechRequest.Model">
+            <summary>
+            The model to use for this request
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Audio.TextToSpeechRequest.Input">
+            <summary>
+            The text to generate audio for. The maximum length is 4096 characters.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Audio.TextToSpeechRequest.Voice">
+            <summary>
+            The voice to use when generating the audio. Supported voices can be found in <see cref="T:OpenAI_API.Audio.TextToSpeechRequest.Voices"/>.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Audio.TextToSpeechRequest.ResponseFormat">
+            <summary>
+            The default response format is "mp3", but other formats are available in <see cref="T:OpenAI_API.Audio.TextToSpeechRequest.ResponseFormats"/>.  See <seealso href="https://platform.openai.com/docs/guides/text-to-speech/supported-output-formats"/>
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Audio.TextToSpeechRequest.Speed">
+            <summary>
+            The speed of the generated audio. Select a value from 0.25 to 4.0. 1.0 is the default.
+            </summary>
+        </member>
+        <member name="T:OpenAI_API.Audio.TextToSpeechRequest.Voices">
+            <summary>
+            Supported voices are alloy, echo, fable, onyx, nova, and shimmer. Previews of the voices are available in the Text to speech guide. See <seealso href="https://platform.openai.com/docs/guides/text-to-speech/voice-options"/>.
+            </summary>
+        </member>
+        <member name="T:OpenAI_API.Audio.TextToSpeechRequest.ResponseFormats">
+            <summary>
+            The format to return for the generated audio.  See <seealso href="https://platform.openai.com/docs/guides/text-to-speech/supported-output-formats"/>
+            </summary>
+        </member>
+        <member name="F:OpenAI_API.Audio.TextToSpeechRequest.ResponseFormats.MP3">
+            <summary>
+            The default, industry-standard audio format
+            </summary>
+        </member>
+        <member name="F:OpenAI_API.Audio.TextToSpeechRequest.ResponseFormats.FLAC">
+            <summary>
+            For lossless audio compression, favored by audio enthusiasts for archiving
+            </summary>
+        </member>
+        <member name="F:OpenAI_API.Audio.TextToSpeechRequest.ResponseFormats.AAC">
+            <summary>
+            For digital audio compression, preferred by YouTube, Android, iOS
+            </summary>
+        </member>
+        <member name="F:OpenAI_API.Audio.TextToSpeechRequest.ResponseFormats.OPUS">
+            <summary>
+            For internet streaming and communication, low latency.
+            </summary>
+        </member>
+        <member name="T:OpenAI_API.Audio.TranscriptionEndpoint">
+            <summary>
+            Transcribe audio into text, with optional translation into English.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Audio.TranscriptionEndpoint.Endpoint">
+            <inheritdoc/>
+        </member>
+        <member name="M:OpenAI_API.Audio.TranscriptionEndpoint.#ctor(OpenAI_API.OpenAIAPI,System.Boolean)">
+            <summary>
+            Constructor of the api endpoint.  Rather than instantiating this yourself, access it through an instance of <see cref="T:OpenAI_API.OpenAIAPI"/> as <see cref="P:OpenAI_API.OpenAIAPI.Transcriptions"/>.
+            </summary>
+            <param name="api">Pass in the instance of the api</param>
+            <param name="translate">If <see langword="true"/>, the response will translate non-English audio into English.  Otherwise the returned text will be in the spoken language.</param>
+        </member>
+        <member name="P:OpenAI_API.Audio.TranscriptionEndpoint.DefaultRequestArgs">
+            <summary>
+            This allows you to set default parameters for every request, for example to set a default language.  For every request, if you do not have a parameter set on the request but do have it set here as a default, the request will automatically pick up the default value.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Audio.TranscriptionEndpoint.TranslateToEnglish">
+            <summary>
+            If <see langword="true"/>, the response will translate non-English audio into English.  Otherwise the returned text will be in the spoken language.
+            </summary>
+        </member>
+        <member name="M:OpenAI_API.Audio.TranscriptionEndpoint.GetTextAsync(System.IO.Stream,System.String,System.String,System.String,System.Nullable{System.Double})">
+            <summary>
+            Gets the transcription of the audio stream as a text string
+            </summary>
+            <param name="audioStream">The stream containing audio data, in one of these formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm.</param>
+            <param name="filename">The name of the audio file in the stream.  This does not have to be real, but it must contain the correct file extension.  For example, "file.mp3" if you are supplying an mp3 audio stream.</param>
+            <param name="language">The language of the input audio. Supplying the input language in ISO-639-1 format will improve accuracy and latency.</param>
+            <param name="prompt">An optional text to guide the model's style or continue a previous audio segment. The prompt should match the audio language.</param>
+            <param name="temperature">The sampling temperature, between 0 and 1. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. If set to 0, the model will use log probability to automatically increase the temperature until certain thresholds are hit.</param>
+            <returns>A string of the transcribed text</returns>
+        </member>
+        <member name="M:OpenAI_API.Audio.TranscriptionEndpoint.GetTextAsync(System.String,System.String,System.String,System.Nullable{System.Double})">
+            <summary>
+            Gets the transcription of the audio file as a text string
+            </summary>
+            <param name="audioFilePath">The local path to the audio file, in one of these formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm.</param>
+            <param name="language">The language of the input audio. Supplying the input language in ISO-639-1 format will improve accuracy and latency.</param>
+            <param name="prompt">An optional text to guide the model's style or continue a previous audio segment. The prompt should match the audio language.</param>
+            <param name="temperature">The sampling temperature, between 0 and 1. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. If set to 0, the model will use log probability to automatically increase the temperature until certain thresholds are hit.</param>
+            <returns>A string of the transcribed text</returns>
+        </member>
+        <member name="M:OpenAI_API.Audio.TranscriptionEndpoint.GetWithDetailsAsync(System.IO.Stream,System.String,System.String,System.String,System.Nullable{System.Double})">
+            <summary>
+            Gets the transcription of the audio stream, with full metadata
+            </summary>
+            <param name="audioStream">The stream containing audio data, in one of these formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm.</param>
+            <param name="filename">The name of the audio file in the stream.  This does not have to be real, but it must contain the correct file extension.  For example, "file.mp3" if you are supplying an mp3 audio stream.</param>
+            <param name="language">The language of the input audio. Supplying the input language in ISO-639-1 format will improve accuracy and latency.</param>
+            <param name="prompt">An optional text to guide the model's style or continue a previous audio segment. The prompt should match the audio language.</param>
+            <param name="temperature">The sampling temperature, between 0 and 1. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. If set to 0, the model will use log probability to automatically increase the temperature until certain thresholds are hit.</param>
+            <returns>A string of the transcribed text</returns>
+        </member>
+        <member name="M:OpenAI_API.Audio.TranscriptionEndpoint.GetWithDetailsAsync(System.String,System.String,System.String,System.Nullable{System.Double})">
+            <summary>
+            Gets the transcription of the audio file, with full metadata
+            </summary>
+            <param name="audioFilePath">The local path to the audio file, in one of these formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm.</param>
+            <param name="language">The language of the input audio. Supplying the input language in ISO-639-1 format will improve accuracy and latency.</param>
+            <param name="prompt">An optional text to guide the model's style or continue a previous audio segment. The prompt should match the audio language.</param>
+            <param name="temperature">The sampling temperature, between 0 and 1. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. If set to 0, the model will use log probability to automatically increase the temperature until certain thresholds are hit.</param>
+            <returns>A string of the transcribed text</returns>
+        </member>
+        <member name="M:OpenAI_API.Audio.TranscriptionEndpoint.GetAsFormatAsync(System.IO.Stream,System.String,System.String,System.String,System.String,System.Nullable{System.Double})">
+            <summary>
+            Gets the transcription of the audio stream, in the specified format
+            </summary>
+            <param name="audioStream">The stream containing audio data, in one of these formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm.</param>
+            <param name="filename">The name of the audio file in the stream.  This does not have to be real, but it must contain the correct file extension.  For example, "file.mp3" if you are supplying an mp3 audio stream.</param>
+            <param name="responseFormat">The format of the response.  Suggested value are <see cref="F:OpenAI_API.Audio.AudioRequest.ResponseFormats.SRT"/> or <see cref="F:OpenAI_API.Audio.AudioRequest.ResponseFormats.VTT"/>.  For text and Json formats, try <see cref="M:OpenAI_API.Audio.TranscriptionEndpoint.GetTextAsync(System.IO.Stream,System.String,System.String,System.String,System.Nullable{System.Double})"/> or <see cref="M:OpenAI_API.Audio.TranscriptionEndpoint.GetWithDetailsAsync(System.IO.Stream,System.String,System.String,System.String,System.Nullable{System.Double})"/> instead.</param>
+            <param name="language">The language of the input audio. Supplying the input language in ISO-639-1 format will improve accuracy and latency.</param>
+            <param name="prompt">An optional text to guide the model's style or continue a previous audio segment. The prompt should match the audio language.</param>
+            <param name="temperature">The sampling temperature, between 0 and 1. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. If set to 0, the model will use log probability to automatically increase the temperature until certain thresholds are hit.</param>
+            <returns>A string of the transcribed text</returns>
+        </member>
+        <member name="M:OpenAI_API.Audio.TranscriptionEndpoint.GetAsFormatAsync(System.String,System.String,System.String,System.String,System.Nullable{System.Double})">
+            <summary>
+            Gets the transcription of the audio file, in the specified format
+            </summary>
+            <param name="audioFilePath">The local path to the audio file, in one of these formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm.</param>
+            <param name="responseFormat">The format of the response.  Suggested value are <see cref="F:OpenAI_API.Audio.AudioRequest.ResponseFormats.SRT"/> or <see cref="F:OpenAI_API.Audio.AudioRequest.ResponseFormats.VTT"/>.  For text and Json formats, try <see cref="M:OpenAI_API.Audio.TranscriptionEndpoint.GetTextAsync(System.String,System.String,System.String,System.Nullable{System.Double})"/> or <see cref="M:OpenAI_API.Audio.TranscriptionEndpoint.GetWithDetailsAsync(System.String,System.String,System.String,System.Nullable{System.Double})"/> instead.</param>
+            <param name="language">The language of the input audio. Supplying the input language in ISO-639-1 format will improve accuracy and latency.</param>
+            <param name="prompt">An optional text to guide the model's style or continue a previous audio segment. The prompt should match the audio language.</param>
+            <param name="temperature">The sampling temperature, between 0 and 1. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. If set to 0, the model will use log probability to automatically increase the temperature until certain thresholds are hit.</param>
+            <returns>A string of the transcribed text</returns>
+        </member>
         <member name="T:OpenAI_API.Chat.ChatEndpoint">
             <summary>
             ChatGPT API endpoint. Use this endpoint to send multiple messages and carry on a conversation.
@@ -140,7 +510,7 @@
             Creates an ongoing chat which can easily encapsulate the conversation.  This is the simplest way to use the Chat endpoint.
             </summary>
             <param name="defaultChatRequestArgs">Allows setting the parameters to use when calling the ChatGPT API.  Can be useful for setting temperature, presence_penalty, and more.  See <see href="https://platform.openai.com/docs/api-reference/chat/create">OpenAI documentation for a list of possible parameters to tweak.</see></param>
-            <returns>A <see cref="T:OpenAI_API.Chat.Conversation"/> which encapulates a back and forth chat betwen a user and an assistant.</returns>
+            <returns>A <see cref="T:OpenAI_API.Chat.Conversation"/> which encapsulates a back and forth chat between a user and an assistant.</returns>
         </member>
         <member name="M:OpenAI_API.Chat.ChatEndpoint.CreateChatCompletionAsync(OpenAI_API.Chat.ChatRequest)">
             <summary>
@@ -185,6 +555,14 @@
             Ask the API to complete the request using the specified message(s).  Any parameters will fall back to default values specified in <see cref="P:OpenAI_API.Chat.ChatEndpoint.DefaultChatRequestArgs"/> if present.
             </summary>
             <param name="userMessages">The user message or messages to use in the generation.  All strings are assumed to be of Role <see cref="P:OpenAI_API.Chat.ChatMessageRole.User"/></param>
+            <returns>The <see cref="T:OpenAI_API.Chat.ChatResult"/> with the API response.</returns>
+        </member>
+        <member name="M:OpenAI_API.Chat.ChatEndpoint.CreateChatCompletionAsync(System.String,OpenAI_API.Chat.ChatMessage.ImageInput[])">
+            <summary>
+            Ask the API to complete the request using the specified message and image(s).  Any parameters will fall back to default values specified in <see cref="P:OpenAI_API.Chat.ChatEndpoint.DefaultChatRequestArgs"/> if present, except for <see cref="P:OpenAI_API.Chat.ChatRequest.Model"/>, which will default to <see cref="P:OpenAI_API.Models.Model.GPT4_Vision"/>.
+            </summary>
+            <param name="userMessage">The user message text to use in the generation.</param>
+            <param name="images">The images to use in the generation.</param>
             <returns>The <see cref="T:OpenAI_API.Chat.ChatResult"/> with the API response.</returns>
         </member>
         <member name="M:OpenAI_API.Chat.ChatEndpoint.StreamCompletionAsync(OpenAI_API.Chat.ChatRequest,System.Action{System.Int32,OpenAI_API.Chat.ChatResult})">
@@ -243,21 +621,149 @@
             Constructor for a new Chat Message
             </summary>
             <param name="role">The role of the message, which can be "system", "assistant" or "user"</param>
-            <param name="content">The text to send in the message</param>
+            <param name="text">The text to send in the message</param>
+        </member>
+        <member name="M:OpenAI_API.Chat.ChatMessage.#ctor(OpenAI_API.Chat.ChatMessageRole,System.String,OpenAI_API.Chat.ChatMessage.ImageInput[])">
+            <summary>
+            Constructor for a new Chat Message with text and one or more images
+            </summary>
+            <param name="role">The role of the message, which can be "system", "assistant" or "user"</param>
+            <param name="text">The text to send in the message.  May be null if only sending image(s).</param>
+            <param name="imageInputs">Optionally add one or more images to the message if using a GPT Vision model.  Consider using <see cref="M:OpenAI_API.Chat.ChatMessage.ImageInput.FromFile(System.String,System.String)"/> to load an image from a local file, or <see cref="M:OpenAI_API.Chat.ChatMessage.ImageInput.FromImageUrl(System.String,System.String)"/> to point to an image via URL.  Please see <seealso href="https://platform.openai.com/docs/guides/vision"/> for more information and limitations.</param>
         </member>
         <member name="P:OpenAI_API.Chat.ChatMessage.Role">
             <summary>
             The role of the message, which can be "system", "assistant" or "user"
             </summary>
         </member>
+        <member name="P:OpenAI_API.Chat.ChatMessage.TextContent">
+            <summary>
+            The text content of the message.
+            </summary>
+        </member>
         <member name="P:OpenAI_API.Chat.ChatMessage.Content">
             <summary>
-            The content of the message
+            To support multi-modal messages, this property has been renamed to <see cref="P:OpenAI_API.Chat.ChatMessage.TextContent"/>.  Please use that instead."/>
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Chat.ChatMessage.ContentItems">
+            <summary>
+            This is only used for serializing the request into JSON, do not use it directly.
             </summary>
         </member>
         <member name="P:OpenAI_API.Chat.ChatMessage.Name">
             <summary>
             An optional name of the user in a multi-user chat 
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Chat.ChatMessage.Images">
+            <summary>
+            Optionally add one or more images to the message if using a GPT Vision model.  Please see <seealso href="https://platform.openai.com/docs/guides/vision"/> for more information and limitations.
+            </summary>
+        </member>
+        <member name="T:OpenAI_API.Chat.ChatMessage.ContentItem">
+            <summary>
+            This is a helper class to serialize the content of the message to JSON
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Chat.ChatMessage.ContentItem.Type">
+            <summary>
+            The type of content to send to the API.  This can be "text" or "image_url".
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Chat.ChatMessage.ContentItem.Text">
+            <summary>
+            Sends text to the API.  This is the default type.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Chat.ChatMessage.ContentItem.Image">
+            <summary>
+            Send an image to GPT Vision.  Please see <seealso href="https://platform.openai.com/docs/guides/vision"/> for more information and limitations."/>
+            </summary>
+        </member>
+        <member name="M:OpenAI_API.Chat.ChatMessage.ContentItem.#ctor">
+            <summary>
+            Creates an empty <see cref="T:OpenAI_API.Chat.ChatMessage.ContentItem"/>
+            </summary>
+        </member>
+        <member name="M:OpenAI_API.Chat.ChatMessage.ContentItem.#ctor(System.String)">
+            <summary>
+            Creates a new <see cref="T:OpenAI_API.Chat.ChatMessage.ContentItem"/> with the given text
+            </summary>
+            <param name="text">The text to send to the API</param>
+        </member>
+        <member name="M:OpenAI_API.Chat.ChatMessage.ContentItem.#ctor(OpenAI_API.Chat.ChatMessage.ImageInput)">
+            <summary>
+            Creates a new <see cref="T:OpenAI_API.Chat.ChatMessage.ContentItem"/> with the given image
+            </summary>
+            <param name="image">The image to send to the API.  Consider using <see cref="M:OpenAI_API.Chat.ChatMessage.ImageInput.FromFile(System.String,System.String)"/> to load an image from a local file, or <see cref="M:OpenAI_API.Chat.ChatMessage.ImageInput.FromImageUrl(System.String,System.String)"/> to point to an image via URL.</param>
+        </member>
+        <member name="T:OpenAI_API.Chat.ChatMessage.ImageInput">
+            <summary>
+            Represents an image to send to the API in a chat message as part of GPT Vision.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Chat.ChatMessage.ImageInput.Url">
+            <summary>
+            Either a URL of the image or the base64 encoded image data
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Chat.ChatMessage.ImageInput.Detail">
+            <summary>
+            By controlling the detail parameter, which has three options, low, high, or auto, you have control over how the model processes the image and generates its textual understanding.
+            </summary>
+        </member>
+        <member name="M:OpenAI_API.Chat.ChatMessage.ImageInput.#ctor(System.String,System.String)">
+            <summary>
+            Instantiates a new ImageInput object with the given url
+            </summary>
+            <param name="url">A link to the image</param>
+            <param name="detail">By controlling the detail parameter, which has three options, low, high, or auto, you have control over how the model processes the image and generates its textual understanding</param>
+        </member>
+        <member name="M:OpenAI_API.Chat.ChatMessage.ImageInput.#ctor(System.Byte[],System.String)">
+            <summary>
+            Instantiates a new ImageInput object with the given image data bytes
+            </summary>
+            <param name="imageData">The image as bytes to be base64 encoded.  OpenAI currently supports PNG (.png), JPEG (.jpeg and .jpg), WEBP (.webp), and non-animated GIF (.gif)</param>
+            <param name="detail">By controlling the detail parameter, which has three options, low, high, or auto, you have control over how the model processes the image and generates its textual understanding</param>
+        </member>
+        <member name="M:OpenAI_API.Chat.ChatMessage.ImageInput.FromFile(System.String,System.String)">
+            <summary>
+            Instantiates a new ImageInput object with the given image loaded from disk
+            </summary>
+            <param name="filePath">The local file path of the image.  OpenAI currently supports PNG (.png), JPEG (.jpeg and .jpg), WEBP (.webp), and non-animated GIF (.gif)</param>
+            <param name="detail">By controlling the detail parameter, which has three options, low, high, or auto, you have control over how the model processes the image and generates its textual understanding</param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenAI_API.Chat.ChatMessage.ImageInput.FromImageBytes(System.Byte[],System.String)">
+            <summary>
+            Instantiates a new ImageInput object with the given image data bytes
+            </summary>
+            <param name="imageData">The image as bytes to be base64 encoded</param>
+            <param name="detail">By controlling the detail parameter, which has three options, low, high, or auto, you have control over how the model processes the image and generates its textual understanding</param>
+            <returns></returns>
+        </member>
+        <member name="M:OpenAI_API.Chat.ChatMessage.ImageInput.FromImageUrl(System.String,System.String)">
+            <summary>
+            Instantiates a new ImageInput object with the given url
+            </summary>
+            <param name="url">A link to the image</param>
+            <param name="detail">By controlling the detail parameter, which has three options, low, high, or auto, you have control over how the model processes the image and generates its textual understanding</param>
+            <returns></returns>
+        </member>
+        <member name="F:OpenAI_API.Chat.ChatMessage.ImageInput.DetailAuto">
+            <summary>
+            By default, the model will use the auto setting which will look at the image input size and decide if it should use the low or high setting.
+            </summary>
+        </member>
+        <member name="F:OpenAI_API.Chat.ChatMessage.ImageInput.DetailLow">
+            <summary>
+            low will disable the “high res” model. The model will receive a low-res 512px x 512px version of the image, and represent the image with a budget of 65 tokens. This allows the API to return faster responses and consume fewer input tokens for use cases that do not require high detail.
+            </summary>
+        </member>
+        <member name="F:OpenAI_API.Chat.ChatMessage.ImageInput.DetailHigh">
+            <summary>
+            high will enable “high res” mode, which first allows the model to see the low res image and then creates detailed crops of input images as 512px squares based on the input image size. Each of the detailed crops uses twice the token budget (65 tokens) for a total of 129 tokens.
             </summary>
         </member>
         <member name="T:OpenAI_API.Chat.ChatMessageRole">
@@ -358,7 +864,7 @@
         </member>
         <member name="P:OpenAI_API.Chat.ChatRequest.Stream">
             <summary>
-            Specifies where the results should stream and be returned at one time.  Do not set this yourself, use the appropriate methods on <see cref="!:CompletionEndpoint"/> instead.
+            Specifies where the results should stream and be returned at one time.  Do not set this yourself, use the appropriate methods on <see cref="T:OpenAI_API.Completions.CompletionEndpoint"/> instead.
             </summary>
         </member>
         <member name="P:OpenAI_API.Chat.ChatRequest.CompiledStop">
@@ -404,6 +910,22 @@
             A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse.
             </summary>
         </member>
+        <member name="P:OpenAI_API.Chat.ChatRequest.ResponseFormat">
+            <summary>
+            An object specifying the format that the model must output. Setting to <see cref="F:OpenAI_API.Chat.ChatRequest.ResponseFormats.JsonObject"/> enables JSON mode, which guarantees the message the model generates is valid JSON, assuming that the <see cref="P:OpenAI_API.Chat.ChatChoice.FinishReason"/> is not "length".
+            Important: when using JSON mode, you must also instruct the model to produce JSON yourself via a system or user message. Without this, the model may generate an unending stream of whitespace until the generation reaches the token limit, resulting in a long-running and seemingly "stuck" request.Also note that the message content may be partially cut off if `finish_reason= "length"`, which indicates the generation exceeded `max_tokens` or the conversation exceeded the max context length.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Chat.ChatRequest.ResponseFormatRaw">
+            <summary>
+            This is only used for serializing the request into JSON, do not use it directly.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Chat.ChatRequest.Seed">
+            <summary>
+            If specified, OpenAI will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed, and you should refer to the <see cref="P:OpenAI_API.Chat.ChatResult.SystemFingerprint"/> response parameter to monitor changes in the backend.
+            </summary>
+        </member>
         <member name="M:OpenAI_API.Chat.ChatRequest.#ctor">
             <summary>
             Creates a new, empty <see cref="T:OpenAI_API.Chat.ChatRequest"/>
@@ -414,6 +936,21 @@
             Create a new chat request using the data from the input chat request.
             </summary>
             <param name="basedOn"></param>
+        </member>
+        <member name="T:OpenAI_API.Chat.ChatRequest.ResponseFormats">
+            <summary>
+            Options for the <see cref="P:OpenAI_API.Chat.ChatRequest.ResponseFormat"/> property
+            </summary>
+        </member>
+        <member name="F:OpenAI_API.Chat.ChatRequest.ResponseFormats.Text">
+            <summary>
+            The default response format, which is may be any type of text
+            </summary>
+        </member>
+        <member name="F:OpenAI_API.Chat.ChatRequest.ResponseFormats.JsonObject">
+            <summary>
+            The response format is guaranteed to be valid JSON, assuming that the <see cref="P:OpenAI_API.Chat.ChatChoice.FinishReason"/> is not "length"
+            </summary>
         </member>
         <member name="T:OpenAI_API.Chat.ChatResult">
             <summary>
@@ -440,6 +977,11 @@
             A convenience method to return the content of the message in the first choice of this response
             </summary>
             <returns>The content of the message, not including <see cref="T:OpenAI_API.Chat.ChatMessageRole"/>.</returns>
+        </member>
+        <member name="P:OpenAI_API.Chat.ChatResult.SystemFingerprint">
+            <summary>
+            This fingerprint represents the backend configuration that the model runs with. It can be used in conjunction with the seed request parameter to understand when backend changes have been made that might impact determinism.This is the indicator on whether users should expect "almost always the same result".
+            </summary>
         </member>
         <member name="T:OpenAI_API.Chat.ChatChoice">
             <summary>
@@ -503,7 +1045,7 @@
             Specifies the model to use for ChatGPT requests.  This is just a shorthand to access <see cref="P:OpenAI_API.Chat.Conversation.RequestParameters"/>.Model
             </summary>
         </member>
-        <member name="P:OpenAI_API.Chat.Conversation.MostResentAPIResult">
+        <member name="P:OpenAI_API.Chat.Conversation.MostRecentApiResult">
             <summary>
             After calling <see cref="M:OpenAI_API.Chat.Conversation.GetResponseFromChatbotAsync"/>, this contains the full response object which can contain useful metadata like token usages, <see cref="P:OpenAI_API.Chat.ChatChoice.FinishReason"/>, etc.  This is overwritten with every call to <see cref="M:OpenAI_API.Chat.Conversation.GetResponseFromChatbotAsync"/> and only contains the most recent result.
             </summary>
@@ -513,51 +1055,64 @@
             Creates a new conversation with ChatGPT chat
             </summary>
             <param name="endpoint">A reference to the API endpoint, needed for API requests.  Generally should be <see cref="P:OpenAI_API.OpenAIAPI.Chat"/>.</param>
-            <param name="model">Optionally specify the model to use for ChatGPT requests.  If not specified, used <paramref name="defaultChatRequestArgs"/>.Model or falls back to <see cref="P:OpenAI_API.Models.Model.ChatGPTTurbo"/></param>
+            <param name="model">Optionally specify the model to use for ChatGPT requests.  If not specified, used <paramref name="defaultChatRequestArgs"/>.Model or falls back to <see cref="P:OpenAI_API.Models.Model.DefaultChatModel"/></param>
             <param name="defaultChatRequestArgs">Allows setting the parameters to use when calling the ChatGPT API.  Can be useful for setting temperature, presence_penalty, and more.  See <see href="https://platform.openai.com/docs/api-reference/chat/create">OpenAI documentation for a list of possible parameters to tweak.</see></param>
         </member>
         <member name="P:OpenAI_API.Chat.Conversation.Messages">
             <summary>
-            A list of messages exchanged so far.  Do not modify this list directly.  Instead, use <see cref="M:OpenAI_API.Chat.Conversation.AppendMessage(OpenAI_API.Chat.ChatMessage)"/>, <see cref="M:OpenAI_API.Chat.Conversation.AppendUserInput(System.String)"/>, <see cref="M:OpenAI_API.Chat.Conversation.AppendSystemMessage(System.String)"/>, or <see cref="M:OpenAI_API.Chat.Conversation.AppendExampleChatbotOutput(System.String)"/>.
+            A list of messages exchanged so far. To append to this list, use <see cref="M:OpenAI_API.Chat.Conversation.AppendMessage(OpenAI_API.Chat.ChatMessage)"/>, <see cref="M:OpenAI_API.Chat.Conversation.AppendUserInput(System.String,OpenAI_API.Chat.ChatMessage.ImageInput[])"/>, <see cref="M:OpenAI_API.Chat.Conversation.AppendSystemMessage(System.String)"/>, or <see cref="M:OpenAI_API.Chat.Conversation.AppendExampleChatbotOutput(System.String)"/>.
             </summary>
         </member>
         <member name="M:OpenAI_API.Chat.Conversation.AppendMessage(OpenAI_API.Chat.ChatMessage)">
             <summary>
-            Appends a <see cref="T:OpenAI_API.Chat.ChatMessage"/> to the chat hstory
+            Appends a <see cref="T:OpenAI_API.Chat.ChatMessage"/> to the chat history
             </summary>
             <param name="message">The <see cref="T:OpenAI_API.Chat.ChatMessage"/> to append to the chat history</param>
         </member>
-        <member name="M:OpenAI_API.Chat.Conversation.AppendMessage(OpenAI_API.Chat.ChatMessageRole,System.String)">
+        <member name="M:OpenAI_API.Chat.Conversation.AppendMessage(OpenAI_API.Chat.ChatMessageRole,System.String,OpenAI_API.Chat.ChatMessage.ImageInput[])">
             <summary>
-            Creates and appends a <see cref="T:OpenAI_API.Chat.ChatMessage"/> to the chat hstory
+            Creates and appends a <see cref="T:OpenAI_API.Chat.ChatMessage"/> to the chat history
             </summary>
             <param name="role">The <see cref="T:OpenAI_API.Chat.ChatMessageRole"/> for the message.  Typically, a conversation is formatted with a system message first, followed by alternating user and assistant messages.  See <see href="https://platform.openai.com/docs/guides/chat/introduction">the OpenAI docs</see> for more details about usage.</param>
-            <param name="content">The content of the message)</param>
+            <param name="text">The text content of the message</param>
+            <param name="images">Optionally, one or more images to include in the message. Only works with GPT Vision models, so be sure to set your model correctly.  Consider using <see cref="M:OpenAI_API.Chat.ChatMessage.ImageInput.FromFile(System.String,System.String)"/> to load an image from a local file, or <see cref="M:OpenAI_API.Chat.ChatMessage.ImageInput.FromImageUrl(System.String,System.String)"/> to point to an image via URL.  Please see <seealso href="https://platform.openai.com/docs/guides/vision"/> for more information and limitations.</param>
         </member>
-        <member name="M:OpenAI_API.Chat.Conversation.AppendUserInput(System.String)">
+        <member name="M:OpenAI_API.Chat.Conversation.AppendUserInput(System.String,OpenAI_API.Chat.ChatMessage.ImageInput[])">
             <summary>
-            Creates and appends a <see cref="T:OpenAI_API.Chat.ChatMessage"/> to the chat hstory with the Role of <see cref="P:OpenAI_API.Chat.ChatMessageRole.User"/>.  The user messages help instruct the assistant. They can be generated by the end users of an application, or set by a developer as an instruction.
+            Creates and appends a <see cref="T:OpenAI_API.Chat.ChatMessage"/> to the chat history with the Role of <see cref="P:OpenAI_API.Chat.ChatMessageRole.User"/>.  The user messages help instruct the assistant. They can be generated by the end users of an application, or set by a developer as an instruction.
             </summary>
-            <param name="content">Text content generated by the end users of an application, or set by a developer as an instruction</param>
+            <param name="text">Text content generated by the end users of an application, or set by a developer as an instruction</param>
+            <param name="images">Optionally, one or more images to include in the message. Only works with GPT Vision models, so be sure to set your model correctly.  Consider using <see cref="M:OpenAI_API.Chat.ChatMessage.ImageInput.FromFile(System.String,System.String)"/> to load an image from a local file, or <see cref="M:OpenAI_API.Chat.ChatMessage.ImageInput.FromImageUrl(System.String,System.String)"/> to point to an image via URL.  Please see <seealso href="https://platform.openai.com/docs/guides/vision"/> for more information and limitations.</param>
         </member>
-        <member name="M:OpenAI_API.Chat.Conversation.AppendUserInputWithName(System.String,System.String)">
+        <member name="M:OpenAI_API.Chat.Conversation.AppendUserInputWithName(System.String,System.String,OpenAI_API.Chat.ChatMessage.ImageInput[])">
             <summary>
-            Creates and appends a <see cref="T:OpenAI_API.Chat.ChatMessage"/> to the chat hstory with the Role of <see cref="P:OpenAI_API.Chat.ChatMessageRole.User"/>.  The user messages help instruct the assistant. They can be generated by the end users of an application, or set by a developer as an instruction.
+            Creates and appends a <see cref="T:OpenAI_API.Chat.ChatMessage"/> to the chat history with the Role of <see cref="P:OpenAI_API.Chat.ChatMessageRole.User"/>.  The user messages help instruct the assistant. They can be generated by the end users of an application, or set by a developer as an instruction.
             </summary>
             <param name="userName">The name of the user in a multi-user chat</param>
-            <param name="content">Text content generated by the end users of an application, or set by a developer as an instruction</param>
+            <param name="text">Text content generated by the end users of an application, or set by a developer as an instruction</param>
+            <param name="images">Optionally, one or more images to include in the message. Only works with GPT Vision models, so be sure to set your model correctly.  Consider using <see cref="M:OpenAI_API.Chat.ChatMessage.ImageInput.FromFile(System.String,System.String)"/> to load an image from a local file, or <see cref="M:OpenAI_API.Chat.ChatMessage.ImageInput.FromImageUrl(System.String,System.String)"/> to point to an image via URL.  Please see <seealso href="https://platform.openai.com/docs/guides/vision"/> for more information and limitations.</param>
         </member>
         <member name="M:OpenAI_API.Chat.Conversation.AppendSystemMessage(System.String)">
             <summary>
-            Creates and appends a <see cref="T:OpenAI_API.Chat.ChatMessage"/> to the chat hstory with the Role of <see cref="P:OpenAI_API.Chat.ChatMessageRole.System"/>.  The system message helps set the behavior of the assistant.
+            Creates and appends a <see cref="T:OpenAI_API.Chat.ChatMessage"/> to the chat history with the Role of <see cref="P:OpenAI_API.Chat.ChatMessageRole.System"/>.  The system message helps set the behavior of the assistant.
             </summary>
             <param name="content">text content that helps set the behavior of the assistant</param>
         </member>
         <member name="M:OpenAI_API.Chat.Conversation.AppendExampleChatbotOutput(System.String)">
             <summary>
-            Creates and appends a <see cref="T:OpenAI_API.Chat.ChatMessage"/> to the chat hstory with the Role of <see cref="P:OpenAI_API.Chat.ChatMessageRole.Assistant"/>.  Assistant messages can be written by a developer to help give examples of desired behavior.
+            Creates and appends a <see cref="T:OpenAI_API.Chat.ChatMessage"/> to the chat history with the Role of <see cref="P:OpenAI_API.Chat.ChatMessageRole.Assistant"/>.  Assistant messages can be written by a developer to help give examples of desired behavior.
             </summary>
             <param name="content">Text content written by a developer to help give examples of desired behavior</param>
+        </member>
+        <member name="E:OpenAI_API.Chat.Conversation.OnTruncationNeeded">
+            <summary>
+            An event called when the chat message history is too long, which should reduce message history length through whatever means is appropriate for your use case.  You may want to remove the first entry in the <see cref="T:System.Collections.Generic.List`1"/> in the <see cref="T:System.EventArgs"/>
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Chat.Conversation.AutoTruncateOnContextLengthExceeded">
+            <summary>
+            Sometimes the total length of your conversation can get too long to fit in the ChatGPT context window.  In this case, the <see cref="E:OpenAI_API.Chat.Conversation.OnTruncationNeeded"/> event will be called, if supplied.  If not supplied and this is <see langword="true"/>, then the first one or more user or assistant messages will be automatically deleted from the beginning of the conversation message history until the API call succeeds.  This may take some time as it may need to loop several times to clear enough messages.  If this is set to false and no <see cref="E:OpenAI_API.Chat.Conversation.OnTruncationNeeded"/> is supplied, then an <see cref="T:System.ArgumentOutOfRangeException"/> will be raised when the API returns a context_length_exceeded error.
+            </summary>
         </member>
         <member name="M:OpenAI_API.Chat.Conversation.GetResponseFromChatbotAsync">
             <summary>
@@ -607,7 +1162,7 @@
             Creates an ongoing chat which can easily encapsulate the conversation.  This is the simplest way to use the Chat endpoint.
             </summary>
             <param name="defaultChatRequestArgs">Allows setting the parameters to use when calling the ChatGPT API.  Can be useful for setting temperature, presence_penalty, and more.  See <see href="https://platform.openai.com/docs/api-reference/chat/create">OpenAI documentation for a list of possible parameters to tweak.</see></param>
-            <returns>A <see cref="T:OpenAI_API.Chat.Conversation"/> which encapulates a back and forth chat betwen a user and an assistant.</returns>
+            <returns>A <see cref="T:OpenAI_API.Chat.Conversation"/> which encapsulates a back and forth chat between a user and an assistant.</returns>
         </member>
         <member name="M:OpenAI_API.Chat.IChatEndpoint.CreateChatCompletionAsync(OpenAI_API.Chat.ChatRequest)">
             <summary>
@@ -652,6 +1207,14 @@
             Ask the API to complete the request using the specified message(s).  Any parameters will fall back to default values specified in <see cref="P:OpenAI_API.Chat.IChatEndpoint.DefaultChatRequestArgs"/> if present.
             </summary>
             <param name="userMessages">The user message or messages to use in the generation.  All strings are assumed to be of Role <see cref="P:OpenAI_API.Chat.ChatMessageRole.User"/></param>
+            <returns>The <see cref="T:OpenAI_API.Chat.ChatResult"/> with the API response.</returns>
+        </member>
+        <member name="M:OpenAI_API.Chat.IChatEndpoint.CreateChatCompletionAsync(System.String,OpenAI_API.Chat.ChatMessage.ImageInput[])">
+            <summary>
+            Ask the API to complete the request using the specified message and image(s).  Any parameters will fall back to default values specified in <see cref="P:OpenAI_API.Chat.IChatEndpoint.DefaultChatRequestArgs"/> if present, except for <see cref="P:OpenAI_API.Chat.ChatRequest.Model"/>, which will default to <see cref="P:OpenAI_API.Models.Model.GPT4_Vision"/>.
+            </summary>
+            <param name="userMessage">The user message text to use in the generation.</param>
+            <param name="images">The images to use in the generation.</param>
             <returns>The <see cref="T:OpenAI_API.Chat.ChatResult"/> with the API response.</returns>
         </member>
         <member name="M:OpenAI_API.Chat.IChatEndpoint.StreamChatAsync(OpenAI_API.Chat.ChatRequest,System.Action{OpenAI_API.Chat.ChatResult})">
@@ -916,7 +1479,7 @@
         </member>
         <member name="M:OpenAI_API.Completions.CompletionRequest.#ctor">
             <summary>
-            Cretes a new, empty <see cref="T:OpenAI_API.Completions.CompletionRequest"/>
+            Creates a new, empty <see cref="T:OpenAI_API.Completions.CompletionRequest"/>
             </summary>
         </member>
         <member name="M:OpenAI_API.Completions.CompletionRequest.#ctor(OpenAI_API.Completions.CompletionRequest)">
@@ -1126,7 +1689,7 @@
         </member>
         <member name="P:OpenAI_API.Embedding.EmbeddingEndpoint.DefaultEmbeddingRequestArgs">
             <summary>
-            This allows you to send request to the recommended model without needing to specify. Every request uses the <see cref="P:OpenAI_API.Models.Model.AdaTextEmbedding"/> model
+            This allows you to send request to a default model without needing to specify for each request.
             </summary>
         </member>
         <member name="P:OpenAI_API.Embedding.EmbeddingEndpoint.Endpoint">
@@ -1142,24 +1705,23 @@
         </member>
         <member name="M:OpenAI_API.Embedding.EmbeddingEndpoint.CreateEmbeddingAsync(System.String)">
             <summary>
-            Ask the API to embedd text using the default embedding model <see cref="P:OpenAI_API.Models.Model.AdaTextEmbedding"/>
+            Ask the API to embed text using the default embedding model <see cref="P:OpenAI_API.Models.Model.DefaultEmbeddingModel"/>
             </summary>
             <param name="input">Text to be embedded</param>
             <returns>Asynchronously returns the embedding result. Look in its <see cref="P:OpenAI_API.Embedding.Data.Embedding"/> property of <see cref="P:OpenAI_API.Embedding.EmbeddingResult.Data"/> to find the vector of floating point numbers</returns>
         </member>
         <member name="M:OpenAI_API.Embedding.EmbeddingEndpoint.CreateEmbeddingAsync(OpenAI_API.Embedding.EmbeddingRequest)">
             <summary>
-            Ask the API to embedd text using a custom request
+            Ask the API to embed text using a custom request
             </summary>
             <param name="request">Request to be send</param>
             <returns>Asynchronously returns the embedding result. Look in its <see cref="P:OpenAI_API.Embedding.Data.Embedding"/> property of <see cref="P:OpenAI_API.Embedding.EmbeddingResult.Data"/> to find the vector of floating point numbers</returns>
         </member>
         <member name="M:OpenAI_API.Embedding.EmbeddingEndpoint.GetEmbeddingsAsync(System.String)">
-            <summary>
-            Ask the API to embedd text using the default embedding model <see cref="P:OpenAI_API.Models.Model.AdaTextEmbedding"/>
-            </summary>
-            <param name="input">Text to be embedded</param>
-            <returns>Asynchronously returns the first embedding result as an array of floats.</returns>
+            <inheritdoc/>
+        </member>
+        <member name="M:OpenAI_API.Embedding.EmbeddingEndpoint.GetEmbeddingsAsync(System.String,OpenAI_API.Models.Model,System.Nullable{System.Int32})">
+            <inheritdoc/>
         </member>
         <member name="T:OpenAI_API.Embedding.EmbeddingRequest">
             <summary>
@@ -1176,21 +1738,27 @@
             Main text to be embedded
             </summary>
         </member>
+        <member name="P:OpenAI_API.Embedding.EmbeddingRequest.Dimensions">
+            <summary>
+            The number of dimensions the resulting output embeddings should have. Only supported in text-embedding-3 and later models.
+            </summary>
+        </member>
         <member name="M:OpenAI_API.Embedding.EmbeddingRequest.#ctor">
             <summary>
             Cretes a new, empty <see cref="T:OpenAI_API.Embedding.EmbeddingRequest"/>
             </summary>
         </member>
-        <member name="M:OpenAI_API.Embedding.EmbeddingRequest.#ctor(OpenAI_API.Models.Model,System.String)">
+        <member name="M:OpenAI_API.Embedding.EmbeddingRequest.#ctor(OpenAI_API.Models.Model,System.String,System.Nullable{System.Int32})">
             <summary>
             Creates a new <see cref="T:OpenAI_API.Embedding.EmbeddingRequest"/> with the specified parameters
             </summary>
             <param name="model">The model to use. You can use <see cref="M:OpenAI_API.Models.ModelsEndpoint.GetModelsAsync"/> to see all of your available models, or use a standard model like <see cref="P:OpenAI_API.Models.Model.AdaTextEmbedding"/>.</param>
             <param name="input">The prompt to transform</param>
+            <param name="dimensions">The number of dimensions the resulting output embeddings should have. Only supported in text-embedding-3 and later models.</param>
         </member>
         <member name="M:OpenAI_API.Embedding.EmbeddingRequest.#ctor(System.String)">
             <summary>
-            Creates a new <see cref="T:OpenAI_API.Embedding.EmbeddingRequest"/> with the specified input and the <see cref="P:OpenAI_API.Models.Model.AdaTextEmbedding"/> model.
+            Creates a new <see cref="T:OpenAI_API.Embedding.EmbeddingRequest"/> with the specified input and the <see cref="P:OpenAI_API.Models.Model.DefaultEmbeddingModel"/> model.
             </summary>
             <param name="input">The prompt to transform</param>
         </member>
@@ -1242,28 +1810,30 @@
         </member>
         <member name="P:OpenAI_API.Embedding.IEmbeddingEndpoint.DefaultEmbeddingRequestArgs">
             <summary>
-            This allows you to send request to the recommended model without needing to specify. Every request uses the <see cref="P:OpenAI_API.Models.Model.AdaTextEmbedding"/> model
+            This allows you to send request to a default model without needing to specify for each request
             </summary>
         </member>
         <member name="M:OpenAI_API.Embedding.IEmbeddingEndpoint.CreateEmbeddingAsync(System.String)">
             <summary>
-            Ask the API to embedd text using the default embedding model <see cref="P:OpenAI_API.Models.Model.AdaTextEmbedding"/>
+            Ask the API to embed text using the default embedding model <see cref="P:OpenAI_API.Models.Model.DefaultEmbeddingModel"/>
             </summary>
             <param name="input">Text to be embedded</param>
             <returns>Asynchronously returns the embedding result. Look in its <see cref="P:OpenAI_API.Embedding.Data.Embedding"/> property of <see cref="P:OpenAI_API.Embedding.EmbeddingResult.Data"/> to find the vector of floating point numbers</returns>
         </member>
         <member name="M:OpenAI_API.Embedding.IEmbeddingEndpoint.CreateEmbeddingAsync(OpenAI_API.Embedding.EmbeddingRequest)">
             <summary>
-            Ask the API to embedd text using a custom request
+            Ask the API to embed text using a custom request
             </summary>
             <param name="request">Request to be send</param>
             <returns>Asynchronously returns the embedding result. Look in its <see cref="P:OpenAI_API.Embedding.Data.Embedding"/> property of <see cref="P:OpenAI_API.Embedding.EmbeddingResult.Data"/> to find the vector of floating point numbers</returns>
         </member>
-        <member name="M:OpenAI_API.Embedding.IEmbeddingEndpoint.GetEmbeddingsAsync(System.String)">
+        <member name="M:OpenAI_API.Embedding.IEmbeddingEndpoint.GetEmbeddingsAsync(System.String,OpenAI_API.Models.Model,System.Nullable{System.Int32})">
             <summary>
-            Ask the API to embedd text using the default embedding model <see cref="P:OpenAI_API.Models.Model.AdaTextEmbedding"/>
+            Ask the API to embed text <see cref="P:OpenAI_API.Models.Model.DefaultEmbeddingModel"/>
             </summary>
             <param name="input">Text to be embedded</param>
+            <param name="model">The model to use. You can use <see cref="M:OpenAI_API.Models.ModelsEndpoint.GetModelsAsync"/> to see all of your available models, or use a standard model like <see cref="P:OpenAI_API.Models.Model.AdaTextEmbedding"/>.</param>
+            <param name="dimensions">The number of dimensions the resulting output embeddings should have. Only supported in text-embedding-3 and later models.</param>
             <returns>Asynchronously returns the first embedding result as an array of floats.</returns>
         </member>
         <member name="T:OpenAI_API.EndpointBase">
@@ -1320,12 +1890,24 @@
             <returns>The HttpResponseMessage of the response, which is confirmed to be successful.</returns>
             <exception cref="T:System.Net.Http.HttpRequestException">Throws an exception if a non-success HTTP response was returned</exception>
         </member>
-        <member name="M:OpenAI_API.EndpointBase.HttpGetContent``1(System.String)">
+        <member name="M:OpenAI_API.EndpointBase.HttpGetContent(System.String,System.Net.Http.HttpMethod,System.Object)">
             <summary>
             Sends an HTTP Get request and return the string content of the response without parsing, and does error handling.
             </summary>
             <param name="url">(optional) If provided, overrides the url endpoint for this request.  If omitted, then <see cref="P:OpenAI_API.EndpointBase.Url"/> will be used.</param>
+            <param name="verb">(optional) The HTTP verb to use, for example "<see cref="P:System.Net.Http.HttpMethod.Get"/>".  If omitted, then "GET" is assumed.</param>
+            <param name="postData">(optional) A json-serializable object to include in the request body.</param>
             <returns>The text string of the response, which is confirmed to be successful.</returns>
+            <exception cref="T:System.Net.Http.HttpRequestException">Throws an exception if a non-success HTTP response was returned</exception>
+        </member>
+        <member name="M:OpenAI_API.EndpointBase.HttpRequest(System.String,System.Net.Http.HttpMethod,System.Object)">
+            <summary>
+            Sends an HTTP request and return the raw content stream of the response without parsing, and does error handling.
+            </summary>
+            <param name="url">(optional) If provided, overrides the url endpoint for this request.  If omitted, then <see cref="P:OpenAI_API.EndpointBase.Url"/> will be used.</param>
+            <param name="verb">(optional) The HTTP verb to use, for example "<see cref="P:System.Net.Http.HttpMethod.Get"/>".  If omitted, then "GET" is assumed.</param>
+            <param name="postData">(optional) A json-serializable object to include in the request body.</param>
+            <returns>The response content stream, which is confirmed to be successful.</returns>
             <exception cref="T:System.Net.Http.HttpRequestException">Throws an exception if a non-success HTTP response was returned</exception>
         </member>
         <member name="M:OpenAI_API.EndpointBase.HttpRequest``1(System.String,System.Net.Http.HttpMethod,System.Object)">
@@ -1387,6 +1969,31 @@
             <param name="postData">(optional) A json-serializable object to include in the request body.</param>
             <returns>The HttpResponseMessage of the response, which is confirmed to be successful.</returns>
             <exception cref="T:System.Net.Http.HttpRequestException">Throws an exception if a non-success HTTP response was returned</exception>
+        </member>
+        <member name="P:OpenAI_API.EndpointBase.ApiErrorResponse.Error">
+            <summary>
+            The error details
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.EndpointBase.ApiErrorResponseError.Message">
+            <summary>
+            The error message
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.EndpointBase.ApiErrorResponseError.ErrorType">
+            <summary>
+            The type of error
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.EndpointBase.ApiErrorResponseError.Parameter">
+            <summary>
+            The parameter that caused the error
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.EndpointBase.ApiErrorResponseError.ErrorCode">
+            <summary>
+            The error code
+            </summary>
         </member>
         <member name="T:OpenAI_API.Files.File">
             <summary>
@@ -1499,7 +2106,7 @@
             Get the list of all files
             </summary>
             <returns></returns>
-            <exception cref="!:HttpRequestException"></exception>
+            <exception cref="T:System.Net.Http.HttpRequestException"></exception>
         </member>
         <member name="M:OpenAI_API.Files.IFilesEndpoint.GetFileAsync(System.String)">
             <summary>
@@ -1541,11 +2148,12 @@
             <param name="request">Request to be send</param>
             <returns>Asynchronously returns the image result. Look in its <see cref="P:OpenAI_API.Images.Data.Url"/> </returns>
         </member>
-        <member name="M:OpenAI_API.Images.IImageGenerationEndpoint.CreateImageAsync(System.String)">
+        <member name="M:OpenAI_API.Images.IImageGenerationEndpoint.CreateImageAsync(System.String,OpenAI_API.Models.Model)">
             <summary>
             Ask the API to Creates an image given a prompt.
             </summary>
             <param name="input">A text description of the desired image(s)</param>
+            <param name="model">The model to use for generating the image.  Defaults to <see cref="P:OpenAI_API.Models.Model.DALLE2"/>.</param>
             <returns>Asynchronously returns the image result. Look in its <see cref="P:OpenAI_API.Images.Data.Url"/> </returns>
         </member>
         <member name="T:OpenAI_API.Images.ImageGenerationEndpoint">
@@ -1564,11 +2172,12 @@
             </summary>
             <param name="api"></param>
         </member>
-        <member name="M:OpenAI_API.Images.ImageGenerationEndpoint.CreateImageAsync(System.String)">
+        <member name="M:OpenAI_API.Images.ImageGenerationEndpoint.CreateImageAsync(System.String,OpenAI_API.Models.Model)">
             <summary>
             Ask the API to Creates an image given a prompt.
             </summary>
             <param name="input">A text description of the desired image(s)</param>
+            <param name="model">The model to use for generating the image.  Defaults to <see cref="P:OpenAI_API.Models.Model.DALLE2"/>.</param>
             <returns>Asynchronously returns the image result. Look in its <see cref="P:OpenAI_API.Images.Data.Url"/> </returns>
         </member>
         <member name="M:OpenAI_API.Images.ImageGenerationEndpoint.CreateImageAsync(OpenAI_API.Images.ImageGenerationRequest)">
@@ -1590,7 +2199,12 @@
         </member>
         <member name="P:OpenAI_API.Images.ImageGenerationRequest.NumOfImages">
             <summary>
-            How many different choices to request for each prompt.  Defaults to 1.
+            How many different choices to request for each prompt.  Defaults to 1.  Only for DALL-E 2.  For DALL-E 3, only 1 is allowed.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Images.ImageGenerationRequest.Model">
+            <summary>
+            The model to use for this request.  Defaults to DALL-E 2.
             </summary>
         </member>
         <member name="P:OpenAI_API.Images.ImageGenerationRequest.User">
@@ -1600,7 +2214,12 @@
         </member>
         <member name="P:OpenAI_API.Images.ImageGenerationRequest.Size">
             <summary>
-            The size of the generated images. Must be one of 256x256, 512x512, or 1024x1024. Defauls to 1024x1024
+            The size of the generated images. Defaults to 1024x1024.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Images.ImageGenerationRequest.Quality">
+            <summary>
+            By default, images are generated at `standard` quality, but when using DALL·E 3 you can set quality to `hd` for enhanced detail. Square, standard quality images are the fastest to generate.
             </summary>
         </member>
         <member name="P:OpenAI_API.Images.ImageGenerationRequest.ResponseFormat">
@@ -1612,6 +2231,17 @@
             <summary>
             Cretes a new, empty <see cref="T:OpenAI_API.Images.ImageGenerationRequest"/>
             </summary>
+        </member>
+        <member name="M:OpenAI_API.Images.ImageGenerationRequest.#ctor(System.String,OpenAI_API.Models.Model,OpenAI_API.Images.ImageSize,System.String,System.String,OpenAI_API.Images.ImageResponseFormat)">
+            <summary>
+            Creates a new <see cref="T:OpenAI_API.Images.ImageGenerationRequest"/> with the specified parameters
+            </summary>
+            <param name="prompt">A text description of the desired image(s). The maximum length is 1000 characters.</param>
+            <param name="model">The model to use for this request. Defaults to DALL-E 2.</param>
+            <param name="size">The size of the generated images. Must be one of 256x256, 512x512, or 1024x1024.</param>
+            <param name="quality">By default, images are generated at `standard` quality, but when using DALL·E 3 you can set quality to `hd` for enhanced detail.</param>
+            <param name="user">A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse.</param>
+            <param name="responseFormat">The format in which the generated images are returned. Must be one of url or b64_json.</param>
         </member>
         <member name="M:OpenAI_API.Images.ImageGenerationRequest.#ctor(System.String,System.Nullable{System.Int32},OpenAI_API.Images.ImageSize,System.String,OpenAI_API.Images.ImageResponseFormat)">
             <summary>
@@ -1630,12 +2260,12 @@
         </member>
         <member name="P:OpenAI_API.Images.ImageResponseFormat.Url">
             <summary>
-            Requests an image that is 256x256
+            Returns a URL to the image on a server
             </summary>
         </member>
         <member name="P:OpenAI_API.Images.ImageResponseFormat.B64_json">
             <summary>
-            Requests an image that is 512x512
+            Gets the image base as a base64-encoded JSON string
             </summary>
         </member>
         <member name="M:OpenAI_API.Images.ImageResponseFormat.ToString">
@@ -1681,6 +2311,11 @@
             The base64-encoded image data as returned by the API
             </summary>
         </member>
+        <member name="P:OpenAI_API.Images.Data.RevisedPrompt">
+            <summary>
+            The prompt that was used to generate the image, if there was any revision to the prompt.
+            </summary>
+        </member>
         <member name="T:OpenAI_API.Images.ImageSize">
             <summary>
             Represents available sizes for image generation endpoints
@@ -1688,17 +2323,27 @@
         </member>
         <member name="P:OpenAI_API.Images.ImageSize._256">
             <summary>
-            Requests an image that is 256x256
+            Only for DALL-E 2. Requests an image that is 256x256
             </summary>
         </member>
         <member name="P:OpenAI_API.Images.ImageSize._512">
             <summary>
-            Requests an image that is 512x512
+            Only for DALL-E 2. Requests an image that is 512x512
             </summary>
         </member>
         <member name="P:OpenAI_API.Images.ImageSize._1024">
             <summary>
-            Requests and image that is 1024x1024
+            Works with both DALL-E 2 and 3. Requests and image that is 1024x1024.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Images.ImageSize._1024x1792">
+            <summary>
+            Only for DALL-E 3. Requests a tall image that is 1024x1792.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Images.ImageSize._1792x1024">
+            <summary>
+            Only for DALL-E 3. Requests a wide image that is 1792x1024.
             </summary>
         </member>
         <member name="M:OpenAI_API.Images.ImageSize.ToString">
@@ -1706,6 +2351,16 @@
             Gets the string value for this size to pass to the API
             </summary>
             <returns>The size as a string</returns>
+        </member>
+        <member name="M:OpenAI_API.Images.ImageSize.Equals(System.Object)">
+            <summary>
+            Returns true is the string value of the sizes match
+            </summary>
+            <param name="obj">The other object to compare to</param>
+            <returns>True is the sizes are the same</returns>
+        </member>
+        <member name="M:OpenAI_API.Images.ImageSize.GetHashCode">
+            <inheritdoc/>
         </member>
         <member name="M:OpenAI_API.Images.ImageSize.op_Implicit(OpenAI_API.Images.ImageSize)~System.String">
             <summary>
@@ -1768,6 +2423,21 @@
         <member name="P:OpenAI_API.IOpenAIAPI.ImageGenerations">
             <summary>
             The API lets you do operations with images. You can Given a prompt and/or an input image, the model will generate a new image.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.IOpenAIAPI.TextToSpeech">
+            <summary>
+            The endpoint for the Text to Speech API.  This allows you to generate audio from text.  See <seealso href="https://platform.openai.com/docs/guides/text-to-speech"/>
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.IOpenAIAPI.Transcriptions">
+            <summary>
+            The endpoint for the audio transcription API.  This allows you to generate text from audio.  See <seealso href="https://platform.openai.com/docs/guides/speech-to-text"/>
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.IOpenAIAPI.Translations">
+            <summary>
+            The endpoint for the audio translation API.  This allows you to generate English text from audio in other languages.  See <seealso href="https://platform.openai.com/docs/guides/speech-to-text/translations"/>
             </summary>
         </member>
         <member name="T:OpenAI_API.Models.IModelsEndpoint">
@@ -1841,7 +2511,7 @@
         </member>
         <member name="M:OpenAI_API.Models.Model.op_Implicit(OpenAI_API.Models.Model)~System.String">
             <summary>
-            Allows an model to be implicitly cast to the string of its <see cref="P:OpenAI_API.Models.Model.ModelID"/>
+            Allows a model to be implicitly cast to the string of its <see cref="P:OpenAI_API.Models.Model.ModelID"/>
             </summary>
             <param name="model">The <see cref="T:OpenAI_API.Models.Model"/> to cast to a string.</param>
         </member>
@@ -1868,6 +2538,83 @@
             The default model to use in requests if no other model is specified.
             </summary>
         </member>
+        <member name="P:OpenAI_API.Models.Model.DefaultChatModel">
+            <summary>
+            The default model to use in chat requests if no other model is specified.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Models.Model.DefaultTTSModel">
+            <summary>
+            The default model to use in text-to-speech requests if no other model is specified.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Models.Model.DefaultTranscriptionModel">
+            <summary>
+            The default model to use in transcription requests if no other model is specified.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Models.Model.DefaultEmbeddingModel">
+            <summary>
+            The default model to use in embedding requests if no other model is specified.
+            </summary>
+        </member>
+        <member name="M:OpenAI_API.Models.Model.RetrieveModelDetailsAsync(OpenAI_API.OpenAIAPI)">
+            <summary>
+            Gets more details about this Model from the API, specifically properties such as <see cref="P:OpenAI_API.Models.Model.OwnedBy"/> and permissions.
+            </summary>
+            <param name="api">An instance of the API with authentication in order to call the endpoint.</param>
+            <returns>Asynchronously returns an Model with all relevant properties filled in</returns>
+        </member>
+        <member name="P:OpenAI_API.Models.Model.GPT4">
+            <summary>
+            More capable than any GPT-3.5 model, able to do more complex tasks, and optimized for chat. Will be updated with the latest model iteration.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Models.Model.GPT4_32k_Context">
+            <summary>
+            Same capabilities as the base gpt-4 model but with 4x the context length. Will be updated with the latest model iteration.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Models.Model.GPT4_Vision">
+            <summary>
+            Ability to understand images, in addition to all other GPT-4 Turbo capabilities. Returns a maximum of 4,096 output tokens. This is a preview model version and not suited yet for production traffic.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Models.Model.GPT4_Turbo">
+            <summary>
+            The latest GPT-4 model with improved instruction following, JSON mode, reproducible outputs, parallel function calling, and more. Returns a maximum of 4,096 output tokens. This preview model is not yet suited for production traffic. 
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Models.Model.ChatGPTTurbo">
+            <summary>
+            GPT-3.5 Turbo model which regularly updates with the latest model iteration.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Models.Model.ChatGPTTurbo_1106">
+            <summary>
+            The latest GPT-3.5 Turbo model with improved instruction following, JSON mode, reproducible outputs, parallel function calling, and more. Returns a maximum of 4,096 output tokens.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Models.Model.ChatGPTTurbo_16k">
+            <summary>
+            GPT-3.5 Turbo model with 16k context window, improved instruction following.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Models.Model.ChatGPTTurboInstruct">
+            <summary>
+            Similar capabilities as text-davinci-003 but compatible with legacy Completions endpoint and not Chat Completions.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Models.Model.Babbage">
+            <summary>
+            Replacement for the GPT-3 ada and babbage base models. GPT base models can understand and generate natural language or code but are not trained with instruction following. These models are made to be replacements for our original GPT-3 base models and use the legacy Completions API. Most customers should use GPT-3.5 or GPT-4.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Models.Model.Davinci">
+            <summary>
+            Replacement for the GPT-3 curie and davinci base model. GPT base models can understand and generate natural language or code but are not trained with instruction following. These models are made to be replacements for our original GPT-3 base models and use the legacy Completions API. Most customers should use GPT-3.5 or GPT-4.
+            </summary>
+        </member>
         <member name="P:OpenAI_API.Models.Model.AdaText">
             <summary>
             Capable of very simple tasks, usually the fastest model in the GPT-3 series, and lowest cost
@@ -1885,7 +2632,7 @@
         </member>
         <member name="P:OpenAI_API.Models.Model.DavinciText">
             <summary>
-            Most capable GPT-3 model. Can do any task the other models can do, often with higher quality, longer output and better instruction-following. Also supports inserting completions within text.
+            Will be deprecated by OpenAI on Jan 4th 2024. Use <see cref="P:OpenAI_API.Models.Model.Davinci"/> ("davinci-002") instead.
             </summary>
         </member>
         <member name="P:OpenAI_API.Models.Model.CushmanCode">
@@ -1895,32 +2642,22 @@
         </member>
         <member name="P:OpenAI_API.Models.Model.DavinciCode">
             <summary>
-            Most capable Codex model. Particularly good at translating natural language to code. In addition to completing code, also supports inserting completions within code.
+            Will be deprecated by OpenAI on Jan 4th 2024.
             </summary>
         </member>
         <member name="P:OpenAI_API.Models.Model.AdaTextEmbedding">
             <summary>
-            OpenAI offers one second-generation embedding model for use with the embeddings API endpoint.
+            2nd generation embedding model.
             </summary>
         </member>
-        <member name="P:OpenAI_API.Models.Model.ChatGPTTurbo">
+        <member name="P:OpenAI_API.Models.Model.TextEmbedding3Large">
             <summary>
-            Most capable GPT-3.5 model and optimized for chat at 1/10th the cost of text-davinci-003. Will be updated with the latest model iteration.
+            Most capable embedding model for both english and non-english tasks
             </summary>
         </member>
-        <member name="P:OpenAI_API.Models.Model.ChatGPTTurbo0301">
+        <member name="P:OpenAI_API.Models.Model.TextEmbedding3Small">
             <summary>
-            Snapshot of gpt-3.5-turbo from March 1st 2023. Unlike gpt-3.5-turbo, this model will not receive updates, and will only be supported for a three month period ending on June 1st 2023.
-            </summary>
-        </member>
-        <member name="P:OpenAI_API.Models.Model.GPT4">
-            <summary>
-            More capable than any GPT-3.5 model, able to do more complex tasks, and optimized for chat. Will be updated with the latest model iteration.  Currently in limited beta so your OpenAI account needs to be whitelisted to use this.
-            </summary>
-        </member>
-        <member name="P:OpenAI_API.Models.Model.GPT4_32k_Context">
-            <summary>
-            Same capabilities as the base gpt-4 mode but with 4x the context length. Will be updated with the latest model iteration.  Currently in limited beta so your OpenAI account needs to be whitelisted to use this.
+            Increased performance over 2nd generation ada embedding model
             </summary>
         </member>
         <member name="P:OpenAI_API.Models.Model.TextModerationStable">
@@ -1934,12 +2671,30 @@
             The latest text moderation model. This model will be automatically upgraded over time.
             </summary>
         </member>
-        <member name="M:OpenAI_API.Models.Model.RetrieveModelDetailsAsync(OpenAI_API.OpenAIAPI)">
+        <member name="P:OpenAI_API.Models.Model.DALLE2">
             <summary>
-            Gets more details about this Model from the API, specifically properties such as <see cref="P:OpenAI_API.Models.Model.OwnedBy"/> and permissions.
+            The previous DALL·E model released in Nov 2022. The 2nd iteration of DALL·E with more realistic, accurate, and 4x greater resolution images than the original model.
             </summary>
-            <param name="api">An instance of the API with authentication in order to call the endpoint.</param>
-            <returns>Asynchronously returns an Model with all relevant properties filled in</returns>
+        </member>
+        <member name="P:OpenAI_API.Models.Model.DALLE3">
+            <summary>
+            The latest DALL·E model released in Nov 2023.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Models.Model.TTS_Speed">
+            <summary>
+            The latest text to speech model, optimized for speed and real time text to speech use cases.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Models.Model.TTS_HD">
+            <summary>
+            The latest text to speech model, optimized for quality.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.Models.Model.Whisper1">
+            <summary>
+            Currently Whisper-1 is the only speech recognition model available.
+            </summary>
         </member>
         <member name="T:OpenAI_API.Models.Permissions">
             <summary>
@@ -2367,6 +3122,21 @@
         <member name="P:OpenAI_API.OpenAIAPI.ImageGenerations">
             <summary>
             The API lets you do operations with images. Given a prompt and/or an input image, the model will generate a new image.
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.OpenAIAPI.TextToSpeech">
+            <summary>
+            The Endpoint for the Text to Speech API.  This allows you to generate audio from text.  See <seealso href="https://platform.openai.com/docs/guides/text-to-speech"/>
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.OpenAIAPI.Transcriptions">
+            <summary>
+            The endpoint for the audio transcription API.  This allows you to generate text from audio.  See <seealso href="https://platform.openai.com/docs/guides/speech-to-text"/>
+            </summary>
+        </member>
+        <member name="P:OpenAI_API.OpenAIAPI.Translations">
+            <summary>
+            The endpoint for the audio translation API.  This allows you to generate English text from audio in other languages.  See <seealso href="https://platform.openai.com/docs/guides/speech-to-text/translations"/>
             </summary>
         </member>
         <member name="T:OpenAI_API.Usage">

@@ -13,7 +13,7 @@ public class CloneManager : MonoBehaviour, IGameManager
     public void Startup()
     {
         Debug.Log("Clone manager starting...");
-        health = 4;
+        health = 10;
         maxHealth = 100;
         barValueDamage = maxHealth / health;
         status = ManagerStatus.Started;
