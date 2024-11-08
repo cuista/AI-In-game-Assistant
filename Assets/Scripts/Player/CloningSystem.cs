@@ -36,13 +36,29 @@ class ReplayClone
     public float vertSpeed;
     public GameObject bulletCreationPoint;
     public GameObject head;
+    public GameObject originPoint;
+
+    public float recordingTimer = 0;
+    public int replayIndex = 0;
 
     public Animator animator;
 
-    public ReplayClone(GameObject clone, List<PlayerRecord> playerRecordings, float vertSpeed)
+    public ReplayClone(GameObject clone, List<PlayerRecord> playerRecordings, float vertSpeed, GameObject originPoint) //for late clones
     {
         this.Clone = clone;
         this.PlayerRecordings = playerRecordings;
+        isJumping = false;
+        this.vertSpeed = vertSpeed;
+        bulletCreationPoint = clone.GetComponent<CloneCharacter>().GetBulletCreationPoint();
+        head = clone.GetComponentInChildren<CloneHead>().gameObject;
+        this.originPoint = originPoint;
+
+        animator = clone.GetComponent<Animator>();
+    }
+
+    public ReplayClone(GameObject clone, float vertSpeed) //for mirror clones
+    {
+        this.Clone = clone;
         isJumping = false;
         this.vertSpeed = vertSpeed;
         bulletCreationPoint = clone.GetComponent<CloneCharacter>().GetBulletCreationPoint();
@@ -51,14 +67,10 @@ class ReplayClone
         animator = clone.GetComponent<Animator>();
     }
 
-    public ReplayClone(GameObject clone, float vertSpeed)
+    public void RegenerateClone(GameObject clone)
     {
         this.Clone = clone;
-        isJumping = false;
-        this.vertSpeed = vertSpeed;
-        bulletCreationPoint = clone.GetComponent<CloneCharacter>().GetBulletCreationPoint();
-        head = clone.GetComponentInChildren<CloneHead>().gameObject;
-
+        replayIndex = 0;
         animator = clone.GetComponent<Animator>();
     }
 }
@@ -67,7 +79,8 @@ public class CloningSystem : MonoBehaviour
 {
     [SerializeField] private GameObject lateClonePrefab;
     [SerializeField] private GameObject mirrorClonePrefab;
-    [SerializeField] private GameObject spawnClonePrefab;
+    [SerializeField] private GameObject spawnPointPrefab;
+    [SerializeField] private GameObject originPointPrefab;
 
     private RelativeMovement relativeMovement;
     private FirstPersonLook firstPersonLook;
@@ -189,8 +202,9 @@ public class CloningSystem : MonoBehaviour
                     StartCoroutine(transform.GetComponent<PlayerCharacter>().UICountdown(20)); //UI countdown of 20sec
                 }
                 _currentPlayerRecording = new List<PlayerRecord>();
-                _spawnPoint = Instantiate(spawnClonePrefab) as GameObject;
+                _spawnPoint = Instantiate(spawnPointPrefab) as GameObject;
                 _spawnPoint.transform.position = new Vector3(transform.position.x, transform.position.y - 0.8f, transform.position.z);
+                _spawnPoint.transform.rotation = transform.rotation;
                 transform.GetComponent<PlayerCharacter>().SetSpawnCloneAnimator(_spawnPoint.GetComponent<Animator>()); //Flash spawnClone Animation
                 StartCoroutine(SpawnPointUnused(_spawnPoint));
 
@@ -210,11 +224,13 @@ public class CloningSystem : MonoBehaviour
 
                 Transform spawn = _spawnPoint.transform;
                 Destroy(_spawnPoint);
+                GameObject originPoint = Instantiate(originPointPrefab, spawn.position, spawn.rotation);
+
                 if (_isLateCloneMode)
                 {
                     GameObject clone = Instantiate(lateClonePrefab, spawn.position, spawn.rotation);
                     List<PlayerRecord> records = _currentPlayerRecording;
-                    _lateClones.Add(new ReplayClone(clone, records, relativeMovement.minFall));
+                    _lateClones.Add(new ReplayClone(clone, records, relativeMovement.minFall, originPoint));
                 }
                 else
                 {
@@ -247,8 +263,14 @@ public class CloningSystem : MonoBehaviour
                 {
                     if(replayClone != null)
                     {
-                        //ADD player record
-                        replayClone.PlayerRecordings.Add(new PlayerRecord(_playerCamera, _isFirstPersonView, _headRotationX, mouseX, horInput, verInput, moveSpeed, jumpPressed, shootPressed, meleePressed));
+                        if (replayClone.recordingTimer < 25f)
+                        {
+                            //INCREASE recordingTimer
+                            replayClone.recordingTimer += Time.deltaTime;
+                            
+                            //ADD player record
+                            replayClone.PlayerRecordings.Add(new PlayerRecord(_playerCamera, _isFirstPersonView, _headRotationX, mouseX, horInput, verInput, moveSpeed, jumpPressed, shootPressed, meleePressed));
+                        }
 
                         //Clone replays recorded player movements
                         CloneMovement(replayClone, true);
@@ -256,8 +278,11 @@ public class CloningSystem : MonoBehaviour
                         //Clone replays recorded player attacks
                         CloneAttack(replayClone, true);
 
-                        //REMOVE player record
-                        replayClone.PlayerRecordings.RemoveAt(0);
+                        //INCREASE replayIndex value
+                        if (replayClone.replayIndex < replayClone.PlayerRecordings.Count - 1)
+                        {
+                            replayClone.replayIndex++;
+                        }
                     }
                     else
                     {
@@ -315,14 +340,16 @@ public class CloningSystem : MonoBehaviour
 
     void CloneMovement(ReplayClone replayClone, bool isLateClone)
     {
-        Transform playerCamera = isLateClone ? replayClone.PlayerRecordings[0].playerCamera : _playerCamera;
-        bool isFirstPersonView = isLateClone ? replayClone.PlayerRecordings[0].isFirstPersonView : _isFirstPersonView;
-        float headRotX = isLateClone ? replayClone.PlayerRecordings[0].headRotationX : _headRotationX;
-        float rotX = isLateClone ? replayClone.PlayerRecordings[0].mouseX : mouseX;
-        float hor = isLateClone ? replayClone.PlayerRecordings[0].horInput : horInput;
-        float ver = isLateClone ? replayClone.PlayerRecordings[0].verInput : verInput;
-        float horSpeed = isLateClone ? replayClone.PlayerRecordings[0].moveSpeed : moveSpeed;
-        bool doJump = isLateClone ? replayClone.PlayerRecordings[0].jumpPressed : jumpPressed;
+        int i = replayClone.replayIndex;
+
+        Transform playerCamera = isLateClone ? replayClone.PlayerRecordings[i].playerCamera : _playerCamera;
+        bool isFirstPersonView = isLateClone ? replayClone.PlayerRecordings[i].isFirstPersonView : _isFirstPersonView;
+        float headRotX = isLateClone ? replayClone.PlayerRecordings[i].headRotationX : _headRotationX;
+        float rotX = isLateClone ? replayClone.PlayerRecordings[i].mouseX : mouseX;
+        float hor = isLateClone ? replayClone.PlayerRecordings[i].horInput : horInput;
+        float ver = isLateClone ? replayClone.PlayerRecordings[i].verInput : verInput;
+        float horSpeed = isLateClone ? replayClone.PlayerRecordings[i].moveSpeed : moveSpeed;
+        bool doJump = isLateClone ? replayClone.PlayerRecordings[i].jumpPressed : jumpPressed;
 
         //Clone HORIZONTAL-MOVEMENT
         Vector3 moveDirection = new Vector3(hor * horSpeed, 0, ver * horSpeed); //(x,0,z)
@@ -408,8 +435,10 @@ public class CloningSystem : MonoBehaviour
 
     void CloneAttack(ReplayClone replayClone, bool isLateClone)
     {
-        bool doShoot = isLateClone ? replayClone.PlayerRecordings[0].shootPressed : shootPressed;
-        bool doMelee = isLateClone ? replayClone.PlayerRecordings[0].meleePressed : meleePressed;
+        int i = replayClone.replayIndex;
+
+        bool doShoot = isLateClone ? replayClone.PlayerRecordings[i].shootPressed : shootPressed;
+        bool doMelee = isLateClone ? replayClone.PlayerRecordings[i].meleePressed : meleePressed;
         if (!GameEvent.isPaused)
         {
             //Melee attack
@@ -438,7 +467,8 @@ public class CloningSystem : MonoBehaviour
         {
             if (_lateClones[i].Clone == clone)
             {
-                _lateClones.RemoveAt(i);
+                Transform origin = _lateClones[i].originPoint.transform;
+                _lateClones[i].RegenerateClone(Instantiate(lateClonePrefab, origin.position, origin.rotation));
                 break;
             }
         }
