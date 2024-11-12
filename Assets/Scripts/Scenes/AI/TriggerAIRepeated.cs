@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class TriggerAIRepeated : MonoBehaviour
 {
-    private InworldAIController controllerAI;
+    private InworldAIController assistantInworldAI;
+    private AssistantOpenAIController assistantOpenAI;
     public string triggerName;
 
     private void Awake()
     {
-        controllerAI = DontDestroyOnLoadManager.GetAIController().GetComponent<InworldAIController>();
+        assistantInworldAI = DontDestroyOnLoadManager.GetInworldAIController().GetComponent<InworldAIController>();
+        assistantOpenAI = DontDestroyOnLoadManager.GetOpenAIController().GetComponent<AssistantOpenAIController>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            controllerAI.SetCurrentTrigger(triggerName);
+            assistantInworldAI.SetCurrentTrigger(triggerName);
+            assistantOpenAI.SetCurrentTrigger(triggerName);
             Destroy(this.gameObject);
         }
     }

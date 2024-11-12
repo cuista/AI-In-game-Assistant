@@ -5,9 +5,12 @@ using UnityEngine;
 
 public class AssistantSystem : MonoBehaviour
 {
-    [SerializeField] private InworldAIController assistantController;
+    [SerializeField] private InworldAIController assistantInworldAIController;
+    [SerializeField] private AssistantOpenAIController assistantOpenAIController;
+    [SerializeField] private VisionOpenAIController visionOpenAIController;
     private bool hintPressed;
     private bool mutePressed;
+    private bool visionPressed;
 
     [SerializeField] private GameObject humanQuotes;
     [SerializeField] private TMP_Text quoteContent;
@@ -37,6 +40,7 @@ public class AssistantSystem : MonoBehaviour
     {
         hintPressed = false;
         mutePressed = false;
+        visionPressed = false;
 
         _animatorHumanQuotes = humanQuotes.GetComponent<Animator>();
 
@@ -47,7 +51,7 @@ public class AssistantSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!GameEvent.isPaused && assistantController != null)
+        if(!GameEvent.isPaused && assistantInworldAIController != null)
         {
             if(Input.GetButtonDown("HintAssistant"))
             {
@@ -57,16 +61,20 @@ public class AssistantSystem : MonoBehaviour
             {
                 mutePressed = true;
             }
+            if (Input.GetButtonDown("VisionAssistant"))
+            {
+                visionPressed = true;
+            }
         }
     }
 
     private void FixedUpdate()
     {
-        if (!GameEvent.isPaused && assistantController != null)
+        if (!GameEvent.isPaused && assistantInworldAIController != null)
         {
             if (hintPressed)
             {
-                switch ((int)Random.Range(0, 3))
+                switch ((int)Random.Range(0, 4))
                 {
                     case 0:
                         quoteContent.text = "Go on, I'm listening!";
@@ -81,18 +89,6 @@ public class AssistantSystem : MonoBehaviour
                         _audioSource.PlayOneShot(iWantToHearMore);
                         break;
                     case 3:
-                        quoteContent.text = "Tell me more!";
-                        _audioSource.PlayOneShot(tellMeMore);
-                        break;
-                    case 4:
-                        quoteContent.text = "Share more with me.";
-                        _audioSource.PlayOneShot(shareMoreWithMe);
-                        break;
-                    case 5:
-                        quoteContent.text = "I'm interested, continue!";
-                        _audioSource.PlayOneShot(imInterestedContinue);
-                        break;
-                    case 6:
                     default:
                         quoteContent.text = "I'd love to hear more.";
                         _audioSource.PlayOneShot(idLoveToHearMore);
@@ -100,11 +96,12 @@ public class AssistantSystem : MonoBehaviour
                 }
 
                 _animatorHumanQuotes.SetTrigger("Open");
-                if(assistantController.IsMuted())
+                if(assistantInworldAIController.IsMuted())
                 {
-                    assistantController.Mute();
+                    assistantInworldAIController.Mute();
                 }
-                assistantController.HintTrigger();
+                assistantInworldAIController.HintTrigger();
+                assistantOpenAIController.HintTrigger();
                 hintPressed = false;
             }
             else if (mutePressed)
@@ -112,23 +109,50 @@ public class AssistantSystem : MonoBehaviour
                 switch ((int)Random.Range(0, 3))
                 {
                     case 0:
-                        quoteContent.text = assistantController.IsMuted() ? "Express yourself!" : "No more talking!";
-                        _audioSource.PlayOneShot(assistantController.IsMuted() ? expressYourself : noMoreTalking);
+                        quoteContent.text = assistantInworldAIController.IsMuted() ? "Express yourself!" : "No more talking!";
+                        _audioSource.PlayOneShot(assistantInworldAIController.IsMuted() ? expressYourself : noMoreTalking);
                         break;
                     case 1:
-                        quoteContent.text = assistantController.IsMuted() ? "Feel free to talk!" : "Silence please!";
-                        _audioSource.PlayOneShot(assistantController.IsMuted() ? feelFreeToTalk : silencePlease);
+                        quoteContent.text = assistantInworldAIController.IsMuted() ? "Feel free to talk!" : "Silence please!";
+                        _audioSource.PlayOneShot(assistantInworldAIController.IsMuted() ? feelFreeToTalk : silencePlease);
                         break;
                     case 2:
                     default:
-                        quoteContent.text = assistantController.IsMuted() ? "Talk freely!" : "Quiet down!";
-                        _audioSource.PlayOneShot(assistantController.IsMuted() ? talkFreely : quietDown);
+                        quoteContent.text = assistantInworldAIController.IsMuted() ? "Talk freely!" : "Quiet down!";
+                        _audioSource.PlayOneShot(assistantInworldAIController.IsMuted() ? talkFreely : quietDown);
                         break;
                 }
 
                 _animatorHumanQuotes.SetTrigger("Open");
-                assistantController.Mute();
+                assistantInworldAIController.Mute();
                 mutePressed = false;
+            }
+            else if (visionPressed)
+            {
+                switch ((int)Random.Range(0, 3))
+                {
+                    case 0:
+                        quoteContent.text = "Tell me more!";
+                        _audioSource.PlayOneShot(tellMeMore);
+                        break;
+                    case 1:
+                        quoteContent.text = "Share more with me.";
+                        _audioSource.PlayOneShot(shareMoreWithMe);
+                        break;
+                    case 2:
+                    default:
+                        quoteContent.text = "I'm interested, continue!";
+                        _audioSource.PlayOneShot(imInterestedContinue);
+                        break;
+                }
+
+                _animatorHumanQuotes.SetTrigger("Open");
+                if (assistantInworldAIController.IsMuted())
+                {
+                    assistantInworldAIController.Mute();
+                }
+                visionOpenAIController.VisionTrigger();
+                visionPressed = false;
             }
         }
     }

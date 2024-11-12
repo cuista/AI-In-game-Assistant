@@ -9,7 +9,7 @@ public class TriggerAIOneShot : MonoBehaviour
 
     private void Awake()
     {
-        controllerAI = DontDestroyOnLoadManager.GetAIController().GetComponent<InworldAIController>();
+        controllerAI = DontDestroyOnLoadManager.GetInworldAIController().GetComponent<InworldAIController>();
     }
 
     private void OnTriggerEnter(Collider other)
