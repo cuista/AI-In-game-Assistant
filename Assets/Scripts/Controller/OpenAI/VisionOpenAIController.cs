@@ -46,11 +46,14 @@ public class VisionOpenAIController : MonoBehaviour
                 "Consumables: the player can collect gems, red ammunition to generate clones and green potions to replenish life." +
                 "HUD: Top left) the green bar is life, the notches below if red are available ammunition. Top right) there is the number of gems collected with the total number to be collected next to it." +
                 "Interplayable elements: the player can attack boxes to obtain consumables, can hold onto a button to open a nearby door, can activate a lever that moves a flying platform or the floor. Buttons and levers can also be activated by clones; it is essential to take advantage of them for this reason.")),
+            //Test: Language switch
+            //new SystemChatMessage((ChatMessageContentPart.CreateTextPart("The response must be in Italian. All accented letters should be written with the letter without the accent plus the apostrophe (e.g. à becomes a')."))),
             //Model replies type
             new AssistantChatMessage(ChatMessageContentPart.CreateTextPart("Human here's an idea! Try putting a clone on that button nearby. It may opens the door on your right and you can go through the door. Collect all the gems along the way, you have 6 out of 20.")),
+            new AssistantChatMessage(ChatMessageContentPart.CreateTextPart("Oh no, human! You don't seem to have refills to place clones, try opening some item crates. Once done try placing a clone on the button so that you can open and go through the door.")),
             new AssistantChatMessage(ChatMessageContentPart.CreateTextPart("Human I have a suggestion for you! Try generating a clone to put over the button below and another clone to activate the lever. Timing is crucial for the platform to move and the door to open afterwards.")),
             //User prompt
-            new UserChatMessage(ChatMessageContentPart.CreateTextPart("Analyze the following image and give brief advice to the player to advance in the level." + "Random answer based of this random seed:" + UnityEngine.Random.Range(1, 100000)),
+            new UserChatMessage(ChatMessageContentPart.CreateTextPart("Analyze the following image and give brief advice to the player to advance in the level."),
             ChatMessageContentPart.CreateImagePart(imageBytes, "image/jpg")),
         };
         GetResponse(messages);
@@ -60,10 +63,10 @@ public class VisionOpenAIController : MonoBehaviour
 
     private async void GetResponse(List<ChatMessage> messages)
     {
-        ChatCompletion completion = await _client.CompleteChatAsync(messages);
+        ChatCompletion completion = await _client.CompleteChatAsync(messages, new ChatCompletionOptions(){ Seed = UnityEngine.Random.Range(1, 100000), });
 
         //Show new response messages in the hud
-        messagePanelHandler.AppendMessage(completion.Content[0].Text);
+        messagePanelHandler.AddMessage(completion.Content[0].Text);
     }
 
     private void SaveScreencapture(byte[] image, bool activeSaving)

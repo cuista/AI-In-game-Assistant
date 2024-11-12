@@ -11,6 +11,7 @@ public class AssistantSystem : MonoBehaviour
     private bool hintPressed;
     private bool mutePressed;
     private bool visionPressed;
+    private float lastButtonPressedTime;
 
     [SerializeField] private GameObject humanQuotes;
     [SerializeField] private TMP_Text quoteContent;
@@ -41,6 +42,7 @@ public class AssistantSystem : MonoBehaviour
         hintPressed = false;
         mutePressed = false;
         visionPressed = false;
+        lastButtonPressedTime = Time.time;
 
         _animatorHumanQuotes = humanQuotes.GetComponent<Animator>();
 
@@ -51,19 +53,22 @@ public class AssistantSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!GameEvent.isPaused && assistantInworldAIController != null)
+        if(!GameEvent.isPaused && (Time.time - lastButtonPressedTime)>3f)
         {
             if(Input.GetButtonDown("HintAssistant"))
             {
                 hintPressed = true;
+                lastButtonPressedTime = Time.time;
             }
             if(Input.GetButtonDown("MuteAssistant"))
             {
                 mutePressed = true;
+                lastButtonPressedTime = Time.time;
             }
             if (Input.GetButtonDown("VisionAssistant"))
             {
                 visionPressed = true;
+                lastButtonPressedTime = Time.time;
             }
         }
     }

@@ -11,23 +11,48 @@ public class MessagePanelHandler : MonoBehaviour
 
     public int fequencyInSeconds = 3;
     private bool _cancelResponse;
+    private bool _isAppending;
+
+    private Queue<string> _buffer; //FIFO
+    private int _capacity = 3;
 
     // Start is called before the first frame update
     void Start()
     {
         _cancelResponse = false;
+        _isAppending = false;
+        _buffer = new Queue<string>(_capacity);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(!_isAppending && _buffer.Count > 0)
+        {
+            AppendMessage(_buffer.Dequeue());
+        }
+    }
+
+    public void AddMessage(string message)
+    {
+        //Remove oldest message
+        if (_buffer.Count >= _capacity)
+        {
+            _buffer.Dequeue();
+        }
+
+        _buffer.Enqueue(message);
     }
 
     public async void AppendMessage(string message)
     {
-        //Showing in the HUD new messages with the response
-        string[] sentences = Regex.Split(message, @"(?<=\.)\s+");
+        _isAppending = true;
+
+        //Clean and split the string
+        Regex.Replace(message, "[-_@#]", "");
+        string[] sentences = Regex.Split(message, @"(?<=[.!?–])\s+");
+
+        //Show in the HUD the new messages
         foreach (string sentence in sentences)
         {
             if(_cancelResponse)
@@ -37,9 +62,14 @@ public class MessagePanelHandler : MonoBehaviour
             }
             GameObject messageHUD = Instantiate(messageHUDPrefab);
             messageHUD.GetComponent<MessageHUD>().SetMessage("NOVA", sentence);
-            messageHUD.transform.SetParent(content.transform);
-            await Task.Delay(fequencyInSeconds * 1000);
+            if(content != null)
+            {
+                messageHUD.transform.SetParent(content.transform);
+            }
+            await Task.Delay(fequencyInSeconds * 2000);
         }
+
+        _isAppending = false;
     }
 
     public void CancelResponse()

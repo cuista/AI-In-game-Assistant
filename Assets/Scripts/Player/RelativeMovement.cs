@@ -77,7 +77,7 @@ public class RelativeMovement : MonoBehaviour
             _jumpPressed = Input.GetButtonDown("Jump") || _jumpPressed;
 
             //Change player speed
-            _moveSpeed = Input.GetButton("Run") ? runSpeed : walkSpeed;
+            _moveSpeed = Input.GetButton("Walk") ? walkSpeed : runSpeed;
         }
     }
 

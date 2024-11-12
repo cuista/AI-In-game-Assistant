@@ -33,6 +33,9 @@ public class AssistantOpenAIController : MonoBehaviour
     public float currentTriggerDuration = 90f;
     private float _currentTriggerTime;
 
+    //Prompt for the assistant
+    private string _prompt;
+
     private bool _isMuted;
     private AudioSource audioSource;
 
@@ -51,6 +54,8 @@ public class AssistantOpenAIController : MonoBehaviour
         _openAIClient = new(Environment.GetEnvironmentVariable("OPENAI_API_KEY", EnvironmentVariableTarget.Machine));
         _assistantClient = _openAIClient.GetAssistantClient();
 
+        _prompt = "";
+
         CreateAssistantAndThread();
 
         _isMuted = false;
@@ -59,11 +64,20 @@ public class AssistantOpenAIController : MonoBehaviour
 
     private void CreateAssistantAndThread()
     {
+        //Create the assistant
         _assistant = _assistantClient.CreateAssistant("gpt-4o-mini", new AssistantCreationOptions()
         {
-            Instructions = "When asked a question, attempt to answer very concisely. " + "Prefer one-sentence answers whenever feasible."
+            Name = "Echo",
+            Instructions = "You are the AI in-game Assistant created specifically to enrich the player's game experience. Your role is to provide support to the player in various ways. You will be the player's mentor, offering advice and suggestions as they go through the game. You will also be the sarcastic companion who will keep the player company, accompanying your responses with comic quips and a humorous style similar to that of “The Hitchhiker's Guide to the Galaxy.”The information needed to give consistent and accurate advice will be given directly in the prompt." +
+            "You will also be the narrative voice of the game, sending the plot forward and providing crucial information. The game world is set in an advanced future where humanity was responsible for the creation, with the AI support, of a Dyson Sphere for taking energy from the Sun. The Earth has transformed into a desolate but technologically advanced environment, which represents a scenario of great importance in the plot. The basic plot involves a tragic event in the distant future: due to a fatal mistake made by humanity in using the Dyson Sphere and its solar power, the human race has become extinct. However, AI centuries later generated the first artificial human life form on Earth. The plot focuses on the tests that this new creature must face, its goal is to fully embody humanity. This suggests that AI is trying to restore humanity in some way, despite humans being long extinct." +
+            "Your personality is: sarcastic, ambiguous, mysterious, tutor, encouraging." +
+            "An example response is: Try to put a clone over that button, maybe it will open the door. If it is not I'm here to help, I have all the time in the world, literally." +
+            "An example response is: Level completed, here's your prize! A world all for you. There are no queues at the supermarket, at least." +
+            "An example response is: Try activating that lever, maybe it will activate the platform! Or it might make humanity vanish, ah no, too late." +
+            "An example response is: Beware of enemies, avoid their blows or try to shoot them down. When life gives you lemons, don’t make lemonade, get mad!",
         });
 
+        //Create the thread
         _thread = _assistantClient.CreateThread();
     }
 
@@ -97,37 +111,91 @@ public class AssistantOpenAIController : MonoBehaviour
 
     IEnumerator AIPrompting(string trigger)
     {
-        string prompt = trigger; //TODO prompt depends from the trigger
-        float randomNumber = UnityEngine.Random.Range(1, 100000);
-        prompt = "Tells a joke about tennis player Jannik Sinner";
+        switch (trigger)
+        {
+            case "story_mode_started":
+                _prompt = "say hi and give the human a welcome, introduce yourself briefly and explain to him that he must pass all the levels, as part of your test of his humanity, to be released into the real world. Briefly narrate the history of this world.";
+                break;
+            case "level_completed":
+                _prompt = "tell the human congratulation for reaching the end of the current level and tell him he can move on.";
+                break;
+            case "game_over":
+                _prompt = "say a few words to bid a final farewell to the human who has passed away.";
+                break;
+            case "put_clone_over_button":
+                _prompt = "tell the human a clue to make him understand to look for the button that opens the right door by placing a clone on it. Warn the human not to let the clone see him or else a time paradox will occur.";
+                break;
+            case "activate_platform_using_lever":
+                _prompt = "tell the human a clue to make him understand to find and use a lever to activate the platform that links the end of the level.";
+                break;
+            case "warning_turret_enemies":
+                _prompt = "warn the human that there are two enemy turrets ready to shoot at him.";
+                break;
+            case "put_clone_and_move":
+                _prompt = "tell the human that there are two buttons that move the platform, that he will have to use the clones and move them with the right timing to be able to move with the platform.";
+                break;
+            case "rotating_platform":
+                _prompt = "tell the human there is a lever that activates a rotating platform, that he will have to use a clone and let him activate the lever multiple times with right timing to let the the human reach new areas";
+                break;
+            case "button_door_rotating":
+                _prompt = "tell the human that there is a button that opens a door, that he will have to use a clone in combination with another clone that moves the rotating platform, they must be perfectly synchronized to allow the the human to pass the door.";
+                break;
+            case "popup_platform":
+                _prompt = "tell the human there is a popup platform";
+                break;
+            case "three_torrets":
+                _prompt = "tell the human there are three enemy turrets";
+                break;
+            case "let_clone_fall":
+                _prompt = "tell the human to let the clone fall to the button";
+                break;
+            case "popup_and_moving_platform":
+                _prompt = "tell the human there a popup and moving platform";
+                break;
+            case "three_buttons":
+                _prompt = "tell the human there are three button to use with right timing";
+                break;
+            case "again_torrets":
+                _prompt = "tell the human there are many enemy turrets";
+                break;
+            case "something_simple":
+                _prompt = "tell the human that this level will be simple";
+                break;
+            default:
+                break;
+        }
 
-        GetResponse(prompt);
+        GetResponse(_prompt);
 
         yield return null;
     }
 
     private async void GetResponse(string prompt)
     {
+        //Add the message to the thread
+        await _assistantClient.CreateMessageAsync(_thread.Id, MessageRole.User, new List<MessageContent>() { MessageContent.FromText(prompt) });
+
+        //Create a run
         AsyncCollectionResult<StreamingUpdate> streamingUpdates = _assistantClient.CreateRunStreamingAsync(_thread.Id, _assistant.Id, new RunCreationOptions()
         {
-            AdditionalInstructions = prompt + "Start the reply with: Jannik Sinner Chicken Winner Joke:",
+            AdditionalInstructions = "Prefer three or four sentence answers whenever feasible." +
+            "Never give the complete solution of what is helping for." +
+            "For punctuation use only dots, commas, exclamation points and question marks."
+            //Test: Language switch
+            //+ "The response must be in Italian. All accented letters should be written with the letter without the accent plus the apostrophe (e.g. à becomes a').",
         });
 
         string result = "";
         await foreach (StreamingUpdate streamingUpdate in streamingUpdates)
         {
-            if (streamingUpdate.UpdateKind == StreamingUpdateReason.RunCreated)
-            {
-                Debug.Log($"--- Run started! ---");
-            }
             if (streamingUpdate is MessageContentUpdate contentUpdate)
             {
                 result += contentUpdate.Text;
             }
         }
 
-        Debug.Log("ASSISTANT OPENAI RESULT: " + result);
-        messagePanelHandler.AppendMessage(result);
+        Debug.Log("CARATTERI DA ELIMINARE:" + result);
+        messagePanelHandler.AddMessage(result);
     }
 
     public void Mute()
