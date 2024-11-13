@@ -53,7 +53,7 @@ public class AssistantSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!GameEvent.isPaused && (Time.time - lastButtonPressedTime)>3f)
+        if(!GameEvent.isPaused && (Time.time - lastButtonPressedTime)>5f)
         {
             if(Input.GetButtonDown("HintAssistant"))
             {
@@ -75,7 +75,7 @@ public class AssistantSystem : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!GameEvent.isPaused && assistantInworldAIController != null)
+        if (!GameEvent.isPaused)
         {
             if (hintPressed)
             {
@@ -101,12 +101,21 @@ public class AssistantSystem : MonoBehaviour
                 }
 
                 _animatorHumanQuotes.SetTrigger("Open");
-                if(assistantInworldAIController.IsMuted())
+
+                if(assistantInworldAIController != null)
                 {
-                    assistantInworldAIController.Mute();
+                    if (assistantInworldAIController.IsMuted())
+                    {
+                        assistantInworldAIController.Mute();
+                    }
+                    assistantInworldAIController.HintTrigger();
                 }
-                assistantInworldAIController.HintTrigger();
-                assistantOpenAIController.HintTrigger();
+
+                if (assistantOpenAIController != null)
+                {
+                    assistantOpenAIController.HintTrigger();
+                }
+                
                 hintPressed = false;
             }
             else if (mutePressed)
@@ -128,8 +137,9 @@ public class AssistantSystem : MonoBehaviour
                         break;
                 }
 
-                _animatorHumanQuotes.SetTrigger("Open");
                 assistantInworldAIController.Mute();
+
+                _animatorHumanQuotes.SetTrigger("Open");
                 mutePressed = false;
             }
             else if (visionPressed)

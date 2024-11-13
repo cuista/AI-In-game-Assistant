@@ -37,7 +37,6 @@ public class AssistantOpenAIController : MonoBehaviour
     private string _prompt;
 
     private bool _isMuted;
-    private AudioSource audioSource;
 
     private void Awake()
     {
@@ -59,7 +58,6 @@ public class AssistantOpenAIController : MonoBehaviour
         CreateAssistantAndThread();
 
         _isMuted = false;
-        audioSource = GetComponent<AudioSource>();
     }
 
     private void CreateAssistantAndThread()
@@ -100,7 +98,6 @@ public class AssistantOpenAIController : MonoBehaviour
 
     public void HintTrigger()
     {
-        Debug.Log("Mi pianto qui 0");
         _currentTriggerTime = currentTriggerDuration;
     }
 
@@ -123,7 +120,7 @@ public class AssistantOpenAIController : MonoBehaviour
                 _prompt = "say a few words to bid a final farewell to the human who has passed away.";
                 break;
             case "put_clone_over_button":
-                _prompt = "tell the human a clue to make him understand to look for the button that opens the right door by placing a clone on it. Warn the human not to let the clone see him or else a time paradox will occur.";
+                _prompt = "tell the human a clue to make him understand to look for the button that opens the right door by placing a clone on it. Warn the human not to let the clone see him or it will be gameover.";
                 break;
             case "activate_platform_using_lever":
                 _prompt = "tell the human a clue to make him understand to find and use a lever to activate the platform that links the end of the level.";
@@ -181,8 +178,8 @@ public class AssistantOpenAIController : MonoBehaviour
             AdditionalInstructions = "Prefer three or four sentence answers whenever feasible." +
             "Never give the complete solution of what is helping for." +
             "For punctuation use only dots, commas, exclamation points and question marks."
-            //Test: Language switch
-            //+ "The response must be in Italian. All accented letters should be written with the letter without the accent plus the apostrophe (e.g. à becomes a').",
+            //Italian language switch
+            + "The response must be in Italian.",
         });
 
         string result = "";
@@ -194,14 +191,13 @@ public class AssistantOpenAIController : MonoBehaviour
             }
         }
 
-        Debug.Log("CARATTERI DA ELIMINARE:" + result);
         messagePanelHandler.AddMessage(result);
     }
 
     public void Mute()
     {
         _isMuted = !_isMuted;
-        audioSource.mute = _isMuted;
+        GetComponent<AudioSource>().mute = _isMuted;
 
         if (_isMuted)
         {

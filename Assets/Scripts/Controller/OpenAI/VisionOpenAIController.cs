@@ -46,8 +46,8 @@ public class VisionOpenAIController : MonoBehaviour
                 "Consumables: the player can collect gems, red ammunition to generate clones and green potions to replenish life." +
                 "HUD: Top left) the green bar is life, the notches below if red are available ammunition. Top right) there is the number of gems collected with the total number to be collected next to it." +
                 "Interplayable elements: the player can attack boxes to obtain consumables, can hold onto a button to open a nearby door, can activate a lever that moves a flying platform or the floor. Buttons and levers can also be activated by clones; it is essential to take advantage of them for this reason.")),
-            //Test: Language switch
-            //new SystemChatMessage((ChatMessageContentPart.CreateTextPart("The response must be in Italian. All accented letters should be written with the letter without the accent plus the apostrophe (e.g. à becomes a')."))),
+            //Italian language switch
+            new SystemChatMessage((ChatMessageContentPart.CreateTextPart("The response must be in Italian."))),
             //Model replies type
             new AssistantChatMessage(ChatMessageContentPart.CreateTextPart("Human here's an idea! Try putting a clone on that button nearby. It may opens the door on your right and you can go through the door. Collect all the gems along the way, you have 6 out of 20.")),
             new AssistantChatMessage(ChatMessageContentPart.CreateTextPart("Oh no, human! You don't seem to have refills to place clones, try opening some item crates. Once done try placing a clone on the button so that you can open and go through the door.")),

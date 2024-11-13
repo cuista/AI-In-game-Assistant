@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.IO;
+using UnityEngine.Networking;
 
+[RequireComponent(typeof(AudioSource))]
 public class MessagePanelHandler : MonoBehaviour
 {
     [SerializeField] GameObject messageHUDPrefab;
@@ -14,7 +17,12 @@ public class MessagePanelHandler : MonoBehaviour
     private bool _isAppending;
 
     private Queue<string> _buffer; //FIFO
-    private int _capacity = 3;
+    private int _capacity = 1;
+
+    [SerializeField] TTSOpenAIController ttsOpenAiController;
+
+    private AudioSource audioSource;
+    private const bool deleteCachedFile = true;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +30,8 @@ public class MessagePanelHandler : MonoBehaviour
         _cancelResponse = false;
         _isAppending = false;
         _buffer = new Queue<string>(_capacity);
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -29,7 +39,7 @@ public class MessagePanelHandler : MonoBehaviour
     {
         if(!_isAppending && _buffer.Count > 0)
         {
-            AppendMessage(_buffer.Dequeue());
+            StartCoroutine(AppendMessage(_buffer.Dequeue()));
         }
     }
 
@@ -44,12 +54,22 @@ public class MessagePanelHandler : MonoBehaviour
         _buffer.Enqueue(message);
     }
 
-    public async void AppendMessage(string message)
+    public IEnumerator AppendMessage(string message)
     {
         _isAppending = true;
 
         //Clean and split the string
-        Regex.Replace(message, "[-_@#]", "");
+        Regex.Replace(message, "[אטלעש—_@#]", match => match.Value switch
+        {
+            "_" or "@" or "#" => "",
+            "—" => ". ",
+            "א" => "a'",
+            "ט" => "e'",
+            "ל" => "i'",
+            "ע" => "o'",
+            "ש" => "u'",
+            _ => match.Value
+        });
         string[] sentences = Regex.Split(message, @"(?<=[.!?–])\s+");
 
         //Show in the HUD the new messages
@@ -60,13 +80,55 @@ public class MessagePanelHandler : MonoBehaviour
                 _cancelResponse = false;
                 break;
             }
-            GameObject messageHUD = Instantiate(messageHUDPrefab);
-            messageHUD.GetComponent<MessageHUD>().SetMessage("NOVA", sentence);
-            if(content != null)
+
+            //TTS con OpenAI
+            Task task = ttsOpenAiController.TextToSpeechAsync(sentence);
+            yield return new WaitUntil(() => task.IsCompleted);
+            byte[] currentTTSGeneration = ttsOpenAiController.GetCurrentTTSGeneration();
+
+            if (currentTTSGeneration != null)
             {
-                messageHUD.transform.SetParent(content.transform);
+                //Process the audio bytes
+                string filePath = Path.Combine(Application.persistentDataPath, "audio.mp3");
+                File.WriteAllBytes(filePath, currentTTSGeneration);
+
+                //Obtain the AudioClip
+                using UnityWebRequest www = UnityWebRequestMultimedia.GetAudioClip("file://" + filePath, AudioType.MPEG);
+                yield return www.SendWebRequest();
+
+                if(www.result == UnityWebRequest.Result.Success)
+                {
+                    AudioClip audioClip = DownloadHandlerAudioClip.GetContent(www);
+                    if (audioSource != null)
+                    {
+                        //Append message
+                        GameObject messageHUD = Instantiate(messageHUDPrefab);
+                        messageHUD.GetComponent<MessageHUD>().SetMessage("ECHO", sentence);
+                        if (content != null)
+                        {
+                            messageHUD.transform.SetParent(content.transform);
+                        }
+                        
+                        //Play audioclip
+                        audioSource.clip = audioClip;
+                        audioSource.Play();
+
+                        while (audioSource.isPlaying)
+                        {
+                            yield return null;
+                        }
+                    }
+                }
+                else
+                {
+                    Debug.LogError("Audio file loading error: " + www.error);
+                }
+
+                if (deleteCachedFile)
+                {
+                    File.Delete(filePath);
+                }
             }
-            await Task.Delay(fequencyInSeconds * 2000);
         }
 
         _isAppending = false;
@@ -75,5 +137,10 @@ public class MessagePanelHandler : MonoBehaviour
     public void CancelResponse()
     {
         _cancelResponse = true;
+    }
+
+    public void Mute(bool mute)
+    {
+        audioSource.mute = mute;
     }
 }
