@@ -3,61 +3,67 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using System.IO;
-using UnityEngine.Networking;
+using System;
 
 [RequireComponent(typeof(AudioSource))]
 public class MessagePanelHandler : MonoBehaviour
 {
     [SerializeField] GameObject messageHUDPrefab;
     [SerializeField] GameObject content;
-
-    public int fequencyInSeconds = 3;
-    private bool _cancelResponse;
-    private bool _isAppending;
-
-    private Queue<string> _buffer; //FIFO
-    private int _capacity = 1;
-
     [SerializeField] TTSOpenAIController ttsOpenAiController;
 
+    private const int QUEUE_CAPACITY = 1;
+    private Queue<string> _MessagesQueue;
+    private Task ttsTask;
+
+    private bool _cancelResponse;
+    private bool _skipResponse;
+
     private AudioSource audioSource;
-    private const bool deleteCachedFile = true;
 
     // Start is called before the first frame update
     void Start()
     {
+        _MessagesQueue = new Queue<string>(QUEUE_CAPACITY);
+        ttsTask = null;
+
         _cancelResponse = false;
-        _isAppending = false;
-        _buffer = new Queue<string>(_capacity);
+        _skipResponse = false;
 
         audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if(!_isAppending && _buffer.Count > 0)
+        if (ttsTask == null && _MessagesQueue.Count > 0)
         {
-            StartCoroutine(AppendMessage(_buffer.Dequeue()));
+            ttsTask = AppendMessage(_MessagesQueue.Dequeue());
+        }
+
+        if(ttsTask != null && ttsTask.GetAwaiter().IsCompleted)
+        {
+            _skipResponse = false;
+            ttsTask = null;
         }
     }
 
     public void AddMessage(string message)
     {
-        //Remove oldest message
-        if (_buffer.Count >= _capacity)
+        if (_MessagesQueue.Count >= QUEUE_CAPACITY)
         {
-            _buffer.Dequeue();
+            _MessagesQueue.Dequeue();
         }
 
-        _buffer.Enqueue(message);
+        if(ttsTask != null)
+        {
+            _skipResponse = true;
+        }
+
+        _MessagesQueue.Enqueue(message);
     }
 
-    public IEnumerator AppendMessage(string message)
+    private async Task AppendMessage(string message)
     {
-        _isAppending = true;
-
         //Clean and split the string
         Regex.Replace(message, "[אטלעש—_@#]", match => match.Value switch
         {
@@ -75,68 +81,37 @@ public class MessagePanelHandler : MonoBehaviour
         //Show in the HUD the new messages
         foreach (string sentence in sentences)
         {
-            if(_cancelResponse)
+            if (_cancelResponse || _skipResponse)
             {
-                _cancelResponse = false;
                 break;
             }
 
-            //TTS con OpenAI
-            Task task = ttsOpenAiController.TextToSpeechAsync(sentence);
-            yield return new WaitUntil(() => task.IsCompleted);
-            byte[] currentTTSGeneration = ttsOpenAiController.GetCurrentTTSGeneration();
+            await ttsOpenAiController.TextToSpeechAsync(sentence);
+            audioSource.PlayOneShot(ttsOpenAiController.GetAudioClip());
 
-            if (currentTTSGeneration != null)
+            //Append message
+            GameObject messageHUD = Instantiate(messageHUDPrefab);
+            messageHUD.GetComponent<MessageHUD>().SetMessage("ECHO", sentence);
+            if (content != null)
             {
-                //Process the audio bytes
-                string filePath = Path.Combine(Application.persistentDataPath, "audio.mp3");
-                File.WriteAllBytes(filePath, currentTTSGeneration);
-
-                //Obtain the AudioClip
-                using UnityWebRequest www = UnityWebRequestMultimedia.GetAudioClip("file://" + filePath, AudioType.MPEG);
-                yield return www.SendWebRequest();
-
-                if(www.result == UnityWebRequest.Result.Success)
-                {
-                    AudioClip audioClip = DownloadHandlerAudioClip.GetContent(www);
-                    if (audioSource != null)
-                    {
-                        //Append message
-                        GameObject messageHUD = Instantiate(messageHUDPrefab);
-                        messageHUD.GetComponent<MessageHUD>().SetMessage("ECHO", sentence);
-                        if (content != null)
-                        {
-                            messageHUD.transform.SetParent(content.transform);
-                        }
-                        
-                        //Play audioclip
-                        audioSource.clip = audioClip;
-                        audioSource.Play();
-
-                        while (audioSource.isPlaying)
-                        {
-                            yield return null;
-                        }
-                    }
-                }
-                else
-                {
-                    Debug.LogError("Audio file loading error: " + www.error);
-                }
-
-                if (deleteCachedFile)
-                {
-                    File.Delete(filePath);
-                }
+                messageHUD.transform.SetParent(content.transform);
             }
-        }
 
-        _isAppending = false;
+            await WaitForAudioToBePlayed();
+        }
     }
 
-    public void CancelResponse()
+    private async Task WaitForAudioToBePlayed()
     {
-        _cancelResponse = true;
+        while(audioSource.isPlaying)
+        {
+            await Task.Delay(100);
+        }
+    }
+
+    public void CancelResponse(bool cancel)
+    {
+        _cancelResponse = cancel;
     }
 
     public void Mute(bool mute)

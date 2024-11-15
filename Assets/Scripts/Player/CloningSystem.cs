@@ -179,7 +179,7 @@ public class CloningSystem : MonoBehaviour
             mouseX = Input.GetAxis("Mouse X");
             horInput = Input.GetAxis("Horizontal");
             verInput = Input.GetAxis("Vertical");
-            moveSpeed = Input.GetButton("Run") ? relativeMovement.runSpeed: relativeMovement.walkSpeed;
+            moveSpeed = Input.GetButton("Walk") ? relativeMovement.walkSpeed: relativeMovement.runSpeed;
             jumpPressed = Input.GetButtonDown("Jump") || jumpPressed;
             meleePressed = Input.GetButtonDown("Melee") || meleePressed;
         }
@@ -456,6 +456,13 @@ public class CloningSystem : MonoBehaviour
                         target.ReactToHits(1);
                         target.AddHitForce(2, transform.position, shooterSystem.meleeRadius);
                     }
+                }
+
+                switch ((int)Random.Range(0, 3))
+                {
+                    case 0: replayClone.animator.SetTrigger("Melee1"); break;
+                    case 1: replayClone.animator.SetTrigger("Melee2"); break;
+                    case 2: default: replayClone.animator.SetTrigger("Melee3"); break;
                 }
             }
         }

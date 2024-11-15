@@ -23,6 +23,8 @@ public class AssistantOpenAIController : MonoBehaviour
     private Assistant _assistant;
     private AssistantThread _thread;
 
+    private VisionOpenAIController vision;
+
     [SerializeField] MessagePanelHandler messagePanelHandler;
 
     //To handle current trigger event
@@ -30,7 +32,7 @@ public class AssistantOpenAIController : MonoBehaviour
     private bool _triggerReceived;
 
     //To handle expired trigger
-    public float currentTriggerDuration = 90f;
+    public float currentTriggerDuration = 60f;
     private float _currentTriggerTime;
 
     //Prompt for the assistant
@@ -53,6 +55,7 @@ public class AssistantOpenAIController : MonoBehaviour
         _openAIClient = new(Environment.GetEnvironmentVariable("OPENAI_API_KEY", EnvironmentVariableTarget.Machine));
         _assistantClient = _openAIClient.GetAssistantClient();
 
+        vision = GetComponent<VisionOpenAIController>();
         _prompt = "";
 
         CreateAssistantAndThread();
@@ -81,14 +84,19 @@ public class AssistantOpenAIController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Handle a new trigger received or a timer expired (after duration time echo is triggered again)
-        if (_triggerReceived || _currentTriggerTime >= currentTriggerDuration)
+        //Handle a new trigger received
+        if (_triggerReceived)
         {
             if (_currentTrigger != null)
             {
                 SendTrigger(_currentTrigger); // SendTrigger by default interrupt if AI is speaking
-                Debug.Log("OpenAI Triggered: " + _currentTrigger);
             }
+            _triggerReceived = false;
+            _currentTriggerTime = 0;
+        }
+        else if(_currentTriggerTime >= currentTriggerDuration) //When timer expired vision is triggered
+        {
+            vision.VisionTrigger();
             _triggerReceived = false;
             _currentTriggerTime = 0;
         }
@@ -111,10 +119,10 @@ public class AssistantOpenAIController : MonoBehaviour
         switch (trigger)
         {
             case "story_mode_started":
-                _prompt = "say hi and give the human a welcome, introduce yourself briefly and explain to him that he must pass all the levels, as part of your test of his humanity, to be released into the real world. Briefly narrate the history of this world.";
+                _prompt = "give the human a welcome, introduce yourself briefly and explain to him that he must pass all the levels, as part of your test of his humanity, to be released into the real world. Briefly narrate the history of this world.";
                 break;
             case "level_completed":
-                _prompt = "tell the human congratulation for reaching the end of the current level and tell him he can move on.";
+                _prompt = "tell the human short congratulation for completing the level and tell him he has to face the next challenge.";
                 break;
             case "game_over":
                 _prompt = "say a few words to bid a final farewell to the human who has passed away.";
@@ -158,6 +166,24 @@ public class AssistantOpenAIController : MonoBehaviour
             case "something_simple":
                 _prompt = "tell the human that this level will be simple";
                 break;
+            case "tutorial_00":
+                _prompt = "tell the human to press WASD or Left Stick to move and collect the gems, and press space or A to jump";
+                break;
+            case "tutorial_01":
+                _prompt = "tell the human to press Q and E on the keyboard or X to destroy the boxes and collect the items";
+                break;
+            case "tutorial_02":
+                _prompt = "tell the human that can finds items for cloning or life recharge";
+                break;
+            case "tutorial_03":
+                _prompt = "tell the human to press mouse left or LB to locate a spawnpoint for the clones and press mouse right or RB to start generating the clones, place one clone over the button";
+                break;
+            case "tutorial_04":
+                _prompt = "tell the human to press R or B to decelerate the time and press F or Y to accelerate the time";
+                break;
+            case "tutorial_05":
+                _prompt = "tell the human to attack the lever for activating it and to collect all the remaining gems to activate the teleport and complete this level";
+                break;
             default:
                 break;
         }
@@ -197,13 +223,10 @@ public class AssistantOpenAIController : MonoBehaviour
     public void Mute()
     {
         _isMuted = !_isMuted;
-        GetComponent<AudioSource>().mute = _isMuted;
+        messagePanelHandler.Mute(_isMuted);
+        messagePanelHandler.CancelResponse(_isMuted);
 
-        if (_isMuted)
-        {
-            messagePanelHandler.CancelResponse();
-        }
-        else
+        if (!_isMuted)
         {
             HintTrigger();
         }

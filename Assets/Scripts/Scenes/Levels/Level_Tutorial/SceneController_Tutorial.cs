@@ -24,7 +24,7 @@ public class SceneController_Tutorial : MonoBehaviour
     [SerializeField] private GameObject tutorialCanvas;
 
     [SerializeField] private GameObject moveTutorial;
-    [SerializeField] private GameObject sprintTutorial;
+    [SerializeField] private GameObject walkTutorial;
     [SerializeField] private GameObject jumpTutorial;
     [SerializeField] private GameObject meleeTutorial;
     [SerializeField] private GameObject potionsTutorial;
@@ -105,9 +105,9 @@ public class SceneController_Tutorial : MonoBehaviour
         moveTutorial.SetActive(true);
         yield return new WaitForSeconds(3.5f);
         moveTutorial.SetActive(false);
-        sprintTutorial.SetActive(true);
+        walkTutorial.SetActive(true);
         yield return new WaitForSeconds(3.5f);
-        sprintTutorial.SetActive(false);
+        walkTutorial.SetActive(false);
     }
 
     public IEnumerator ShowJumpTutorial()

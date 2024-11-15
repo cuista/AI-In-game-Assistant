@@ -8,12 +8,13 @@ public class SceneController_0 : MonoBehaviour
     private GameObject _player;
     private CharacterController _characterController;
 
-    [SerializeField] public GameObject levelStartPoint;
-    [SerializeField] public GameObject levelEndPoint;
+    [SerializeField] private GameObject levelStartPoint;
+    [SerializeField] private GameObject levelTutorialPoint;
+    [SerializeField] private GameObject levelStoryPoint;
 
     public GameObject cutscene;
-    [SerializeField] public GameObject tutorialText;
-    [SerializeField] public GameObject levelsText;
+    [SerializeField] private GameObject tutorialText;
+    [SerializeField] private GameObject levelsText;
 
     [SerializeField] private GameObject moveTutorial;
     [SerializeField] private GameObject sprintTutorial;
@@ -41,10 +42,21 @@ public class SceneController_0 : MonoBehaviour
         _player.transform.rotation = levelStartPoint.transform.rotation;
         _characterController.enabled = true;
 
+        SetChildernsActive(levelTutorialPoint, false);
+        SetChildernsActive(levelStoryPoint, false);
+
         PlaySoundtrack();
 
         Managers.Inventory.ConsumeAll("Gems");
         _player.GetComponent<PlayerCharacter>().SetGemsTotal(-1);
+    }
+
+    private void SetChildernsActive(GameObject go, bool isActive)
+    {
+        for(int i=0; i < go.transform.childCount; i++)
+        {
+            go.transform.GetChild(i).gameObject.SetActive(isActive);
+        }
     }
 
     public void PlaySoundtrack()
@@ -93,7 +105,11 @@ public class SceneController_0 : MonoBehaviour
         DontDestroyOnLoadManager.GetPlayer().GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
 
         Messenger.Broadcast(GameEvent.CUTSCENE_ENDED);
-        _player.GetComponent<PlayerControllerRPM>().enabled = true;
+
+        if(_player.GetComponent<PlayerControllerRPM>() != null)
+        {
+            _player.GetComponent<PlayerControllerRPM>().enabled = true;
+        }
 
         //if skip before cutscene makes level soundtrack playing
         AudioManager audioManager = DontDestroyOnLoadManager.GetAudioManager();
@@ -116,5 +132,9 @@ public class SceneController_0 : MonoBehaviour
         jumpTutorial.SetActive(true);
         yield return new WaitForSeconds(3f);
         jumpTutorial.SetActive(false);
+
+        SetChildernsActive(levelTutorialPoint, true);
+        yield return new WaitForSeconds(0.5f);
+        SetChildernsActive(levelStoryPoint, true);
     }
 }

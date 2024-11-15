@@ -2,10 +2,33 @@ using UnityEngine;
 using OpenAI.Audio;
 using System;
 using System.Threading.Tasks;
+using System.Threading;
 
 public class TTSOpenAIController : MonoBehaviour
 {
-    private byte[] currentTTSGeneration;
+    private static class WavUtility
+    {
+        // Convert a byte array to an AudioClip
+        public static AudioClip ToAudioClip(byte[] wavFile, string clipName = "wav")
+        {
+            int sampleRate = BitConverter.ToInt32(wavFile, 24);
+            int channels = wavFile[22];
+
+            int pos = 44;
+            var samples = new float[(wavFile.Length - pos) / 2];
+            for (int i = 0; i < samples.Length; i++)
+            {
+                samples[i] = BitConverter.ToInt16(wavFile, pos) / 32768f;
+                pos += 2;
+            }
+
+            var audioClip = AudioClip.Create(clipName, samples.Length, channels, sampleRate, false);
+            audioClip.SetData(samples, 0);
+            return audioClip;
+        }
+    }
+
+    private byte[] _currentAudioBytes;
 
     public async Task TextToSpeechAsync(string input)
     {
@@ -13,14 +36,15 @@ public class TTSOpenAIController : MonoBehaviour
 
         BinaryData speech = await client.GenerateSpeechAsync(input, GeneratedSpeechVoice.Echo, new SpeechGenerationOptions()
         {
-            //SpeedRatio = 1.1f,
+            SpeedRatio = 1.1f,
+            ResponseFormat = GeneratedSpeechFormat.Wav,
         });
 
-        currentTTSGeneration = speech.ToArray();
+        _currentAudioBytes = speech.ToArray();
     }
 
-    public byte[] GetCurrentTTSGeneration()
+    public AudioClip GetAudioClip()
     {
-        return currentTTSGeneration;
+        return WavUtility.ToAudioClip(_currentAudioBytes);
     }
 }

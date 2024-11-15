@@ -10,16 +10,31 @@ public class TriggerAIRepeated : MonoBehaviour
 
     private void Awake()
     {
-        assistantInworldAI = DontDestroyOnLoadManager.GetInworldAIController().GetComponent<InworldAIController>();
-        assistantOpenAI = DontDestroyOnLoadManager.GetOpenAIController().GetComponent<AssistantOpenAIController>();
+        GameObject inworldAIController = DontDestroyOnLoadManager.GetInworldAIController();
+        if(inworldAIController != null)
+        {
+            assistantInworldAI = DontDestroyOnLoadManager.GetInworldAIController().GetComponent<InworldAIController>();
+        }
+
+        GameObject openAIController = DontDestroyOnLoadManager.GetOpenAIController();
+        if (openAIController != null)
+        {
+            assistantOpenAI = DontDestroyOnLoadManager.GetOpenAIController().GetComponent<AssistantOpenAIController>();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            assistantInworldAI.SetCurrentTrigger(triggerName);
-            assistantOpenAI.SetCurrentTrigger(triggerName);
+            if (assistantInworldAI != null)
+            {
+                assistantInworldAI.SetCurrentTrigger(triggerName);
+            }
+            if (assistantOpenAI != null)
+            {
+                assistantOpenAI.SetCurrentTrigger(triggerName);
+            }
             Destroy(this.gameObject);
         }
     }
