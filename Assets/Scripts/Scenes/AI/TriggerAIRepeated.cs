@@ -4,18 +4,11 @@ using UnityEngine;
 
 public class TriggerAIRepeated : MonoBehaviour
 {
-    private InworldAIController assistantInworldAI;
     private AssistantOpenAIController assistantOpenAI;
     public string triggerName;
 
     private void Awake()
     {
-        GameObject inworldAIController = DontDestroyOnLoadManager.GetInworldAIController();
-        if(inworldAIController != null)
-        {
-            assistantInworldAI = DontDestroyOnLoadManager.GetInworldAIController().GetComponent<InworldAIController>();
-        }
-
         GameObject openAIController = DontDestroyOnLoadManager.GetOpenAIController();
         if (openAIController != null)
         {
@@ -27,10 +20,6 @@ public class TriggerAIRepeated : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if (assistantInworldAI != null)
-            {
-                assistantInworldAI.SetCurrentTrigger(triggerName);
-            }
             if (assistantOpenAI != null)
             {
                 assistantOpenAI.SetCurrentTrigger(triggerName);

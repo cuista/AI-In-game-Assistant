@@ -1,4 +1,3 @@
-using Inworld.Sample.RPM;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -105,11 +104,6 @@ public class SceneController_0 : MonoBehaviour
         DontDestroyOnLoadManager.GetPlayer().GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
 
         Messenger.Broadcast(GameEvent.CUTSCENE_ENDED);
-
-        if(_player.GetComponent<PlayerControllerRPM>() != null)
-        {
-            _player.GetComponent<PlayerControllerRPM>().enabled = true;
-        }
 
         //if skip before cutscene makes level soundtrack playing
         AudioManager audioManager = DontDestroyOnLoadManager.GetAudioManager();

@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class AssistantSystem : MonoBehaviour
 {
-    [SerializeField] private InworldAIController assistantInworldAIController;
     [SerializeField] private AssistantOpenAIController assistantOpenAIController;
     [SerializeField] private VisionOpenAIController visionOpenAIController;
     private bool hintPressed;
@@ -107,15 +106,6 @@ public class AssistantSystem : MonoBehaviour
 
                 _animatorHumanQuotes.SetTrigger("Open");
 
-                if(assistantInworldAIController != null)
-                {
-                    if (assistantInworldAIController.IsMuted())
-                    {
-                        assistantInworldAIController.Mute();
-                    }
-                    assistantInworldAIController.HintTrigger();
-                }
-
                 if (assistantOpenAIController != null && !assistantOpenAIController.IsMuted())
                 {
                     assistantOpenAIController.HintTrigger();
@@ -125,28 +115,7 @@ public class AssistantSystem : MonoBehaviour
             }
             else if (mutePressed)
             {
-                if (assistantInworldAIController != null)
-                {
-                    switch ((int)Random.Range(0, 3))
-                    {
-                        case 0:
-                            quoteContent.text = assistantInworldAIController.IsMuted() ? "Express yourself!" : "No more talking!";
-                            _audioSource.PlayOneShot(assistantInworldAIController.IsMuted() ? expressYourself : noMoreTalking);
-                            break;
-                        case 1:
-                            quoteContent.text = assistantInworldAIController.IsMuted() ? "Feel free to talk!" : "Silence please!";
-                            _audioSource.PlayOneShot(assistantInworldAIController.IsMuted() ? feelFreeToTalk : silencePlease);
-                            break;
-                        case 2:
-                        default:
-                            quoteContent.text = assistantInworldAIController.IsMuted() ? "Talk freely!" : "Quiet down!";
-                            _audioSource.PlayOneShot(assistantInworldAIController.IsMuted() ? talkFreely : quietDown);
-                            break;
-                    }
-
-                    assistantInworldAIController.Mute();
-                }
-                else if(assistantOpenAIController != null)
+                if(assistantOpenAIController != null)
                 {
                     switch ((int)Random.Range(0, 3))
                     {

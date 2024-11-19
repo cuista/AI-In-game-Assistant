@@ -210,7 +210,6 @@
     <Compile Include="Assets\Scripts\Messenger.cs" />
     <Compile Include="Assets\Scripts\Scenes\Levels\Level_1\LevelEnd_1.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
-    <Compile Include="Assets\Scripts\Controller\InworldAI\InworldAIController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -1117,38 +1116,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="UnityWebSocket.Runtime.csproj">
-      <Project>{9082F5BD-1A89-1A1B-498C-967BBFD13DB8}</Project>
-      <Name>UnityWebSocket.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="Inworld.RPM.csproj">
-      <Project>{1F43D070-1A74-D865-891E-AD9638C5DE5C}</Project>
-      <Name>Inworld.RPM</Name>
-    </ProjectReference>
-    <ProjectReference Include="Inworld.Samples.csproj">
-      <Project>{67FD06C1-325D-D058-75D4-3B81487A4A21}</Project>
-      <Name>Inworld.Samples</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityWebSocket.Editor.csproj">
-      <Project>{DA0325C0-4838-8FC2-2E33-B4376FC64ABA}</Project>
-      <Name>UnityWebSocket.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="InworldAI.NDK.csproj">
-      <Project>{B4435EA3-1473-CC0E-67A5-FA93BD5CC0BB}</Project>
-      <Name>InworldAI.NDK</Name>
-    </ProjectReference>
-    <ProjectReference Include="Inworld.Assets.csproj">
-      <Project>{40908687-9226-77BE-75D9-FB620FD6E455}</Project>
-      <Name>Inworld.Assets</Name>
-    </ProjectReference>
-    <ProjectReference Include="Inworld.Editor.csproj">
-      <Project>{4992F784-A13E-5199-F3DE-9A7B532E3CD5}</Project>
-      <Name>Inworld.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="Inworld.AI.csproj">
-      <Project>{9C9300F7-CA62-6A58-93F5-A9A91EDEF6E0}</Project>
-      <Name>Inworld.AI</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

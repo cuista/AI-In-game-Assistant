@@ -6,6 +6,8 @@ using System.Threading;
 
 public class TTSOpenAIController : MonoBehaviour
 {
+    public float speedratioTTS = 1.1f;
+
     private static class WavUtility
     {
         // Convert a byte array to an AudioClip
@@ -36,7 +38,7 @@ public class TTSOpenAIController : MonoBehaviour
 
         BinaryData speech = await client.GenerateSpeechAsync(input, GeneratedSpeechVoice.Echo, new SpeechGenerationOptions()
         {
-            SpeedRatio = 1.1f,
+            SpeedRatio = speedratioTTS,
             ResponseFormat = GeneratedSpeechFormat.Wav,
         });
 

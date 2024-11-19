@@ -243,8 +243,6 @@ GameObject:
   - component: {fileID: -6912741024352858289}
   - component: {fileID: 2705448367648305951}
   - component: {fileID: 6239981962173493415}
-  - component: {fileID: 6644734536855066825}
-  - component: {fileID: 3528832951829284719}
   - component: {fileID: -367457131647523171}
   m_Layer: 0
   m_Name: Player
@@ -435,8 +433,6 @@ MonoBehaviour:
   damageImage: {fileID: 0}
   _gemsText: {fileID: 0}
   _gemsTotalText: {fileID: 0}
-  _energyRechargesText: {fileID: 0}
-  _cloneRechargesText: {fileID: 0}
   _cloneRechargesIcons: {fileID: 0}
   _countdownText: {fileID: 0}
   _switchedCloneMode: {fileID: 0}
@@ -502,7 +498,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lateClonePrefab: {fileID: 3106767803220172313, guid: 771773669f3f1714d9a91d6ac280507e, type: 3}
   mirrorClonePrefab: {fileID: 2110999747030204863, guid: 88036cbe35240f64a85c14816948f23b, type: 3}
-  spawnClonePrefab: {fileID: 1693578480802357583, guid: 6198276a1cc333342b4be39103ac5a7b, type: 3}
+  spawnPointPrefab: {fileID: 0}
+  originPointPrefab: {fileID: 0}
   plantSpawnSound: {fileID: 8300000, guid: a3134115e9094d1428b77b45459070c2, type: 3}
   cloneSpawnSound: {fileID: 8300000, guid: 6748c608c610a234ea53dee24c70e927, type: 3}
 --- !u!114 &7011844096356170816
@@ -541,6 +538,7 @@ MonoBehaviour:
   recoveryTime: 3
   timeAccelerationSlider: {fileID: 0}
   timeDecelerationSlider: {fileID: 0}
+  timeManipulationAudioSource: {fileID: 0}
   timeAccelerationSound: {fileID: 0}
   accelerationReadySound: {fileID: 0}
   timeDecelerationSound: {fileID: 0}
@@ -557,7 +555,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67b97272a7e19f44aa80e6fad4a0a075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  assistantController: {fileID: 0}
+  assistantInworldAIController: {fileID: 0}
+  assistantOpenAIController: {fileID: 0}
+  visionOpenAIController: {fileID: 0}
   humanQuotes: {fileID: 0}
   quoteContent: {fileID: 0}
   goOn: {fileID: 0}
@@ -585,49 +585,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61387dff8d1f28242b4dd4df41939045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6644734536855066825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 793367341780633227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fd6acdecc1c0114eb2a4d8357b2c289, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PushToTalk: 0
-  m_PushToTalkKey: 99
-  m_InputField: {fileID: 0}
-  m_SendButton: {fileID: 0}
-  m_RecordButton: {fileID: 0}
-  m_DisplaySplash: 0
-  m_ChatCanvas: {fileID: 0}
-  m_BubblePanel: {fileID: 0}
---- !u!114 &3528832951829284719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 793367341780633227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cae72343a18248318c024c7f8211c762, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ContentAnchor: {fileID: 0}
-  m_BubbleLeft: {fileID: 3364394929633695711, guid: f324550a32836b94693f21f7a416411a, type: 3}
-  m_BubbleRight: {fileID: 818457071051776631, guid: 5024602b533211241bb0ab4fd7e088e3, type: 3}
-  m_ChatOptions:
-    audio: 0
-    text: 1
-    emotion: 0
-    narrativeAction: 1
-    relation: 0
-    trigger: 1
-    longBubbleMode: 1
 --- !u!114 &-367457131647523171
 MonoBehaviour:
   m_ObjectHideFlags: 0

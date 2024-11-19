@@ -13,6 +13,45 @@ public class VisionOpenAIController : MonoBehaviour
 
     [SerializeField] MessagePanelHandler messagePanelHandler;
 
+    public TextAsset settingsJson;
+    private VisionSettings _visionSettings;
+
+    [System.Serializable]
+    private class VisionSettings
+    {
+        public string assistantName;
+        public string language;
+        public string[] systemMessages;
+        public string[] assistantMessages;
+
+        public string GetAll(string[] messages)
+        {
+            string result = "";
+            for (int i = 0; i < messages.Length; i++)
+            {
+                result += (i < messages.Length - 1) ? messages[i] + " " : messages[i];
+            }
+            return result;
+        }
+
+        public void DebugPrintAll()
+        {
+            Debug.Log(assistantName);
+            Debug.Log(language);
+            Debug.Log(GetAll(systemMessages));
+            Debug.Log(GetAll(assistantMessages));
+        }
+    }
+
+    private void Awake()
+    {
+        //Import settings
+        _visionSettings = new();
+        JsonUtility.FromJsonOverwrite(settingsJson.text, _visionSettings);
+
+        _visionSettings.DebugPrintAll();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,28 +73,25 @@ public class VisionOpenAIController : MonoBehaviour
         //FOR DEBUG
         SaveScreencapture(screencapture, false);
 
-        List<ChatMessage> messages = new()
+        List<ChatMessage> messages = new();
+
+        for(int i = 0; i < _visionSettings.systemMessages.Length; i++)
         {
-            //Model instructions
-            new SystemChatMessage(ChatMessageContentPart.CreateTextPart(
-                "You are the in-game AI Assistant of a Unity platform-puzzle game, your name is Nova and you have to help the player advance through the levels." +
-                "Your role is to analyze the game screenshot and give assistance to the player to advance, offering useful tips and suggestions." +
-                "Player goal: To pass each level, it is mandatory to collect all the gems scattered around and reach the platform that will light up when we have collected them." +
-                "Player controls: can move and jump, melee attack (to open item boxes or eliminate enemies), place a clone that repeats its movements and attacks for about 20 seconds, after which it vanishes and regenerates again from its point of origin repeating same actions." +
-                "Dangers to the player: if the player enters the red field of view of a clone it is gameover, if the player falls into the void it is gameover, if the player loses all life it is gameover(if hit by an enemy turret's bullet it loses one notch of life)." +
-                "Consumables: the player can collect gems, red ammunition to generate clones and green potions to replenish life." +
-                "HUD: Top left) the green bar is life, the notches below if red are available ammunition. Top right) there is the number of gems collected with the total number to be collected next to it." +
-                "Interplayable elements: the player can attack boxes to obtain consumables, can hold onto a button to open a nearby door, can activate a lever that moves a flying platform or the floor. Buttons and levers can also be activated by clones; it is essential to take advantage of them for this reason.")),
-            //Italian language switch
-            new SystemChatMessage((ChatMessageContentPart.CreateTextPart("The response must be in Italian."))),
-            //Model replies type
-            new AssistantChatMessage(ChatMessageContentPart.CreateTextPart("Human here's an idea! Try putting a clone on that button nearby. It may opens the door on your right and you can go through the door. Collect all the gems along the way, you have 6 out of 20.")),
-            new AssistantChatMessage(ChatMessageContentPart.CreateTextPart("Oh no, human! You don't seem to have refills to place clones, try opening some item crates. Once done try placing a clone on the button so that you can open and go through the door.")),
-            new AssistantChatMessage(ChatMessageContentPart.CreateTextPart("Human I have a suggestion for you! Try generating a clone to put over the button below and another clone to activate the lever. Timing is crucial for the platform to move and the door to open afterwards.")),
-            //User prompt
-            new UserChatMessage(ChatMessageContentPart.CreateTextPart("Analyze the following image and give brief advice to the player to advance in the level."),
-            ChatMessageContentPart.CreateImagePart(imageBytes, "image/jpg")),
-        };
+            messages.Add(new SystemChatMessage(ChatMessageContentPart.CreateTextPart(_visionSettings.systemMessages[i])));
+        }
+
+        for (int i = 0; i < _visionSettings.assistantMessages.Length; i++)
+        {
+            messages.Add(new AssistantChatMessage(ChatMessageContentPart.CreateTextPart(_visionSettings.assistantMessages[i])));
+        }
+
+        //Screencapture evaluation
+        messages.Add(new UserChatMessage(ChatMessageContentPart.CreateTextPart("Analyze the following image and give brief advice to the player to advance in the level.")));
+        messages.Add(new UserChatMessage(ChatMessageContentPart.CreateImagePart(imageBytes, "image/jpg")));
+
+        //Language
+        messages.Add(new UserChatMessage(ChatMessageContentPart.CreateTextPart("The response must be in " + _visionSettings.language + ".")));
+
         GetResponse(messages);
 
         yield return null;
