@@ -168,7 +168,7 @@ public class AssistantOpenAIController : MonoBehaviour
     IEnumerator AIPrompting(string trigger)
     {
         string triggerPrompt = _assistantSettings.GetPromptForTrigger(trigger);
-        _prompt = triggerPrompt != null? triggerPrompt : _prompt;
+        _prompt = triggerPrompt != null? "Generate a message based on this guidance: " + triggerPrompt : _prompt;
 
         GetResponse(_prompt);
 

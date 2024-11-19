@@ -71,36 +71,28 @@ public class AssistantSystem : MonoBehaviour
         {
             if (hintPressed)
             {
-                switch ((int)Random.Range(0, 7))
+                switch ((int)Random.Range(0, 4))
                 {
                     case 0:
-                        quoteContent.text = "Go on, I'm listening!";
-                        _audioSource.PlayOneShot(goOn);
-                        break;
-                    case 1:
-                        quoteContent.text = "Keep talking!";
-                        _audioSource.PlayOneShot(keepTalking);
-                        break;
-                    case 2:
                         quoteContent.text = "I want to hear more.";
                         _audioSource.PlayOneShot(iWantToHearMore);
                         break;
-                    case 3:
+                    case 1:
                         quoteContent.text = "I'd love to hear more.";
                         _audioSource.PlayOneShot(idLoveToHearMore);
                         break;
-                    case 4:
+                    case 2:
                         quoteContent.text = "Tell me more!";
                         _audioSource.PlayOneShot(tellMeMore);
                         break;
-                    case 5:
+                    case 3:
                         quoteContent.text = "Share more with me.";
                         _audioSource.PlayOneShot(shareMoreWithMe);
                         break;
-                    case 6:
+                    case 4:
                     default:
-                        quoteContent.text = "I'm interested, continue!";
-                        _audioSource.PlayOneShot(imInterestedContinue);
+                        quoteContent.text = "Keep talking!";
+                        _audioSource.PlayOneShot(keepTalking);
                         break;
                 }
 
