@@ -9,8 +9,6 @@ public class EnemyCharacter : MonoBehaviour, IEnemy, ICharacter
     private bool _isMoving;
     private bool _isShieldActive = false;
 
-    private Vector3 _graviton;
-
     private void FixedUpdate()
     {
         if(GetLives() <= 0)

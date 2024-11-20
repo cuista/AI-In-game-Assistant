@@ -53,6 +53,11 @@ public class CombatSystem : MonoBehaviour
                         target.ReactToHits(1);
                         target.AddHitForce(2, transform.position, meleeRadius);
                     }
+                    else if(hitObject.CompareTag("Clone"))
+                    {
+                        CloneCharacter clone = hitObject.GetComponent<CloneCharacter>();
+                        clone.Hurt(1);
+                    }
                 }
                 meleePressed = false; //Reset melee input
 

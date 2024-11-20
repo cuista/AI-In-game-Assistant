@@ -39,13 +39,13 @@ public class ReactiveEnemy : MonoBehaviour, IReactiveObject
         yield return new WaitForSeconds(0.5f);
 
         //ExplosionController.MakeFloorOnFire(transform);
+        ExplosionController.MakeItBoom(explosionEffect, transform);
 
         Destroy(this.gameObject);
     }
 
     private void OnDestroy()
     {
-        ExplosionController.MakeItBoom(explosionEffect, transform);
         Destroy(this.gameObject);
     }
 

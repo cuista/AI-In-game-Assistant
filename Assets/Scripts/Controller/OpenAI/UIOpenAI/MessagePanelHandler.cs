@@ -76,7 +76,7 @@ public class MessagePanelHandler : MonoBehaviour
             "ù" => "u'",
             _ => match.Value
         });
-        string[] sentences = Regex.Split(message, @"(?<=[.–])\s+");
+        string[] sentences = Regex.Split(message, @"(?<=[.!?–])\s+");
 
         //Show in the HUD the new messages
         foreach (string sentence in sentences)
