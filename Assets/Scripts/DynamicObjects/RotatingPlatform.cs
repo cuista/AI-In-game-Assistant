@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RotatingPlatform : TargetObject
 {
-    private bool isOperating = false;
+    public bool isOperating = false;
     private Quaternion targetRotation;
     [SerializeField] float speed = 20f;
 

@@ -7,7 +7,7 @@ public class PlatformPathAnimation : MonoBehaviour, ITargetObject
     [SerializeField] Vector3[] targetPosition;
     private int indexTarget;
 
-    private bool _isActivated;
+    public bool isActivated;
     private Vector3 _initialPos;
 
     [SerializeField] float speed = 8.0f;
@@ -23,7 +23,7 @@ public class PlatformPathAnimation : MonoBehaviour, ITargetObject
     void FixedUpdate()
     {
         // Check if actived and indexTarget in correct bounds
-        if (_isActivated && indexTarget >= 0 && indexTarget < targetPosition.Length)
+        if (isActivated && indexTarget >= 0 && indexTarget < targetPosition.Length)
         {
             float step = speed * Time.fixedDeltaTime;
             transform.position = Vector3.MoveTowards(transform.position, targetPosition[indexTarget], step);
@@ -64,17 +64,17 @@ public class PlatformPathAnimation : MonoBehaviour, ITargetObject
 
     public void Activate()
     {
-        _isActivated = true;
+        isActivated = true;
     }
 
     public void Deactivate()
     {
-        _isActivated = false;
+        isActivated = false;
     }
 
     public void Operate()
     {
-        if(_isActivated)
+        if(isActivated)
         {
             Activate();
         }

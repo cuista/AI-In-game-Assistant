@@ -42,6 +42,17 @@ public class OneWayPlatformMovement : TargetObject
         other.transform.SetParent(null);
     }
 
+    public bool isEmerged()
+    {
+        if(originPosition.y > -8)
+        {
+            return transform.position == originPosition;
+        }
+        else
+        {
+            return transform.position != originPosition;
+        }
+    }
 
     public override void Activate()
     {

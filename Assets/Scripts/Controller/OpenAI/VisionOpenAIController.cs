@@ -65,13 +65,36 @@ public class VisionOpenAIController : MonoBehaviour
 
     IEnumerator AIPrompting()
     {
+        yield return new WaitForEndOfFrame();
+        Camera screenshotCamera = new GameObject("VisionCamera").AddComponent<Camera>();
+        screenshotCamera.CopyFrom(Camera.main);
+        screenshotCamera.cullingMask |= (1 << LayerMask.NameToLayer("VisionLabel"));
+        screenshotCamera.cullingMask &= ~(1 << LayerMask.NameToLayer("UIAssistantMessage"));
+        screenshotCamera.enabled = false;
+
+        RenderTexture renderTexture = new RenderTexture(Screen.width, Screen.height, 24);
+        screenshotCamera.targetTexture = renderTexture;
+
+        screenshotCamera.Render();
+
+        // Cattura i dati dalla render texture
+        RenderTexture.active = renderTexture;
+        Texture2D screenshot = new Texture2D(Screen.width, Screen.height, TextureFormat.RGB24, false);
+        screenshot.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
+        screenshot.Apply();
+
+        byte[] screencapture = screenshot.EncodeToJPG();
+        BinaryData imageBytes = BinaryData.FromBytes(screencapture);
+
+        /*
         //Wait end of frame and sending text and image to be analyzed with Vision
         yield return new WaitForEndOfFrame();
         byte[] screencapture = ScreenCapture.CaptureScreenshotAsTexture().EncodeToJPG();
         BinaryData imageBytes = BinaryData.FromBytes(screencapture);
+        */
 
         //FOR DEBUG
-        SaveScreencapture(screencapture, false);
+        SaveScreencapture(screencapture, true);
 
         List<ChatMessage> messages = new();
 
