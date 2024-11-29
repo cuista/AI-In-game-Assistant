@@ -15,6 +15,9 @@ public class GameEvent : MonoBehaviour
     public const string SPEED_CHANGED = "SPEED_CHANGED";
     public const string TARGET_TOTAL = "TARGET_TOTAL";
     public const string TARGET_ELIMINATED = "TARGET_ELIMINATED";
+    public const string CREDITS_STARTED = "CREDITS_STARTED";
+    public const string CREDITS_STOPPED = "CREDITS_STOPPED";
+    public const string CREDITS_ENDED = "CREDITS_ENDED";
 
     public static bool isPaused = false;
 }

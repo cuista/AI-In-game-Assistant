@@ -68,7 +68,7 @@ public class MessagePanelHandler : MonoBehaviour
         Regex.Replace(message, "[ршьЄ∙Ч_@#]", match => match.Value switch
         {
             "_" or "@" or "#" => "",
-            "Ч" => ". ",
+            "Ч" => ", ",
             "р" => "a'",
             "ш" => "e'",
             "ь" => "i'",
@@ -76,7 +76,7 @@ public class MessagePanelHandler : MonoBehaviour
             "∙" => "u'",
             _ => match.Value
         });
-        string[] sentences = Regex.Split(message, @"(?<=[.!?Ц])\s+");
+        string[] sentences = Regex.Split(message, @"(?<=[.!?\Ч])\s+");
 
         //Show in the HUD the new messages
         foreach (string sentence in sentences)

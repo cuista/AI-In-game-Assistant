@@ -416,15 +416,19 @@ public class CloningSystem : MonoBehaviour
 
             if (replayClone.Clone.GetComponent<CharacterController>().isGrounded)
             {
-                if (Vector3.Dot(moveDirection, replayClone.Clone.GetComponent<CloneMovement>()._contact.normal) < 0) // Dot if they point same is 1 (same direction) to -1 (opposite)
+                CloneMovement cloneMovement = replayClone.Clone.GetComponent<CloneMovement>();
+                if(cloneMovement!=null || cloneMovement._contact.normal != null) // If grounded record but flying at spawn
                 {
-                    moveDirection = replayClone.Clone.GetComponent<CloneMovement>()._contact.normal * horSpeed;
-                    replayClone.isJumping = false;
-                    replayClone.animator.SetBool("Jumping", false);
-                }
-                else
-                {
-                    moveDirection += replayClone.Clone.GetComponent<CloneMovement>()._contact.normal * horSpeed * 10;
+                    if (Vector3.Dot(moveDirection, cloneMovement._contact.normal) < 0) // Dot if they point same is 1 (same direction) to -1 (opposite)
+                    {
+                        moveDirection = replayClone.Clone.GetComponent<CloneMovement>()._contact.normal * horSpeed;
+                        replayClone.isJumping = false;
+                        replayClone.animator.SetBool("Jumping", false);
+                    }
+                    else
+                    {
+                        moveDirection += cloneMovement._contact.normal * horSpeed * 10;
+                    }
                 }
             }
         }

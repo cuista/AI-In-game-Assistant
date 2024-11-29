@@ -86,15 +86,7 @@ public class VisionOpenAIController : MonoBehaviour
         byte[] screencapture = screenshot.EncodeToJPG();
         BinaryData imageBytes = BinaryData.FromBytes(screencapture);
 
-        /*
-        //Wait end of frame and sending text and image to be analyzed with Vision
-        yield return new WaitForEndOfFrame();
-        byte[] screencapture = ScreenCapture.CaptureScreenshotAsTexture().EncodeToJPG();
-        BinaryData imageBytes = BinaryData.FromBytes(screencapture);
-        */
-
-        //FOR DEBUG
-        SaveScreencapture(screencapture, true);
+        SaveScreencapture(screencapture, false);
 
         List<ChatMessage> messages = new();
 
